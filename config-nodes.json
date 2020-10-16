@@ -1,0 +1,213 @@
+[
+  {
+    "id": "f26e00eb.30cfc",
+    "type": "ui_base",
+    "theme": {
+      "name": "theme-light",
+      "lightTheme": {
+        "default": "#0094CE",
+        "baseColor": "#0094CE",
+        "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+        "edited": true,
+        "reset": false
+      },
+      "darkTheme": {
+        "default": "#097479",
+        "baseColor": "#097479",
+        "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+        "edited": false
+      },
+      "customTheme": {
+        "name": "Untitled Theme 1",
+        "default": "#4B7930",
+        "baseColor": "#4B7930",
+        "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+      },
+      "themeState": {
+        "base-color": {
+          "default": "#0094CE",
+          "value": "#0094CE",
+          "edited": false
+        },
+        "page-titlebar-backgroundColor": {
+          "value": "#0094CE",
+          "edited": false
+        },
+        "page-backgroundColor": {
+          "value": "#fafafa",
+          "edited": false
+        },
+        "page-sidebar-backgroundColor": {
+          "value": "#ffffff",
+          "edited": false
+        },
+        "group-textColor": {
+          "value": "#1bbfff",
+          "edited": false
+        },
+        "group-borderColor": {
+          "value": "#ffffff",
+          "edited": false
+        },
+        "group-backgroundColor": {
+          "value": "#ffffff",
+          "edited": false
+        },
+        "widget-textColor": {
+          "value": "#111111",
+          "edited": false
+        },
+        "widget-backgroundColor": {
+          "value": "#0094ce",
+          "edited": false
+        },
+        "widget-borderColor": {
+          "value": "#ffffff",
+          "edited": false
+        },
+        "base-font": {
+          "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+        }
+      },
+      "angularTheme": {
+        "primary": "indigo",
+        "accents": "blue",
+        "warn": "red",
+        "background": "grey"
+      }
+    },
+    "site": {
+      "name": "Node-RED Dashboard",
+      "hideToolbar": "false",
+      "allowSwipe": "false",
+      "lockMenu": "false",
+      "allowTempTheme": "true",
+      "dateFormat": "DD/MM/YYYY",
+      "sizes": {
+        "sx": 48,
+        "sy": 48,
+        "gx": 6,
+        "gy": 6,
+        "cx": 6,
+        "cy": 6,
+        "px": 0,
+        "py": 0
+      }
+    }
+  },
+  {
+    "id": "1a3824a0.4dd3fb",
+    "type": "ui_tab",
+    "z": "",
+    "name": "Dashboard",
+    "icon": "dashboard",
+    "order": 1,
+    "disabled": false,
+    "hidden": false
+  },
+  {
+    "id": "2742461.72b08ba",
+    "type": "ui_group",
+    "z": "",
+    "name": "HLT",
+    "tab": "",
+    "order": 1,
+    "disp": true,
+    "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "a0e00a00.81b428",
+    "type": "ui_group",
+    "z": "",
+    "name": "HLT",
+    "tab": "1a3824a0.4dd3fb",
+    "order": 2,
+    "disp": true,
+    "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "ea5e6691.a9d4b8",
+    "type": "ui_group",
+    "z": "",
+    "name": "MLT",
+    "tab": "1a3824a0.4dd3fb",
+    "order": 3,
+    "disp": true,
+    "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "9d59abb0.326b08",
+    "type": "ui_group",
+    "z": "",
+    "name": "BK",
+    "tab": "1a3824a0.4dd3fb",
+    "order": 4,
+    "disp": true,
+    "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "3a5d5e9b.7af2a2",
+    "type": "ui_group",
+    "z": "",
+    "name": "Timer",
+    "tab": "1a3824a0.4dd3fb",
+    "order": 5,
+    "disp": true,
+    "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "867a95f.bdb8168",
+    "type": "ui_group",
+    "z": "",
+    "name": "Bottom",
+    "tab": "1a3824a0.4dd3fb",
+    "order": 6,
+    "disp": true,
+    "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "90e220fd.7b00d",
+    "type": "ui_tab",
+    "z": "",
+    "name": "Settings",
+    "icon": "dashboard",
+    "order": 2,
+    "disabled": false,
+    "hidden": false
+  },
+  {
+    "id": "51bd7048.52028",
+    "type": "ui_tab",
+    "z": "",
+    "name": "Calibration",
+    "icon": "dashboard",
+    "disabled": false,
+    "hidden": false
+  },
+  {
+    "id": "9f19d793.eac5f8",
+    "type": "ui_group",
+    "z": "",
+    "name": "HLT Calibration",
+    "tab": "51bd7048.52028",
+    "disp": true,
+    "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "f52ce78c.180578",
+    "type": "ui_group",
+    "z": "",
+    "name": "MLT Calibration",
+    "tab": "51bd7048.52028",
+    "disp": true,
+    "width": "6",
+    "collapse": false
+  }
+]

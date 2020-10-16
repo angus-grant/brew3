@@ -1,0 +1,461 @@
+[
+  {
+    "id": "10a92214.f225ae",
+    "type": "tab",
+    "label": "Calibration",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "3fbb4083.48588",
+    "type": "link in",
+    "z": "10a92214.f225ae",
+    "name": "HLT raw temperature input",
+    "links": [
+      "78391837.520088"
+    ],
+    "x": 135,
+    "y": 120,
+    "wires": [
+      [
+        "e129d311.79166"
+      ]
+    ]
+  },
+  {
+    "id": "e129d311.79166",
+    "type": "ui_text",
+    "z": "10a92214.f225ae",
+    "group": "9f19d793.eac5f8",
+    "order": 0,
+    "width": 0,
+    "height": 0,
+    "name": "HLT Raw temperature",
+    "label": "Raw",
+    "format": "{{msg.payload | number:1}}°C",
+    "layout": "row-spread",
+    "x": 300,
+    "y": 120,
+    "wires": []
+  },
+  {
+    "id": "f1a9f9c.d385308",
+    "type": "inject",
+    "z": "10a92214.f225ae",
+    "name": "get global.HLT-raw-high",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "HLT-raw-high",
+    "payloadType": "global",
+    "x": 590,
+    "y": 120,
+    "wires": [
+      [
+        "7c0d3b95.ce9424",
+        "9565d32f.51933"
+      ]
+    ]
+  },
+  {
+    "id": "7c0d3b95.ce9424",
+    "type": "ui_numeric",
+    "z": "10a92214.f225ae",
+    "name": "HLT Raw High",
+    "label": "Raw high",
+    "tooltip": "",
+    "group": "9f19d793.eac5f8",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}c",
+    "min": 0,
+    "max": "100",
+    "step": "0.05",
+    "x": 820,
+    "y": 80,
+    "wires": [
+      [
+        "9565d32f.51933"
+      ]
+    ]
+  },
+  {
+    "id": "9565d32f.51933",
+    "type": "change",
+    "z": "10a92214.f225ae",
+    "name": "set global.HLT-raw-high",
+    "rules": [
+      {
+        "t": "set",
+        "p": "HLT-raw-high",
+        "pt": "global",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1050,
+    "y": 120,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "5f536ef1.7045a",
+    "type": "inject",
+    "z": "10a92214.f225ae",
+    "name": "get global.HLT-raw-low",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::HLT-raw-low",
+    "payloadType": "global",
+    "x": 590,
+    "y": 200,
+    "wires": [
+      [
+        "90aa0055.ee035",
+        "792a85e7.08e24c"
+      ]
+    ]
+  },
+  {
+    "id": "90aa0055.ee035",
+    "type": "ui_numeric",
+    "z": "10a92214.f225ae",
+    "name": "HLT Raw Low",
+    "label": "Raw low",
+    "tooltip": "",
+    "group": "9f19d793.eac5f8",
+    "order": 2,
+    "width": 0,
+    "height": 0,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}c",
+    "min": 0,
+    "max": "100",
+    "step": "0.05",
+    "x": 820,
+    "y": 160,
+    "wires": [
+      [
+        "792a85e7.08e24c"
+      ]
+    ]
+  },
+  {
+    "id": "792a85e7.08e24c",
+    "type": "change",
+    "z": "10a92214.f225ae",
+    "name": "set global.HLT-raw-low",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::HLT-raw-low",
+        "pt": "global",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1040,
+    "y": 200,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "aba40de5.32352",
+    "type": "link in",
+    "z": "10a92214.f225ae",
+    "name": "HLT calibrated temperature input",
+    "links": [
+      "536be9dd.80ff78"
+    ],
+    "x": 135,
+    "y": 200,
+    "wires": [
+      [
+        "c399d0f3.8a1d2"
+      ]
+    ]
+  },
+  {
+    "id": "c399d0f3.8a1d2",
+    "type": "ui_text",
+    "z": "10a92214.f225ae",
+    "group": "9f19d793.eac5f8",
+    "order": 3,
+    "width": 0,
+    "height": 0,
+    "name": "HLT Calibrated temperature",
+    "label": "text",
+    "format": "{{msg.payload | number:1}}°C",
+    "layout": "row-spread",
+    "x": 320,
+    "y": 200,
+    "wires": []
+  },
+  {
+    "id": "1b18956d.818bdb",
+    "type": "link in",
+    "z": "10a92214.f225ae",
+    "name": "MLT Raw temp calibration",
+    "links": [
+      "958b2b91.c4c778"
+    ],
+    "x": 135,
+    "y": 280,
+    "wires": [
+      [
+        "e386fc7f.604b1"
+      ]
+    ]
+  },
+  {
+    "id": "e386fc7f.604b1",
+    "type": "ui_text",
+    "z": "10a92214.f225ae",
+    "group": "f52ce78c.180578",
+    "order": 0,
+    "width": 0,
+    "height": 0,
+    "name": "MLT Raw temperature",
+    "label": "Raw",
+    "format": "{{msg.payload | number:1}}°C",
+    "layout": "row-spread",
+    "x": 300,
+    "y": 280,
+    "wires": []
+  },
+  {
+    "id": "934868d8.19b2f8",
+    "type": "inject",
+    "z": "10a92214.f225ae",
+    "name": "get global.MLT-raw-high",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::MLT-raw-high",
+    "payloadType": "global",
+    "x": 590,
+    "y": 280,
+    "wires": [
+      [
+        "bafacf94.adcc2",
+        "e8c29982.f791c8"
+      ]
+    ]
+  },
+  {
+    "id": "bafacf94.adcc2",
+    "type": "ui_numeric",
+    "z": "10a92214.f225ae",
+    "name": "MLT Raw High",
+    "label": "Raw high",
+    "tooltip": "",
+    "group": "f52ce78c.180578",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}c",
+    "min": 0,
+    "max": "100",
+    "step": "0.05",
+    "x": 820,
+    "y": 240,
+    "wires": [
+      [
+        "e8c29982.f791c8"
+      ]
+    ]
+  },
+  {
+    "id": "e8c29982.f791c8",
+    "type": "change",
+    "z": "10a92214.f225ae",
+    "name": "set global.MLT-raw-high",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::MLT-raw-high",
+        "pt": "global",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1050,
+    "y": 280,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "e6406969.09ec48",
+    "type": "inject",
+    "z": "10a92214.f225ae",
+    "name": "get global.MLT-raw-low",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::MLT-raw-low",
+    "payloadType": "global",
+    "x": 590,
+    "y": 360,
+    "wires": [
+      [
+        "395f2270.824cce",
+        "b9f9e2ce.1392b"
+      ]
+    ]
+  },
+  {
+    "id": "395f2270.824cce",
+    "type": "ui_numeric",
+    "z": "10a92214.f225ae",
+    "name": "MLT Raw Low",
+    "label": "Raw low",
+    "tooltip": "",
+    "group": "f52ce78c.180578",
+    "order": 2,
+    "width": 0,
+    "height": 0,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}c",
+    "min": 0,
+    "max": "100",
+    "step": "0.05",
+    "x": 820,
+    "y": 320,
+    "wires": [
+      [
+        "b9f9e2ce.1392b"
+      ]
+    ]
+  },
+  {
+    "id": "b9f9e2ce.1392b",
+    "type": "change",
+    "z": "10a92214.f225ae",
+    "name": "set global.MLT-raw-low",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::MLT-raw-low",
+        "pt": "global",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1040,
+    "y": 360,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "f1d998e3.0c56d8",
+    "type": "link in",
+    "z": "10a92214.f225ae",
+    "name": "MLT calibrated temperature input",
+    "links": [
+      "99f091b4.fb026"
+    ],
+    "x": 135,
+    "y": 360,
+    "wires": [
+      [
+        "919b73b3.e4bff"
+      ]
+    ]
+  },
+  {
+    "id": "919b73b3.e4bff",
+    "type": "ui_text",
+    "z": "10a92214.f225ae",
+    "group": "f52ce78c.180578",
+    "order": 3,
+    "width": 0,
+    "height": 0,
+    "name": "MLT Calibrated temperature",
+    "label": "text",
+    "format": "{{msg.payload | number:1}}°C",
+    "layout": "row-spread",
+    "x": 320,
+    "y": 360,
+    "wires": []
+  }
+]

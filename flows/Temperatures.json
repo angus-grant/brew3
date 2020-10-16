@@ -1,0 +1,251 @@
+[
+  {
+    "id": "34bce47d.6c8dac",
+    "type": "tab",
+    "label": "Temperatures",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "8bb5f436.b2efa8",
+    "type": "inject",
+    "z": "34bce47d.6c8dac",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "2",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 140,
+    "y": 380,
+    "wires": [
+      [
+        "32801d57.d3dce2",
+        "e1f0ed98.6af9a"
+      ]
+    ]
+  },
+  {
+    "id": "32801d57.d3dce2",
+    "type": "sensor-ds18b20",
+    "z": "34bce47d.6c8dac",
+    "name": "temp-HLT",
+    "topic": "",
+    "sensorid": "28-000004ce4094",
+    "timer": "2",
+    "repeat": false,
+    "x": 350,
+    "y": 160,
+    "wires": [
+      [
+        "bfd50872.a6f5a8",
+        "78391837.520088"
+      ]
+    ]
+  },
+  {
+    "id": "bfd50872.a6f5a8",
+    "type": "function",
+    "z": "34bce47d.6c8dac",
+    "name": "calibrated HLT temp value",
+    "func": "var rawHigh = global.get('HLT-raw-high', 'storeInFile');\nvar rawLow = global.get('HLT-raw-low', 'storeInFile');\n\nvar referenceHigh = 99.9;\nvar referenceLow = 0.0;\nvar rawRange = rawHigh - rawLow;\nvar referenceRange = referenceHigh - referenceLow;\n\nvar rawValue = msg.payload;\n\nvar correctedValue = (((rawValue - rawLow) * referenceRange) / rawRange) + referenceLow;\nmsg.payload = correctedValue;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 570,
+    "y": 160,
+    "wires": [
+      [
+        "34c9f079.97287",
+        "536be9dd.80ff78"
+      ]
+    ]
+  },
+  {
+    "id": "34c9f079.97287",
+    "type": "smooth",
+    "z": "34bce47d.6c8dac",
+    "name": "",
+    "property": "payload",
+    "action": "mean",
+    "count": "5",
+    "round": "1",
+    "mult": "single",
+    "reduce": false,
+    "x": 790,
+    "y": 240,
+    "wires": [
+      [
+        "d65ad63e.7e4608"
+      ]
+    ]
+  },
+  {
+    "id": "d65ad63e.7e4608",
+    "type": "ui_gauge",
+    "z": "34bce47d.6c8dac",
+    "name": "HLT Actual Temp",
+    "group": "a0e00a00.81b428",
+    "order": 0,
+    "width": 0,
+    "height": 0,
+    "gtype": "gage",
+    "title": "",
+    "label": "Actual Temp",
+    "format": "{{value}}c",
+    "min": 0,
+    "max": "101",
+    "colors": [
+      "#ffd700",
+      "#ffd700",
+      "#ffd700"
+    ],
+    "seg1": "50",
+    "seg2": "78",
+    "x": 1000,
+    "y": 240,
+    "wires": []
+  },
+  {
+    "id": "78391837.520088",
+    "type": "link out",
+    "z": "34bce47d.6c8dac",
+    "name": "HLT raw temperature",
+    "links": [
+      "3fbb4083.48588"
+    ],
+    "x": 485,
+    "y": 80,
+    "wires": []
+  },
+  {
+    "id": "536be9dd.80ff78",
+    "type": "link out",
+    "z": "34bce47d.6c8dac",
+    "name": "HLT calibrated temperature",
+    "links": [
+      "aba40de5.32352"
+    ],
+    "x": 785,
+    "y": 80,
+    "wires": []
+  },
+  {
+    "id": "e1f0ed98.6af9a",
+    "type": "sensor-ds18b20",
+    "z": "34bce47d.6c8dac",
+    "name": "temp-MLT",
+    "topic": "",
+    "sensorid": "28-000004ce3103",
+    "timer": "2",
+    "repeat": false,
+    "x": 340,
+    "y": 380,
+    "wires": [
+      [
+        "ae06031b.f8519",
+        "958b2b91.c4c778"
+      ]
+    ]
+  },
+  {
+    "id": "ae06031b.f8519",
+    "type": "function",
+    "z": "34bce47d.6c8dac",
+    "name": "calibrated MLT temp value",
+    "func": "var rawHigh = global.get('MLT-raw-high', 'storeInFile');\nvar rawLow = global.get('MLT-raw-low', 'storeInFile');\nvar referenceHigh = 99.9;\nvar referenceLow = 0.0;\nvar rawRange = rawHigh - rawLow;\nvar referenceRange = referenceHigh - referenceLow;\n\nvar rawValue = msg.payload;\n\nvar correctedValue = (((rawValue - rawLow) * referenceRange) / rawRange) + referenceLow;\nmsg.payload = correctedValue;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 580,
+    "y": 380,
+    "wires": [
+      [
+        "99f091b4.fb026",
+        "b6506d94.1896"
+      ]
+    ]
+  },
+  {
+    "id": "99f091b4.fb026",
+    "type": "link out",
+    "z": "34bce47d.6c8dac",
+    "name": "MLT calibrated temperature",
+    "links": [
+      "f1d998e3.0c56d8"
+    ],
+    "x": 755,
+    "y": 320,
+    "wires": []
+  },
+  {
+    "id": "b6506d94.1896",
+    "type": "smooth",
+    "z": "34bce47d.6c8dac",
+    "name": "",
+    "property": "payload",
+    "action": "mean",
+    "count": "5",
+    "round": "1",
+    "mult": "single",
+    "reduce": false,
+    "x": 800,
+    "y": 440,
+    "wires": [
+      [
+        "f9892cc7.e9bb5"
+      ]
+    ]
+  },
+  {
+    "id": "f9892cc7.e9bb5",
+    "type": "ui_gauge",
+    "z": "34bce47d.6c8dac",
+    "name": "MLT Actual Temp",
+    "group": "ea5e6691.a9d4b8",
+    "order": 0,
+    "width": 0,
+    "height": 0,
+    "gtype": "gage",
+    "title": "",
+    "label": "Actual Temp",
+    "format": "{{value}}c",
+    "min": 0,
+    "max": "101",
+    "colors": [
+      "#ffd700",
+      "#ffd700",
+      "#ffd700"
+    ],
+    "seg1": "50",
+    "seg2": "78",
+    "x": 1010,
+    "y": 440,
+    "wires": []
+  },
+  {
+    "id": "958b2b91.c4c778",
+    "type": "link out",
+    "z": "34bce47d.6c8dac",
+    "name": "MLT raw temperature",
+    "links": [
+      "1b18956d.818bdb"
+    ],
+    "x": 495,
+    "y": 300,
+    "wires": []
+  }
+]
