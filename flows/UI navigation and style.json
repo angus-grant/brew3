@@ -1,0 +1,47 @@
+[
+  {
+    "id": "e58cd1d0.00b6",
+    "type": "tab",
+    "label": "UI navigation and style",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "7235ec4d.974334",
+    "type": "ui_template",
+    "z": "e58cd1d0.00b6",
+    "group": "a0e00a00.81b428",
+    "name": "Ensure dashboard is displayed as 1 or 2 columns",
+    "order": 10,
+    "width": 0,
+    "height": 0,
+    "format": "<style>\n@media only screen and (min-width: 1080px) { .masonry-container {\n    width: 1080px;\n}\n</style>",
+    "storeOutMessages": true,
+    "fwdInMessages": true,
+    "templateScope": "global",
+    "x": 250,
+    "y": 80,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "f4df9cc7.b6648",
+    "type": "ui_template",
+    "z": "e58cd1d0.00b6",
+    "group": "a0e00a00.81b428",
+    "name": "Centre group titles",
+    "order": 11,
+    "width": 0,
+    "height": 0,
+    "format": "<style>\n.nr-dashboard-theme ui-card-panel p.nr-dashboard-cardtitle {\n    text-align: center;\n}\nbody {\n  overflow: hidden; /* Hide scrollbars */\n}\n</style>",
+    "storeOutMessages": true,
+    "fwdInMessages": true,
+    "templateScope": "global",
+    "x": 150,
+    "y": 120,
+    "wires": [
+      []
+    ]
+  }
+]

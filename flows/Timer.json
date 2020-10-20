@@ -1,0 +1,439 @@
+[
+  {
+    "id": "c8b28591.06aa18",
+    "type": "tab",
+    "label": "Timer",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "df44bc03.72352",
+    "type": "comment",
+    "z": "c8b28591.06aa18",
+    "name": "(c) 2020 Thomas Wenzlaff   www.wenzlaff.info",
+    "info": "",
+    "x": 750,
+    "y": 40,
+    "wires": []
+  },
+  {
+    "id": "a6225ae4.c154a8",
+    "type": "function",
+    "z": "c8b28591.06aa18",
+    "name": "seconds to minutes",
+    "func": "var sekunden = msg.payload * 60;\n\n// msg.ui_control = {\"min\":0,\"max\":10, \"seg1\":0, \"seg2\":1}\n\n\nmsg.payload=\"{\\\"payload\\\": \\\"on\\\", \\\"timeout\\\":\" + sekunden + \", \\\"warning\\\": 30}\"\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 290,
+    "y": 100,
+    "wires": [
+      [
+        "85fa3da5.bf572"
+      ]
+    ]
+  },
+  {
+    "id": "85fa3da5.bf572",
+    "type": "mytimeout",
+    "z": "c8b28591.06aa18",
+    "name": "1-10 Minutes timer",
+    "outtopic": "",
+    "outsafe": "",
+    "outwarning": "30 seconds left",
+    "outunsafe": "Timer completed",
+    "warning": "10",
+    "timer": "30",
+    "debug": false,
+    "ndebug": false,
+    "ignoreCase": false,
+    "repeat": false,
+    "again": false,
+    "x": 580,
+    "y": 300,
+    "wires": [
+      [
+        "22c3788.500c388",
+        "b2e24b50.2cfba8",
+        "13c27d7e.e9b583"
+      ],
+      [
+        "77deece1.4bb584"
+      ]
+    ]
+  },
+  {
+    "id": "1c4a8152.9f616f",
+    "type": "ui_slider",
+    "z": "c8b28591.06aa18",
+    "name": "",
+    "label": "Start",
+    "tooltip": "",
+    "group": "3a5d5e9b.7af2a2",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "passthru": true,
+    "outs": "all",
+    "topic": "",
+    "min": 0,
+    "max": 10,
+    "step": 1,
+    "x": 110,
+    "y": 100,
+    "wires": [
+      [
+        "a6225ae4.c154a8"
+      ]
+    ]
+  },
+  {
+    "id": "20435281.a5c23e",
+    "type": "ui_button",
+    "z": "c8b28591.06aa18",
+    "name": "",
+    "group": "3a5d5e9b.7af2a2",
+    "order": 3,
+    "width": "3",
+    "height": "1",
+    "passthru": false,
+    "label": "5 min",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "icon": "fa-clock-o",
+    "payload": "{ \"payload\": \"on\", \"timeout\": 300, \"warning\": 60 }",
+    "payloadType": "str",
+    "topic": "",
+    "x": 110,
+    "y": 160,
+    "wires": [
+      [
+        "85fa3da5.bf572"
+      ]
+    ]
+  },
+  {
+    "id": "fb94a219.f8f06",
+    "type": "ui_button",
+    "z": "c8b28591.06aa18",
+    "name": "",
+    "group": "3a5d5e9b.7af2a2",
+    "order": 4,
+    "width": "3",
+    "height": "1",
+    "passthru": false,
+    "label": "10 min",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "icon": "fa-clock-o",
+    "payload": "{ \"payload\": \"on\", \"timeout\": 600, \"warning\": 60 }",
+    "payloadType": "str",
+    "topic": "",
+    "x": 110,
+    "y": 200,
+    "wires": [
+      [
+        "85fa3da5.bf572"
+      ]
+    ]
+  },
+  {
+    "id": "c8a79e70.6a04d",
+    "type": "ui_button",
+    "z": "c8b28591.06aa18",
+    "name": "",
+    "group": "3a5d5e9b.7af2a2",
+    "order": 5,
+    "width": "3",
+    "height": "1",
+    "passthru": false,
+    "label": "15 min",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "icon": "fa-clock-o",
+    "payload": "{ \"payload\": \"on\", \"timeout\": 900, \"warning\": 60 }",
+    "payloadType": "str",
+    "topic": "",
+    "x": 110,
+    "y": 240,
+    "wires": [
+      [
+        "85fa3da5.bf572"
+      ]
+    ]
+  },
+  {
+    "id": "244af22f.cf64de",
+    "type": "ui_button",
+    "z": "c8b28591.06aa18",
+    "name": "",
+    "group": "3a5d5e9b.7af2a2",
+    "order": 6,
+    "width": "3",
+    "height": "1",
+    "passthru": false,
+    "label": "20 min",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "icon": "fa-clock-o",
+    "payload": "{ \"payload\": \"on\", \"timeout\": 1200, \"warning\": 60 }",
+    "payloadType": "str",
+    "topic": "",
+    "x": 110,
+    "y": 280,
+    "wires": [
+      [
+        "85fa3da5.bf572"
+      ]
+    ]
+  },
+  {
+    "id": "156c825f.e454ae",
+    "type": "ui_button",
+    "z": "c8b28591.06aa18",
+    "name": "",
+    "group": "3a5d5e9b.7af2a2",
+    "order": 7,
+    "width": "3",
+    "height": "1",
+    "passthru": false,
+    "label": "30 min",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "icon": "fa-clock-o",
+    "payload": "{ \"payload\": \"on\", \"timeout\": 1800, \"warning\": 60 }",
+    "payloadType": "str",
+    "topic": "",
+    "x": 110,
+    "y": 320,
+    "wires": [
+      [
+        "85fa3da5.bf572"
+      ]
+    ]
+  },
+  {
+    "id": "2a5fe443.a97cdc",
+    "type": "ui_button",
+    "z": "c8b28591.06aa18",
+    "name": "",
+    "group": "3a5d5e9b.7af2a2",
+    "order": 8,
+    "width": "3",
+    "height": "1",
+    "passthru": false,
+    "label": "45 min",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "icon": "fa-clock-o",
+    "payload": "{ \"payload\": \"on\", \"timeout\": 2700, \"warning\": 60 }",
+    "payloadType": "str",
+    "topic": "",
+    "x": 110,
+    "y": 360,
+    "wires": [
+      [
+        "85fa3da5.bf572"
+      ]
+    ]
+  },
+  {
+    "id": "2256683b.a7ccf8",
+    "type": "ui_button",
+    "z": "c8b28591.06aa18",
+    "name": "",
+    "group": "3a5d5e9b.7af2a2",
+    "order": 9,
+    "width": "3",
+    "height": "1",
+    "passthru": false,
+    "label": "60 min",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "icon": "fa-clock-o",
+    "payload": "{ \"payload\": \"on\", \"timeout\": 3600, \"warning\": 60 }",
+    "payloadType": "str",
+    "topic": "",
+    "x": 110,
+    "y": 400,
+    "wires": [
+      [
+        "85fa3da5.bf572"
+      ]
+    ]
+  },
+  {
+    "id": "d1e2e7b4.04fc98",
+    "type": "ui_button",
+    "z": "c8b28591.06aa18",
+    "name": "",
+    "group": "3a5d5e9b.7af2a2",
+    "order": 10,
+    "width": "3",
+    "height": "1",
+    "passthru": false,
+    "label": "90 min",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "icon": "fa-clock-o",
+    "payload": "{ \"payload\": \"on\", \"timeout\": 5400, \"warning\": 60 }",
+    "payloadType": "str",
+    "topic": "",
+    "x": 110,
+    "y": 440,
+    "wires": [
+      [
+        "85fa3da5.bf572"
+      ]
+    ]
+  },
+  {
+    "id": "61c20d25.8c3474",
+    "type": "ui_button",
+    "z": "c8b28591.06aa18",
+    "name": "",
+    "group": "3a5d5e9b.7af2a2",
+    "order": 11,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "label": "Stop",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "icon": "",
+    "payload": "{ \"payload\": \"stop\" }",
+    "payloadType": "str",
+    "topic": "",
+    "x": 110,
+    "y": 480,
+    "wires": [
+      [
+        "85fa3da5.bf572"
+      ]
+    ]
+  },
+  {
+    "id": "22c3788.500c388",
+    "type": "play audio",
+    "z": "c8b28591.06aa18",
+    "name": "",
+    "voice": "0",
+    "x": 830,
+    "y": 220,
+    "wires": []
+  },
+  {
+    "id": "77deece1.4bb584",
+    "type": "function",
+    "z": "c8b28591.06aa18",
+    "name": "Sekunden zu Minuten",
+    "func": "var minuten = msg.payload /60;\nmsg.payload=minuten;\n\n//msg.ui_control = {\"min\":0,\"max\":10, \"seg1\":0, \"seg2\":1}\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 820,
+    "y": 360,
+    "wires": [
+      [
+        "4c2eceba.8c52"
+      ]
+    ]
+  },
+  {
+    "id": "4c2eceba.8c52",
+    "type": "ui_gauge",
+    "z": "c8b28591.06aa18",
+    "name": "Countdown Timer",
+    "group": "3a5d5e9b.7af2a2",
+    "order": 2,
+    "width": "6",
+    "height": "3",
+    "gtype": "donut",
+    "title": "",
+    "label": "Minutes",
+    "format": "{{value | number:0}}",
+    "min": 0,
+    "max": "1",
+    "colors": [
+      "#00b500",
+      "#e6e600",
+      "#ca3838"
+    ],
+    "seg1": "",
+    "seg2": "",
+    "x": 830,
+    "y": 440,
+    "wires": []
+  },
+  {
+    "id": "b2e24b50.2cfba8",
+    "type": "debug",
+    "z": "c8b28591.06aa18",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": true,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 840,
+    "y": 180,
+    "wires": []
+  },
+  {
+    "id": "13c27d7e.e9b583",
+    "type": "switch",
+    "z": "c8b28591.06aa18",
+    "name": "",
+    "property": "payload",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "Timer completed",
+        "vt": "str"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 1,
+    "x": 810,
+    "y": 140,
+    "wires": [
+      [
+        "217205f7.01df4a"
+      ]
+    ]
+  },
+  {
+    "id": "217205f7.01df4a",
+    "type": "ui_toast",
+    "z": "c8b28591.06aa18",
+    "position": "top right",
+    "displayTime": "10",
+    "highlight": "green",
+    "sendall": true,
+    "outputs": 0,
+    "ok": "OK",
+    "cancel": "",
+    "raw": false,
+    "topic": "",
+    "name": "",
+    "x": 990,
+    "y": 140,
+    "wires": []
+  }
+]

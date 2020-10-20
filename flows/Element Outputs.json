@@ -1,0 +1,243 @@
+[
+  {
+    "id": "696aae1c.d3b45",
+    "type": "tab",
+    "label": "Element Outputs",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "65e8903.19f8f7",
+    "type": "link in",
+    "z": "696aae1c.d3b45",
+    "name": "HLT GPIO",
+    "links": [
+      "4f2c006c.61798",
+      "caeb268c.03fe38"
+    ],
+    "x": 235,
+    "y": 60,
+    "wires": [
+      [
+        "7061dbfc.e42e64",
+        "faaae52a.c8e1f8"
+      ]
+    ]
+  },
+  {
+    "id": "7061dbfc.e42e64",
+    "type": "rpi-gpio out",
+    "z": "696aae1c.d3b45",
+    "name": "HLT GPIO",
+    "pin": "36",
+    "set": "",
+    "level": "0",
+    "freq": "1",
+    "out": "pwm",
+    "x": 370,
+    "y": 40,
+    "wires": []
+  },
+  {
+    "id": "faaae52a.c8e1f8",
+    "type": "range",
+    "z": "696aae1c.d3b45",
+    "minin": "0",
+    "maxin": "100",
+    "minout": "0",
+    "maxout": "2.4",
+    "action": "scale",
+    "round": false,
+    "property": "payload",
+    "name": "Duty to watts",
+    "x": 370,
+    "y": 100,
+    "wires": [
+      [
+        "8f5737fb.d94198"
+      ]
+    ]
+  },
+  {
+    "id": "8f5737fb.d94198",
+    "type": "ui_gauge",
+    "z": "696aae1c.d3b45",
+    "name": "HLT Duty Gauge",
+    "group": "a0e00a00.81b428",
+    "order": 1,
+    "width": "6",
+    "height": "3",
+    "gtype": "gage",
+    "title": "",
+    "label": "usage",
+    "format": "{{payload | number:1}} kW",
+    "min": 0,
+    "max": "2.4",
+    "colors": [
+      "#00b500",
+      "#e6e600",
+      "#ca3838"
+    ],
+    "seg1": "",
+    "seg2": "",
+    "x": 570,
+    "y": 100,
+    "wires": []
+  },
+  {
+    "id": "1a366a91.8afb65",
+    "type": "link in",
+    "z": "696aae1c.d3b45",
+    "name": "MLT GPIO",
+    "links": [
+      "25238ad5.78f756",
+      "db6261df.6f1e"
+    ],
+    "x": 235,
+    "y": 180,
+    "wires": [
+      [
+        "5ad90d7b.ec69b4",
+        "c975bd13.6c7f7"
+      ]
+    ]
+  },
+  {
+    "id": "5ad90d7b.ec69b4",
+    "type": "rpi-gpio out",
+    "z": "696aae1c.d3b45",
+    "name": "MLT GPIO",
+    "pin": "32",
+    "set": "",
+    "level": "0",
+    "freq": "1",
+    "out": "pwm",
+    "x": 370,
+    "y": 160,
+    "wires": []
+  },
+  {
+    "id": "c975bd13.6c7f7",
+    "type": "range",
+    "z": "696aae1c.d3b45",
+    "minin": "0",
+    "maxin": "100",
+    "minout": "0",
+    "maxout": "2.4",
+    "action": "scale",
+    "round": false,
+    "property": "payload",
+    "name": "Duty to watts",
+    "x": 370,
+    "y": 220,
+    "wires": [
+      [
+        "f0d7b6c7.05c6d8"
+      ]
+    ]
+  },
+  {
+    "id": "f0d7b6c7.05c6d8",
+    "type": "ui_gauge",
+    "z": "696aae1c.d3b45",
+    "name": "MLT Duty Gauge",
+    "group": "ea5e6691.a9d4b8",
+    "order": 1,
+    "width": "6",
+    "height": "3",
+    "gtype": "gage",
+    "title": "",
+    "label": "usage",
+    "format": "{{payload | number:1}} kW",
+    "min": 0,
+    "max": "2.4",
+    "colors": [
+      "#00b500",
+      "#e6e600",
+      "#ca3838"
+    ],
+    "seg1": "",
+    "seg2": "",
+    "x": 570,
+    "y": 220,
+    "wires": []
+  },
+  {
+    "id": "3901073e.dc5ad8",
+    "type": "link in",
+    "z": "696aae1c.d3b45",
+    "name": "BK GPIO",
+    "links": [
+      "b851b80d.5ee1f8",
+      "ca49e1a9.0c693"
+    ],
+    "x": 235,
+    "y": 300,
+    "wires": [
+      [
+        "204c84ca.394b4c",
+        "c5ffafb9.9e421"
+      ]
+    ]
+  },
+  {
+    "id": "204c84ca.394b4c",
+    "type": "rpi-gpio out",
+    "z": "696aae1c.d3b45",
+    "name": "BK GPIO",
+    "pin": "12",
+    "set": "",
+    "level": "0",
+    "freq": "1",
+    "out": "pwm",
+    "x": 360,
+    "y": 280,
+    "wires": []
+  },
+  {
+    "id": "c5ffafb9.9e421",
+    "type": "range",
+    "z": "696aae1c.d3b45",
+    "minin": "0",
+    "maxin": "100",
+    "minout": "0",
+    "maxout": "2.4",
+    "action": "scale",
+    "round": false,
+    "property": "payload",
+    "name": "Duty to watts",
+    "x": 370,
+    "y": 340,
+    "wires": [
+      [
+        "490fe15a.3061a"
+      ]
+    ]
+  },
+  {
+    "id": "490fe15a.3061a",
+    "type": "ui_gauge",
+    "z": "696aae1c.d3b45",
+    "name": "BK Duty Gauge",
+    "group": "9d59abb0.326b08",
+    "order": 1,
+    "width": "6",
+    "height": "3",
+    "gtype": "gage",
+    "title": "",
+    "label": "usage",
+    "format": "{{payload | number:1}} kW",
+    "min": 0,
+    "max": "2.4",
+    "colors": [
+      "#00b500",
+      "#e6e600",
+      "#ca3838"
+    ],
+    "seg1": "",
+    "seg2": "",
+    "x": 560,
+    "y": 340,
+    "wires": []
+  }
+]

@@ -3,7 +3,7 @@
     "id": "f26e00eb.30cfc",
     "type": "ui_base",
     "theme": {
-      "name": "theme-light",
+      "name": "theme-dark",
       "lightTheme": {
         "default": "#0094CE",
         "baseColor": "#0094CE",
@@ -13,9 +13,10 @@
       },
       "darkTheme": {
         "default": "#097479",
-        "baseColor": "#097479",
+        "baseColor": "#094779",
         "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-        "edited": false
+        "edited": true,
+        "reset": false
       },
       "customTheme": {
         "name": "Untitled Theme 1",
@@ -25,44 +26,44 @@
       },
       "themeState": {
         "base-color": {
-          "default": "#0094CE",
-          "value": "#0094CE",
-          "edited": false
+          "default": "#097479",
+          "value": "#094779",
+          "edited": true
         },
         "page-titlebar-backgroundColor": {
-          "value": "#0094CE",
+          "value": "#094779",
           "edited": false
         },
         "page-backgroundColor": {
-          "value": "#fafafa",
-          "edited": false
-        },
-        "page-sidebar-backgroundColor": {
-          "value": "#ffffff",
-          "edited": false
-        },
-        "group-textColor": {
-          "value": "#1bbfff",
-          "edited": false
-        },
-        "group-borderColor": {
-          "value": "#ffffff",
-          "edited": false
-        },
-        "group-backgroundColor": {
-          "value": "#ffffff",
-          "edited": false
-        },
-        "widget-textColor": {
           "value": "#111111",
           "edited": false
         },
+        "page-sidebar-backgroundColor": {
+          "value": "#000000",
+          "edited": false
+        },
+        "group-textColor": {
+          "value": "#0e71c0",
+          "edited": false
+        },
+        "group-borderColor": {
+          "value": "#555555",
+          "edited": false
+        },
+        "group-backgroundColor": {
+          "value": "#333333",
+          "edited": false
+        },
+        "widget-textColor": {
+          "value": "#eeeeee",
+          "edited": false
+        },
         "widget-backgroundColor": {
-          "value": "#0094ce",
+          "value": "#094779",
           "edited": false
         },
         "widget-borderColor": {
-          "value": "#ffffff",
+          "value": "#333333",
           "edited": false
         },
         "base-font": {
@@ -77,21 +78,21 @@
       }
     },
     "site": {
-      "name": "Node-RED Dashboard",
+      "name": "brew3",
       "hideToolbar": "false",
       "allowSwipe": "false",
       "lockMenu": "false",
-      "allowTempTheme": "true",
-      "dateFormat": "DD/MM/YYYY",
+      "allowTempTheme": "false",
+      "dateFormat": "YYYY-MM-DD",
       "sizes": {
-        "sx": 48,
-        "sy": 48,
-        "gx": 6,
-        "gy": 6,
-        "cx": 6,
-        "cy": 6,
-        "px": 0,
-        "py": 0
+        "sx": 40,
+        "sy": 40,
+        "gx": 1,
+        "gy": 1,
+        "cx": 1,
+        "cy": 1,
+        "px": 1,
+        "py": 1
       }
     }
   },
@@ -104,17 +105,6 @@
     "order": 1,
     "disabled": false,
     "hidden": false
-  },
-  {
-    "id": "2742461.72b08ba",
-    "type": "ui_group",
-    "z": "",
-    "name": "HLT",
-    "tab": "",
-    "order": 1,
-    "disp": true,
-    "width": "6",
-    "collapse": false
   },
   {
     "id": "a0e00a00.81b428",
@@ -187,6 +177,7 @@
     "z": "",
     "name": "Calibration",
     "icon": "dashboard",
+    "order": 3,
     "disabled": false,
     "hidden": false
   },
@@ -209,5 +200,106 @@
     "disp": true,
     "width": "6",
     "collapse": false
+  },
+  {
+    "id": "4db7f25b.b9ea8c",
+    "type": "ui_group",
+    "z": "",
+    "name": "BK Calibration",
+    "tab": "51bd7048.52028",
+    "disp": true,
+    "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "6e1c6c43.a04464",
+    "type": "ui_tab",
+    "z": "",
+    "name": "MLT Settings",
+    "icon": "dashboard",
+    "order": 5,
+    "disabled": false,
+    "hidden": false
+  },
+  {
+    "id": "99bd808a.f2698",
+    "type": "ui_group",
+    "z": "",
+    "name": "MLT Settings",
+    "tab": "6e1c6c43.a04464",
+    "disp": true,
+    "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "96ccbe54.5ee14",
+    "type": "ui_group",
+    "z": "",
+    "name": "HLT Settings",
+    "tab": "6d962cd7.d7a624",
+    "disp": true,
+    "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "6d962cd7.d7a624",
+    "type": "ui_tab",
+    "z": "",
+    "name": "HLT Settings",
+    "icon": "dashboard",
+    "order": 4,
+    "disabled": false,
+    "hidden": false
+  },
+  {
+    "id": "c23cec4b.9a00d",
+    "type": "ui_tab",
+    "z": "",
+    "name": "BK Settings",
+    "icon": "dashboard",
+    "order": 6,
+    "disabled": false,
+    "hidden": false
+  },
+  {
+    "id": "e71aa9ca.9bbda8",
+    "type": "ui_group",
+    "z": "",
+    "name": "BK Settings",
+    "tab": "c23cec4b.9a00d",
+    "disp": true,
+    "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "1a3206d4.f7f279",
+    "type": "ui_tab",
+    "z": "",
+    "name": "General Settings",
+    "icon": "dashboard",
+    "disabled": false,
+    "hidden": false
+  },
+  {
+    "id": "6078a96a.d1d938",
+    "type": "ui_group",
+    "z": "",
+    "name": "Logging",
+    "tab": "1a3206d4.f7f279",
+    "disp": true,
+    "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "b921988f.6da898",
+    "type": "influxdb",
+    "z": "",
+    "hostname": "127.0.0.1",
+    "port": "8086",
+    "protocol": "http",
+    "database": "brew2",
+    "name": "",
+    "usetls": false,
+    "tls": ""
   }
 ]

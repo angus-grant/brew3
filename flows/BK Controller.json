@@ -1,0 +1,1360 @@
+[
+  {
+    "id": "78e2f0b5.5a802",
+    "type": "tab",
+    "label": "BK Controller",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "237e62aa.3c31ce",
+    "type": "inject",
+    "z": "78e2f0b5.5a802",
+    "name": "Default BK Target",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::bk_target",
+    "payloadType": "flow",
+    "x": 210,
+    "y": 440,
+    "wires": [
+      [
+        "d65af15e.7a91c",
+        "76fa4d08.464e54",
+        "fa4e32b5.e36f1"
+      ]
+    ]
+  },
+  {
+    "id": "d65af15e.7a91c",
+    "type": "change",
+    "z": "78e2f0b5.5a802",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::bk_target",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 510,
+    "y": 420,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "76fa4d08.464e54",
+    "type": "ui_gauge",
+    "z": "78e2f0b5.5a802",
+    "name": "BK target temp",
+    "group": "9d59abb0.326b08",
+    "order": 3,
+    "width": 3,
+    "height": 2,
+    "gtype": "gage",
+    "title": "",
+    "label": "Target Temp",
+    "format": "{{value}}c",
+    "min": 0,
+    "max": "100",
+    "colors": [
+      "#00b500",
+      "#00b500",
+      "#ca3838"
+    ],
+    "seg1": "50",
+    "seg2": "78",
+    "x": 540,
+    "y": 460,
+    "wires": []
+  },
+  {
+    "id": "fa4e32b5.e36f1",
+    "type": "ui_slider",
+    "z": "78e2f0b5.5a802",
+    "name": "BK target slider",
+    "label": "Target",
+    "tooltip": "",
+    "group": "9d59abb0.326b08",
+    "order": 4,
+    "width": 0,
+    "height": 0,
+    "passthru": true,
+    "outs": "end",
+    "topic": "",
+    "min": "20",
+    "max": "100",
+    "step": 1,
+    "x": 240,
+    "y": 500,
+    "wires": [
+      [
+        "ea3830cd.2dda",
+        "76fa4d08.464e54",
+        "d65af15e.7a91c"
+      ]
+    ]
+  },
+  {
+    "id": "ea3830cd.2dda",
+    "type": "ui_text",
+    "z": "78e2f0b5.5a802",
+    "group": "e71aa9ca.9bbda8",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "name": "Kettle target",
+    "label": "Target",
+    "format": "{{payload | number:1}}°C",
+    "layout": "row-spread",
+    "x": 550,
+    "y": 500,
+    "wires": []
+  },
+  {
+    "id": "d4d48589.704b58",
+    "type": "inject",
+    "z": "78e2f0b5.5a802",
+    "name": "Default Element Duty",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::bk_manual_duty",
+    "payloadType": "flow",
+    "x": 220,
+    "y": 300,
+    "wires": [
+      [
+        "f7bdbd92.aa716",
+        "5255e2e3.2740fc"
+      ]
+    ]
+  },
+  {
+    "id": "f7bdbd92.aa716",
+    "type": "ui_slider",
+    "z": "78e2f0b5.5a802",
+    "name": "Manual duty slider",
+    "label": "Manual",
+    "tooltip": "",
+    "group": "9d59abb0.326b08",
+    "order": 5,
+    "width": 0,
+    "height": 0,
+    "passthru": true,
+    "outs": "end",
+    "topic": "",
+    "min": "20",
+    "max": "100",
+    "step": 1,
+    "x": 250,
+    "y": 360,
+    "wires": [
+      [
+        "5255e2e3.2740fc"
+      ]
+    ]
+  },
+  {
+    "id": "5255e2e3.2740fc",
+    "type": "change",
+    "z": "78e2f0b5.5a802",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::bk_manual_duty",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 530,
+    "y": 340,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "3857893c.46b1c6",
+    "type": "link in",
+    "z": "78e2f0b5.5a802",
+    "name": "MLT PID temperature input",
+    "links": [
+      "99f091b4.fb026"
+    ],
+    "x": 235,
+    "y": 140,
+    "wires": [
+      [
+        "b8c055a5.cb5688",
+        "2ba42757.3bd328",
+        "3c437b64.88e144"
+      ]
+    ]
+  },
+  {
+    "id": "b8c055a5.cb5688",
+    "type": "change",
+    "z": "78e2f0b5.5a802",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "temp-BK",
+        "pt": "global",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 410,
+    "y": 140,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "2ba42757.3bd328",
+    "type": "switch",
+    "z": "78e2f0b5.5a802",
+    "name": "bk_on",
+    "property": "bk_on",
+    "propertyType": "global",
+    "rules": [
+      {
+        "t": "true"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 1,
+    "x": 380,
+    "y": 200,
+    "wires": [
+      [
+        "4e1d1dbb.a430c4"
+      ]
+    ]
+  },
+  {
+    "id": "4e1d1dbb.a430c4",
+    "type": "switch",
+    "z": "78e2f0b5.5a802",
+    "name": "bk_pid switch",
+    "property": "bk_pid",
+    "propertyType": "global",
+    "rules": [
+      {
+        "t": "true"
+      },
+      {
+        "t": "false"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 2,
+    "x": 560,
+    "y": 200,
+    "wires": [
+      [
+        "73537e2e.61989",
+        "afbbc926.3bac48"
+      ],
+      [
+        "1161b79c.017bd8"
+      ]
+    ]
+  },
+  {
+    "id": "73537e2e.61989",
+    "type": "function",
+    "z": "78e2f0b5.5a802",
+    "name": "BK PID Control",
+    "func": "// Note that the algorithm provided below assumes a 1 second iteration time\n// Justin Angevaare\n// May 2018\n\n// Set temperature\nmsg.temperature =  msg.payload;\nnode.warn('Temp: ' + msg.payload);\n// Well that node doesn't work... do manually\nmsg.interval = 2000\n\n// Calculate error\nmsg.error = flow.get('bk_target', 'storeInFile') - msg.temperature;\n\n// Set output max\nmsg.max_output = 100\n\n// Calculate proportional action\nvar pTerm = msg.error * flow.get('p', 'storeInFile');\n\n// Calculate intergral action\nvar iTerm = 0;\nif (pTerm < msg.max_output) {\n    // Calculate integrator max\n    msg.integrator_max = msg.max_output/flow.get('i', 'storeInFile');\n    \n    // Update integrator\n    // For purposes of integrator, bound error by [-1, 1]\n    msg.integrator = flow.get('integrator');\n    msg.integrator += (msg.interval/1000) * Math.max(Math.min(msg.error, 1), -1);\n    \n    // Bound total integrator by absolute maximum\n    msg.integrator = Math.max(Math.min(msg.integrator, msg.integrator_max), -msg.integrator_max);\n    \n    // Output updated integrator to flow context\n    flow.set('integrator', msg.integrator);\n    \n    iTerm = msg.integrator * flow.get('i', 'storeInFile');\n}\n\n// Calculate derivative action\nmsg.derivative = (msg.error - flow.get('last_error'))/(msg.interval/1000);\nvar dTerm = msg.derivative * flow.get('d', 'storeInFile');\n\nmsg.output = pTerm + iTerm + dTerm;\nnode.warn(pTerm + ' ' + iTerm + ' ' + dTerm);\n// Bound output by [0, max_output]\nmsg.output = Math.max(Math.min(msg.output, msg.max_output), 0);\n\n// Output updated last_error to flow context\nmsg.last_error = msg.error;\nflow.set('last_error', msg.last_error);\n\n// Set payload to element output\nmsg.payload = msg.output;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 880,
+    "y": 180,
+    "wires": [
+      [
+        "b851b80d.5ee1f8",
+        "35799339.5e169c"
+      ]
+    ]
+  },
+  {
+    "id": "afbbc926.3bac48",
+    "type": "debug",
+    "z": "78e2f0b5.5a802",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 780,
+    "y": 140,
+    "wires": []
+  },
+  {
+    "id": "1161b79c.017bd8",
+    "type": "change",
+    "z": "78e2f0b5.5a802",
+    "name": "payload = mlt_manual_duty",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "#:(storeInFile)::bk_manual_duty",
+        "tot": "flow"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 840,
+    "y": 220,
+    "wires": [
+      [
+        "b851b80d.5ee1f8"
+      ]
+    ]
+  },
+  {
+    "id": "b851b80d.5ee1f8",
+    "type": "link out",
+    "z": "78e2f0b5.5a802",
+    "name": "MLT PID or Manual Duty",
+    "links": [
+      "3901073e.dc5ad8",
+      "8433ff20.b87b7"
+    ],
+    "x": 1035,
+    "y": 200,
+    "wires": []
+  },
+  {
+    "id": "35799339.5e169c",
+    "type": "link out",
+    "z": "78e2f0b5.5a802",
+    "name": "MLT PID display",
+    "links": [
+      "e8739f51.73062",
+      "297a459b.f41f0a"
+    ],
+    "x": 1035,
+    "y": 140,
+    "wires": []
+  },
+  {
+    "id": "1451a533.df3f8b",
+    "type": "inject",
+    "z": "78e2f0b5.5a802",
+    "name": "Default P",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "43",
+    "payloadType": "num",
+    "x": 160,
+    "y": 580,
+    "wires": [
+      [
+        "10083463.301dbc"
+      ]
+    ]
+  },
+  {
+    "id": "10083463.301dbc",
+    "type": "ui_numeric",
+    "z": "78e2f0b5.5a802",
+    "name": "",
+    "label": "K𝗉",
+    "tooltip": "",
+    "group": "e71aa9ca.9bbda8",
+    "order": 2,
+    "width": "4",
+    "height": "1",
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value | number:1}}",
+    "min": 0,
+    "max": "99.8",
+    "step": "0.2",
+    "x": 310,
+    "y": 580,
+    "wires": [
+      [
+        "c2dd518d.46a89"
+      ]
+    ]
+  },
+  {
+    "id": "c2dd518d.46a89",
+    "type": "change",
+    "z": "78e2f0b5.5a802",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::p",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 460,
+    "y": 580,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "39875bd7.6b2764",
+    "type": "inject",
+    "z": "78e2f0b5.5a802",
+    "name": "Default I",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "0.15",
+    "payloadType": "num",
+    "x": 160,
+    "y": 620,
+    "wires": [
+      [
+        "6ffd7729.de0428"
+      ]
+    ]
+  },
+  {
+    "id": "6ffd7729.de0428",
+    "type": "ui_numeric",
+    "z": "78e2f0b5.5a802",
+    "name": "",
+    "label": "Ki",
+    "tooltip": "",
+    "group": "e71aa9ca.9bbda8",
+    "order": 3,
+    "width": "4",
+    "height": "1",
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value | number:1}}",
+    "min": 0,
+    "max": "99.8",
+    "step": "0.2",
+    "x": 310,
+    "y": 620,
+    "wires": [
+      [
+        "339488cc.a98998"
+      ]
+    ]
+  },
+  {
+    "id": "339488cc.a98998",
+    "type": "change",
+    "z": "78e2f0b5.5a802",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::i",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 460,
+    "y": 620,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "8ff879a7.935878",
+    "type": "inject",
+    "z": "78e2f0b5.5a802",
+    "name": "Default D",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "25",
+    "payloadType": "num",
+    "x": 160,
+    "y": 660,
+    "wires": [
+      [
+        "7f39978.3678768"
+      ]
+    ]
+  },
+  {
+    "id": "7f39978.3678768",
+    "type": "ui_numeric",
+    "z": "78e2f0b5.5a802",
+    "name": "",
+    "label": "Kd",
+    "tooltip": "",
+    "group": "e71aa9ca.9bbda8",
+    "order": 4,
+    "width": "4",
+    "height": "1",
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value | number:1}}",
+    "min": 0,
+    "max": "100",
+    "step": "0.2",
+    "x": 310,
+    "y": 660,
+    "wires": [
+      [
+        "cafdbc86.2132e"
+      ]
+    ]
+  },
+  {
+    "id": "cafdbc86.2132e",
+    "type": "change",
+    "z": "78e2f0b5.5a802",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::d",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 460,
+    "y": 660,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "60bfcb5c.025064",
+    "type": "link in",
+    "z": "78e2f0b5.5a802",
+    "name": "PID button",
+    "links": [
+      "5ebb22ba.77a06c"
+    ],
+    "x": 232,
+    "y": 960,
+    "wires": [
+      [
+        "bce0f22d.88c0a"
+      ]
+    ]
+  },
+  {
+    "id": "bce0f22d.88c0a",
+    "type": "change",
+    "z": "78e2f0b5.5a802",
+    "name": "bk_pid, bk_try = true",
+    "rules": [
+      {
+        "t": "set",
+        "p": "bk_pid",
+        "pt": "global",
+        "to": "true",
+        "tot": "bool"
+      },
+      {
+        "t": "set",
+        "p": "bk_try",
+        "pt": "flow",
+        "to": "true",
+        "tot": "bool"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 377,
+    "y": 960,
+    "wires": [
+      [
+        "24f7d4d6.c64b4c"
+      ]
+    ]
+  },
+  {
+    "id": "f81a8c48.939be",
+    "type": "change",
+    "z": "78e2f0b5.5a802",
+    "name": "bk_on = bk_try",
+    "rules": [
+      {
+        "t": "set",
+        "p": "bk_on",
+        "pt": "global",
+        "to": "bk_try",
+        "tot": "flow"
+      },
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "payload",
+        "tot": "flow"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 777,
+    "y": 920,
+    "wires": [
+      [
+        "b5b00fe2.def77"
+      ]
+    ]
+  },
+  {
+    "id": "b5b00fe2.def77",
+    "type": "switch",
+    "z": "78e2f0b5.5a802",
+    "name": "bk_on",
+    "property": "bk_on",
+    "propertyType": "global",
+    "rules": [
+      {
+        "t": "true"
+      },
+      {
+        "t": "false"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 787,
+    "y": 1020,
+    "wires": [
+      [
+        "238238dd.2db8d8"
+      ],
+      [
+        "ca1b3eb8.8869e"
+      ]
+    ]
+  },
+  {
+    "id": "238238dd.2db8d8",
+    "type": "change",
+    "z": "78e2f0b5.5a802",
+    "name": "bk_lock=true",
+    "rules": [
+      {
+        "t": "set",
+        "p": "bk_lock",
+        "pt": "global",
+        "to": "true",
+        "tot": "bool"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1107,
+    "y": 1015,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "ca1b3eb8.8869e",
+    "type": "delay",
+    "z": "78e2f0b5.5a802",
+    "name": "",
+    "pauseType": "delay",
+    "timeout": "3",
+    "timeoutUnits": "seconds",
+    "rate": "1",
+    "nbRateUnits": "1",
+    "rateUnits": "second",
+    "randomFirst": "1",
+    "randomLast": "5",
+    "randomUnits": "seconds",
+    "drop": false,
+    "x": 937,
+    "y": 1060,
+    "wires": [
+      [
+        "84196cdb.7c231"
+      ]
+    ]
+  },
+  {
+    "id": "84196cdb.7c231",
+    "type": "change",
+    "z": "78e2f0b5.5a802",
+    "name": "bk_lock = false",
+    "rules": [
+      {
+        "t": "set",
+        "p": "bk_lock",
+        "pt": "global",
+        "to": "false",
+        "tot": "bool"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1117,
+    "y": 1100,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "24f7d4d6.c64b4c",
+    "type": "link out",
+    "z": "78e2f0b5.5a802",
+    "name": "BK Try Output",
+    "links": [
+      "2a6bf115.dfc6ce"
+    ],
+    "x": 552,
+    "y": 960,
+    "wires": []
+  },
+  {
+    "id": "2a6bf115.dfc6ce",
+    "type": "link in",
+    "z": "78e2f0b5.5a802",
+    "name": "BK Try Input",
+    "links": [
+      "24f7d4d6.c64b4c",
+      "259ff7ed.c2c6c8",
+      "400ab7b1.65a628"
+    ],
+    "x": 652,
+    "y": 920,
+    "wires": [
+      [
+        "f81a8c48.939be"
+      ]
+    ]
+  },
+  {
+    "id": "6d273bd8.04c514",
+    "type": "link in",
+    "z": "78e2f0b5.5a802",
+    "name": "Off button",
+    "links": [
+      "47be6372.5f661c"
+    ],
+    "x": 232,
+    "y": 881,
+    "wires": [
+      [
+        "becc9684.471f08"
+      ]
+    ]
+  },
+  {
+    "id": "becc9684.471f08",
+    "type": "change",
+    "z": "78e2f0b5.5a802",
+    "name": "bk_pid, bk_try = false",
+    "rules": [
+      {
+        "t": "set",
+        "p": "bk_pid",
+        "pt": "global",
+        "to": "false",
+        "tot": "bool"
+      },
+      {
+        "t": "set",
+        "p": "bk_try",
+        "pt": "flow",
+        "to": "false",
+        "tot": "bool"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 377,
+    "y": 881,
+    "wires": [
+      [
+        "259ff7ed.c2c6c8"
+      ]
+    ]
+  },
+  {
+    "id": "259ff7ed.c2c6c8",
+    "type": "link out",
+    "z": "78e2f0b5.5a802",
+    "name": "BK Try Output",
+    "links": [
+      "2a6bf115.dfc6ce"
+    ],
+    "x": 552,
+    "y": 881,
+    "wires": []
+  },
+  {
+    "id": "dbde6681.3eb628",
+    "type": "link in",
+    "z": "78e2f0b5.5a802",
+    "name": "Manual button",
+    "links": [
+      "a1d6ac13.d6f75"
+    ],
+    "x": 232,
+    "y": 920,
+    "wires": [
+      [
+        "4386457c.4bcfbc"
+      ]
+    ]
+  },
+  {
+    "id": "4386457c.4bcfbc",
+    "type": "change",
+    "z": "78e2f0b5.5a802",
+    "name": "bk_pid = false, bk_try = true",
+    "rules": [
+      {
+        "t": "set",
+        "p": "bk_pid",
+        "pt": "global",
+        "to": "false",
+        "tot": "bool"
+      },
+      {
+        "t": "set",
+        "p": "bk_try",
+        "pt": "flow",
+        "to": "true",
+        "tot": "bool"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 397,
+    "y": 920,
+    "wires": [
+      [
+        "400ab7b1.65a628"
+      ]
+    ]
+  },
+  {
+    "id": "400ab7b1.65a628",
+    "type": "link out",
+    "z": "78e2f0b5.5a802",
+    "name": "BK Try Output",
+    "links": [
+      "2a6bf115.dfc6ce"
+    ],
+    "x": 552,
+    "y": 920,
+    "wires": []
+  },
+  {
+    "id": "e75b51c9.c7ea5",
+    "type": "link in",
+    "z": "78e2f0b5.5a802",
+    "name": "Manual button",
+    "links": [
+      "a1d6ac13.d6f75"
+    ],
+    "x": 232,
+    "y": 1000,
+    "wires": [
+      [
+        "1e1edf73.80b651"
+      ]
+    ]
+  },
+  {
+    "id": "1e1edf73.80b651",
+    "type": "change",
+    "z": "78e2f0b5.5a802",
+    "name": "Zero everything",
+    "rules": [
+      {
+        "t": "set",
+        "p": "last_error",
+        "pt": "msg",
+        "to": "0.0",
+        "tot": "num"
+      },
+      {
+        "t": "set",
+        "p": "integrator",
+        "pt": "msg",
+        "to": "0.0",
+        "tot": "num"
+      },
+      {
+        "t": "set",
+        "p": "derivative",
+        "pt": "msg",
+        "to": "0.0",
+        "tot": "num"
+      },
+      {
+        "t": "set",
+        "p": "last_error",
+        "pt": "flow",
+        "to": "last_error",
+        "tot": "msg"
+      },
+      {
+        "t": "set",
+        "p": "integrator",
+        "pt": "flow",
+        "to": "integrator",
+        "tot": "msg"
+      },
+      {
+        "t": "set",
+        "p": "output",
+        "pt": "msg",
+        "to": "0.0",
+        "tot": "num"
+      },
+      {
+        "t": "set",
+        "p": "target",
+        "pt": "msg",
+        "to": "target",
+        "tot": "flow"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 357,
+    "y": 1040,
+    "wires": [
+      [
+        "ef9de62d.c08a78"
+      ]
+    ]
+  },
+  {
+    "id": "ef9de62d.c08a78",
+    "type": "link out",
+    "z": "78e2f0b5.5a802",
+    "name": "BK PID display",
+    "links": [
+      "297a459b.f41f0a"
+    ],
+    "x": 522,
+    "y": 1040,
+    "wires": []
+  },
+  {
+    "id": "b875aa94.3560b8",
+    "type": "link in",
+    "z": "78e2f0b5.5a802",
+    "name": "Off Button",
+    "links": [
+      "47be6372.5f661c",
+      "777c3f1f.083ee"
+    ],
+    "x": 232,
+    "y": 1040,
+    "wires": [
+      [
+        "1e1edf73.80b651"
+      ]
+    ]
+  },
+  {
+    "id": "40363430.7c705c",
+    "type": "inject",
+    "z": "78e2f0b5.5a802",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 180,
+    "y": 720,
+    "wires": [
+      [
+        "777c3f1f.083ee"
+      ]
+    ]
+  },
+  {
+    "id": "777c3f1f.083ee",
+    "type": "link out",
+    "z": "78e2f0b5.5a802",
+    "name": "Off button - initialization",
+    "links": [
+      "cca3fbf8.0732f8",
+      "b875aa94.3560b8",
+      "436a459d.45dfec"
+    ],
+    "x": 275,
+    "y": 720,
+    "wires": []
+  },
+  {
+    "id": "cca3fbf8.0732f8",
+    "type": "link in",
+    "z": "78e2f0b5.5a802",
+    "name": "Off button - initialization",
+    "links": [
+      "777c3f1f.083ee"
+    ],
+    "x": 232,
+    "y": 840,
+    "wires": [
+      [
+        "418d5df5.63fc24"
+      ]
+    ]
+  },
+  {
+    "id": "418d5df5.63fc24",
+    "type": "change",
+    "z": "78e2f0b5.5a802",
+    "name": "bk_lock, bk_on, bk_pid, bk_try = false",
+    "rules": [
+      {
+        "t": "set",
+        "p": "bk_lock",
+        "pt": "global",
+        "to": "false",
+        "tot": "bool"
+      },
+      {
+        "t": "set",
+        "p": "bk_on",
+        "pt": "global",
+        "to": "false",
+        "tot": "bool"
+      },
+      {
+        "t": "set",
+        "p": "bk_pid",
+        "pt": "global",
+        "to": "false",
+        "tot": "bool"
+      },
+      {
+        "t": "set",
+        "p": "bk_try",
+        "pt": "global",
+        "to": "false",
+        "tot": "bool"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 427,
+    "y": 840,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "436a459d.45dfec",
+    "type": "link in",
+    "z": "78e2f0b5.5a802",
+    "name": "Off button",
+    "links": [
+      "47be6372.5f661c",
+      "777c3f1f.083ee"
+    ],
+    "x": 232,
+    "y": 1140,
+    "wires": [
+      [
+        "5d48f2c0.028e6c"
+      ]
+    ]
+  },
+  {
+    "id": "5d48f2c0.028e6c",
+    "type": "change",
+    "z": "78e2f0b5.5a802",
+    "name": "payload = 0",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "0",
+        "tot": "num"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 357,
+    "y": 1140,
+    "wires": [
+      [
+        "ca49e1a9.0c693"
+      ]
+    ]
+  },
+  {
+    "id": "ca49e1a9.0c693",
+    "type": "link out",
+    "z": "78e2f0b5.5a802",
+    "name": "BK Off Duty",
+    "links": [
+      "3901073e.dc5ad8",
+      "8433ff20.b87b7"
+    ],
+    "x": 532,
+    "y": 1140,
+    "wires": []
+  },
+  {
+    "id": "3c437b64.88e144",
+    "type": "function",
+    "z": "78e2f0b5.5a802",
+    "name": "msgs for chart",
+    "func": "var targetTempMsg = {};\nvar currentTempMsg = {};\n\n//Code to dynamically control Min setting on chart\nvar targetTemp = flow.get('bk_target', 'storeInFile')\nvar minBKChartValue = flow.get(\"minBKChartValue\")||msg.payload;\nvar valueToCompare = Math.min(msg.payload, targetTemp)\n\nminBKChartValue = parseInt(Math.min(minBKChartValue, valueToCompare - 5));\n//node.log(\"min: \" + minBKChartValue);\nflow.set(\"minBKChartValue\", minBKChartValue);\n\n//Code to dynamically control Max setting on chart\nvar maxBKChartValue = flow.get(\"maxBKChartValue\")||msg.payload;\n\nvalueToCompare = Math.max(msg.payload, targetTemp)\nmaxBKChartValue = parseInt(Math.max(maxBKChartValue, valueToCompare + 5));\n//node.log(\"max: \" + maxBKChartValue);\nflow.set(\"maxBKChartValue\", maxBKChartValue);\n\ntargetTempMsg.ui_control = {\"ymin\":minBKChartValue, \"ymax\":maxBKChartValue};\n\ntargetTempMsg.payload = targetTemp;\ntargetTempMsg.topic = 'Target';\n\ncurrentTempMsg.payload = msg.payload;\ncurrentTempMsg.topic = 'Temp';\n\nreturn [[targetTempMsg,currentTempMsg]];",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 440,
+    "y": 80,
+    "wires": [
+      [
+        "fc3bfc0b.8f37"
+      ],
+      [
+        "fc3bfc0b.8f37"
+      ]
+    ]
+  },
+  {
+    "id": "fc3bfc0b.8f37",
+    "type": "ui_chart",
+    "z": "78e2f0b5.5a802",
+    "name": "",
+    "group": "9d59abb0.326b08",
+    "order": 6,
+    "width": 0,
+    "height": 0,
+    "label": "",
+    "chartType": "line",
+    "legend": "false",
+    "xformat": "HH:mm:ss",
+    "interpolate": "linear",
+    "nodata": "",
+    "dot": false,
+    "ymin": "",
+    "ymax": "",
+    "removeOlder": 1,
+    "removeOlderPoints": "",
+    "removeOlderUnit": "3600",
+    "cutout": 0,
+    "useOneColor": false,
+    "colors": [
+      "#1f77b4",
+      "#aec7e8",
+      "#ff7f0e",
+      "#2ca02c",
+      "#98df8a",
+      "#d62728",
+      "#ff9896",
+      "#9467bd",
+      "#c5b0d5"
+    ],
+    "useOldStyle": false,
+    "outputs": 1,
+    "x": 610,
+    "y": 80,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "238b69c8.c391e6",
+    "type": "inject",
+    "z": "78e2f0b5.5a802",
+    "name": "Reset chart max/mins",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "str",
+    "x": 850,
+    "y": 20,
+    "wires": [
+      [
+        "44542738.856628"
+      ]
+    ]
+  },
+  {
+    "id": "44542738.856628",
+    "type": "function",
+    "z": "78e2f0b5.5a802",
+    "name": "msgs for chart",
+    "func": "\nnode.log(\"clearing flow variables\");\n\nflow.set(\"minBKChartValue\", msg.payload);\nflow.set(\"maxBKChartValue\", msg.payload);",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 1000,
+    "y": 80,
+    "wires": [
+      [],
+      []
+    ]
+  }
+]

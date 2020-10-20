@@ -27,7 +27,7 @@
     "type": "ui_text",
     "z": "10a92214.f225ae",
     "group": "9f19d793.eac5f8",
-    "order": 0,
+    "order": 1,
     "width": 0,
     "height": 0,
     "name": "HLT Raw temperature",
@@ -57,7 +57,7 @@
     "once": true,
     "onceDelay": 0.1,
     "topic": "",
-    "payload": "HLT-raw-high",
+    "payload": "#:(storeInFile)::HLT-raw-high",
     "payloadType": "global",
     "x": 590,
     "y": 120,
@@ -76,7 +76,7 @@
     "label": "Raw high",
     "tooltip": "",
     "group": "9f19d793.eac5f8",
-    "order": 1,
+    "order": 4,
     "width": 0,
     "height": 0,
     "wrap": false,
@@ -102,7 +102,7 @@
     "rules": [
       {
         "t": "set",
-        "p": "HLT-raw-high",
+        "p": "#:(storeInFile)::HLT-raw-high",
         "pt": "global",
         "to": "payload",
         "tot": "msg"
@@ -157,7 +157,7 @@
     "label": "Raw low",
     "tooltip": "",
     "group": "9f19d793.eac5f8",
-    "order": 2,
+    "order": 3,
     "width": 0,
     "height": 0,
     "wrap": false,
@@ -221,11 +221,11 @@
     "type": "ui_text",
     "z": "10a92214.f225ae",
     "group": "9f19d793.eac5f8",
-    "order": 3,
+    "order": 2,
     "width": 0,
     "height": 0,
     "name": "HLT Calibrated temperature",
-    "label": "text",
+    "label": "Calibrated",
     "format": "{{msg.payload | number:1}}°C",
     "layout": "row-spread",
     "x": 320,
@@ -253,7 +253,7 @@
     "type": "ui_text",
     "z": "10a92214.f225ae",
     "group": "f52ce78c.180578",
-    "order": 0,
+    "order": 1,
     "width": 0,
     "height": 0,
     "name": "MLT Raw temperature",
@@ -302,7 +302,7 @@
     "label": "Raw high",
     "tooltip": "",
     "group": "f52ce78c.180578",
-    "order": 1,
+    "order": 3,
     "width": 0,
     "height": 0,
     "wrap": false,
@@ -383,7 +383,7 @@
     "label": "Raw low",
     "tooltip": "",
     "group": "f52ce78c.180578",
-    "order": 2,
+    "order": 4,
     "width": 0,
     "height": 0,
     "wrap": false,
@@ -447,15 +447,241 @@
     "type": "ui_text",
     "z": "10a92214.f225ae",
     "group": "f52ce78c.180578",
-    "order": 3,
+    "order": 2,
     "width": 0,
     "height": 0,
     "name": "MLT Calibrated temperature",
-    "label": "text",
+    "label": "Calibrated",
     "format": "{{msg.payload | number:1}}°C",
     "layout": "row-spread",
     "x": 320,
     "y": 360,
+    "wires": []
+  },
+  {
+    "id": "7247a52b.2ac94c",
+    "type": "link in",
+    "z": "10a92214.f225ae",
+    "name": "BK Raw temp calibration",
+    "links": [
+      "720cfea9.d2587"
+    ],
+    "x": 135,
+    "y": 420,
+    "wires": [
+      [
+        "1aa9abf6.f3b7a4"
+      ]
+    ]
+  },
+  {
+    "id": "1aa9abf6.f3b7a4",
+    "type": "ui_text",
+    "z": "10a92214.f225ae",
+    "group": "4db7f25b.b9ea8c",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "name": "BK Raw temperature",
+    "label": "Raw",
+    "format": "{{msg.payload | number:1}}°C",
+    "layout": "row-spread",
+    "x": 300,
+    "y": 420,
+    "wires": []
+  },
+  {
+    "id": "4db25c4b.6b1b64",
+    "type": "inject",
+    "z": "10a92214.f225ae",
+    "name": "get global.BK-raw-high",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::BK-raw-high",
+    "payloadType": "global",
+    "x": 580,
+    "y": 420,
+    "wires": [
+      [
+        "e29b096b.1f0f88",
+        "1bdeb36a.d3850d"
+      ]
+    ]
+  },
+  {
+    "id": "e29b096b.1f0f88",
+    "type": "ui_numeric",
+    "z": "10a92214.f225ae",
+    "name": "BK Raw High",
+    "label": "Raw high",
+    "tooltip": "",
+    "group": "4db7f25b.b9ea8c",
+    "order": 3,
+    "width": 0,
+    "height": 0,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}c",
+    "min": 0,
+    "max": "100",
+    "step": "0.05",
+    "x": 810,
+    "y": 380,
+    "wires": [
+      [
+        "1bdeb36a.d3850d"
+      ]
+    ]
+  },
+  {
+    "id": "1bdeb36a.d3850d",
+    "type": "change",
+    "z": "10a92214.f225ae",
+    "name": "set global.BK-raw-high",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::BK-raw-high",
+        "pt": "global",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1040,
+    "y": 420,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "1542ddd8.f8f412",
+    "type": "inject",
+    "z": "10a92214.f225ae",
+    "name": "get global.BK-raw-low",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::BK-raw-low",
+    "payloadType": "global",
+    "x": 580,
+    "y": 500,
+    "wires": [
+      [
+        "33bf267b.12dfda",
+        "5c0aecf6.91fd54"
+      ]
+    ]
+  },
+  {
+    "id": "33bf267b.12dfda",
+    "type": "ui_numeric",
+    "z": "10a92214.f225ae",
+    "name": "BK Raw Low",
+    "label": "Raw low",
+    "tooltip": "",
+    "group": "4db7f25b.b9ea8c",
+    "order": 4,
+    "width": 0,
+    "height": 0,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}c",
+    "min": 0,
+    "max": "100",
+    "step": "0.05",
+    "x": 810,
+    "y": 460,
+    "wires": [
+      [
+        "5c0aecf6.91fd54"
+      ]
+    ]
+  },
+  {
+    "id": "5c0aecf6.91fd54",
+    "type": "change",
+    "z": "10a92214.f225ae",
+    "name": "set global.BK-raw-low",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::BK-raw-low",
+        "pt": "global",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1040,
+    "y": 500,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "99efbbed.1a9d98",
+    "type": "link in",
+    "z": "10a92214.f225ae",
+    "name": "BK calibrated temperature input",
+    "links": [
+      "c5bb895f.256208"
+    ],
+    "x": 135,
+    "y": 500,
+    "wires": [
+      [
+        "6f2cb356.23e07c"
+      ]
+    ]
+  },
+  {
+    "id": "6f2cb356.23e07c",
+    "type": "ui_text",
+    "z": "10a92214.f225ae",
+    "group": "4db7f25b.b9ea8c",
+    "order": 2,
+    "width": 0,
+    "height": 0,
+    "name": "BK Calibrated temperature",
+    "label": "Calibrated",
+    "format": "{{msg.payload | number:1}}°C",
+    "layout": "row-spread",
+    "x": 320,
+    "y": 500,
     "wires": []
   }
 ]

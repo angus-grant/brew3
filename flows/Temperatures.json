@@ -27,12 +27,13 @@
     "topic": "",
     "payload": "",
     "payloadType": "date",
-    "x": 140,
-    "y": 380,
+    "x": 150,
+    "y": 260,
     "wires": [
       [
         "32801d57.d3dce2",
-        "e1f0ed98.6af9a"
+        "e1f0ed98.6af9a",
+        "d2ed6c97.6bd88"
       ]
     ]
   },
@@ -42,10 +43,10 @@
     "z": "34bce47d.6c8dac",
     "name": "temp-HLT",
     "topic": "",
-    "sensorid": "28-000004ce4094",
+    "sensorid": "28-000004ce3103",
     "timer": "2",
     "repeat": false,
-    "x": 350,
+    "x": 360,
     "y": 160,
     "wires": [
       [
@@ -64,7 +65,7 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 570,
+    "x": 590,
     "y": 160,
     "wires": [
       [
@@ -84,8 +85,8 @@
     "round": "1",
     "mult": "single",
     "reduce": false,
-    "x": 790,
-    "y": 240,
+    "x": 820,
+    "y": 180,
     "wires": [
       [
         "d65ad63e.7e4608"
@@ -98,9 +99,9 @@
     "z": "34bce47d.6c8dac",
     "name": "HLT Actual Temp",
     "group": "a0e00a00.81b428",
-    "order": 0,
-    "width": 0,
-    "height": 0,
+    "order": 2,
+    "width": 3,
+    "height": 2,
     "gtype": "gage",
     "title": "",
     "label": "Actual Temp",
@@ -114,8 +115,8 @@
     ],
     "seg1": "50",
     "seg2": "78",
-    "x": 1000,
-    "y": 240,
+    "x": 1010,
+    "y": 180,
     "wires": []
   },
   {
@@ -126,8 +127,8 @@
     "links": [
       "3fbb4083.48588"
     ],
-    "x": 485,
-    "y": 80,
+    "x": 495,
+    "y": 120,
     "wires": []
   },
   {
@@ -136,10 +137,12 @@
     "z": "34bce47d.6c8dac",
     "name": "HLT calibrated temperature",
     "links": [
-      "aba40de5.32352"
+      "aba40de5.32352",
+      "ae9e02d6.4b8b1",
+      "3d56730.b05758e"
     ],
-    "x": 785,
-    "y": 80,
+    "x": 775,
+    "y": 120,
     "wires": []
   },
   {
@@ -148,11 +151,11 @@
     "z": "34bce47d.6c8dac",
     "name": "temp-MLT",
     "topic": "",
-    "sensorid": "28-000004ce3103",
+    "sensorid": "28-000004ce4094",
     "timer": "2",
     "repeat": false,
-    "x": 340,
-    "y": 380,
+    "x": 360,
+    "y": 260,
     "wires": [
       [
         "ae06031b.f8519",
@@ -170,8 +173,8 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 580,
-    "y": 380,
+    "x": 600,
+    "y": 260,
     "wires": [
       [
         "99f091b4.fb026",
@@ -185,10 +188,14 @@
     "z": "34bce47d.6c8dac",
     "name": "MLT calibrated temperature",
     "links": [
-      "f1d998e3.0c56d8"
+      "f1d998e3.0c56d8",
+      "784c4c53.ea2cb4",
+      "af73758e.118e38",
+      "3857893c.46b1c6",
+      "3d56730.b05758e"
     ],
-    "x": 755,
-    "y": 320,
+    "x": 775,
+    "y": 220,
     "wires": []
   },
   {
@@ -202,8 +209,8 @@
     "round": "1",
     "mult": "single",
     "reduce": false,
-    "x": 800,
-    "y": 440,
+    "x": 820,
+    "y": 300,
     "wires": [
       [
         "f9892cc7.e9bb5"
@@ -216,9 +223,9 @@
     "z": "34bce47d.6c8dac",
     "name": "MLT Actual Temp",
     "group": "ea5e6691.a9d4b8",
-    "order": 0,
-    "width": 0,
-    "height": 0,
+    "order": 2,
+    "width": 3,
+    "height": 2,
     "gtype": "gage",
     "title": "",
     "label": "Actual Temp",
@@ -233,7 +240,7 @@
     "seg1": "50",
     "seg2": "78",
     "x": 1010,
-    "y": 440,
+    "y": 300,
     "wires": []
   },
   {
@@ -245,7 +252,114 @@
       "1b18956d.818bdb"
     ],
     "x": 495,
-    "y": 300,
+    "y": 220,
+    "wires": []
+  },
+  {
+    "id": "d2ed6c97.6bd88",
+    "type": "sensor-ds18b20",
+    "z": "34bce47d.6c8dac",
+    "name": "temp-BK",
+    "topic": "",
+    "sensorid": "28-000004ce3103",
+    "timer": "2",
+    "repeat": false,
+    "x": 360,
+    "y": 400,
+    "wires": [
+      [
+        "b8235e4b.fda1d",
+        "720cfea9.d2587"
+      ]
+    ]
+  },
+  {
+    "id": "b8235e4b.fda1d",
+    "type": "function",
+    "z": "34bce47d.6c8dac",
+    "name": "calibrated BK temp value",
+    "func": "var rawHigh = global.get('BK-raw-high', 'storeInFile');\nvar rawLow = global.get('BK-raw-low', 'storeInFile');\nvar referenceHigh = 99.9;\nvar referenceLow = 0.0;\nvar rawRange = rawHigh - rawLow;\nvar referenceRange = referenceHigh - referenceLow;\n\nvar rawValue = msg.payload;\n\nvar correctedValue = (((rawValue - rawLow) * referenceRange) / rawRange) + referenceLow;\nmsg.payload = correctedValue;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 590,
+    "y": 400,
+    "wires": [
+      [
+        "c5bb895f.256208",
+        "3d0b0e81.eac3c2"
+      ]
+    ]
+  },
+  {
+    "id": "c5bb895f.256208",
+    "type": "link out",
+    "z": "34bce47d.6c8dac",
+    "name": "BK calibrated temperature",
+    "links": [
+      "99efbbed.1a9d98",
+      "3d56730.b05758e"
+    ],
+    "x": 775,
+    "y": 360,
+    "wires": []
+  },
+  {
+    "id": "3d0b0e81.eac3c2",
+    "type": "smooth",
+    "z": "34bce47d.6c8dac",
+    "name": "",
+    "property": "payload",
+    "action": "mean",
+    "count": "5",
+    "round": "1",
+    "mult": "single",
+    "reduce": false,
+    "x": 820,
+    "y": 440,
+    "wires": [
+      [
+        "1ba5d1c7.0eaebe"
+      ]
+    ]
+  },
+  {
+    "id": "1ba5d1c7.0eaebe",
+    "type": "ui_gauge",
+    "z": "34bce47d.6c8dac",
+    "name": "BK Actual Temp",
+    "group": "9d59abb0.326b08",
+    "order": 2,
+    "width": 3,
+    "height": 2,
+    "gtype": "gage",
+    "title": "",
+    "label": "Actual Temp",
+    "format": "{{value}}c",
+    "min": 0,
+    "max": "101",
+    "colors": [
+      "#ffd700",
+      "#ffd700",
+      "#ffd700"
+    ],
+    "seg1": "50",
+    "seg2": "78",
+    "x": 1000,
+    "y": 440,
+    "wires": []
+  },
+  {
+    "id": "720cfea9.d2587",
+    "type": "link out",
+    "z": "34bce47d.6c8dac",
+    "name": "BK raw temperature",
+    "links": [
+      "7247a52b.2ac94c"
+    ],
+    "x": 495,
+    "y": 360,
     "wires": []
   }
 ]

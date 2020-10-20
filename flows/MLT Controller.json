@@ -1,0 +1,1360 @@
+[
+  {
+    "id": "7f292261.86badc",
+    "type": "tab",
+    "label": "MLT Controller",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "b5c6ad0d.e873c",
+    "type": "inject",
+    "z": "7f292261.86badc",
+    "name": "Default MLT Target",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::mlt_target",
+    "payloadType": "flow",
+    "x": 150,
+    "y": 580,
+    "wires": [
+      [
+        "c093d20d.9045a",
+        "f753aaa0.4acb98",
+        "8fc017a7.d05218"
+      ]
+    ]
+  },
+  {
+    "id": "c093d20d.9045a",
+    "type": "change",
+    "z": "7f292261.86badc",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::mlt_target",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 450,
+    "y": 560,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "f753aaa0.4acb98",
+    "type": "ui_gauge",
+    "z": "7f292261.86badc",
+    "name": "MLT target temp",
+    "group": "ea5e6691.a9d4b8",
+    "order": 3,
+    "width": 3,
+    "height": 2,
+    "gtype": "gage",
+    "title": "",
+    "label": "Target Temp",
+    "format": "{{value}}c",
+    "min": 0,
+    "max": "100",
+    "colors": [
+      "#00b500",
+      "#00b500",
+      "#ca3838"
+    ],
+    "seg1": "50",
+    "seg2": "78",
+    "x": 480,
+    "y": 600,
+    "wires": []
+  },
+  {
+    "id": "8fc017a7.d05218",
+    "type": "ui_slider",
+    "z": "7f292261.86badc",
+    "name": "MLT target slider",
+    "label": "Target",
+    "tooltip": "",
+    "group": "ea5e6691.a9d4b8",
+    "order": 4,
+    "width": 0,
+    "height": 0,
+    "passthru": true,
+    "outs": "end",
+    "topic": "",
+    "min": "20",
+    "max": "100",
+    "step": 1,
+    "x": 190,
+    "y": 640,
+    "wires": [
+      [
+        "1d1d7650.6ae5fa",
+        "f753aaa0.4acb98",
+        "c093d20d.9045a"
+      ]
+    ]
+  },
+  {
+    "id": "1d1d7650.6ae5fa",
+    "type": "ui_text",
+    "z": "7f292261.86badc",
+    "group": "99bd808a.f2698",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "name": "Kettle target",
+    "label": "Target",
+    "format": "{{payload | number:1}}°C",
+    "layout": "row-spread",
+    "x": 490,
+    "y": 640,
+    "wires": []
+  },
+  {
+    "id": "effed81f.0e5528",
+    "type": "inject",
+    "z": "7f292261.86badc",
+    "name": "Default Element Duty",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::mlt_manual_duty",
+    "payloadType": "flow",
+    "x": 160,
+    "y": 440,
+    "wires": [
+      [
+        "b9615832.dd9a68",
+        "3d3c44d8.0aa2ec"
+      ]
+    ]
+  },
+  {
+    "id": "b9615832.dd9a68",
+    "type": "ui_slider",
+    "z": "7f292261.86badc",
+    "name": "Manual duty slider",
+    "label": "Manual",
+    "tooltip": "",
+    "group": "ea5e6691.a9d4b8",
+    "order": 5,
+    "width": 0,
+    "height": 0,
+    "passthru": true,
+    "outs": "end",
+    "topic": "",
+    "min": "20",
+    "max": "100",
+    "step": 1,
+    "x": 190,
+    "y": 500,
+    "wires": [
+      [
+        "3d3c44d8.0aa2ec"
+      ]
+    ]
+  },
+  {
+    "id": "3d3c44d8.0aa2ec",
+    "type": "change",
+    "z": "7f292261.86badc",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::mlt_manual_duty",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 470,
+    "y": 480,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "784c4c53.ea2cb4",
+    "type": "link in",
+    "z": "7f292261.86badc",
+    "name": "MLT PID temperature input",
+    "links": [
+      "99f091b4.fb026"
+    ],
+    "x": 215,
+    "y": 300,
+    "wires": [
+      [
+        "ed13afe1.404ef",
+        "eecd4c9f.3b4a1",
+        "53c48b60.fb6c84"
+      ]
+    ]
+  },
+  {
+    "id": "ed13afe1.404ef",
+    "type": "change",
+    "z": "7f292261.86badc",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "temp-MLT",
+        "pt": "global",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 360,
+    "y": 280,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "eecd4c9f.3b4a1",
+    "type": "switch",
+    "z": "7f292261.86badc",
+    "name": "mlt_on",
+    "property": "mlt_on",
+    "propertyType": "global",
+    "rules": [
+      {
+        "t": "true"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 1,
+    "x": 320,
+    "y": 340,
+    "wires": [
+      [
+        "da3ec3fd.a0d49"
+      ]
+    ]
+  },
+  {
+    "id": "da3ec3fd.a0d49",
+    "type": "switch",
+    "z": "7f292261.86badc",
+    "name": "mlt_pid switch",
+    "property": "mlt_pid",
+    "propertyType": "global",
+    "rules": [
+      {
+        "t": "true"
+      },
+      {
+        "t": "false"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 2,
+    "x": 500,
+    "y": 340,
+    "wires": [
+      [
+        "85e9c0a7.6bd9d",
+        "3c88f03f.c302d"
+      ],
+      [
+        "2f6bd80.e257328"
+      ]
+    ]
+  },
+  {
+    "id": "85e9c0a7.6bd9d",
+    "type": "function",
+    "z": "7f292261.86badc",
+    "name": "MLT PID Control",
+    "func": "// Note that the algorithm provided below assumes a 1 second iteration time\n// Justin Angevaare\n// May 2018\n\n// Set temperature\nmsg.temperature =  msg.payload;\n// Well that node doesn't work... do manually\nmsg.interval = 2000\n\n// Calculate error\nmsg.error = flow.get('mlt_target', 'storeInFile') - msg.temperature;\n\n// Set output max\nmsg.max_output = 100\n\n// Calculate proportional action\nvar pTerm = msg.error * flow.get('p', 'storeInFile');\n\n// Calculate intergral action\nvar iTerm = 0;\nif (pTerm < msg.max_output) {\n    // Calculate integrator max\n    msg.integrator_max = msg.max_output/flow.get('i', 'storeInFile');\n    \n    // Update integrator\n    // For purposes of integrator, bound error by [-1, 1]\n    msg.integrator = flow.get('integrator');\n    msg.integrator += (msg.interval/1000) * Math.max(Math.min(msg.error, 1), -1);\n    \n    // Bound total integrator by absolute maximum\n    msg.integrator = Math.max(Math.min(msg.integrator, msg.integrator_max), -msg.integrator_max);\n    \n    // Output updated integrator to flow context\n    flow.set('integrator', msg.integrator);\n    \n    iTerm = msg.integrator * flow.get('i', 'storeInFile');\n}\n\n// Calculate derivative action\nmsg.derivative = (msg.error - flow.get('last_error'))/(msg.interval/1000);\nvar dTerm = msg.derivative * flow.get('d', 'storeInFile');\n\nmsg.output = pTerm + iTerm + dTerm;\nnode.warn(pTerm + ' ' + iTerm + ' ' + dTerm);\n// Bound output by [0, max_output]\nmsg.output = Math.max(Math.min(msg.output, msg.max_output), 0);\n\n// Output updated last_error to flow context\nmsg.last_error = msg.error;\nflow.set('last_error', msg.last_error);\n\n// Set payload to element output\nmsg.payload = msg.output;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 820,
+    "y": 320,
+    "wires": [
+      [
+        "db6261df.6f1e",
+        "bac69bc7.32fe18"
+      ]
+    ]
+  },
+  {
+    "id": "3c88f03f.c302d",
+    "type": "debug",
+    "z": "7f292261.86badc",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 720,
+    "y": 280,
+    "wires": []
+  },
+  {
+    "id": "2f6bd80.e257328",
+    "type": "change",
+    "z": "7f292261.86badc",
+    "name": "payload = mlt_manual_duty",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "#:(storeInFile)::mlt_manual_duty",
+        "tot": "flow"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 780,
+    "y": 360,
+    "wires": [
+      [
+        "db6261df.6f1e"
+      ]
+    ]
+  },
+  {
+    "id": "db6261df.6f1e",
+    "type": "link out",
+    "z": "7f292261.86badc",
+    "name": "MLT PID or Manual Duty",
+    "links": [
+      "1a366a91.8afb65",
+      "8433ff20.b87b7"
+    ],
+    "x": 975,
+    "y": 340,
+    "wires": []
+  },
+  {
+    "id": "bac69bc7.32fe18",
+    "type": "link out",
+    "z": "7f292261.86badc",
+    "name": "MLT PID display",
+    "links": [
+      "1c912274.2c21ae",
+      "297a459b.f41f0a"
+    ],
+    "x": 975,
+    "y": 280,
+    "wires": []
+  },
+  {
+    "id": "705282d3.0b41cc",
+    "type": "inject",
+    "z": "7f292261.86badc",
+    "name": "Default P",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "43",
+    "payloadType": "num",
+    "x": 100,
+    "y": 720,
+    "wires": [
+      [
+        "8c692fd6.6dcdc"
+      ]
+    ]
+  },
+  {
+    "id": "8c692fd6.6dcdc",
+    "type": "ui_numeric",
+    "z": "7f292261.86badc",
+    "name": "",
+    "label": "K𝗉",
+    "tooltip": "",
+    "group": "99bd808a.f2698",
+    "order": 2,
+    "width": "4",
+    "height": "1",
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value | number:1}}",
+    "min": 0,
+    "max": "99.8",
+    "step": "0.2",
+    "x": 250,
+    "y": 720,
+    "wires": [
+      [
+        "747cb954.fb3dc8"
+      ]
+    ]
+  },
+  {
+    "id": "747cb954.fb3dc8",
+    "type": "change",
+    "z": "7f292261.86badc",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::p",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 400,
+    "y": 720,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "5ab8cdd6.4d1354",
+    "type": "inject",
+    "z": "7f292261.86badc",
+    "name": "Default I",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "0.15",
+    "payloadType": "num",
+    "x": 100,
+    "y": 760,
+    "wires": [
+      [
+        "df2d7fa5.b7883"
+      ]
+    ]
+  },
+  {
+    "id": "df2d7fa5.b7883",
+    "type": "ui_numeric",
+    "z": "7f292261.86badc",
+    "name": "",
+    "label": "Ki",
+    "tooltip": "",
+    "group": "99bd808a.f2698",
+    "order": 3,
+    "width": "4",
+    "height": "1",
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value | number:1}}",
+    "min": 0,
+    "max": "99.8",
+    "step": "0.2",
+    "x": 250,
+    "y": 760,
+    "wires": [
+      [
+        "fd6740f1.e7f9b"
+      ]
+    ]
+  },
+  {
+    "id": "fd6740f1.e7f9b",
+    "type": "change",
+    "z": "7f292261.86badc",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::i",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 400,
+    "y": 760,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "9f3a3f7b.40e82",
+    "type": "inject",
+    "z": "7f292261.86badc",
+    "name": "Default D",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "25",
+    "payloadType": "num",
+    "x": 100,
+    "y": 800,
+    "wires": [
+      [
+        "3d4988be.ec42e8"
+      ]
+    ]
+  },
+  {
+    "id": "3d4988be.ec42e8",
+    "type": "ui_numeric",
+    "z": "7f292261.86badc",
+    "name": "",
+    "label": "Kd",
+    "tooltip": "",
+    "group": "99bd808a.f2698",
+    "order": 4,
+    "width": "4",
+    "height": "1",
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value | number:1}}",
+    "min": 0,
+    "max": "100",
+    "step": "0.2",
+    "x": 250,
+    "y": 800,
+    "wires": [
+      [
+        "99ffbc77.7eb54"
+      ]
+    ]
+  },
+  {
+    "id": "99ffbc77.7eb54",
+    "type": "change",
+    "z": "7f292261.86badc",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::d",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 400,
+    "y": 800,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "da29ca33.74a648",
+    "type": "link in",
+    "z": "7f292261.86badc",
+    "name": "PID button",
+    "links": [
+      "4a5bf6be.6e1108"
+    ],
+    "x": 172,
+    "y": 1100,
+    "wires": [
+      [
+        "73e65d27.639804"
+      ]
+    ]
+  },
+  {
+    "id": "73e65d27.639804",
+    "type": "change",
+    "z": "7f292261.86badc",
+    "name": "mlt_pid, mlt_try = true",
+    "rules": [
+      {
+        "t": "set",
+        "p": "mlt_pid",
+        "pt": "global",
+        "to": "true",
+        "tot": "bool"
+      },
+      {
+        "t": "set",
+        "p": "mlt_try",
+        "pt": "flow",
+        "to": "true",
+        "tot": "bool"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 317,
+    "y": 1100,
+    "wires": [
+      [
+        "2d87ea85.a8b8e6"
+      ]
+    ]
+  },
+  {
+    "id": "c39524d4.f23948",
+    "type": "change",
+    "z": "7f292261.86badc",
+    "name": "mlt_on = mlt_try",
+    "rules": [
+      {
+        "t": "set",
+        "p": "mlt_on",
+        "pt": "global",
+        "to": "mlt_try",
+        "tot": "flow"
+      },
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "payload",
+        "tot": "flow"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 717,
+    "y": 1060,
+    "wires": [
+      [
+        "64b3e3aa.1cd0bc"
+      ]
+    ]
+  },
+  {
+    "id": "64b3e3aa.1cd0bc",
+    "type": "switch",
+    "z": "7f292261.86badc",
+    "name": "hlt_on",
+    "property": "hlt_on",
+    "propertyType": "global",
+    "rules": [
+      {
+        "t": "true"
+      },
+      {
+        "t": "false"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 727,
+    "y": 1160,
+    "wires": [
+      [
+        "b81fb03e.ba29e"
+      ],
+      [
+        "983f9689.8f1728"
+      ]
+    ]
+  },
+  {
+    "id": "b81fb03e.ba29e",
+    "type": "change",
+    "z": "7f292261.86badc",
+    "name": "mlt_lock=true",
+    "rules": [
+      {
+        "t": "set",
+        "p": "mlt_lock",
+        "pt": "global",
+        "to": "true",
+        "tot": "bool"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1057,
+    "y": 1155,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "983f9689.8f1728",
+    "type": "delay",
+    "z": "7f292261.86badc",
+    "name": "",
+    "pauseType": "delay",
+    "timeout": "3",
+    "timeoutUnits": "seconds",
+    "rate": "1",
+    "nbRateUnits": "1",
+    "rateUnits": "second",
+    "randomFirst": "1",
+    "randomLast": "5",
+    "randomUnits": "seconds",
+    "drop": false,
+    "x": 877,
+    "y": 1200,
+    "wires": [
+      [
+        "f7d36baf.eee6e8"
+      ]
+    ]
+  },
+  {
+    "id": "f7d36baf.eee6e8",
+    "type": "change",
+    "z": "7f292261.86badc",
+    "name": "mlt_lock = false",
+    "rules": [
+      {
+        "t": "set",
+        "p": "mlt_lock",
+        "pt": "global",
+        "to": "false",
+        "tot": "bool"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1057,
+    "y": 1240,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "2d87ea85.a8b8e6",
+    "type": "link out",
+    "z": "7f292261.86badc",
+    "name": "MLT Try Output",
+    "links": [
+      "907a2e94.cd0b"
+    ],
+    "x": 492,
+    "y": 1100,
+    "wires": []
+  },
+  {
+    "id": "907a2e94.cd0b",
+    "type": "link in",
+    "z": "7f292261.86badc",
+    "name": "MLT Try Input",
+    "links": [
+      "2d87ea85.a8b8e6",
+      "9ab1b45e.35ad18",
+      "b5b6d747.d71dd8"
+    ],
+    "x": 592,
+    "y": 1060,
+    "wires": [
+      [
+        "c39524d4.f23948"
+      ]
+    ]
+  },
+  {
+    "id": "16f4f7a.243c108",
+    "type": "link in",
+    "z": "7f292261.86badc",
+    "name": "Off button",
+    "links": [
+      "6498be43.85193"
+    ],
+    "x": 172,
+    "y": 1021,
+    "wires": [
+      [
+        "b5368e48.9217c"
+      ]
+    ]
+  },
+  {
+    "id": "b5368e48.9217c",
+    "type": "change",
+    "z": "7f292261.86badc",
+    "name": "mlt_pid, mlt_try = false",
+    "rules": [
+      {
+        "t": "set",
+        "p": "mlt_pid",
+        "pt": "global",
+        "to": "false",
+        "tot": "bool"
+      },
+      {
+        "t": "set",
+        "p": "mlt_try",
+        "pt": "flow",
+        "to": "false",
+        "tot": "bool"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 317,
+    "y": 1021,
+    "wires": [
+      [
+        "9ab1b45e.35ad18"
+      ]
+    ]
+  },
+  {
+    "id": "9ab1b45e.35ad18",
+    "type": "link out",
+    "z": "7f292261.86badc",
+    "name": "MLT Try Output",
+    "links": [
+      "907a2e94.cd0b"
+    ],
+    "x": 492,
+    "y": 1021,
+    "wires": []
+  },
+  {
+    "id": "a6dd2f13.0d289",
+    "type": "link in",
+    "z": "7f292261.86badc",
+    "name": "Manual button",
+    "links": [
+      "fb7b2f6.88b6fd"
+    ],
+    "x": 172,
+    "y": 1060,
+    "wires": [
+      [
+        "b0ad9919.d18af8"
+      ]
+    ]
+  },
+  {
+    "id": "b0ad9919.d18af8",
+    "type": "change",
+    "z": "7f292261.86badc",
+    "name": "mlt_pid = false, mlt_try = true",
+    "rules": [
+      {
+        "t": "set",
+        "p": "mlt_pid",
+        "pt": "global",
+        "to": "false",
+        "tot": "bool"
+      },
+      {
+        "t": "set",
+        "p": "mlt_try",
+        "pt": "flow",
+        "to": "true",
+        "tot": "bool"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 337,
+    "y": 1060,
+    "wires": [
+      [
+        "b5b6d747.d71dd8"
+      ]
+    ]
+  },
+  {
+    "id": "b5b6d747.d71dd8",
+    "type": "link out",
+    "z": "7f292261.86badc",
+    "name": "MLT Try Output",
+    "links": [
+      "907a2e94.cd0b"
+    ],
+    "x": 492,
+    "y": 1060,
+    "wires": []
+  },
+  {
+    "id": "de4b9fb6.c35af",
+    "type": "link in",
+    "z": "7f292261.86badc",
+    "name": "Manual button",
+    "links": [
+      "fb7b2f6.88b6fd"
+    ],
+    "x": 172,
+    "y": 1140,
+    "wires": [
+      [
+        "84e339de.b7a688"
+      ]
+    ]
+  },
+  {
+    "id": "84e339de.b7a688",
+    "type": "change",
+    "z": "7f292261.86badc",
+    "name": "Zero everything",
+    "rules": [
+      {
+        "t": "set",
+        "p": "last_error",
+        "pt": "msg",
+        "to": "0.0",
+        "tot": "num"
+      },
+      {
+        "t": "set",
+        "p": "integrator",
+        "pt": "msg",
+        "to": "0.0",
+        "tot": "num"
+      },
+      {
+        "t": "set",
+        "p": "derivative",
+        "pt": "msg",
+        "to": "0.0",
+        "tot": "num"
+      },
+      {
+        "t": "set",
+        "p": "last_error",
+        "pt": "flow",
+        "to": "last_error",
+        "tot": "msg"
+      },
+      {
+        "t": "set",
+        "p": "integrator",
+        "pt": "flow",
+        "to": "integrator",
+        "tot": "msg"
+      },
+      {
+        "t": "set",
+        "p": "output",
+        "pt": "msg",
+        "to": "0.0",
+        "tot": "num"
+      },
+      {
+        "t": "set",
+        "p": "target",
+        "pt": "msg",
+        "to": "target",
+        "tot": "flow"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 297,
+    "y": 1180,
+    "wires": [
+      [
+        "229a3cf1.42d594"
+      ]
+    ]
+  },
+  {
+    "id": "229a3cf1.42d594",
+    "type": "link out",
+    "z": "7f292261.86badc",
+    "name": "MLT PID display",
+    "links": [
+      "297a459b.f41f0a"
+    ],
+    "x": 462,
+    "y": 1180,
+    "wires": []
+  },
+  {
+    "id": "ab05e41b.4e5e18",
+    "type": "link in",
+    "z": "7f292261.86badc",
+    "name": "Off Button",
+    "links": [
+      "6498be43.85193",
+      "d55bf56a.e4b388"
+    ],
+    "x": 172,
+    "y": 1180,
+    "wires": [
+      [
+        "84e339de.b7a688"
+      ]
+    ]
+  },
+  {
+    "id": "cb032685.6e71e8",
+    "type": "inject",
+    "z": "7f292261.86badc",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 120,
+    "y": 860,
+    "wires": [
+      [
+        "d55bf56a.e4b388"
+      ]
+    ]
+  },
+  {
+    "id": "d55bf56a.e4b388",
+    "type": "link out",
+    "z": "7f292261.86badc",
+    "name": "Off button - initialization",
+    "links": [
+      "43e5e2bc.3696ac",
+      "ab05e41b.4e5e18",
+      "f9e8571.11e75a8"
+    ],
+    "x": 215,
+    "y": 860,
+    "wires": []
+  },
+  {
+    "id": "43e5e2bc.3696ac",
+    "type": "link in",
+    "z": "7f292261.86badc",
+    "name": "Off button - initialization",
+    "links": [
+      "d55bf56a.e4b388"
+    ],
+    "x": 172,
+    "y": 980,
+    "wires": [
+      [
+        "f46bfec5.b6d8b"
+      ]
+    ]
+  },
+  {
+    "id": "f46bfec5.b6d8b",
+    "type": "change",
+    "z": "7f292261.86badc",
+    "name": "mlt_lock, mlt_on, mlt_pid, mlt_try = false",
+    "rules": [
+      {
+        "t": "set",
+        "p": "mlt_lock",
+        "pt": "global",
+        "to": "false",
+        "tot": "bool"
+      },
+      {
+        "t": "set",
+        "p": "mlt_on",
+        "pt": "global",
+        "to": "false",
+        "tot": "bool"
+      },
+      {
+        "t": "set",
+        "p": "mlt_pid",
+        "pt": "global",
+        "to": "false",
+        "tot": "bool"
+      },
+      {
+        "t": "set",
+        "p": "mlt_try",
+        "pt": "global",
+        "to": "false",
+        "tot": "bool"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 377,
+    "y": 980,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "f9e8571.11e75a8",
+    "type": "link in",
+    "z": "7f292261.86badc",
+    "name": "Off button",
+    "links": [
+      "6498be43.85193",
+      "d55bf56a.e4b388"
+    ],
+    "x": 172,
+    "y": 1280,
+    "wires": [
+      [
+        "40f22576.cd544c"
+      ]
+    ]
+  },
+  {
+    "id": "40f22576.cd544c",
+    "type": "change",
+    "z": "7f292261.86badc",
+    "name": "payload = 0",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "0",
+        "tot": "num"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 297,
+    "y": 1280,
+    "wires": [
+      [
+        "25238ad5.78f756"
+      ]
+    ]
+  },
+  {
+    "id": "25238ad5.78f756",
+    "type": "link out",
+    "z": "7f292261.86badc",
+    "name": "MLT Off Duty",
+    "links": [
+      "1a366a91.8afb65",
+      "8433ff20.b87b7"
+    ],
+    "x": 472,
+    "y": 1280,
+    "wires": []
+  },
+  {
+    "id": "53c48b60.fb6c84",
+    "type": "function",
+    "z": "7f292261.86badc",
+    "name": "msgs for chart",
+    "func": "var targetTempMsg = {};\nvar currentTempMsg = {};\n\n//Code to dynamically control Min setting on chart\nvar targetTemp = flow.get('mlt_target', 'storeInFile')\nvar minMLTChartValue = flow.get(\"minMLTChartValue\")||msg.payload;\nvar valueToCompare = Math.min(msg.payload, targetTemp)\n\nminMLTChartValue = parseInt(Math.min(minMLTChartValue, valueToCompare - 5));\n//node.log(\"min: \" + minMLTChartValue);\nflow.set(\"minMLTChartValue\", minMLTChartValue);\n\n//Code to dynamically control Max setting on chart\nvar maxMLTChartValue = flow.get(\"maxMLTChartValue\")||msg.payload;\n\nvalueToCompare = Math.max(msg.payload, targetTemp)\nmaxMLTChartValue = parseInt(Math.max(maxMLTChartValue, valueToCompare + 5));\n//node.log(\"max: \" + maxMLTChartValue);\nflow.set(\"maxMLTChartValue\", maxMLTChartValue);\n\ntargetTempMsg.ui_control = {\"decimalsInFloat\":1, \"ymin\":minMLTChartValue, \"ymax\":maxMLTChartValue};\n\ntargetTempMsg.payload = targetTemp;\ntargetTempMsg.topic = 'Target';\n\ncurrentTempMsg.payload = msg.payload;\ncurrentTempMsg.topic = 'Temp';\n\nreturn [[targetTempMsg,currentTempMsg]];",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 360,
+    "y": 140,
+    "wires": [
+      [
+        "46b7e035.8dca8"
+      ],
+      [
+        "46b7e035.8dca8"
+      ]
+    ]
+  },
+  {
+    "id": "46b7e035.8dca8",
+    "type": "ui_chart",
+    "z": "7f292261.86badc",
+    "name": "",
+    "group": "ea5e6691.a9d4b8",
+    "order": 6,
+    "width": 0,
+    "height": 0,
+    "label": "",
+    "chartType": "line",
+    "legend": "false",
+    "xformat": "HH:mm:ss",
+    "interpolate": "linear",
+    "nodata": "",
+    "dot": false,
+    "ymin": "",
+    "ymax": "",
+    "removeOlder": 1,
+    "removeOlderPoints": "",
+    "removeOlderUnit": "3600",
+    "cutout": 0,
+    "useOneColor": false,
+    "colors": [
+      "#1f77b4",
+      "#aec7e8",
+      "#ff7f0e",
+      "#2ca02c",
+      "#98df8a",
+      "#d62728",
+      "#ff9896",
+      "#9467bd",
+      "#c5b0d5"
+    ],
+    "useOldStyle": false,
+    "outputs": 1,
+    "x": 560,
+    "y": 140,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "ea73c173.52b2b",
+    "type": "inject",
+    "z": "7f292261.86badc",
+    "name": "Reset chart max/mins",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "str",
+    "x": 830,
+    "y": 80,
+    "wires": [
+      [
+        "1f132c16.a721f4"
+      ]
+    ]
+  },
+  {
+    "id": "1f132c16.a721f4",
+    "type": "function",
+    "z": "7f292261.86badc",
+    "name": "msgs for chart",
+    "func": "\nnode.log(\"clearing MLT flow variables\");\n\nflow.set(\"minMLTChartValue\", msg.payload);\nflow.set(\"maxMLTChartValue\", msg.payload);",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 980,
+    "y": 140,
+    "wires": [
+      [],
+      []
+    ]
+  }
+]
