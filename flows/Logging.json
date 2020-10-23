@@ -25,9 +25,9 @@
     "once": true,
     "onceDelay": 0.1,
     "topic": "",
-    "payload": "untitled",
-    "payloadType": "str",
-    "x": 120,
+    "payload": "#:(storeInFile)::brew-label",
+    "payloadType": "global",
+    "x": 150,
     "y": 34,
     "wires": [
       [
@@ -50,7 +50,7 @@
     "mode": "text",
     "delay": 300,
     "topic": "",
-    "x": 290,
+    "x": 367,
     "y": 34,
     "wires": [
       [
@@ -77,7 +77,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 500,
+    "x": 577,
     "y": 34,
     "wires": [
       []
@@ -102,9 +102,9 @@
     "once": true,
     "onceDelay": 0.1,
     "topic": "",
-    "payload": "false",
-    "payloadType": "bool",
-    "x": 110,
+    "payload": "#:(storeInFile)::temp_log",
+    "payloadType": "global",
+    "x": 140,
     "y": 77,
     "wires": [
       [
@@ -135,7 +135,7 @@
     "offvalueType": "bool",
     "officon": "",
     "offcolor": "",
-    "x": 290,
+    "x": 367,
     "y": 77,
     "wires": [
       [
@@ -162,7 +162,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 490,
+    "x": 567,
     "y": 77,
     "wires": [
       []
@@ -187,9 +187,9 @@
     "once": true,
     "onceDelay": 0.1,
     "topic": "",
-    "payload": "0.25",
-    "payloadType": "num",
-    "x": 110,
+    "payload": "#:(storeInFile)::temp_log_delta",
+    "payloadType": "global",
+    "x": 160,
     "y": 120,
     "wires": [
       [
@@ -215,7 +215,7 @@
     "min": 0,
     "max": "2",
     "step": "0.05",
-    "x": 290,
+    "x": 367,
     "y": 120,
     "wires": [
       [
@@ -242,7 +242,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 510,
+    "x": 587,
     "y": 120,
     "wires": [
       []
@@ -267,9 +267,9 @@
     "once": true,
     "onceDelay": 0.1,
     "topic": "",
-    "payload": "false",
-    "payloadType": "bool",
-    "x": 110,
+    "payload": "#:(storeInFile)::output_log",
+    "payloadType": "global",
+    "x": 150,
     "y": 163,
     "wires": [
       [
@@ -300,7 +300,7 @@
     "offvalueType": "bool",
     "officon": "",
     "offcolor": "",
-    "x": 290,
+    "x": 367,
     "y": 163,
     "wires": [
       [
@@ -327,7 +327,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 500,
+    "x": 577,
     "y": 163,
     "wires": [
       []
@@ -352,9 +352,9 @@
     "once": true,
     "onceDelay": 0.1,
     "topic": "",
-    "payload": "false",
-    "payloadType": "bool",
-    "x": 110,
+    "payload": "#:(storeInFile)::pid_log",
+    "payloadType": "global",
+    "x": 140,
     "y": 204,
     "wires": [
       [
@@ -385,7 +385,7 @@
     "offvalueType": "bool",
     "officon": "",
     "offcolor": "",
-    "x": 300,
+    "x": 377,
     "y": 204,
     "wires": [
       [
@@ -412,7 +412,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 490,
+    "x": 567,
     "y": 204,
     "wires": [
       []
@@ -437,9 +437,9 @@
     "once": true,
     "onceDelay": 0.1,
     "topic": "",
-    "payload": "true",
-    "payloadType": "bool",
-    "x": 110,
+    "payload": "#:(storeInFile)::volume_log",
+    "payloadType": "global",
+    "x": 150,
     "y": 250,
     "wires": [
       [
@@ -470,7 +470,7 @@
     "offvalueType": "bool",
     "officon": "",
     "offcolor": "",
-    "x": 280,
+    "x": 357,
     "y": 250,
     "wires": [
       [
@@ -497,7 +497,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 500,
+    "x": 577,
     "y": 250,
     "wires": [
       []
@@ -728,7 +728,7 @@
     "type": "function",
     "z": "3c9f1c99.157ee4",
     "name": "Format output for influxdb",
-    "func": "msg.payload = [\n    {\n        measurement: \"PID-boil-main-loop\",\n        fields: {\n            target: msg.target,\n            output: msg.output,\n            error: msg.last_error,\n            integrator: msg.integrator,\n            derivative: msg.derivative,\n            //active: global.get(\"bk_pid\"),\n            brew: global.get(\"brew-label\")\n        },\n        timestamp: new Date()\n    }\n];\nreturn msg;",
+    "func": "msg.payload = [\n    {\n        measurement: msg.topic,\n        fields: {\n            target: msg.target,\n            output: msg.output,\n            error: msg.last_error,\n            integrator: msg.integrator,\n            derivative: msg.derivative,\n            //active: global.get(\"bk_pid\"),\n            brew: global.get(\"brew-label\", 'storeInFile')\n        },\n        timestamp: new Date()\n    }\n];\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
@@ -736,7 +736,10 @@
     "x": 1000,
     "y": 440,
     "wires": [
-      []
+      [
+        "fed600c4.28a44",
+        "cdf71459.6fd8a8"
+      ]
     ]
   },
   {
@@ -834,7 +837,7 @@
     "type": "function",
     "z": "3c9f1c99.157ee4",
     "name": "Format output for influxdb",
-    "func": "msg.payload = [\n    {\n        measurement: \"output-BK\",\n        fields: {\n            duty: msg.payload,\n            brew: global.get(\"brew-label\")\n        },\n        timestamp: new Date()\n    }\n];\nreturn msg;",
+    "func": "msg.payload = [\n    {\n        measurement: \"output-BK\",\n        fields: {\n            duty: msg.payload,\n            brew: global.get(\"brew-label\", 'storeInFile')\n        },\n        timestamp: new Date()\n    }\n];\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
@@ -842,7 +845,84 @@
     "x": 1000,
     "y": 500,
     "wires": [
+      [
+        "fed600c4.28a44",
+        "cdf71459.6fd8a8"
+      ]
+    ]
+  },
+  {
+    "id": "fed600c4.28a44",
+    "type": "influxdb batch",
+    "z": "3c9f1c99.157ee4",
+    "influxdb": "b921988f.6da898",
+    "precision": "",
+    "retentionPolicy": "",
+    "name": "",
+    "x": 1290,
+    "y": 480,
+    "wires": []
+  },
+  {
+    "id": "cdf71459.6fd8a8",
+    "type": "debug",
+    "z": "3c9f1c99.157ee4",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": true,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1310,
+    "y": 420,
+    "wires": []
+  },
+  {
+    "id": "cb97011d.fdeeb",
+    "type": "function",
+    "z": "3c9f1c99.157ee4",
+    "name": "Global logging",
+    "func": "\nnode.log(\"pid_log: \" + global.get(\"pid_log\", \"storeInFile\"));\nnode.log(\"bk_on: \" + global.get(\"bk_on\"));\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 320,
+    "y": 600,
+    "wires": [
       []
+    ]
+  },
+  {
+    "id": "5cf941cc.449bb",
+    "type": "inject",
+    "z": "3c9f1c99.157ee4",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "1",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 120,
+    "y": 600,
+    "wires": [
+      [
+        "cb97011d.fdeeb"
+      ]
     ]
   }
 ]
