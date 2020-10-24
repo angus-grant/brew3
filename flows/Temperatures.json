@@ -137,9 +137,9 @@
     "z": "34bce47d.6c8dac",
     "name": "HLT calibrated temperature",
     "links": [
+      "3d56730.b05758e",
       "aba40de5.32352",
-      "ae9e02d6.4b8b1",
-      "3d56730.b05758e"
+      "ae9e02d6.4b8b1"
     ],
     "x": 775,
     "y": 120,

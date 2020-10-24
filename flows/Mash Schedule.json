@@ -1,0 +1,2409 @@
+[
+  {
+    "id": "3da984a3.27885c",
+    "type": "tab",
+    "label": "Mash Schedule",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "26e72d4b.10b7e2",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "get rest1_length",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::rest1_length",
+    "payloadType": "flow",
+    "x": 120,
+    "y": 400,
+    "wires": [
+      [
+        "32da8e96.218f82"
+      ]
+    ]
+  },
+  {
+    "id": "32da8e96.218f82",
+    "type": "ui_numeric",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "label": "Rest1",
+    "tooltip": "",
+    "group": "e010af88.2414c",
+    "order": 14,
+    "width": 4,
+    "height": 1,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}m",
+    "min": 0,
+    "max": "90",
+    "step": 1,
+    "x": 310,
+    "y": 420,
+    "wires": [
+      [
+        "407a7735.9996d8"
+      ]
+    ]
+  },
+  {
+    "id": "9d174681.47c718",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "brewfather Rest1 link in",
+    "links": [],
+    "x": 175,
+    "y": 440,
+    "wires": [
+      [
+        "32da8e96.218f82"
+      ]
+    ]
+  },
+  {
+    "id": "407a7735.9996d8",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::rest1_length",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 500,
+    "y": 420,
+    "wires": [
+      [
+        "5f513d25.cff454"
+      ]
+    ]
+  },
+  {
+    "id": "7e85a505.02910c",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "get rest2_length",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::rest2_length",
+    "payloadType": "flow",
+    "x": 120,
+    "y": 500,
+    "wires": [
+      [
+        "8e765246.634ae"
+      ]
+    ]
+  },
+  {
+    "id": "8e765246.634ae",
+    "type": "ui_numeric",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "label": "Rest2",
+    "tooltip": "",
+    "group": "e010af88.2414c",
+    "order": 16,
+    "width": 4,
+    "height": 1,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}m",
+    "min": 0,
+    "max": "90",
+    "step": 1,
+    "x": 310,
+    "y": 520,
+    "wires": [
+      [
+        "5c1d381a.2d3778"
+      ]
+    ]
+  },
+  {
+    "id": "deafe85c.da1e98",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "brewfather Rest2 link in",
+    "links": [],
+    "x": 175,
+    "y": 540,
+    "wires": [
+      [
+        "8e765246.634ae"
+      ]
+    ]
+  },
+  {
+    "id": "5c1d381a.2d3778",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::rest2_length",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 500,
+    "y": 520,
+    "wires": [
+      [
+        "af97cb5a.275ed8"
+      ]
+    ]
+  },
+  {
+    "id": "674779cc.848a08",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "get rest3_length",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::rest3_length",
+    "payloadType": "flow",
+    "x": 120,
+    "y": 580,
+    "wires": [
+      [
+        "a9ce864.82cb178"
+      ]
+    ]
+  },
+  {
+    "id": "a9ce864.82cb178",
+    "type": "ui_numeric",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "label": "Rest3",
+    "tooltip": "",
+    "group": "e010af88.2414c",
+    "order": 18,
+    "width": 4,
+    "height": 1,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}m",
+    "min": 0,
+    "max": "90",
+    "step": 1,
+    "x": 310,
+    "y": 600,
+    "wires": [
+      [
+        "dbedc433.600658"
+      ]
+    ]
+  },
+  {
+    "id": "c8ecb74a.a53358",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "brewfather Rest3 link in",
+    "links": [],
+    "x": 175,
+    "y": 620,
+    "wires": [
+      [
+        "a9ce864.82cb178"
+      ]
+    ]
+  },
+  {
+    "id": "dbedc433.600658",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::rest3_length",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 500,
+    "y": 600,
+    "wires": [
+      [
+        "826d046a.3a0268"
+      ]
+    ]
+  },
+  {
+    "id": "db031b90.29bf98",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "get rest4_length",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::rest4_length",
+    "payloadType": "flow",
+    "x": 120,
+    "y": 660,
+    "wires": [
+      [
+        "bd535f7b.bdadd"
+      ]
+    ]
+  },
+  {
+    "id": "bd535f7b.bdadd",
+    "type": "ui_numeric",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "label": "Rest4",
+    "tooltip": "",
+    "group": "e010af88.2414c",
+    "order": 20,
+    "width": 4,
+    "height": 1,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}m",
+    "min": 0,
+    "max": "90",
+    "step": 1,
+    "x": 310,
+    "y": 680,
+    "wires": [
+      [
+        "a7c29838.90f638"
+      ]
+    ]
+  },
+  {
+    "id": "68dc6c2.b4d4894",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "brewfather Rest4 link in",
+    "links": [],
+    "x": 175,
+    "y": 700,
+    "wires": [
+      [
+        "bd535f7b.bdadd"
+      ]
+    ]
+  },
+  {
+    "id": "a7c29838.90f638",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::rest4_length",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 500,
+    "y": 680,
+    "wires": [
+      [
+        "2de4df6e.2c85c"
+      ]
+    ]
+  },
+  {
+    "id": "eae95b00.013438",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "get rest1_temp",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::rest1_temp",
+    "payloadType": "flow",
+    "x": 720,
+    "y": 420,
+    "wires": [
+      [
+        "921427f8.566638"
+      ]
+    ]
+  },
+  {
+    "id": "921427f8.566638",
+    "type": "ui_numeric",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "label": "@",
+    "tooltip": "",
+    "group": "e010af88.2414c",
+    "order": 13,
+    "width": 4,
+    "height": 1,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}°C",
+    "min": "20",
+    "max": "80",
+    "step": 1,
+    "x": 910,
+    "y": 440,
+    "wires": [
+      [
+        "d0bbc2af.6b4c6"
+      ]
+    ]
+  },
+  {
+    "id": "1531a2dc.84956d",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "brewfather Rest1 link in",
+    "links": [],
+    "x": 775,
+    "y": 460,
+    "wires": [
+      [
+        "921427f8.566638"
+      ]
+    ]
+  },
+  {
+    "id": "d0bbc2af.6b4c6",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::rest1_temp",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1090,
+    "y": 440,
+    "wires": [
+      [
+        "57c59879.e51308"
+      ]
+    ]
+  },
+  {
+    "id": "d25e3c2f.d61f1",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "get rest2_temp",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::rest2_temp",
+    "payloadType": "flow",
+    "x": 720,
+    "y": 520,
+    "wires": [
+      [
+        "8d075d34.c5f75"
+      ]
+    ]
+  },
+  {
+    "id": "f4a1e90b.071b58",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "brewfather Temp2 link in",
+    "links": [],
+    "x": 775,
+    "y": 560,
+    "wires": [
+      [
+        "8d075d34.c5f75"
+      ]
+    ]
+  },
+  {
+    "id": "bbc1e7da.086a88",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::rest2_temp",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1090,
+    "y": 540,
+    "wires": [
+      [
+        "1e8943b.6960cbc"
+      ]
+    ]
+  },
+  {
+    "id": "615bce5d.16725",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "get rest3_temp",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::rest3_temp",
+    "payloadType": "flow",
+    "x": 720,
+    "y": 600,
+    "wires": [
+      [
+        "6071ddb.458aa24"
+      ]
+    ]
+  },
+  {
+    "id": "9d80444a.fb5c38",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "brewfather Temp3 link in",
+    "links": [],
+    "x": 775,
+    "y": 640,
+    "wires": [
+      [
+        "6071ddb.458aa24"
+      ]
+    ]
+  },
+  {
+    "id": "7a149c7c.8c6f94",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::rest3_temp",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1090,
+    "y": 620,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "b6e52ca3.2c295",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "get rest4_temp",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::rest4_temp",
+    "payloadType": "flow",
+    "x": 720,
+    "y": 680,
+    "wires": [
+      [
+        "cd5f4a8c.f14078"
+      ]
+    ]
+  },
+  {
+    "id": "e6aa6b97.e9dfc8",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "brewfather Temp4 link in",
+    "links": [],
+    "x": 775,
+    "y": 720,
+    "wires": [
+      [
+        "cd5f4a8c.f14078"
+      ]
+    ]
+  },
+  {
+    "id": "551c6a50.cd3b34",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::rest4_temp",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1090,
+    "y": 700,
+    "wires": [
+      [
+        "c0301573.73fb98"
+      ]
+    ]
+  },
+  {
+    "id": "8d075d34.c5f75",
+    "type": "ui_numeric",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "label": "@",
+    "tooltip": "",
+    "group": "e010af88.2414c",
+    "order": 15,
+    "width": 4,
+    "height": 1,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}°C",
+    "min": "20",
+    "max": "80",
+    "step": 1,
+    "x": 910,
+    "y": 540,
+    "wires": [
+      [
+        "bbc1e7da.086a88"
+      ]
+    ]
+  },
+  {
+    "id": "6071ddb.458aa24",
+    "type": "ui_numeric",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "label": "@",
+    "tooltip": "",
+    "group": "e010af88.2414c",
+    "order": 17,
+    "width": 4,
+    "height": 1,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}°C",
+    "min": "20",
+    "max": "80",
+    "step": 1,
+    "x": 910,
+    "y": 620,
+    "wires": [
+      [
+        "7a149c7c.8c6f94"
+      ]
+    ]
+  },
+  {
+    "id": "cd5f4a8c.f14078",
+    "type": "ui_numeric",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "label": "@",
+    "tooltip": "",
+    "group": "e010af88.2414c",
+    "order": 19,
+    "width": 4,
+    "height": 1,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}°C",
+    "min": "20",
+    "max": "80",
+    "step": 1,
+    "x": 910,
+    "y": 700,
+    "wires": [
+      [
+        "551c6a50.cd3b34"
+      ]
+    ]
+  },
+  {
+    "id": "53eae67a.071798",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "mash_start",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::mash_start",
+    "payloadType": "flow",
+    "x": 130,
+    "y": 340,
+    "wires": [
+      [
+        "e487c85a.28a338"
+      ]
+    ]
+  },
+  {
+    "id": "e487c85a.28a338",
+    "type": "ui_dropdown",
+    "z": "3da984a3.27885c",
+    "name": "Start time",
+    "label": "",
+    "tooltip": "",
+    "place": "",
+    "group": "e010af88.2414c",
+    "order": 10,
+    "width": 8,
+    "height": 1,
+    "passthru": true,
+    "options": [
+      {
+        "label": "Start now",
+        "value": "now",
+        "type": "str"
+      },
+      {
+        "label": "Delay start by..",
+        "value": "delay",
+        "type": "str"
+      },
+      {
+        "label": "Resume at",
+        "value": "resume",
+        "type": "str"
+      }
+    ],
+    "payload": "",
+    "topic": "",
+    "x": 300,
+    "y": 340,
+    "wires": [
+      [
+        "bca241cd.464b2"
+      ]
+    ]
+  },
+  {
+    "id": "bca241cd.464b2",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::mash_start",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 490,
+    "y": 340,
+    "wires": [
+      [
+        "394ebead.b33262"
+      ]
+    ]
+  },
+  {
+    "id": "394ebead.b33262",
+    "type": "function",
+    "z": "3da984a3.27885c",
+    "name": "Show/Hide scheduler",
+    "func": "if(flow.get('mash_start', 'storeInFile') == \"now\"){\n    msg.payload = {group:{hide:[\"Mash_Schedule_Control2\"]}}}else {\n        msg.payload = {group:{show:[\"Mash_Schedule_Control2\"]}}}\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 720,
+    "y": 340,
+    "wires": [
+      [
+        "5dd68a77.961094"
+      ]
+    ]
+  },
+  {
+    "id": "5dd68a77.961094",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "Scheduler visibility",
+    "links": [
+      "d9f805ba.f62428"
+    ],
+    "x": 885,
+    "y": 340,
+    "wires": []
+  },
+  {
+    "id": "332320ac.facee",
+    "type": "ui_ui_control",
+    "z": "3da984a3.27885c",
+    "name": "Dashboard connection",
+    "events": "all",
+    "x": 260,
+    "y": 40,
+    "wires": [
+      [
+        "749aec45.ab7f34"
+      ]
+    ]
+  },
+  {
+    "id": "d9f805ba.f62428",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "5dd68a77.961094",
+      "1f068a9f.9d16b5",
+      "df1f38a3.76ecb8",
+      "18197756.aa0f39",
+      "be3f1a7a.188088"
+    ],
+    "x": 95,
+    "y": 40,
+    "wires": [
+      [
+        "332320ac.facee"
+      ]
+    ]
+  },
+  {
+    "id": "906a0832.614d68",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "Initialization",
+    "links": [
+      "749aec45.ab7f34"
+    ],
+    "x": 555,
+    "y": 300,
+    "wires": [
+      [
+        "394ebead.b33262"
+      ]
+    ]
+  },
+  {
+    "id": "749aec45.ab7f34",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "Connection established",
+    "links": [
+      "906a0832.614d68",
+      "9588655b.9fb198"
+    ],
+    "x": 415,
+    "y": 40,
+    "wires": []
+  },
+  {
+    "id": "f5040bb6.50aa28",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::ramping_rate_perMin",
+    "payloadType": "flow",
+    "x": 150,
+    "y": 100,
+    "wires": [
+      [
+        "ed72f93.aa2ef08"
+      ]
+    ]
+  },
+  {
+    "id": "ed72f93.aa2ef08",
+    "type": "ui_numeric",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "label": "Ramp rate/min",
+    "tooltip": "",
+    "group": "e010af88.2414c",
+    "order": 8,
+    "width": 0,
+    "height": 0,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}°C",
+    "min": 0,
+    "max": "10",
+    "step": "0.05",
+    "x": 400,
+    "y": 100,
+    "wires": [
+      [
+        "4e24f8d1.8c5f58"
+      ]
+    ]
+  },
+  {
+    "id": "4e24f8d1.8c5f58",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::ramping_rate_perMin",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 650,
+    "y": 100,
+    "wires": [
+      [
+        "1f068a9f.9d16b5"
+      ]
+    ]
+  },
+  {
+    "id": "1f068a9f.9d16b5",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "ramping_rate",
+    "links": [
+      "d9f805ba.f62428"
+    ],
+    "x": 855,
+    "y": 100,
+    "wires": []
+  },
+  {
+    "id": "8319c25a.54a4b",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::mash_steps",
+    "payloadType": "flow",
+    "x": 130,
+    "y": 160,
+    "wires": [
+      [
+        "1631276b.6861c9"
+      ]
+    ]
+  },
+  {
+    "id": "1631276b.6861c9",
+    "type": "ui_dropdown",
+    "z": "3da984a3.27885c",
+    "name": "Mash steps",
+    "label": "",
+    "tooltip": "",
+    "place": "",
+    "group": "e010af88.2414c",
+    "order": 9,
+    "width": 8,
+    "height": 1,
+    "passthru": true,
+    "options": [
+      {
+        "label": "Disabled",
+        "value": 0,
+        "type": "num"
+      },
+      {
+        "label": "1 step",
+        "value": 1,
+        "type": "num"
+      },
+      {
+        "label": "2 steps",
+        "value": 2,
+        "type": "num"
+      },
+      {
+        "label": "3 steps",
+        "value": 3,
+        "type": "num"
+      },
+      {
+        "label": "4 steps",
+        "value": 4,
+        "type": "num"
+      }
+    ],
+    "payload": "",
+    "topic": "",
+    "x": 330,
+    "y": 180,
+    "wires": [
+      [
+        "db71164a.92a1b8"
+      ]
+    ]
+  },
+  {
+    "id": "72399970.c8c148",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "brewfather mash steps link in",
+    "links": [],
+    "x": 215,
+    "y": 200,
+    "wires": [
+      [
+        "1631276b.6861c9"
+      ]
+    ]
+  },
+  {
+    "id": "db71164a.92a1b8",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::mash_steps",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 520,
+    "y": 180,
+    "wires": [
+      [
+        "1fa07a38.625bd6",
+        "8ffd0a3f.234e28"
+      ]
+    ]
+  },
+  {
+    "id": "1fa07a38.625bd6",
+    "type": "function",
+    "z": "3da984a3.27885c",
+    "name": "Show/Hide rests",
+    "func": "var mashStep1Msg = {enabled:false};\nvar mashStep2Msg = {enabled:false};\nvar mashStep3Msg = {enabled:false};\nvar mashStep4Msg = {enabled:false};\n\nif(flow.get('mash_steps', 'storeInFile') == 1){mashStep1Msg = {enabled:true};}\nif(flow.get('mash_steps', 'storeInFile') == 2){mashStep1Msg = {enabled:true};mashStep2Msg = {enabled:true};}\nif(flow.get('mash_steps', 'storeInFile') == 3){mashStep1Msg = {enabled:true};mashStep2Msg = {enabled:true};mashStep3Msg = {enabled:true};}\nif(flow.get('mash_steps', 'storeInFile') == 4){mashStep1Msg = {enabled:true};mashStep2Msg = {enabled:true};mashStep3Msg = {enabled:true};mashStep4Msg = {enabled:true};}\n\nif(flow.get('mash_steps', 'storeInFile') === 0){msg.payload = {group:{hide:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest1\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest1b\"]}}}\nif(flow.get('mash_steps', 'storeInFile') == 1){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest1b\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1\"]}}}\nif(flow.get('mash_steps', 'storeInFile') == 2){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest1b\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1\", \"Mash_Schedule_Rest2\"]}}}\nif(flow.get('mash_steps', 'storeInFile') == 3){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest1b\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest3\"]}}}\nif(flow.get('mash_steps', 'storeInFile') == 4){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest1b\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest4\"]}}}\n\nreturn [msg, mashStep1Msg, mashStep2Msg, mashStep3Msg, mashStep4Msg];\n",
+    "outputs": 5,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 740,
+    "y": 180,
+    "wires": [
+      [
+        "df1f38a3.76ecb8"
+      ],
+      [
+        "32da8e96.218f82",
+        "921427f8.566638"
+      ],
+      [
+        "8e765246.634ae",
+        "8d075d34.c5f75"
+      ],
+      [
+        "a9ce864.82cb178",
+        "6071ddb.458aa24"
+      ],
+      [
+        "bd535f7b.bdadd",
+        "cd5f4a8c.f14078"
+      ]
+    ]
+  },
+  {
+    "id": "df1f38a3.76ecb8",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "ramping_rate",
+    "links": [
+      "d9f805ba.f62428"
+    ],
+    "x": 935,
+    "y": 100,
+    "wires": []
+  },
+  {
+    "id": "e5a29414.e020e8",
+    "type": "ui_numeric",
+    "z": "3da984a3.27885c",
+    "name": "Hours",
+    "label": "",
+    "tooltip": "",
+    "group": "e010af88.2414c",
+    "order": 11,
+    "width": 4,
+    "height": 1,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}h",
+    "min": 0,
+    "max": "12",
+    "step": 1,
+    "x": 150,
+    "y": 260,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "10d682f6.c923dd",
+    "type": "ui_numeric",
+    "z": "3da984a3.27885c",
+    "name": "Minutes",
+    "label": "",
+    "tooltip": "",
+    "group": "e010af88.2414c",
+    "order": 12,
+    "width": 4,
+    "height": 1,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}m",
+    "min": 0,
+    "max": "59",
+    "step": 1,
+    "x": 300,
+    "y": 260,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "245f082f.377808",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "Update schedule length",
+    "links": [
+      "8ffd0a3f.234e28",
+      "2de4df6e.2c85c",
+      "826d046a.3a0268",
+      "af97cb5a.275ed8",
+      "5f513d25.cff454",
+      "c0301573.73fb98",
+      "7842a85d.66db68",
+      "1e8943b.6960cbc",
+      "57c59879.e51308"
+    ],
+    "x": 175,
+    "y": 760,
+    "wires": [
+      [
+        "4e5c2463.c2c28c"
+      ]
+    ]
+  },
+  {
+    "id": "4e5c2463.c2c28c",
+    "type": "function",
+    "z": "3da984a3.27885c",
+    "name": "Schedule length",
+    "func": "msg.payload = 0.0\n\nvar rampingRatePerMin = flow.get('ramping_rate_perMin', 'storeInFile');\n\nif(flow.get('mash_steps', 'storeInFile') >= 1){msg.payload += flow.get('rest1_length', 'storeInFile')}\nif(flow.get('mash_steps', 'storeInFile') >= 2){msg.payload += ((flow.get('rest2_temp', 'storeInFile')-flow.get('rest1_temp', 'storeInFile'))*rampingRatePerMin) + flow.get('rest2_length', 'storeInFile')}\nif(flow.get('mash_steps', 'storeInFile') >= 3){msg.payload += ((flow.get('rest3_temp', 'storeInFile')-flow.get('rest2_temp', 'storeInFile'))*rampingRatePerMin) + flow.get('rest3_length', 'storeInFile')}\nif(flow.get('mash_steps', 'storeInFile') >= 4){msg.payload += ((flow.get('rest4_temp', 'storeInFile')-flow.get('rest3_temp', 'storeInFile'))*rampingRatePerMin) + flow.get('rest4_length', 'storeInFile')}\n\nflow.set('schedule_length', msg.payload)\nreturn msg;\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 340,
+    "y": 760,
+    "wires": [
+      [
+        "4f4ee0a5.79f62"
+      ]
+    ]
+  },
+  {
+    "id": "4f4ee0a5.79f62",
+    "type": "ui_text",
+    "z": "3da984a3.27885c",
+    "group": "e010af88.2414c",
+    "order": 21,
+    "width": 0,
+    "height": 0,
+    "name": "",
+    "label": "Total schedule length",
+    "format": "{{msg.payload}}m",
+    "layout": "row-spread",
+    "x": 560,
+    "y": 760,
+    "wires": []
+  },
+  {
+    "id": "45825977.f3e148",
+    "type": "ui_text",
+    "z": "3da984a3.27885c",
+    "group": "e010af88.2414c",
+    "order": 22,
+    "width": 0,
+    "height": 0,
+    "name": "",
+    "label": "Total schedule length also includes ramping time between steps",
+    "format": "",
+    "layout": "row-spread",
+    "x": 390,
+    "y": 800,
+    "wires": []
+  },
+  {
+    "id": "8ffd0a3f.234e28",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "245f082f.377808",
+      "9c82b76e.289bb8"
+    ],
+    "x": 615,
+    "y": 220,
+    "wires": []
+  },
+  {
+    "id": "5f513d25.cff454",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "245f082f.377808",
+      "51b78923.cf14c8"
+    ],
+    "x": 575,
+    "y": 460,
+    "wires": []
+  },
+  {
+    "id": "af97cb5a.275ed8",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "245f082f.377808",
+      "fb487942.28eed8"
+    ],
+    "x": 575,
+    "y": 560,
+    "wires": []
+  },
+  {
+    "id": "826d046a.3a0268",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "245f082f.377808",
+      "e2c5db91.b21a88"
+    ],
+    "x": 575,
+    "y": 640,
+    "wires": []
+  },
+  {
+    "id": "2de4df6e.2c85c",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "245f082f.377808",
+      "646252be.fe410c"
+    ],
+    "x": 575,
+    "y": 720,
+    "wires": []
+  },
+  {
+    "id": "57c59879.e51308",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "245f082f.377808",
+      "51b78923.cf14c8"
+    ],
+    "x": 1175,
+    "y": 480,
+    "wires": []
+  },
+  {
+    "id": "1e8943b.6960cbc",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "245f082f.377808",
+      "fb487942.28eed8"
+    ],
+    "x": 1175,
+    "y": 580,
+    "wires": []
+  },
+  {
+    "id": "7842a85d.66db68",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "245f082f.377808",
+      "e2c5db91.b21a88"
+    ],
+    "x": 1175,
+    "y": 660,
+    "wires": []
+  },
+  {
+    "id": "c0301573.73fb98",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "245f082f.377808",
+      "646252be.fe410c"
+    ],
+    "x": 1175,
+    "y": 740,
+    "wires": []
+  },
+  {
+    "id": "799388ce.e200a8",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "Run button colour",
+    "links": [
+      "f77d5762.4fa548"
+    ],
+    "x": 155,
+    "y": 880,
+    "wires": [
+      [
+        "bd05ee3f.97c9e"
+      ]
+    ]
+  },
+  {
+    "id": "bd05ee3f.97c9e",
+    "type": "ui_button",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "group": "6c2dc2b5.3e20ac",
+    "order": 1,
+    "width": "8",
+    "height": 1,
+    "passthru": false,
+    "label": "Run",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "{{colour}}",
+    "icon": "",
+    "payload": "",
+    "payloadType": "str",
+    "topic": "",
+    "x": 250,
+    "y": 880,
+    "wires": [
+      [
+        "dd59e3d8.a1487"
+      ]
+    ]
+  },
+  {
+    "id": "dd59e3d8.a1487",
+    "type": "switch",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "property": "scheduler",
+    "propertyType": "global",
+    "rules": [
+      {
+        "t": "true"
+      },
+      {
+        "t": "false"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 390,
+    "y": 880,
+    "wires": [
+      [
+        "b2947df3.2afc9"
+      ],
+      [
+        "c1ff0c90.09af"
+      ]
+    ]
+  },
+  {
+    "id": "37045c93.e3dd74",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "false",
+    "payloadType": "bool",
+    "x": 390,
+    "y": 840,
+    "wires": [
+      [
+        "b2947df3.2afc9"
+      ]
+    ]
+  },
+  {
+    "id": "b2947df3.2afc9",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Switch off",
+    "rules": [
+      {
+        "t": "set",
+        "p": "scheduler",
+        "pt": "global",
+        "to": "false",
+        "tot": "bool"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 540,
+    "y": 860,
+    "wires": [
+      [
+        "ea96b7cd.e89278"
+      ]
+    ]
+  },
+  {
+    "id": "c1ff0c90.09af",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Switch on",
+    "rules": [
+      {
+        "t": "set",
+        "p": "scheduler",
+        "pt": "global",
+        "to": "true",
+        "tot": "bool"
+      },
+      {
+        "t": "set",
+        "p": "click_time",
+        "pt": "flow",
+        "to": "",
+        "tot": "date"
+      },
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "",
+        "tot": "date"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 540,
+    "y": 900,
+    "wires": [
+      [
+        "ea96b7cd.e89278"
+      ]
+    ]
+  },
+  {
+    "id": "ea96b7cd.e89278",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "1afde172.9dcecf",
+      "ab24d9b7.c2ac88",
+      "1c33b0b8.0bbddf"
+    ],
+    "x": 655,
+    "y": 880,
+    "wires": []
+  },
+  {
+    "id": "1afde172.9dcecf",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "Scheduler update",
+    "links": [
+      "ea96b7cd.e89278",
+      "b48e6704.1b7af8"
+    ],
+    "x": 175,
+    "y": 1080,
+    "wires": [
+      [
+        "42e306ce.7d1318"
+      ]
+    ]
+  },
+  {
+    "id": "42e306ce.7d1318",
+    "type": "function",
+    "z": "3da984a3.27885c",
+    "name": "UI Updates",
+    "func": "if(global.get('scheduler')){\n    msg.payload = {group:{show:[\"Mash_Schedule_Control4\", \"Mash_Schedule_MASH_SCHEDULE2\", \"Mash_Schedule_MASH_SCHEDULE\"], hide:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control2\"]}}\n} else {\n    if(flow.get('mash_start')== \"now\"){\n        msg.payload = {group:{show:[\"Mash_Schedule_MASH_SCHEDULE\", \"Mash_Schedule_Control1\"], hide:[\"Mash_Schedule_MASH_SCHEDULE2\", \"Mash_Schedule_Control4\"]}}\n    } else {\n        msg.payload = {group:{show:[\"Mash_Schedule_MASH_SCHEDULE\", \"Mash_Schedule_Control1\", \"Mash_Schedule_Control2\"], hide:[\"Mash_Schedule_MASH_SCHEDULE2\", \"Mash_Schedule_Control4\"]}}\n    }\n}\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 290,
+    "y": 1080,
+    "wires": [
+      [
+        "18197756.aa0f39"
+      ]
+    ]
+  },
+  {
+    "id": "18197756.aa0f39",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "Timer visibility",
+    "links": [
+      "d9f805ba.f62428"
+    ],
+    "x": 555,
+    "y": 1080,
+    "wires": []
+  },
+  {
+    "id": "ab24d9b7.c2ac88",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "Scheduler update",
+    "links": [
+      "ea96b7cd.e89278",
+      "b48e6704.1b7af8"
+    ],
+    "x": 175,
+    "y": 1120,
+    "wires": [
+      [
+        "b3134854.2e0cf8"
+      ]
+    ]
+  },
+  {
+    "id": "b3134854.2e0cf8",
+    "type": "function",
+    "z": "3da984a3.27885c",
+    "name": "Show read only schedule",
+    "func": "if(global.get('scheduler')){\n  if(flow.get('mash_steps', 'storeInFile') === 0){msg.payload = {group:{hide:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest1\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest1b\"]}}}\n  if(flow.get('mash_steps', 'storeInFile') == 1){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest1\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1b\"]}}}\n  if(flow.get('mash_steps', 'storeInFile') == 2){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest1\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1b\", \"Mash_Schedule_Rest2b\"]}}}\n  if(flow.get('mash_steps', 'storeInFile') == 3){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest1\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest3b\"]}}}\n  if(flow.get('mash_steps', 'storeInFile') == 4){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest1\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest4b\"]}}}}\nreturn msg;\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 330,
+    "y": 1120,
+    "wires": [
+      [
+        "be3f1a7a.188088"
+      ]
+    ]
+  },
+  {
+    "id": "be3f1a7a.188088",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "Timer visibility",
+    "links": [
+      "d9f805ba.f62428"
+    ],
+    "x": 555,
+    "y": 1120,
+    "wires": []
+  },
+  {
+    "id": "9c82b76e.289bb8",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "Mash step readonly",
+    "links": [
+      "8ffd0a3f.234e28"
+    ],
+    "x": 175,
+    "y": 1160,
+    "wires": [
+      [
+        "b4467867.13fc08"
+      ]
+    ]
+  },
+  {
+    "id": "b4467867.13fc08",
+    "type": "function",
+    "z": "3da984a3.27885c",
+    "name": "Read only mash steps text",
+    "func": "if(flow.get('mash_steps', 'storeInFile') === 0){msg.payload = \"Disabled\"}\nif(flow.get('mash_steps', 'storeInFile') == 1){msg.payload = \"1 step\"}\nif(flow.get('mash_steps', 'storeInFile') == 2){msg.payload = \"2 step\"}\nif(flow.get('mash_steps', 'storeInFile') == 3){msg.payload = \"3 step\"}\nif(flow.get('mash_steps', 'storeInFile') == 4){msg.payload = \"4 step\"}\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 340,
+    "y": 1160,
+    "wires": [
+      [
+        "8548b9b0.14c6c8"
+      ]
+    ]
+  },
+  {
+    "id": "8548b9b0.14c6c8",
+    "type": "ui_template",
+    "z": "3da984a3.27885c",
+    "group": "4871467d.3f6578",
+    "name": "Read only Mash steps",
+    "order": 1,
+    "width": 8,
+    "height": 1,
+    "format": "<div ng-bind-html=\"msg.payload\" style=\"padding-left: 11px; color: grey\"></div>",
+    "storeOutMessages": true,
+    "fwdInMessages": true,
+    "templateScope": "local",
+    "x": 640,
+    "y": 1160,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "51b78923.cf14c8",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "rest1 read only",
+    "links": [
+      "5f513d25.cff454",
+      "57c59879.e51308"
+    ],
+    "x": 175,
+    "y": 1200,
+    "wires": [
+      [
+        "673096b2.1a18b8"
+      ]
+    ]
+  },
+  {
+    "id": "673096b2.1a18b8",
+    "type": "function",
+    "z": "3da984a3.27885c",
+    "name": "rest1 length and temp",
+    "func": "msg.payload = `Rest 1 ${flow.get('rest1_length', 'storeInFile')}m @ ${flow.get('rest1_temp', 'storeInFile')}°C`;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 320,
+    "y": 1200,
+    "wires": [
+      [
+        "ad799817.1da7b8"
+      ]
+    ]
+  },
+  {
+    "id": "ad799817.1da7b8",
+    "type": "ui_template",
+    "z": "3da984a3.27885c",
+    "group": "4871467d.3f6578",
+    "name": "Read only rest1",
+    "order": 2,
+    "width": 8,
+    "height": 1,
+    "format": "<div ng-bind-html=\"msg.payload\" style=\"padding-left: 11px; color: grey\"></div>",
+    "storeOutMessages": true,
+    "fwdInMessages": true,
+    "templateScope": "local",
+    "x": 620,
+    "y": 1200,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "fb487942.28eed8",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "rest1 read only",
+    "links": [
+      "af97cb5a.275ed8",
+      "1e8943b.6960cbc"
+    ],
+    "x": 175,
+    "y": 1240,
+    "wires": [
+      [
+        "47921977.078738"
+      ]
+    ]
+  },
+  {
+    "id": "47921977.078738",
+    "type": "function",
+    "z": "3da984a3.27885c",
+    "name": "rest2 length and temp",
+    "func": "msg.payload = `Rest 2 ${flow.get('rest2_length', 'storeInFile')}m @ ${flow.get('rest2_temp', 'storeInFile')}°C`;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 320,
+    "y": 1240,
+    "wires": [
+      [
+        "6d9da7d0.8e2498"
+      ]
+    ]
+  },
+  {
+    "id": "6d9da7d0.8e2498",
+    "type": "ui_template",
+    "z": "3da984a3.27885c",
+    "group": "4871467d.3f6578",
+    "name": "Read only rest2",
+    "order": 3,
+    "width": 8,
+    "height": 1,
+    "format": "<div ng-bind-html=\"msg.payload\" style=\"padding-left: 11px; color: grey\"></div>",
+    "storeOutMessages": true,
+    "fwdInMessages": true,
+    "templateScope": "local",
+    "x": 620,
+    "y": 1240,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "e2c5db91.b21a88",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "rest1 read only",
+    "links": [
+      "826d046a.3a0268",
+      "7842a85d.66db68"
+    ],
+    "x": 175,
+    "y": 1280,
+    "wires": [
+      [
+        "3dce31a.05d4bce"
+      ]
+    ]
+  },
+  {
+    "id": "3dce31a.05d4bce",
+    "type": "function",
+    "z": "3da984a3.27885c",
+    "name": "rest3 length and temp",
+    "func": "msg.payload = `Rest 3 ${flow.get('rest3_length', 'storeInFile')}m @ ${flow.get('rest3_temp', 'storeInFile')}°C`;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 320,
+    "y": 1280,
+    "wires": [
+      [
+        "388ffdb3.f4db62"
+      ]
+    ]
+  },
+  {
+    "id": "388ffdb3.f4db62",
+    "type": "ui_template",
+    "z": "3da984a3.27885c",
+    "group": "4871467d.3f6578",
+    "name": "Read only rest3",
+    "order": 4,
+    "width": 8,
+    "height": 1,
+    "format": "<div ng-bind-html=\"msg.payload\" style=\"padding-left: 11px; color: grey\"></div>",
+    "storeOutMessages": true,
+    "fwdInMessages": true,
+    "templateScope": "local",
+    "x": 620,
+    "y": 1280,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "646252be.fe410c",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "rest1 read only",
+    "links": [
+      "2de4df6e.2c85c",
+      "c0301573.73fb98"
+    ],
+    "x": 175,
+    "y": 1320,
+    "wires": [
+      [
+        "96be7795.112f68"
+      ]
+    ]
+  },
+  {
+    "id": "96be7795.112f68",
+    "type": "function",
+    "z": "3da984a3.27885c",
+    "name": "rest4 length and temp",
+    "func": "msg.payload = `Rest 4 ${flow.get('rest4_length', 'storeInFile')}m @ ${flow.get('rest4_temp', 'storeInFile')}°C`;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 320,
+    "y": 1320,
+    "wires": [
+      [
+        "31422d88.0ba192"
+      ]
+    ]
+  },
+  {
+    "id": "31422d88.0ba192",
+    "type": "ui_template",
+    "z": "3da984a3.27885c",
+    "group": "4871467d.3f6578",
+    "name": "Read only rest4",
+    "order": 5,
+    "width": 8,
+    "height": 1,
+    "format": "<div ng-bind-html=\"msg.payload\" style=\"padding-left: 11px; color: grey\"></div>",
+    "storeOutMessages": true,
+    "fwdInMessages": true,
+    "templateScope": "local",
+    "x": 620,
+    "y": 1320,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "fd55988c.73b978",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 230,
+    "y": 1420,
+    "wires": [
+      [
+        "2eba2b76.0d02c4"
+      ]
+    ]
+  },
+  {
+    "id": "2eba2b76.0d02c4",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "step",
+        "pt": "flow",
+        "to": "0",
+        "tot": "num"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 410,
+    "y": 1420,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "3203cc19.dadb14",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "0",
+    "payloadType": "num",
+    "x": 210,
+    "y": 1460,
+    "wires": [
+      [
+        "994e2ed0.27e2a",
+        "d7dc1f63.6c3da"
+      ]
+    ]
+  },
+  {
+    "id": "994e2ed0.27e2a",
+    "type": "function",
+    "z": "3da984a3.27885c",
+    "name": "Plain text process stage",
+    "func": "if(flow.get('step') === 0){msg.payload=\"Not running\"}\nif(flow.get('step') == 1){msg.payload=\"Heating to rest 1\"}\nif(flow.get('step') == 2){msg.payload=\"Rest 1\"}\nif(flow.get('step') == 3){msg.payload=\"Heating to rest 2\"}\nif(flow.get('step') == 4){msg.payload=\"Rest 2\"}\nif(flow.get('step') == 5){msg.payload=\"Heating to rest 3\"}\nif(flow.get('step') == 6){msg.payload=\"Rest 3\"}\nif(flow.get('step') == 7){msg.payload=\"Heating to rest 4\"}\nif(flow.get('step') == 8){msg.payload=\"Rest 4\"}\nif(flow.get('step') == 10){msg.payload=\"Mash schedule completed!\"}\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 450,
+    "y": 1460,
+    "wires": [
+      [
+        "696803e9.4e8c1c"
+      ]
+    ]
+  },
+  {
+    "id": "d7dc1f63.6c3da",
+    "type": "function",
+    "z": "3da984a3.27885c",
+    "name": "indeterminate or determinate",
+    "func": "if(flow.get('step') in [1, 3, 5, 7])\n{\n    msg.wait = true;\n}\nelse\n{\n    msg.wait = false;\n}\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 460,
+    "y": 1500,
+    "wires": [
+      [
+        "26b5a1b1.a921ee"
+      ]
+    ]
+  },
+  {
+    "id": "696803e9.4e8c1c",
+    "type": "ui_text",
+    "z": "3da984a3.27885c",
+    "group": "4871467d.3f6578",
+    "order": 7,
+    "width": 0,
+    "height": 0,
+    "name": "Process stage",
+    "label": "",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "x": 720,
+    "y": 1460,
+    "wires": []
+  },
+  {
+    "id": "26b5a1b1.a921ee",
+    "type": "ui_template",
+    "z": "3da984a3.27885c",
+    "group": "4871467d.3f6578",
+    "name": "Progress bar",
+    "order": 6,
+    "width": 8,
+    "height": 1,
+    "format": "<div>\n<md-progress-linear md-mode=\"{{msg.wait ? 'indeterminate' : 'determinate'}}\" value={{msg.payload}}></md-progress-linear>\n</div>",
+    "storeOutMessages": true,
+    "fwdInMessages": true,
+    "templateScope": "local",
+    "x": 710,
+    "y": 1500,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "1c33b0b8.0bbddf",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "Scheduler update",
+    "links": [
+      "ea96b7cd.e89278"
+    ],
+    "x": 175,
+    "y": 960,
+    "wires": [
+      [
+        "ccee596f.7eddb8"
+      ]
+    ]
+  },
+  {
+    "id": "ccee596f.7eddb8",
+    "type": "delay",
+    "z": "3da984a3.27885c",
+    "name": "delay",
+    "pauseType": "delay",
+    "timeout": "0.2",
+    "timeoutUnits": "seconds",
+    "rate": "1",
+    "nbRateUnits": "1",
+    "rateUnits": "second",
+    "randomFirst": "1",
+    "randomLast": "5",
+    "randomUnits": "seconds",
+    "drop": false,
+    "x": 270,
+    "y": 960,
+    "wires": [
+      [
+        "ad4ad92c.8fc8a8"
+      ]
+    ]
+  },
+  {
+    "id": "ad4ad92c.8fc8a8",
+    "type": "switch",
+    "z": "3da984a3.27885c",
+    "name": "Scheduler state",
+    "property": "scheduler",
+    "propertyType": "global",
+    "rules": [
+      {
+        "t": "true"
+      },
+      {
+        "t": "false"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 360,
+    "y": 1000,
+    "wires": [
+      [
+        "d961857c.e374a8"
+      ],
+      [
+        "71edbedb.3592f"
+      ]
+    ]
+  },
+  {
+    "id": "9588655b.9fb198",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "initialization",
+    "links": [
+      "749aec45.ab7f34"
+    ],
+    "x": 215,
+    "y": 1000,
+    "wires": [
+      [
+        "ad4ad92c.8fc8a8"
+      ]
+    ]
+  },
+  {
+    "id": "d961857c.e374a8",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "on colour",
+    "rules": [
+      {
+        "t": "set",
+        "p": "colour",
+        "pt": "msg",
+        "to": "#66cc00",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 540,
+    "y": 980,
+    "wires": [
+      [
+        "f77d5762.4fa548"
+      ]
+    ]
+  },
+  {
+    "id": "71edbedb.3592f",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "off colour",
+    "rules": [
+      {
+        "t": "set",
+        "p": "colour",
+        "pt": "msg",
+        "to": "grey",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 540,
+    "y": 1020,
+    "wires": [
+      [
+        "f77d5762.4fa548"
+      ]
+    ]
+  },
+  {
+    "id": "f77d5762.4fa548",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "Run button colour",
+    "links": [
+      "799388ce.e200a8"
+    ],
+    "x": 655,
+    "y": 1000,
+    "wires": []
+  },
+  {
+    "id": "1f0ee97a.f6f497",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 210,
+    "y": 1600,
+    "wires": [
+      [
+        "29c44fe.3a7ffb"
+      ]
+    ]
+  },
+  {
+    "id": "29c44fe.3a7ffb",
+    "type": "moment",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "topic": "",
+    "input": "payload",
+    "inputType": "msg",
+    "inTz": "Australia/Brisbane",
+    "adjAmount": 0,
+    "adjType": "days",
+    "adjDir": "add",
+    "format": "LTS",
+    "locale": "en_AU",
+    "output": "payload",
+    "outputType": "msg",
+    "outTz": "Australia/Brisbane",
+    "x": 420,
+    "y": 1600,
+    "wires": [
+      [
+        "6d0065d0.e8875c"
+      ]
+    ]
+  },
+  {
+    "id": "6d0065d0.e8875c",
+    "type": "ui_text",
+    "z": "3da984a3.27885c",
+    "group": "4871467d.3f6578",
+    "order": 7,
+    "width": 0,
+    "height": 0,
+    "name": "",
+    "label": "Current time",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "x": 660,
+    "y": 1600,
+    "wires": []
+  },
+  {
+    "id": "6484d1cf.267",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "50",
+    "payloadType": "num",
+    "x": 210,
+    "y": 1640,
+    "wires": [
+      [
+        "cc50c7f0.e40ed8"
+      ]
+    ]
+  },
+  {
+    "id": "cc50c7f0.e40ed8",
+    "type": "ui_text",
+    "z": "3da984a3.27885c",
+    "group": "4871467d.3f6578",
+    "order": 7,
+    "width": 0,
+    "height": 0,
+    "name": "",
+    "label": "Current target temperature",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "x": 440,
+    "y": 1640,
+    "wires": []
+  }
+]

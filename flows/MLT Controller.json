@@ -369,7 +369,6 @@
     "id": "bac69bc7.32fe18",
     "type": "link out",
     "z": "7f292261.86badc",
-    "d": true,
     "name": "MLT PID display",
     "links": [
       "1c912274.2c21ae",

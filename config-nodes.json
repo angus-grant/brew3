@@ -301,5 +301,80 @@
     "name": "",
     "usetls": false,
     "tls": ""
+  },
+  {
+    "id": "a505f112.ea455",
+    "type": "ui_tab",
+    "z": "",
+    "name": "Mash Schedule",
+    "icon": "dashboard",
+    "disabled": false,
+    "hidden": false
+  },
+  {
+    "id": "e010af88.2414c",
+    "type": "ui_group",
+    "z": "",
+    "name": "Mash Schedule",
+    "tab": "a505f112.ea455",
+    "disp": true,
+    "width": 8,
+    "collapse": false
+  },
+  {
+    "id": "4871467d.3f6578",
+    "type": "ui_group",
+    "z": "",
+    "name": "Mash Schedule 2",
+    "tab": "a505f112.ea455",
+    "disp": true,
+    "width": "8",
+    "collapse": false
+  },
+  {
+    "id": "6c2dc2b5.3e20ac",
+    "type": "ui_group",
+    "z": "",
+    "name": "Bottom",
+    "tab": "a505f112.ea455",
+    "disp": true,
+    "width": 8,
+    "collapse": false
+  },
+  {
+    "id": "4ab794a8.956e2c",
+    "type": "ui_spacer",
+    "name": "spacer",
+    "group": "e010af88.2414c",
+    "order": 4,
+    "width": 8,
+    "height": 1
+  },
+  {
+    "id": "c197493c.080228",
+    "type": "ui_spacer",
+    "name": "spacer",
+    "group": "e010af88.2414c",
+    "order": 6,
+    "width": 2,
+    "height": 1
+  },
+  {
+    "id": "a97ca045.0ef45",
+    "type": "ui_spacer",
+    "name": "spacer",
+    "group": "e010af88.2414c",
+    "order": 7,
+    "width": 2,
+    "height": 1
+  },
+  {
+    "id": "860f75de.434278",
+    "type": "ui_spacer",
+    "name": "spacer",
+    "group": "6c2dc2b5.3e20ac",
+    "order": 2,
+    "width": 2,
+    "height": 1
   }
 ]

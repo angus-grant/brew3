@@ -526,8 +526,8 @@
     "type": "switch",
     "z": "3c9f1c99.157ee4",
     "name": "Temp logging on?",
-    "property": "temp_log",
-    "propertyType": "msg",
+    "property": "#:(storeInFile)::temp_log",
+    "propertyType": "global",
     "rules": [
       {
         "t": "true"
@@ -585,7 +585,7 @@
     "type": "function",
     "z": "3c9f1c99.157ee4",
     "name": "Construct log entry",
-    "func": "if(msg.payload.length === 0 || Math.abs(msg.payload[0].last - global.get(msg.topic)) >= global.get(\"temp_log_delta\")){\nmsg.payload = [\n    {\n        measurement: msg.topic,\n        fields: {\n            temperature: global.get(msg.topic),\n            brew: global.get(\"brew-label\")\n        },\n        timestamp: new Date()\n    }\n];\nreturn msg}else {\n    return null\n}",
+    "func": "if(msg.payload.length === 0 || Math.abs(msg.payload[0].last - global.get(msg.topic)) >= global.get(\"temp_log_delta\")){\nmsg.payload = [\n    {\n        measurement: msg.topic,\n        fields: {\n            temperature: global.get(msg.topic),\n            brew: global.get(\"brew-label\", \"storeInFile\")\n        },\n        timestamp: new Date()\n    }\n];\nreturn msg}else {\n    return null\n}",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
@@ -737,8 +737,7 @@
     "y": 440,
     "wires": [
       [
-        "fed600c4.28a44",
-        "cdf71459.6fd8a8"
+        "fed600c4.28a44"
       ]
     ]
   },
@@ -846,8 +845,7 @@
     "y": 500,
     "wires": [
       [
-        "fed600c4.28a44",
-        "cdf71459.6fd8a8"
+        "fed600c4.28a44"
       ]
     ]
   },
@@ -864,28 +862,11 @@
     "wires": []
   },
   {
-    "id": "cdf71459.6fd8a8",
-    "type": "debug",
-    "z": "3c9f1c99.157ee4",
-    "name": "",
-    "active": true,
-    "tosidebar": true,
-    "console": true,
-    "tostatus": false,
-    "complete": "payload",
-    "targetType": "msg",
-    "statusVal": "",
-    "statusType": "auto",
-    "x": 1310,
-    "y": 420,
-    "wires": []
-  },
-  {
     "id": "cb97011d.fdeeb",
     "type": "function",
     "z": "3c9f1c99.157ee4",
     "name": "Global logging",
-    "func": "\nnode.log(\"pid_log: \" + global.get(\"pid_log\", \"storeInFile\"));\nnode.log(\"bk_on: \" + global.get(\"bk_on\"));\n\nreturn msg;",
+    "func": "\nnode.log(\"temp_log: \" + global.get(\"temp_log\", \"storeInFile\"));\nnode.log(\"pid_log: \" + global.get(\"pid_log\", \"storeInFile\"));\nnode.log(\"bk_on: \" + global.get(\"bk_on\"));\n\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
