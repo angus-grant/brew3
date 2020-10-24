@@ -1138,8 +1138,7 @@
     "y": 206,
     "wires": [
       [
-        "40379b24.2791b4",
-        "42933a13.250eb4"
+        "40379b24.2791b4"
       ],
       [
         "cd9f2f9e.a980a"
@@ -1164,23 +1163,6 @@
         "2e0c7253.c2e51e"
       ]
     ]
-  },
-  {
-    "id": "42933a13.250eb4",
-    "type": "debug",
-    "z": "921f2684.926868",
-    "name": "",
-    "active": true,
-    "tosidebar": true,
-    "console": false,
-    "tostatus": false,
-    "complete": "true",
-    "targetType": "full",
-    "statusVal": "",
-    "statusType": "auto",
-    "x": 600,
-    "y": 146,
-    "wires": []
   },
   {
     "id": "cd9f2f9e.a980a",
@@ -1226,10 +1208,11 @@
     "id": "2e0c7253.c2e51e",
     "type": "link out",
     "z": "921f2684.926868",
+    "d": true,
     "name": "HLT PID display",
     "links": [
-      "96d96784.4bfff8",
-      "297a459b.f41f0a"
+      "297a459b.f41f0a",
+      "96d96784.4bfff8"
     ],
     "x": 855,
     "y": 146,
@@ -1331,8 +1314,8 @@
     "topic": "",
     "payload": "",
     "payloadType": "str",
-    "x": 640,
-    "y": 80,
+    "x": 800,
+    "y": 100,
     "wires": [
       [
         "8d0c9574.f89668"
@@ -1349,8 +1332,8 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 860,
-    "y": 80,
+    "x": 1020,
+    "y": 100,
     "wires": [
       [],
       []

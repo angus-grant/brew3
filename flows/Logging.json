@@ -837,7 +837,7 @@
     "type": "function",
     "z": "3c9f1c99.157ee4",
     "name": "Format output for influxdb",
-    "func": "msg.payload = [\n    {\n        measurement: \"output-BK\",\n        fields: {\n            duty: msg.payload,\n            brew: global.get(\"brew-label\", 'storeInFile')\n        },\n        timestamp: new Date()\n    }\n];\nreturn msg;",
+    "func": "msg.payload = [\n    {\n        measurement: msg.topic,\n        fields: {\n            duty: msg.payload,\n            brew: global.get(\"brew-label\", 'storeInFile')\n        },\n        timestamp: new Date()\n    }\n];\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
@@ -900,6 +900,7 @@
     "id": "5cf941cc.449bb",
     "type": "inject",
     "z": "3c9f1c99.157ee4",
+    "d": true,
     "name": "",
     "props": [
       {

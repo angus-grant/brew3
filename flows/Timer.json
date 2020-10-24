@@ -75,7 +75,7 @@
     "width": 0,
     "height": 0,
     "passthru": true,
-    "outs": "all",
+    "outs": "end",
     "topic": "",
     "min": 0,
     "max": 10,
@@ -366,9 +366,9 @@
     "min": 0,
     "max": "1",
     "colors": [
-      "#00b500",
+      "#ff2600",
       "#e6e600",
-      "#ca3838"
+      "#00f900"
     ],
     "seg1": "",
     "seg2": "",

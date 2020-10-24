@@ -27,8 +27,8 @@
     "topic": "",
     "payload": "#:(storeInFile)::mlt_target",
     "payloadType": "flow",
-    "x": 150,
-    "y": 580,
+    "x": 170,
+    "y": 460,
     "wires": [
       [
         "c093d20d.9045a",
@@ -56,8 +56,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 450,
-    "y": 560,
+    "x": 470,
+    "y": 440,
     "wires": [
       []
     ]
@@ -84,8 +84,8 @@
     ],
     "seg1": "50",
     "seg2": "78",
-    "x": 480,
-    "y": 600,
+    "x": 500,
+    "y": 480,
     "wires": []
   },
   {
@@ -105,8 +105,8 @@
     "min": "20",
     "max": "100",
     "step": 1,
-    "x": 190,
-    "y": 640,
+    "x": 210,
+    "y": 520,
     "wires": [
       [
         "1d1d7650.6ae5fa",
@@ -127,8 +127,8 @@
     "label": "Target",
     "format": "{{payload | number:1}}°C",
     "layout": "row-spread",
-    "x": 490,
-    "y": 640,
+    "x": 510,
+    "y": 520,
     "wires": []
   },
   {
@@ -152,8 +152,8 @@
     "topic": "",
     "payload": "#:(storeInFile)::mlt_manual_duty",
     "payloadType": "flow",
-    "x": 160,
-    "y": 440,
+    "x": 180,
+    "y": 320,
     "wires": [
       [
         "b9615832.dd9a68",
@@ -178,8 +178,8 @@
     "min": "20",
     "max": "100",
     "step": 1,
-    "x": 190,
-    "y": 500,
+    "x": 210,
+    "y": 380,
     "wires": [
       [
         "3d3c44d8.0aa2ec"
@@ -205,8 +205,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 470,
-    "y": 480,
+    "x": 490,
+    "y": 360,
     "wires": [
       []
     ]
@@ -219,8 +219,8 @@
     "links": [
       "99f091b4.fb026"
     ],
-    "x": 215,
-    "y": 300,
+    "x": 175,
+    "y": 200,
     "wires": [
       [
         "ed13afe1.404ef",
@@ -248,8 +248,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 360,
-    "y": 280,
+    "x": 320,
+    "y": 180,
     "wires": [
       []
     ]
@@ -269,8 +269,8 @@
     "checkall": "true",
     "repair": false,
     "outputs": 1,
-    "x": 320,
-    "y": 340,
+    "x": 280,
+    "y": 240,
     "wires": [
       [
         "da3ec3fd.a0d49"
@@ -295,8 +295,8 @@
     "checkall": "false",
     "repair": false,
     "outputs": 2,
-    "x": 500,
-    "y": 340,
+    "x": 460,
+    "y": 240,
     "wires": [
       [
         "85e9c0a7.6bd9d"
@@ -311,13 +311,13 @@
     "type": "function",
     "z": "7f292261.86badc",
     "name": "MLT PID Control",
-    "func": "// Note that the algorithm provided below assumes a 1 second iteration time\n// Justin Angevaare\n// May 2018\n\n// Set temperature\nmsg.topic = \"PID-MLT-main-loop\";\nmsg.target =  flow.get('mlt_target', 'storeInFile');\nmsg.temperature = msg.payload;\n// Well that node doesn't work... do manually\nmsg.interval = 2000\n\n// Calculate error\nmsg.error = flow.get('mlt_target', 'storeInFile') - msg.temperature;\n\n// Set output max\nmsg.max_output = 100\n\n// Calculate proportional action\nvar pTerm = msg.error * flow.get('p', 'storeInFile');\n\n// Calculate intergral action\nvar iTerm = 0;\nif (pTerm < msg.max_output) {\n    // Calculate integrator max\n    msg.integrator_max = msg.max_output/flow.get('i', 'storeInFile');\n    \n    // Update integrator\n    // For purposes of integrator, bound error by [-1, 1]\n    msg.integrator = flow.get('integrator');\n    msg.integrator += (msg.interval/1000) * Math.max(Math.min(msg.error, 1), -1);\n    \n    // Bound total integrator by absolute maximum\n    msg.integrator = Math.max(Math.min(msg.integrator, msg.integrator_max), -msg.integrator_max);\n    \n    // Output updated integrator to flow context\n    flow.set('integrator', msg.integrator);\n    \n    iTerm = msg.integrator * flow.get('i', 'storeInFile');\n}\n\n// Calculate derivative action\nmsg.derivative = (msg.error - flow.get('last_error'))/(msg.interval/1000);\nvar dTerm = msg.derivative * flow.get('d', 'storeInFile');\n\nmsg.output = pTerm + iTerm + dTerm;\nnode.warn(pTerm + ' ' + iTerm + ' ' + dTerm);\n// Bound output by [0, max_output]\nmsg.output = Math.max(Math.min(msg.output, msg.max_output), 0);\n\n// Output updated last_error to flow context\nmsg.last_error = msg.error;\nflow.set('last_error', msg.last_error);\n\n// Set payload to element output\nmsg.payload = msg.output;\nreturn msg;",
+    "func": "// Note that the algorithm provided below assumes a 1 second iteration time\n// Justin Angevaare\n// May 2018\n\n// Set temperature\nmsg.topic = \"PID-MLT-main-loop\";\nmsg.target =  flow.get('mlt_target', 'storeInFile');\nmsg.temperature = msg.payload;\n// Well that node doesn't work... do manually\nmsg.interval = 2000\n\n// Calculate error\nmsg.error = flow.get('mlt_target', 'storeInFile') - msg.temperature;\n\n// Set output max\nmsg.integrator = 0;\nmsg.max_output = 100\n\n// Calculate proportional action\nvar pTerm = msg.error * flow.get('p', 'storeInFile');\n\n// Calculate intergral action\nvar iTerm = 0;\nif (pTerm < msg.max_output) {\n    // Calculate integrator max\n    msg.integrator_max = msg.max_output/flow.get('i', 'storeInFile');\n    \n    // Update integrator\n    // For purposes of integrator, bound error by [-1, 1]\n    msg.integrator = flow.get('integrator');\n    msg.integrator += (msg.interval/1000) * Math.max(Math.min(msg.error, 1), -1);\n    \n    // Bound total integrator by absolute maximum\n    msg.integrator = Math.max(Math.min(msg.integrator, msg.integrator_max), -msg.integrator_max);\n    \n    // Output updated integrator to flow context\n    flow.set('integrator', msg.integrator);\n    \n    iTerm = msg.integrator * flow.get('i', 'storeInFile');\n}\n\n// Calculate derivative action\nmsg.derivative = (msg.error - flow.get('last_error'))/(msg.interval/1000);\nvar dTerm = msg.derivative * flow.get('d', 'storeInFile');\n\nmsg.output = pTerm + iTerm + dTerm;\nnode.log(pTerm + ' ' + iTerm + ' ' + dTerm);\n// Bound output by [0, max_output]\nmsg.output = Math.max(Math.min(msg.output, msg.max_output), 0);\n\n// Output updated last_error to flow context\nmsg.last_error = msg.error;\nflow.set('last_error', msg.last_error);\n\n// Set payload to element output\nmsg.payload = msg.output;\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 820,
-    "y": 320,
+    "x": 780,
+    "y": 220,
     "wires": [
       [
         "db6261df.6f1e",
@@ -344,8 +344,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 780,
-    "y": 360,
+    "x": 740,
+    "y": 260,
     "wires": [
       [
         "db6261df.6f1e"
@@ -361,21 +361,22 @@
       "1a366a91.8afb65",
       "8433ff20.b87b7"
     ],
-    "x": 975,
-    "y": 340,
+    "x": 935,
+    "y": 240,
     "wires": []
   },
   {
     "id": "bac69bc7.32fe18",
     "type": "link out",
     "z": "7f292261.86badc",
+    "d": true,
     "name": "MLT PID display",
     "links": [
       "1c912274.2c21ae",
       "297a459b.f41f0a"
     ],
-    "x": 975,
-    "y": 280,
+    "x": 935,
+    "y": 180,
     "wires": []
   },
   {
@@ -399,8 +400,8 @@
     "topic": "",
     "payload": "43",
     "payloadType": "num",
-    "x": 100,
-    "y": 720,
+    "x": 120,
+    "y": 600,
     "wires": [
       [
         "8c692fd6.6dcdc"
@@ -425,8 +426,8 @@
     "min": 0,
     "max": "99.8",
     "step": "0.2",
-    "x": 250,
-    "y": 720,
+    "x": 270,
+    "y": 600,
     "wires": [
       [
         "747cb954.fb3dc8"
@@ -452,8 +453,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 400,
-    "y": 720,
+    "x": 420,
+    "y": 600,
     "wires": [
       []
     ]
@@ -479,8 +480,8 @@
     "topic": "",
     "payload": "0.15",
     "payloadType": "num",
-    "x": 100,
-    "y": 760,
+    "x": 120,
+    "y": 640,
     "wires": [
       [
         "df2d7fa5.b7883"
@@ -505,8 +506,8 @@
     "min": 0,
     "max": "99.8",
     "step": "0.2",
-    "x": 250,
-    "y": 760,
+    "x": 270,
+    "y": 640,
     "wires": [
       [
         "fd6740f1.e7f9b"
@@ -532,8 +533,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 400,
-    "y": 760,
+    "x": 420,
+    "y": 640,
     "wires": [
       []
     ]
@@ -559,8 +560,8 @@
     "topic": "",
     "payload": "25",
     "payloadType": "num",
-    "x": 100,
-    "y": 800,
+    "x": 120,
+    "y": 680,
     "wires": [
       [
         "3d4988be.ec42e8"
@@ -585,8 +586,8 @@
     "min": 0,
     "max": "100",
     "step": "0.2",
-    "x": 250,
-    "y": 800,
+    "x": 270,
+    "y": 680,
     "wires": [
       [
         "99ffbc77.7eb54"
@@ -612,8 +613,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 400,
-    "y": 800,
+    "x": 420,
+    "y": 680,
     "wires": [
       []
     ]
@@ -626,8 +627,8 @@
     "links": [
       "4a5bf6be.6e1108"
     ],
-    "x": 172,
-    "y": 1100,
+    "x": 175,
+    "y": 920,
     "wires": [
       [
         "73e65d27.639804"
@@ -660,8 +661,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 317,
-    "y": 1100,
+    "x": 320,
+    "y": 920,
     "wires": [
       [
         "2d87ea85.a8b8e6"
@@ -694,8 +695,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 717,
-    "y": 1060,
+    "x": 720,
+    "y": 880,
     "wires": [
       [
         "64b3e3aa.1cd0bc"
@@ -720,8 +721,8 @@
     "checkall": "true",
     "repair": false,
     "outputs": 2,
-    "x": 727,
-    "y": 1160,
+    "x": 730,
+    "y": 980,
     "wires": [
       [
         "b81fb03e.ba29e"
@@ -750,8 +751,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 1057,
-    "y": 1155,
+    "x": 1060,
+    "y": 975,
     "wires": [
       []
     ]
@@ -771,8 +772,8 @@
     "randomLast": "5",
     "randomUnits": "seconds",
     "drop": false,
-    "x": 877,
-    "y": 1200,
+    "x": 880,
+    "y": 1020,
     "wires": [
       [
         "f7d36baf.eee6e8"
@@ -798,8 +799,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 1057,
-    "y": 1240,
+    "x": 1060,
+    "y": 1060,
     "wires": [
       []
     ]
@@ -812,8 +813,8 @@
     "links": [
       "907a2e94.cd0b"
     ],
-    "x": 492,
-    "y": 1100,
+    "x": 495,
+    "y": 920,
     "wires": []
   },
   {
@@ -826,8 +827,8 @@
       "9ab1b45e.35ad18",
       "b5b6d747.d71dd8"
     ],
-    "x": 592,
-    "y": 1060,
+    "x": 595,
+    "y": 880,
     "wires": [
       [
         "c39524d4.f23948"
@@ -842,8 +843,8 @@
     "links": [
       "6498be43.85193"
     ],
-    "x": 172,
-    "y": 1021,
+    "x": 175,
+    "y": 841,
     "wires": [
       [
         "b5368e48.9217c"
@@ -876,8 +877,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 317,
-    "y": 1021,
+    "x": 320,
+    "y": 841,
     "wires": [
       [
         "9ab1b45e.35ad18"
@@ -892,8 +893,8 @@
     "links": [
       "907a2e94.cd0b"
     ],
-    "x": 492,
-    "y": 1021,
+    "x": 495,
+    "y": 841,
     "wires": []
   },
   {
@@ -904,8 +905,8 @@
     "links": [
       "fb7b2f6.88b6fd"
     ],
-    "x": 172,
-    "y": 1060,
+    "x": 175,
+    "y": 880,
     "wires": [
       [
         "b0ad9919.d18af8"
@@ -938,8 +939,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 337,
-    "y": 1060,
+    "x": 340,
+    "y": 880,
     "wires": [
       [
         "b5b6d747.d71dd8"
@@ -954,8 +955,8 @@
     "links": [
       "907a2e94.cd0b"
     ],
-    "x": 492,
-    "y": 1060,
+    "x": 495,
+    "y": 880,
     "wires": []
   },
   {
@@ -966,8 +967,8 @@
     "links": [
       "fb7b2f6.88b6fd"
     ],
-    "x": 172,
-    "y": 1140,
+    "x": 175,
+    "y": 960,
     "wires": [
       [
         "84e339de.b7a688"
@@ -1035,8 +1036,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 297,
-    "y": 1180,
+    "x": 300,
+    "y": 1000,
     "wires": [
       [
         "229a3cf1.42d594"
@@ -1051,8 +1052,8 @@
     "links": [
       "297a459b.f41f0a"
     ],
-    "x": 462,
-    "y": 1180,
+    "x": 465,
+    "y": 1000,
     "wires": []
   },
   {
@@ -1064,8 +1065,8 @@
       "6498be43.85193",
       "d55bf56a.e4b388"
     ],
-    "x": 172,
-    "y": 1180,
+    "x": 175,
+    "y": 1000,
     "wires": [
       [
         "84e339de.b7a688"
@@ -1093,8 +1094,8 @@
     "topic": "",
     "payload": "",
     "payloadType": "date",
-    "x": 120,
-    "y": 860,
+    "x": 140,
+    "y": 740,
     "wires": [
       [
         "d55bf56a.e4b388"
@@ -1111,8 +1112,8 @@
       "ab05e41b.4e5e18",
       "f9e8571.11e75a8"
     ],
-    "x": 215,
-    "y": 860,
+    "x": 235,
+    "y": 740,
     "wires": []
   },
   {
@@ -1123,8 +1124,8 @@
     "links": [
       "d55bf56a.e4b388"
     ],
-    "x": 172,
-    "y": 980,
+    "x": 175,
+    "y": 800,
     "wires": [
       [
         "f46bfec5.b6d8b"
@@ -1171,8 +1172,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 377,
-    "y": 980,
+    "x": 380,
+    "y": 800,
     "wires": [
       []
     ]
@@ -1186,8 +1187,8 @@
       "6498be43.85193",
       "d55bf56a.e4b388"
     ],
-    "x": 172,
-    "y": 1280,
+    "x": 175,
+    "y": 1100,
     "wires": [
       [
         "40f22576.cd544c"
@@ -1213,8 +1214,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 297,
-    "y": 1280,
+    "x": 300,
+    "y": 1100,
     "wires": [
       [
         "25238ad5.78f756"
@@ -1230,8 +1231,8 @@
       "1a366a91.8afb65",
       "8433ff20.b87b7"
     ],
-    "x": 472,
-    "y": 1280,
+    "x": 475,
+    "y": 1100,
     "wires": []
   },
   {
@@ -1244,8 +1245,8 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 360,
-    "y": 140,
+    "x": 320,
+    "y": 40,
     "wires": [
       [
         "46b7e035.8dca8"
@@ -1291,8 +1292,8 @@
     ],
     "useOldStyle": false,
     "outputs": 1,
-    "x": 560,
-    "y": 140,
+    "x": 520,
+    "y": 40,
     "wires": [
       []
     ]
@@ -1314,8 +1315,8 @@
     "topic": "",
     "payload": "",
     "payloadType": "str",
-    "x": 830,
-    "y": 80,
+    "x": 800,
+    "y": 40,
     "wires": [
       [
         "1f132c16.a721f4"
@@ -1332,8 +1333,8 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 980,
-    "y": 140,
+    "x": 950,
+    "y": 100,
     "wires": [
       [],
       []
