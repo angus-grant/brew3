@@ -138,6 +138,7 @@
     "name": "HLT calibrated temperature",
     "links": [
       "3d56730.b05758e",
+      "59b24a1e.c32eb4",
       "aba40de5.32352",
       "ae9e02d6.4b8b1"
     ],
@@ -188,11 +189,9 @@
     "z": "34bce47d.6c8dac",
     "name": "MLT calibrated temperature",
     "links": [
-      "f1d998e3.0c56d8",
+      "3d56730.b05758e",
       "784c4c53.ea2cb4",
-      "af73758e.118e38",
-      "3857893c.46b1c6",
-      "3d56730.b05758e"
+      "f1d998e3.0c56d8"
     ],
     "x": 775,
     "y": 220,
@@ -299,7 +298,8 @@
     "name": "BK calibrated temperature",
     "links": [
       "99efbbed.1a9d98",
-      "3d56730.b05758e"
+      "3d56730.b05758e",
+      "3857893c.46b1c6"
     ],
     "x": 775,
     "y": 360,

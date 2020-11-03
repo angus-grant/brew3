@@ -205,9 +205,7 @@
     "type": "link in",
     "z": "10a92214.f225ae",
     "name": "HLT calibrated temperature input",
-    "links": [
-      "536be9dd.80ff78"
-    ],
+    "links": [],
     "x": 135,
     "y": 200,
     "wires": [

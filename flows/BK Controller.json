@@ -217,7 +217,7 @@
     "z": "78e2f0b5.5a802",
     "name": "MLT PID temperature input",
     "links": [
-      "99f091b4.fb026"
+      "c5bb895f.256208"
     ],
     "x": 235,
     "y": 140,
@@ -1356,5 +1356,17 @@
     "x": 770,
     "y": 860,
     "wires": []
+  },
+  {
+    "id": "dc4b7dd5.2fdcc",
+    "type": "ui_ui_control",
+    "z": "78e2f0b5.5a802",
+    "name": "",
+    "events": "all",
+    "x": 810,
+    "y": 480,
+    "wires": [
+      []
+    ]
   }
 ]

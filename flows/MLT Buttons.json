@@ -24,7 +24,7 @@
     "payload": "true",
     "payloadType": "bool",
     "topic": "",
-    "x": 190,
+    "x": 330,
     "y": 80,
     "wires": [
       [
@@ -50,7 +50,7 @@
     "payload": "true",
     "payloadType": "bool",
     "topic": "",
-    "x": 200,
+    "x": 340,
     "y": 120,
     "wires": [
       [
@@ -76,11 +76,12 @@
     "payload": "true",
     "payloadType": "bool",
     "topic": "",
-    "x": 190,
+    "x": 330,
     "y": 160,
     "wires": [
       [
-        "6498be43.85193"
+        "6498be43.85193",
+        "a0257f2f.3bf61"
       ]
     ]
   },
@@ -91,12 +92,11 @@
     "name": "MLT PID Button State",
     "links": [
       "b38eee23.f828",
-      "c108c5a4.d12848",
       "c8bfabee.1f5718",
       "da29ca33.74a648",
       "f865cf26.9d866"
     ],
-    "x": 335,
+    "x": 475,
     "y": 80,
     "wires": []
   },
@@ -112,7 +112,7 @@
       "de4b9fb6.c35af",
       "f865cf26.9d866"
     ],
-    "x": 335,
+    "x": 475,
     "y": 120,
     "wires": []
   },
@@ -122,14 +122,14 @@
     "z": "20e5f99d.45d096",
     "name": "MLT Off Button State",
     "links": [
-      "ab05e41b.4e5e18",
-      "b38eee23.f828",
-      "c8bfabee.1f5718",
-      "f865cf26.9d866",
       "16f4f7a.243c108",
-      "f9e8571.11e75a8"
+      "ab05e41b.4e5e18",
+      "f9e8571.11e75a8",
+      "f865cf26.9d866",
+      "c8bfabee.1f5718",
+      "b38eee23.f828"
     ],
-    "x": 335,
+    "x": 475,
     "y": 160,
     "wires": []
   },
@@ -140,10 +140,10 @@
     "name": "MLT PID Button State",
     "links": [
       "4a5bf6be.6e1108",
-      "6498be43.85193",
-      "fb7b2f6.88b6fd"
+      "fb7b2f6.88b6fd",
+      "6498be43.85193"
     ],
-    "x": 95,
+    "x": 235,
     "y": 340,
     "wires": [
       [
@@ -166,7 +166,7 @@
     "randomLast": "5",
     "randomUnits": "seconds",
     "drop": false,
-    "x": 200,
+    "x": 340,
     "y": 340,
     "wires": [
       [
@@ -192,7 +192,7 @@
     "checkall": "true",
     "repair": false,
     "outputs": 2,
-    "x": 250,
+    "x": 390,
     "y": 380,
     "wires": [
       [
@@ -221,7 +221,7 @@
     "checkall": "true",
     "repair": false,
     "outputs": 2,
-    "x": 410,
+    "x": 550,
     "y": 360,
     "wires": [
       [
@@ -251,7 +251,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 590,
+    "x": 730,
     "y": 340,
     "wires": [
       [
@@ -278,7 +278,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 590,
+    "x": 730,
     "y": 380,
     "wires": [
       [
@@ -294,7 +294,7 @@
     "links": [
       "91f0690c.ce7f78"
     ],
-    "x": 735,
+    "x": 875,
     "y": 360,
     "wires": []
   },
@@ -306,7 +306,7 @@
     "links": [
       "afbbd682.a2e8c8"
     ],
-    "x": 95,
+    "x": 235,
     "y": 80,
     "wires": [
       [
@@ -321,10 +321,10 @@
     "name": "MLT Manual Button State",
     "links": [
       "4a5bf6be.6e1108",
-      "6498be43.85193",
-      "fb7b2f6.88b6fd"
+      "fb7b2f6.88b6fd",
+      "6498be43.85193"
     ],
-    "x": 95,
+    "x": 235,
     "y": 460,
     "wires": [
       [
@@ -347,7 +347,7 @@
     "randomLast": "5",
     "randomUnits": "seconds",
     "drop": false,
-    "x": 230,
+    "x": 370,
     "y": 460,
     "wires": [
       [
@@ -373,7 +373,7 @@
     "checkall": "true",
     "repair": false,
     "outputs": 2,
-    "x": 250,
+    "x": 390,
     "y": 500,
     "wires": [
       [
@@ -402,7 +402,7 @@
     "checkall": "true",
     "repair": false,
     "outputs": 2,
-    "x": 410,
+    "x": 550,
     "y": 480,
     "wires": [
       [
@@ -432,7 +432,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 600,
+    "x": 740,
     "y": 460,
     "wires": [
       [
@@ -459,7 +459,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 600,
+    "x": 740,
     "y": 500,
     "wires": [
       [
@@ -475,7 +475,7 @@
     "links": [
       "fc11446f.e1f658"
     ],
-    "x": 755,
+    "x": 895,
     "y": 480,
     "wires": []
   },
@@ -486,10 +486,10 @@
     "name": "MLT Off Button State",
     "links": [
       "4a5bf6be.6e1108",
-      "6498be43.85193",
-      "fb7b2f6.88b6fd"
+      "fb7b2f6.88b6fd",
+      "6498be43.85193"
     ],
-    "x": 95,
+    "x": 235,
     "y": 560,
     "wires": [
       [
@@ -512,7 +512,7 @@
     "randomLast": "5",
     "randomUnits": "seconds",
     "drop": false,
-    "x": 210,
+    "x": 350,
     "y": 560,
     "wires": [
       [
@@ -538,7 +538,7 @@
     "checkall": "true",
     "repair": false,
     "outputs": 2,
-    "x": 270,
+    "x": 410,
     "y": 600,
     "wires": [
       [
@@ -568,7 +568,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 440,
+    "x": 580,
     "y": 580,
     "wires": [
       [
@@ -595,7 +595,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 440,
+    "x": 580,
     "y": 620,
     "wires": [
       [
@@ -611,7 +611,7 @@
     "links": [
       "7e5d833e.296d0c"
     ],
-    "x": 575,
+    "x": 715,
     "y": 600,
     "wires": []
   },
@@ -621,7 +621,7 @@
     "z": "20e5f99d.45d096",
     "name": "Dashboard connection",
     "events": "all",
-    "x": 190,
+    "x": 330,
     "y": 240,
     "wires": [
       [
@@ -637,9 +637,10 @@
     "links": [
       "1c9f5264.4c070e",
       "d7617024.f5491",
-      "fa4a67d3.33b0c8"
+      "fa4a67d3.33b0c8",
+      "7f6b35be.9793fc"
     ],
-    "x": 345,
+    "x": 485,
     "y": 240,
     "wires": []
   },
@@ -651,7 +652,7 @@
     "links": [
       "3f4d200a.e3ad2"
     ],
-    "x": 95,
+    "x": 235,
     "y": 380,
     "wires": [
       [
@@ -667,7 +668,7 @@
     "links": [
       "3f4d200a.e3ad2"
     ],
-    "x": 95,
+    "x": 235,
     "y": 500,
     "wires": [
       [
@@ -683,7 +684,7 @@
     "links": [
       "3f4d200a.e3ad2"
     ],
-    "x": 95,
+    "x": 235,
     "y": 600,
     "wires": [
       [
@@ -699,7 +700,7 @@
     "links": [
       "3f92f677.131ffa"
     ],
-    "x": 95,
+    "x": 235,
     "y": 120,
     "wires": [
       [
@@ -715,11 +716,44 @@
     "links": [
       "16cdf3af.bf21ec"
     ],
-    "x": 95,
+    "x": 235,
     "y": 160,
     "wires": [
       [
         "3f2049be.7c8966"
+      ]
+    ]
+  },
+  {
+    "id": "a0257f2f.3bf61",
+    "type": "debug",
+    "z": "20e5f99d.45d096",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": true,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 340,
+    "y": 200,
+    "wires": []
+  },
+  {
+    "id": "395383f7.ad069c",
+    "type": "link in",
+    "z": "20e5f99d.45d096",
+    "name": "Enable PID Button Process",
+    "links": [
+      "a1b43cfd.c7958"
+    ],
+    "x": 415,
+    "y": 40,
+    "wires": [
+      [
+        "4a5bf6be.6e1108"
       ]
     ]
   }

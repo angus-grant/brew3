@@ -1055,9 +1055,7 @@
     "type": "link in",
     "z": "921f2684.926868",
     "name": "MLT PID temperature input",
-    "links": [
-      "536be9dd.80ff78"
-    ],
+    "links": [],
     "x": 95,
     "y": 140,
     "wires": [

@@ -28,7 +28,7 @@
     "payload": "#:(storeInFile)::rest1_length",
     "payloadType": "flow",
     "x": 120,
-    "y": 400,
+    "y": 480,
     "wires": [
       [
         "32da8e96.218f82"
@@ -42,8 +42,8 @@
     "name": "",
     "label": "Rest1",
     "tooltip": "",
-    "group": "e010af88.2414c",
-    "order": 14,
+    "group": "4871467d.3f6578",
+    "order": 2,
     "width": 4,
     "height": 1,
     "wrap": false,
@@ -54,7 +54,7 @@
     "max": "90",
     "step": 1,
     "x": 310,
-    "y": 420,
+    "y": 500,
     "wires": [
       [
         "407a7735.9996d8"
@@ -68,7 +68,7 @@
     "name": "brewfather Rest1 link in",
     "links": [],
     "x": 175,
-    "y": 440,
+    "y": 520,
     "wires": [
       [
         "32da8e96.218f82"
@@ -95,7 +95,7 @@
     "to": "",
     "reg": false,
     "x": 500,
-    "y": 420,
+    "y": 500,
     "wires": [
       [
         "5f513d25.cff454"
@@ -124,7 +124,7 @@
     "payload": "#:(storeInFile)::rest2_length",
     "payloadType": "flow",
     "x": 120,
-    "y": 500,
+    "y": 580,
     "wires": [
       [
         "8e765246.634ae"
@@ -138,8 +138,8 @@
     "name": "",
     "label": "Rest2",
     "tooltip": "",
-    "group": "e010af88.2414c",
-    "order": 16,
+    "group": "4871467d.3f6578",
+    "order": 4,
     "width": 4,
     "height": 1,
     "wrap": false,
@@ -150,7 +150,7 @@
     "max": "90",
     "step": 1,
     "x": 310,
-    "y": 520,
+    "y": 600,
     "wires": [
       [
         "5c1d381a.2d3778"
@@ -164,7 +164,7 @@
     "name": "brewfather Rest2 link in",
     "links": [],
     "x": 175,
-    "y": 540,
+    "y": 620,
     "wires": [
       [
         "8e765246.634ae"
@@ -191,7 +191,7 @@
     "to": "",
     "reg": false,
     "x": 500,
-    "y": 520,
+    "y": 600,
     "wires": [
       [
         "af97cb5a.275ed8"
@@ -220,7 +220,7 @@
     "payload": "#:(storeInFile)::rest3_length",
     "payloadType": "flow",
     "x": 120,
-    "y": 580,
+    "y": 660,
     "wires": [
       [
         "a9ce864.82cb178"
@@ -234,8 +234,8 @@
     "name": "",
     "label": "Rest3",
     "tooltip": "",
-    "group": "e010af88.2414c",
-    "order": 18,
+    "group": "4871467d.3f6578",
+    "order": 6,
     "width": 4,
     "height": 1,
     "wrap": false,
@@ -246,7 +246,7 @@
     "max": "90",
     "step": 1,
     "x": 310,
-    "y": 600,
+    "y": 680,
     "wires": [
       [
         "dbedc433.600658"
@@ -260,7 +260,7 @@
     "name": "brewfather Rest3 link in",
     "links": [],
     "x": 175,
-    "y": 620,
+    "y": 700,
     "wires": [
       [
         "a9ce864.82cb178"
@@ -287,7 +287,7 @@
     "to": "",
     "reg": false,
     "x": 500,
-    "y": 600,
+    "y": 680,
     "wires": [
       [
         "826d046a.3a0268"
@@ -316,7 +316,7 @@
     "payload": "#:(storeInFile)::rest4_length",
     "payloadType": "flow",
     "x": 120,
-    "y": 660,
+    "y": 740,
     "wires": [
       [
         "bd535f7b.bdadd"
@@ -330,8 +330,8 @@
     "name": "",
     "label": "Rest4",
     "tooltip": "",
-    "group": "e010af88.2414c",
-    "order": 20,
+    "group": "4871467d.3f6578",
+    "order": 8,
     "width": 4,
     "height": 1,
     "wrap": false,
@@ -342,7 +342,7 @@
     "max": "90",
     "step": 1,
     "x": 310,
-    "y": 680,
+    "y": 760,
     "wires": [
       [
         "a7c29838.90f638"
@@ -356,7 +356,7 @@
     "name": "brewfather Rest4 link in",
     "links": [],
     "x": 175,
-    "y": 700,
+    "y": 780,
     "wires": [
       [
         "bd535f7b.bdadd"
@@ -383,7 +383,7 @@
     "to": "",
     "reg": false,
     "x": 500,
-    "y": 680,
+    "y": 760,
     "wires": [
       [
         "2de4df6e.2c85c"
@@ -412,7 +412,7 @@
     "payload": "#:(storeInFile)::rest1_temp",
     "payloadType": "flow",
     "x": 720,
-    "y": 420,
+    "y": 500,
     "wires": [
       [
         "921427f8.566638"
@@ -426,8 +426,8 @@
     "name": "",
     "label": "@",
     "tooltip": "",
-    "group": "e010af88.2414c",
-    "order": 13,
+    "group": "4871467d.3f6578",
+    "order": 1,
     "width": 4,
     "height": 1,
     "wrap": false,
@@ -438,7 +438,7 @@
     "max": "80",
     "step": 1,
     "x": 910,
-    "y": 440,
+    "y": 520,
     "wires": [
       [
         "d0bbc2af.6b4c6"
@@ -452,7 +452,7 @@
     "name": "brewfather Rest1 link in",
     "links": [],
     "x": 775,
-    "y": 460,
+    "y": 540,
     "wires": [
       [
         "921427f8.566638"
@@ -479,7 +479,7 @@
     "to": "",
     "reg": false,
     "x": 1090,
-    "y": 440,
+    "y": 520,
     "wires": [
       [
         "57c59879.e51308"
@@ -504,7 +504,7 @@
     "payload": "#:(storeInFile)::rest2_temp",
     "payloadType": "flow",
     "x": 720,
-    "y": 520,
+    "y": 600,
     "wires": [
       [
         "8d075d34.c5f75"
@@ -518,7 +518,7 @@
     "name": "brewfather Temp2 link in",
     "links": [],
     "x": 775,
-    "y": 560,
+    "y": 640,
     "wires": [
       [
         "8d075d34.c5f75"
@@ -545,7 +545,7 @@
     "to": "",
     "reg": false,
     "x": 1090,
-    "y": 540,
+    "y": 620,
     "wires": [
       [
         "1e8943b.6960cbc"
@@ -574,7 +574,7 @@
     "payload": "#:(storeInFile)::rest3_temp",
     "payloadType": "flow",
     "x": 720,
-    "y": 600,
+    "y": 680,
     "wires": [
       [
         "6071ddb.458aa24"
@@ -588,7 +588,7 @@
     "name": "brewfather Temp3 link in",
     "links": [],
     "x": 775,
-    "y": 640,
+    "y": 720,
     "wires": [
       [
         "6071ddb.458aa24"
@@ -615,7 +615,7 @@
     "to": "",
     "reg": false,
     "x": 1090,
-    "y": 620,
+    "y": 700,
     "wires": [
       []
     ]
@@ -642,7 +642,7 @@
     "payload": "#:(storeInFile)::rest4_temp",
     "payloadType": "flow",
     "x": 720,
-    "y": 680,
+    "y": 760,
     "wires": [
       [
         "cd5f4a8c.f14078"
@@ -656,7 +656,7 @@
     "name": "brewfather Temp4 link in",
     "links": [],
     "x": 775,
-    "y": 720,
+    "y": 800,
     "wires": [
       [
         "cd5f4a8c.f14078"
@@ -683,7 +683,7 @@
     "to": "",
     "reg": false,
     "x": 1090,
-    "y": 700,
+    "y": 780,
     "wires": [
       [
         "c0301573.73fb98"
@@ -697,34 +697,8 @@
     "name": "",
     "label": "@",
     "tooltip": "",
-    "group": "e010af88.2414c",
-    "order": 15,
-    "width": 4,
-    "height": 1,
-    "wrap": false,
-    "passthru": true,
-    "topic": "",
-    "format": "{{value}}°C",
-    "min": "20",
-    "max": "80",
-    "step": 1,
-    "x": 910,
-    "y": 540,
-    "wires": [
-      [
-        "bbc1e7da.086a88"
-      ]
-    ]
-  },
-  {
-    "id": "6071ddb.458aa24",
-    "type": "ui_numeric",
-    "z": "3da984a3.27885c",
-    "name": "",
-    "label": "@",
-    "tooltip": "",
-    "group": "e010af88.2414c",
-    "order": 17,
+    "group": "4871467d.3f6578",
+    "order": 3,
     "width": 4,
     "height": 1,
     "wrap": false,
@@ -738,19 +712,19 @@
     "y": 620,
     "wires": [
       [
-        "7a149c7c.8c6f94"
+        "bbc1e7da.086a88"
       ]
     ]
   },
   {
-    "id": "cd5f4a8c.f14078",
+    "id": "6071ddb.458aa24",
     "type": "ui_numeric",
     "z": "3da984a3.27885c",
     "name": "",
     "label": "@",
     "tooltip": "",
-    "group": "e010af88.2414c",
-    "order": 19,
+    "group": "4871467d.3f6578",
+    "order": 5,
     "width": 4,
     "height": 1,
     "wrap": false,
@@ -762,6 +736,32 @@
     "step": 1,
     "x": 910,
     "y": 700,
+    "wires": [
+      [
+        "7a149c7c.8c6f94"
+      ]
+    ]
+  },
+  {
+    "id": "cd5f4a8c.f14078",
+    "type": "ui_numeric",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "label": "@",
+    "tooltip": "",
+    "group": "4871467d.3f6578",
+    "order": 7,
+    "width": 4,
+    "height": 1,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}°C",
+    "min": "20",
+    "max": "80",
+    "step": 1,
+    "x": 910,
+    "y": 780,
     "wires": [
       [
         "551c6a50.cd3b34"
@@ -790,7 +790,7 @@
     "payload": "#:(storeInFile)::mash_start",
     "payloadType": "flow",
     "x": 130,
-    "y": 340,
+    "y": 420,
     "wires": [
       [
         "e487c85a.28a338"
@@ -830,7 +830,7 @@
     "payload": "",
     "topic": "",
     "x": 300,
-    "y": 340,
+    "y": 420,
     "wires": [
       [
         "bca241cd.464b2"
@@ -857,7 +857,7 @@
     "to": "",
     "reg": false,
     "x": 490,
-    "y": 340,
+    "y": 420,
     "wires": [
       [
         "394ebead.b33262"
@@ -869,13 +869,13 @@
     "type": "function",
     "z": "3da984a3.27885c",
     "name": "Show/Hide scheduler",
-    "func": "if(flow.get('mash_start', 'storeInFile') == \"now\"){\n    msg.payload = {group:{hide:[\"Mash_Schedule_Control2\"]}}}else {\n        msg.payload = {group:{show:[\"Mash_Schedule_Control2\"]}}}\nreturn msg;",
+    "func": "if(flow.get('mash_start', 'storeInFile') == \"now\"){\n    msg.payload = {group:{hide:[\"Mash_Schedule_Control2\"]}}\n}\nelse\n{\n        msg.payload = {group:{show:[\"Mash_Schedule_Control2\"]}}\n}\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
     "x": 720,
-    "y": 340,
+    "y": 420,
     "wires": [
       [
         "5dd68a77.961094"
@@ -891,7 +891,7 @@
       "d9f805ba.f62428"
     ],
     "x": 885,
-    "y": 340,
+    "y": 420,
     "wires": []
   },
   {
@@ -915,7 +915,6 @@
     "name": "",
     "links": [
       "5dd68a77.961094",
-      "1f068a9f.9d16b5",
       "df1f38a3.76ecb8",
       "18197756.aa0f39",
       "be3f1a7a.188088"
@@ -937,7 +936,7 @@
       "749aec45.ab7f34"
     ],
     "x": 555,
-    "y": 300,
+    "y": 380,
     "wires": [
       [
         "394ebead.b33262"
@@ -950,8 +949,7 @@
     "z": "3da984a3.27885c",
     "name": "Connection established",
     "links": [
-      "906a0832.614d68",
-      "9588655b.9fb198"
+      "906a0832.614d68"
     ],
     "x": 415,
     "y": 40,
@@ -976,10 +974,10 @@
     "once": true,
     "onceDelay": 0.1,
     "topic": "",
-    "payload": "#:(storeInFile)::ramping_rate_perMin",
+    "payload": "#:(storeInFile)::strike_adjustment",
     "payloadType": "flow",
-    "x": 150,
-    "y": 100,
+    "x": 160,
+    "y": 140,
     "wires": [
       [
         "ed72f93.aa2ef08"
@@ -991,7 +989,7 @@
     "type": "ui_numeric",
     "z": "3da984a3.27885c",
     "name": "",
-    "label": "Ramp rate/min",
+    "label": "Strike adjustment",
     "tooltip": "",
     "group": "e010af88.2414c",
     "order": 8,
@@ -1001,11 +999,11 @@
     "passthru": true,
     "topic": "",
     "format": "{{value}}°C",
-    "min": 0,
+    "min": "-10",
     "max": "10",
-    "step": "0.05",
-    "x": 400,
-    "y": 100,
+    "step": "0.1",
+    "x": 410,
+    "y": 140,
     "wires": [
       [
         "4e24f8d1.8c5f58"
@@ -1020,7 +1018,7 @@
     "rules": [
       {
         "t": "set",
-        "p": "#:(storeInFile)::ramping_rate_perMin",
+        "p": "#:(storeInFile)::strike_adjustment",
         "pt": "flow",
         "to": "payload",
         "tot": "msg"
@@ -1031,8 +1029,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 650,
-    "y": 100,
+    "x": 690,
+    "y": 140,
     "wires": [
       [
         "1f068a9f.9d16b5"
@@ -1045,10 +1043,10 @@
     "z": "3da984a3.27885c",
     "name": "ramping_rate",
     "links": [
-      "d9f805ba.f62428"
+      "581f76fc.d6cce8"
     ],
     "x": 855,
-    "y": 100,
+    "y": 140,
     "wires": []
   },
   {
@@ -1073,7 +1071,7 @@
     "payload": "#:(storeInFile)::mash_steps",
     "payloadType": "flow",
     "x": 130,
-    "y": 160,
+    "y": 240,
     "wires": [
       [
         "1631276b.6861c9"
@@ -1093,6 +1091,7 @@
     "width": 8,
     "height": 1,
     "passthru": true,
+    "multiple": false,
     "options": [
       {
         "label": "Disabled",
@@ -1123,7 +1122,7 @@
     "payload": "",
     "topic": "",
     "x": 330,
-    "y": 180,
+    "y": 260,
     "wires": [
       [
         "db71164a.92a1b8"
@@ -1137,7 +1136,7 @@
     "name": "brewfather mash steps link in",
     "links": [],
     "x": 215,
-    "y": 200,
+    "y": 280,
     "wires": [
       [
         "1631276b.6861c9"
@@ -1164,7 +1163,7 @@
     "to": "",
     "reg": false,
     "x": 520,
-    "y": 180,
+    "y": 260,
     "wires": [
       [
         "1fa07a38.625bd6",
@@ -1177,13 +1176,13 @@
     "type": "function",
     "z": "3da984a3.27885c",
     "name": "Show/Hide rests",
-    "func": "var mashStep1Msg = {enabled:false};\nvar mashStep2Msg = {enabled:false};\nvar mashStep3Msg = {enabled:false};\nvar mashStep4Msg = {enabled:false};\n\nif(flow.get('mash_steps', 'storeInFile') == 1){mashStep1Msg = {enabled:true};}\nif(flow.get('mash_steps', 'storeInFile') == 2){mashStep1Msg = {enabled:true};mashStep2Msg = {enabled:true};}\nif(flow.get('mash_steps', 'storeInFile') == 3){mashStep1Msg = {enabled:true};mashStep2Msg = {enabled:true};mashStep3Msg = {enabled:true};}\nif(flow.get('mash_steps', 'storeInFile') == 4){mashStep1Msg = {enabled:true};mashStep2Msg = {enabled:true};mashStep3Msg = {enabled:true};mashStep4Msg = {enabled:true};}\n\nif(flow.get('mash_steps', 'storeInFile') === 0){msg.payload = {group:{hide:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest1\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest1b\"]}}}\nif(flow.get('mash_steps', 'storeInFile') == 1){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest1b\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1\"]}}}\nif(flow.get('mash_steps', 'storeInFile') == 2){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest1b\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1\", \"Mash_Schedule_Rest2\"]}}}\nif(flow.get('mash_steps', 'storeInFile') == 3){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest1b\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest3\"]}}}\nif(flow.get('mash_steps', 'storeInFile') == 4){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest1b\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest4\"]}}}\n\nreturn [msg, mashStep1Msg, mashStep2Msg, mashStep3Msg, mashStep4Msg];\n",
+    "func": "var mashStep1Msg = {enabled:false,payload:0};\nvar mashStep2Msg = {enabled:false, payload:0};\nvar mashStep3Msg = {enabled:false, payload:0};\nvar mashStep4Msg = {enabled:false, payload:0};\n\nif(flow.get('mash_steps', 'storeInFile') == 1){mashStep1Msg = {enabled:true};}\nif(flow.get('mash_steps', 'storeInFile') == 2){mashStep1Msg = {enabled:true};mashStep2Msg = {enabled:true};}\nif(flow.get('mash_steps', 'storeInFile') == 3){mashStep1Msg = {enabled:true};mashStep2Msg = {enabled:true};mashStep3Msg = {enabled:true};}\nif(flow.get('mash_steps', 'storeInFile') == 4){mashStep1Msg = {enabled:true};mashStep2Msg = {enabled:true};mashStep3Msg = {enabled:true};mashStep4Msg = {enabled:true};}\n\nif(flow.get('mash_steps', 'storeInFile') === 0){msg.payload = {group:{hide:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest1\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest1b\"]}}}\nif(flow.get('mash_steps', 'storeInFile') == 1){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest1b\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1\"]}}}\nif(flow.get('mash_steps', 'storeInFile') == 2){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest1b\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1\", \"Mash_Schedule_Rest2\"]}}}\nif(flow.get('mash_steps', 'storeInFile') == 3){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest1b\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest3\"]}}}\nif(flow.get('mash_steps', 'storeInFile') == 4){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest1b\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest4\"]}}}\n\nreturn [msg, mashStep1Msg, mashStep2Msg, mashStep3Msg, mashStep4Msg];\n",
     "outputs": 5,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
     "x": 740,
-    "y": 180,
+    "y": 260,
     "wires": [
       [
         "df1f38a3.76ecb8"
@@ -1214,8 +1213,8 @@
     "links": [
       "d9f805ba.f62428"
     ],
-    "x": 935,
-    "y": 100,
+    "x": 895,
+    "y": 240,
     "wires": []
   },
   {
@@ -1237,7 +1236,7 @@
     "max": "12",
     "step": 1,
     "x": 150,
-    "y": 260,
+    "y": 340,
     "wires": [
       []
     ]
@@ -1261,7 +1260,7 @@
     "max": "59",
     "step": 1,
     "x": 300,
-    "y": 260,
+    "y": 340,
     "wires": [
       []
     ]
@@ -1280,10 +1279,11 @@
       "c0301573.73fb98",
       "7842a85d.66db68",
       "1e8943b.6960cbc",
-      "57c59879.e51308"
+      "57c59879.e51308",
+      "45e82faf.ecb83"
     ],
     "x": 175,
-    "y": 760,
+    "y": 840,
     "wires": [
       [
         "4e5c2463.c2c28c"
@@ -1295,13 +1295,13 @@
     "type": "function",
     "z": "3da984a3.27885c",
     "name": "Schedule length",
-    "func": "msg.payload = 0.0\n\nvar rampingRatePerMin = flow.get('ramping_rate_perMin', 'storeInFile');\n\nif(flow.get('mash_steps', 'storeInFile') >= 1){msg.payload += flow.get('rest1_length', 'storeInFile')}\nif(flow.get('mash_steps', 'storeInFile') >= 2){msg.payload += ((flow.get('rest2_temp', 'storeInFile')-flow.get('rest1_temp', 'storeInFile'))*rampingRatePerMin) + flow.get('rest2_length', 'storeInFile')}\nif(flow.get('mash_steps', 'storeInFile') >= 3){msg.payload += ((flow.get('rest3_temp', 'storeInFile')-flow.get('rest2_temp', 'storeInFile'))*rampingRatePerMin) + flow.get('rest3_length', 'storeInFile')}\nif(flow.get('mash_steps', 'storeInFile') >= 4){msg.payload += ((flow.get('rest4_temp', 'storeInFile')-flow.get('rest3_temp', 'storeInFile'))*rampingRatePerMin) + flow.get('rest4_length', 'storeInFile')}\n\nflow.set('schedule_length', msg.payload)\nreturn msg;\n",
+    "func": "msg.payload = 0.0\n\nvar rampingRatePerMin = flow.get('ramping_rate_perMin', 'storeInFile');\n\nif(flow.get('mash_steps', 'storeInFile') >= 1){msg.payload += flow.get('rest1_length', 'storeInFile')}\nif(flow.get('mash_steps', 'storeInFile') >= 2){msg.payload += ((flow.get('rest2_temp', 'storeInFile')-flow.get('rest1_temp', 'storeInFile'))*rampingRatePerMin) + flow.get('rest2_length', 'storeInFile')}\nif(flow.get('mash_steps', 'storeInFile') >= 3){msg.payload += ((flow.get('rest3_temp', 'storeInFile')-flow.get('rest2_temp', 'storeInFile'))*rampingRatePerMin) + flow.get('rest3_length', 'storeInFile')}\nif(flow.get('mash_steps', 'storeInFile') >= 4){msg.payload += ((flow.get('rest4_temp', 'storeInFile')-flow.get('rest3_temp', 'storeInFile'))*rampingRatePerMin) + flow.get('rest4_length', 'storeInFile')}\n\nmsg.payload = parseFloat(msg.payload).toFixed(2);\n\nflow.set('schedule_length', msg.payload)\nreturn msg;\n",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
     "x": 340,
-    "y": 760,
+    "y": 840,
     "wires": [
       [
         "4f4ee0a5.79f62"
@@ -1312,8 +1312,8 @@
     "id": "4f4ee0a5.79f62",
     "type": "ui_text",
     "z": "3da984a3.27885c",
-    "group": "e010af88.2414c",
-    "order": 21,
+    "group": "4871467d.3f6578",
+    "order": 9,
     "width": 0,
     "height": 0,
     "name": "",
@@ -1321,23 +1321,23 @@
     "format": "{{msg.payload}}m",
     "layout": "row-spread",
     "x": 560,
-    "y": 760,
+    "y": 840,
     "wires": []
   },
   {
     "id": "45825977.f3e148",
     "type": "ui_text",
     "z": "3da984a3.27885c",
-    "group": "e010af88.2414c",
-    "order": 22,
+    "group": "4871467d.3f6578",
+    "order": 10,
     "width": 0,
     "height": 0,
     "name": "",
-    "label": "Total schedule length also includes ramping time between steps",
+    "label": "Total schedule length also includes estimated ramping time between steps",
     "format": "",
     "layout": "row-spread",
-    "x": 390,
-    "y": 800,
+    "x": 420,
+    "y": 880,
     "wires": []
   },
   {
@@ -1350,7 +1350,7 @@
       "9c82b76e.289bb8"
     ],
     "x": 615,
-    "y": 220,
+    "y": 300,
     "wires": []
   },
   {
@@ -1363,7 +1363,7 @@
       "51b78923.cf14c8"
     ],
     "x": 575,
-    "y": 460,
+    "y": 540,
     "wires": []
   },
   {
@@ -1376,7 +1376,7 @@
       "fb487942.28eed8"
     ],
     "x": 575,
-    "y": 560,
+    "y": 640,
     "wires": []
   },
   {
@@ -1389,7 +1389,7 @@
       "e2c5db91.b21a88"
     ],
     "x": 575,
-    "y": 640,
+    "y": 720,
     "wires": []
   },
   {
@@ -1402,7 +1402,7 @@
       "646252be.fe410c"
     ],
     "x": 575,
-    "y": 720,
+    "y": 800,
     "wires": []
   },
   {
@@ -1412,10 +1412,11 @@
     "name": "",
     "links": [
       "245f082f.377808",
-      "51b78923.cf14c8"
+      "51b78923.cf14c8",
+      "581f76fc.d6cce8"
     ],
     "x": 1175,
-    "y": 480,
+    "y": 560,
     "wires": []
   },
   {
@@ -1428,7 +1429,7 @@
       "fb487942.28eed8"
     ],
     "x": 1175,
-    "y": 580,
+    "y": 660,
     "wires": []
   },
   {
@@ -1441,7 +1442,7 @@
       "e2c5db91.b21a88"
     ],
     "x": 1175,
-    "y": 660,
+    "y": 740,
     "wires": []
   },
   {
@@ -1454,7 +1455,7 @@
       "646252be.fe410c"
     ],
     "x": 1175,
-    "y": 740,
+    "y": 820,
     "wires": []
   },
   {
@@ -1465,8 +1466,8 @@
     "links": [
       "f77d5762.4fa548"
     ],
-    "x": 155,
-    "y": 880,
+    "x": 75,
+    "y": 983,
     "wires": [
       [
         "bd05ee3f.97c9e"
@@ -1479,20 +1480,20 @@
     "z": "3da984a3.27885c",
     "name": "",
     "group": "6c2dc2b5.3e20ac",
-    "order": 1,
+    "order": 3,
     "width": "8",
     "height": 1,
     "passthru": false,
-    "label": "Run",
+    "label": "Ramp to strike",
     "tooltip": "",
     "color": "",
     "bgcolor": "{{colour}}",
     "icon": "",
-    "payload": "",
-    "payloadType": "str",
+    "payload": "true",
+    "payloadType": "bool",
     "topic": "",
-    "x": 250,
-    "y": 880,
+    "x": 200,
+    "y": 983,
     "wires": [
       [
         "dd59e3d8.a1487"
@@ -1504,27 +1505,27 @@
     "type": "switch",
     "z": "3da984a3.27885c",
     "name": "",
-    "property": "scheduler",
-    "propertyType": "global",
+    "property": "payload",
+    "propertyType": "msg",
     "rules": [
       {
         "t": "true"
       },
       {
-        "t": "false"
+        "t": "else"
       }
     ],
-    "checkall": "true",
+    "checkall": "false",
     "repair": false,
     "outputs": 2,
-    "x": 390,
-    "y": 880,
+    "x": 350,
+    "y": 983,
     "wires": [
       [
-        "b2947df3.2afc9"
+        "c1ff0c90.09af"
       ],
       [
-        "c1ff0c90.09af"
+        "b2947df3.2afc9"
       ]
     ]
   },
@@ -1545,8 +1546,8 @@
     "topic": "",
     "payload": "false",
     "payloadType": "bool",
-    "x": 390,
-    "y": 840,
+    "x": 350,
+    "y": 1023,
     "wires": [
       [
         "b2947df3.2afc9"
@@ -1572,8 +1573,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 540,
-    "y": 860,
+    "x": 500,
+    "y": 1003,
     "wires": [
       [
         "ea96b7cd.e89278"
@@ -1588,24 +1589,10 @@
     "rules": [
       {
         "t": "set",
-        "p": "scheduler",
+        "p": "#:(storeInFile)::BrewMode",
         "pt": "global",
-        "to": "true",
-        "tot": "bool"
-      },
-      {
-        "t": "set",
-        "p": "click_time",
-        "pt": "flow",
-        "to": "",
-        "tot": "date"
-      },
-      {
-        "t": "set",
-        "p": "payload",
-        "pt": "msg",
-        "to": "",
-        "tot": "date"
+        "to": "TriggerRampToStrike",
+        "tot": "str"
       }
     ],
     "action": "",
@@ -1613,8 +1600,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 540,
-    "y": 900,
+    "x": 500,
+    "y": 963,
     "wires": [
       [
         "ea96b7cd.e89278"
@@ -1631,519 +1618,9 @@
       "ab24d9b7.c2ac88",
       "1c33b0b8.0bbddf"
     ],
-    "x": 655,
-    "y": 880,
+    "x": 635,
+    "y": 1003,
     "wires": []
-  },
-  {
-    "id": "1afde172.9dcecf",
-    "type": "link in",
-    "z": "3da984a3.27885c",
-    "name": "Scheduler update",
-    "links": [
-      "ea96b7cd.e89278",
-      "b48e6704.1b7af8"
-    ],
-    "x": 175,
-    "y": 1080,
-    "wires": [
-      [
-        "42e306ce.7d1318"
-      ]
-    ]
-  },
-  {
-    "id": "42e306ce.7d1318",
-    "type": "function",
-    "z": "3da984a3.27885c",
-    "name": "UI Updates",
-    "func": "if(global.get('scheduler')){\n    msg.payload = {group:{show:[\"Mash_Schedule_Control4\", \"Mash_Schedule_MASH_SCHEDULE2\", \"Mash_Schedule_MASH_SCHEDULE\"], hide:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control2\"]}}\n} else {\n    if(flow.get('mash_start')== \"now\"){\n        msg.payload = {group:{show:[\"Mash_Schedule_MASH_SCHEDULE\", \"Mash_Schedule_Control1\"], hide:[\"Mash_Schedule_MASH_SCHEDULE2\", \"Mash_Schedule_Control4\"]}}\n    } else {\n        msg.payload = {group:{show:[\"Mash_Schedule_MASH_SCHEDULE\", \"Mash_Schedule_Control1\", \"Mash_Schedule_Control2\"], hide:[\"Mash_Schedule_MASH_SCHEDULE2\", \"Mash_Schedule_Control4\"]}}\n    }\n}\nreturn msg;",
-    "outputs": 1,
-    "noerr": 0,
-    "initialize": "",
-    "finalize": "",
-    "x": 290,
-    "y": 1080,
-    "wires": [
-      [
-        "18197756.aa0f39"
-      ]
-    ]
-  },
-  {
-    "id": "18197756.aa0f39",
-    "type": "link out",
-    "z": "3da984a3.27885c",
-    "name": "Timer visibility",
-    "links": [
-      "d9f805ba.f62428"
-    ],
-    "x": 555,
-    "y": 1080,
-    "wires": []
-  },
-  {
-    "id": "ab24d9b7.c2ac88",
-    "type": "link in",
-    "z": "3da984a3.27885c",
-    "name": "Scheduler update",
-    "links": [
-      "ea96b7cd.e89278",
-      "b48e6704.1b7af8"
-    ],
-    "x": 175,
-    "y": 1120,
-    "wires": [
-      [
-        "b3134854.2e0cf8"
-      ]
-    ]
-  },
-  {
-    "id": "b3134854.2e0cf8",
-    "type": "function",
-    "z": "3da984a3.27885c",
-    "name": "Show read only schedule",
-    "func": "if(global.get('scheduler')){\n  if(flow.get('mash_steps', 'storeInFile') === 0){msg.payload = {group:{hide:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest1\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest1b\"]}}}\n  if(flow.get('mash_steps', 'storeInFile') == 1){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest1\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2b\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1b\"]}}}\n  if(flow.get('mash_steps', 'storeInFile') == 2){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest1\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1b\", \"Mash_Schedule_Rest2b\"]}}}\n  if(flow.get('mash_steps', 'storeInFile') == 3){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest4b\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest1\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest3b\"]}}}\n  if(flow.get('mash_steps', 'storeInFile') == 4){msg.payload = {group:{hide:[\"Mash_Schedule_Rest4\", \"Mash_Schedule_Rest3\", \"Mash_Schedule_Rest2\", \"Mash_Schedule_Rest1\"], show:[\"Mash_Schedule_Control1\", \"Mash_Schedule_Control3\", \"Mash_Schedule_Rest1b\", \"Mash_Schedule_Rest2b\", \"Mash_Schedule_Rest3b\", \"Mash_Schedule_Rest4b\"]}}}}\nreturn msg;\n",
-    "outputs": 1,
-    "noerr": 0,
-    "initialize": "",
-    "finalize": "",
-    "x": 330,
-    "y": 1120,
-    "wires": [
-      [
-        "be3f1a7a.188088"
-      ]
-    ]
-  },
-  {
-    "id": "be3f1a7a.188088",
-    "type": "link out",
-    "z": "3da984a3.27885c",
-    "name": "Timer visibility",
-    "links": [
-      "d9f805ba.f62428"
-    ],
-    "x": 555,
-    "y": 1120,
-    "wires": []
-  },
-  {
-    "id": "9c82b76e.289bb8",
-    "type": "link in",
-    "z": "3da984a3.27885c",
-    "name": "Mash step readonly",
-    "links": [
-      "8ffd0a3f.234e28"
-    ],
-    "x": 175,
-    "y": 1160,
-    "wires": [
-      [
-        "b4467867.13fc08"
-      ]
-    ]
-  },
-  {
-    "id": "b4467867.13fc08",
-    "type": "function",
-    "z": "3da984a3.27885c",
-    "name": "Read only mash steps text",
-    "func": "if(flow.get('mash_steps', 'storeInFile') === 0){msg.payload = \"Disabled\"}\nif(flow.get('mash_steps', 'storeInFile') == 1){msg.payload = \"1 step\"}\nif(flow.get('mash_steps', 'storeInFile') == 2){msg.payload = \"2 step\"}\nif(flow.get('mash_steps', 'storeInFile') == 3){msg.payload = \"3 step\"}\nif(flow.get('mash_steps', 'storeInFile') == 4){msg.payload = \"4 step\"}\n\nreturn msg;",
-    "outputs": 1,
-    "noerr": 0,
-    "initialize": "",
-    "finalize": "",
-    "x": 340,
-    "y": 1160,
-    "wires": [
-      [
-        "8548b9b0.14c6c8"
-      ]
-    ]
-  },
-  {
-    "id": "8548b9b0.14c6c8",
-    "type": "ui_template",
-    "z": "3da984a3.27885c",
-    "group": "4871467d.3f6578",
-    "name": "Read only Mash steps",
-    "order": 1,
-    "width": 8,
-    "height": 1,
-    "format": "<div ng-bind-html=\"msg.payload\" style=\"padding-left: 11px; color: grey\"></div>",
-    "storeOutMessages": true,
-    "fwdInMessages": true,
-    "templateScope": "local",
-    "x": 640,
-    "y": 1160,
-    "wires": [
-      []
-    ]
-  },
-  {
-    "id": "51b78923.cf14c8",
-    "type": "link in",
-    "z": "3da984a3.27885c",
-    "name": "rest1 read only",
-    "links": [
-      "5f513d25.cff454",
-      "57c59879.e51308"
-    ],
-    "x": 175,
-    "y": 1200,
-    "wires": [
-      [
-        "673096b2.1a18b8"
-      ]
-    ]
-  },
-  {
-    "id": "673096b2.1a18b8",
-    "type": "function",
-    "z": "3da984a3.27885c",
-    "name": "rest1 length and temp",
-    "func": "msg.payload = `Rest 1 ${flow.get('rest1_length', 'storeInFile')}m @ ${flow.get('rest1_temp', 'storeInFile')}°C`;\nreturn msg;",
-    "outputs": 1,
-    "noerr": 0,
-    "initialize": "",
-    "finalize": "",
-    "x": 320,
-    "y": 1200,
-    "wires": [
-      [
-        "ad799817.1da7b8"
-      ]
-    ]
-  },
-  {
-    "id": "ad799817.1da7b8",
-    "type": "ui_template",
-    "z": "3da984a3.27885c",
-    "group": "4871467d.3f6578",
-    "name": "Read only rest1",
-    "order": 2,
-    "width": 8,
-    "height": 1,
-    "format": "<div ng-bind-html=\"msg.payload\" style=\"padding-left: 11px; color: grey\"></div>",
-    "storeOutMessages": true,
-    "fwdInMessages": true,
-    "templateScope": "local",
-    "x": 620,
-    "y": 1200,
-    "wires": [
-      []
-    ]
-  },
-  {
-    "id": "fb487942.28eed8",
-    "type": "link in",
-    "z": "3da984a3.27885c",
-    "name": "rest1 read only",
-    "links": [
-      "af97cb5a.275ed8",
-      "1e8943b.6960cbc"
-    ],
-    "x": 175,
-    "y": 1240,
-    "wires": [
-      [
-        "47921977.078738"
-      ]
-    ]
-  },
-  {
-    "id": "47921977.078738",
-    "type": "function",
-    "z": "3da984a3.27885c",
-    "name": "rest2 length and temp",
-    "func": "msg.payload = `Rest 2 ${flow.get('rest2_length', 'storeInFile')}m @ ${flow.get('rest2_temp', 'storeInFile')}°C`;\nreturn msg;",
-    "outputs": 1,
-    "noerr": 0,
-    "initialize": "",
-    "finalize": "",
-    "x": 320,
-    "y": 1240,
-    "wires": [
-      [
-        "6d9da7d0.8e2498"
-      ]
-    ]
-  },
-  {
-    "id": "6d9da7d0.8e2498",
-    "type": "ui_template",
-    "z": "3da984a3.27885c",
-    "group": "4871467d.3f6578",
-    "name": "Read only rest2",
-    "order": 3,
-    "width": 8,
-    "height": 1,
-    "format": "<div ng-bind-html=\"msg.payload\" style=\"padding-left: 11px; color: grey\"></div>",
-    "storeOutMessages": true,
-    "fwdInMessages": true,
-    "templateScope": "local",
-    "x": 620,
-    "y": 1240,
-    "wires": [
-      []
-    ]
-  },
-  {
-    "id": "e2c5db91.b21a88",
-    "type": "link in",
-    "z": "3da984a3.27885c",
-    "name": "rest1 read only",
-    "links": [
-      "826d046a.3a0268",
-      "7842a85d.66db68"
-    ],
-    "x": 175,
-    "y": 1280,
-    "wires": [
-      [
-        "3dce31a.05d4bce"
-      ]
-    ]
-  },
-  {
-    "id": "3dce31a.05d4bce",
-    "type": "function",
-    "z": "3da984a3.27885c",
-    "name": "rest3 length and temp",
-    "func": "msg.payload = `Rest 3 ${flow.get('rest3_length', 'storeInFile')}m @ ${flow.get('rest3_temp', 'storeInFile')}°C`;\nreturn msg;",
-    "outputs": 1,
-    "noerr": 0,
-    "initialize": "",
-    "finalize": "",
-    "x": 320,
-    "y": 1280,
-    "wires": [
-      [
-        "388ffdb3.f4db62"
-      ]
-    ]
-  },
-  {
-    "id": "388ffdb3.f4db62",
-    "type": "ui_template",
-    "z": "3da984a3.27885c",
-    "group": "4871467d.3f6578",
-    "name": "Read only rest3",
-    "order": 4,
-    "width": 8,
-    "height": 1,
-    "format": "<div ng-bind-html=\"msg.payload\" style=\"padding-left: 11px; color: grey\"></div>",
-    "storeOutMessages": true,
-    "fwdInMessages": true,
-    "templateScope": "local",
-    "x": 620,
-    "y": 1280,
-    "wires": [
-      []
-    ]
-  },
-  {
-    "id": "646252be.fe410c",
-    "type": "link in",
-    "z": "3da984a3.27885c",
-    "name": "rest1 read only",
-    "links": [
-      "2de4df6e.2c85c",
-      "c0301573.73fb98"
-    ],
-    "x": 175,
-    "y": 1320,
-    "wires": [
-      [
-        "96be7795.112f68"
-      ]
-    ]
-  },
-  {
-    "id": "96be7795.112f68",
-    "type": "function",
-    "z": "3da984a3.27885c",
-    "name": "rest4 length and temp",
-    "func": "msg.payload = `Rest 4 ${flow.get('rest4_length', 'storeInFile')}m @ ${flow.get('rest4_temp', 'storeInFile')}°C`;\nreturn msg;",
-    "outputs": 1,
-    "noerr": 0,
-    "initialize": "",
-    "finalize": "",
-    "x": 320,
-    "y": 1320,
-    "wires": [
-      [
-        "31422d88.0ba192"
-      ]
-    ]
-  },
-  {
-    "id": "31422d88.0ba192",
-    "type": "ui_template",
-    "z": "3da984a3.27885c",
-    "group": "4871467d.3f6578",
-    "name": "Read only rest4",
-    "order": 5,
-    "width": 8,
-    "height": 1,
-    "format": "<div ng-bind-html=\"msg.payload\" style=\"padding-left: 11px; color: grey\"></div>",
-    "storeOutMessages": true,
-    "fwdInMessages": true,
-    "templateScope": "local",
-    "x": 620,
-    "y": 1320,
-    "wires": [
-      []
-    ]
-  },
-  {
-    "id": "fd55988c.73b978",
-    "type": "inject",
-    "z": "3da984a3.27885c",
-    "name": "",
-    "props": [
-      {
-        "p": "payload"
-      }
-    ],
-    "repeat": "",
-    "crontab": "",
-    "once": true,
-    "onceDelay": 0.1,
-    "topic": "",
-    "payload": "",
-    "payloadType": "date",
-    "x": 230,
-    "y": 1420,
-    "wires": [
-      [
-        "2eba2b76.0d02c4"
-      ]
-    ]
-  },
-  {
-    "id": "2eba2b76.0d02c4",
-    "type": "change",
-    "z": "3da984a3.27885c",
-    "name": "",
-    "rules": [
-      {
-        "t": "set",
-        "p": "step",
-        "pt": "flow",
-        "to": "0",
-        "tot": "num"
-      }
-    ],
-    "action": "",
-    "property": "",
-    "from": "",
-    "to": "",
-    "reg": false,
-    "x": 410,
-    "y": 1420,
-    "wires": [
-      []
-    ]
-  },
-  {
-    "id": "3203cc19.dadb14",
-    "type": "inject",
-    "z": "3da984a3.27885c",
-    "name": "",
-    "props": [
-      {
-        "p": "payload"
-      }
-    ],
-    "repeat": "",
-    "crontab": "",
-    "once": true,
-    "onceDelay": 0.1,
-    "topic": "",
-    "payload": "0",
-    "payloadType": "num",
-    "x": 210,
-    "y": 1460,
-    "wires": [
-      [
-        "994e2ed0.27e2a",
-        "d7dc1f63.6c3da"
-      ]
-    ]
-  },
-  {
-    "id": "994e2ed0.27e2a",
-    "type": "function",
-    "z": "3da984a3.27885c",
-    "name": "Plain text process stage",
-    "func": "if(flow.get('step') === 0){msg.payload=\"Not running\"}\nif(flow.get('step') == 1){msg.payload=\"Heating to rest 1\"}\nif(flow.get('step') == 2){msg.payload=\"Rest 1\"}\nif(flow.get('step') == 3){msg.payload=\"Heating to rest 2\"}\nif(flow.get('step') == 4){msg.payload=\"Rest 2\"}\nif(flow.get('step') == 5){msg.payload=\"Heating to rest 3\"}\nif(flow.get('step') == 6){msg.payload=\"Rest 3\"}\nif(flow.get('step') == 7){msg.payload=\"Heating to rest 4\"}\nif(flow.get('step') == 8){msg.payload=\"Rest 4\"}\nif(flow.get('step') == 10){msg.payload=\"Mash schedule completed!\"}\nreturn msg;",
-    "outputs": 1,
-    "noerr": 0,
-    "initialize": "",
-    "finalize": "",
-    "x": 450,
-    "y": 1460,
-    "wires": [
-      [
-        "696803e9.4e8c1c"
-      ]
-    ]
-  },
-  {
-    "id": "d7dc1f63.6c3da",
-    "type": "function",
-    "z": "3da984a3.27885c",
-    "name": "indeterminate or determinate",
-    "func": "if(flow.get('step') in [1, 3, 5, 7])\n{\n    msg.wait = true;\n}\nelse\n{\n    msg.wait = false;\n}\nreturn msg;",
-    "outputs": 1,
-    "noerr": 0,
-    "initialize": "",
-    "finalize": "",
-    "x": 460,
-    "y": 1500,
-    "wires": [
-      [
-        "26b5a1b1.a921ee"
-      ]
-    ]
-  },
-  {
-    "id": "696803e9.4e8c1c",
-    "type": "ui_text",
-    "z": "3da984a3.27885c",
-    "group": "4871467d.3f6578",
-    "order": 7,
-    "width": 0,
-    "height": 0,
-    "name": "Process stage",
-    "label": "",
-    "format": "{{msg.payload}}",
-    "layout": "row-spread",
-    "x": 720,
-    "y": 1460,
-    "wires": []
-  },
-  {
-    "id": "26b5a1b1.a921ee",
-    "type": "ui_template",
-    "z": "3da984a3.27885c",
-    "group": "4871467d.3f6578",
-    "name": "Progress bar",
-    "order": 6,
-    "width": 8,
-    "height": 1,
-    "format": "<div>\n<md-progress-linear md-mode=\"{{msg.wait ? 'indeterminate' : 'determinate'}}\" value={{msg.payload}}></md-progress-linear>\n</div>",
-    "storeOutMessages": true,
-    "fwdInMessages": true,
-    "templateScope": "local",
-    "x": 710,
-    "y": 1500,
-    "wires": [
-      []
-    ]
   },
   {
     "id": "1c33b0b8.0bbddf",
@@ -2151,10 +1628,11 @@
     "z": "3da984a3.27885c",
     "name": "Scheduler update",
     "links": [
-      "ea96b7cd.e89278"
+      "ea96b7cd.e89278",
+      "1e7696b3.a02b79"
     ],
-    "x": 175,
-    "y": 960,
+    "x": 115,
+    "y": 1080,
     "wires": [
       [
         "ccee596f.7eddb8"
@@ -2176,8 +1654,8 @@
     "randomLast": "5",
     "randomUnits": "seconds",
     "drop": false,
-    "x": 270,
-    "y": 960,
+    "x": 210,
+    "y": 1080,
     "wires": [
       [
         "ad4ad92c.8fc8a8"
@@ -2188,44 +1666,30 @@
     "id": "ad4ad92c.8fc8a8",
     "type": "switch",
     "z": "3da984a3.27885c",
-    "name": "Scheduler state",
-    "property": "scheduler",
+    "name": "",
+    "property": "#:(storeInFile)::BrewMode",
     "propertyType": "global",
     "rules": [
       {
-        "t": "true"
+        "t": "eq",
+        "v": "TriggerRampToStrike",
+        "vt": "str"
       },
       {
-        "t": "false"
+        "t": "else"
       }
     ],
     "checkall": "true",
     "repair": false,
     "outputs": 2,
-    "x": 360,
-    "y": 1000,
+    "x": 330,
+    "y": 1080,
     "wires": [
       [
         "d961857c.e374a8"
       ],
       [
         "71edbedb.3592f"
-      ]
-    ]
-  },
-  {
-    "id": "9588655b.9fb198",
-    "type": "link in",
-    "z": "3da984a3.27885c",
-    "name": "initialization",
-    "links": [
-      "749aec45.ab7f34"
-    ],
-    "x": 215,
-    "y": 1000,
-    "wires": [
-      [
-        "ad4ad92c.8fc8a8"
       ]
     ]
   },
@@ -2248,8 +1712,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 540,
-    "y": 980,
+    "x": 480,
+    "y": 1060,
     "wires": [
       [
         "f77d5762.4fa548"
@@ -2275,8 +1739,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 540,
-    "y": 1020,
+    "x": 480,
+    "y": 1100,
     "wires": [
       [
         "f77d5762.4fa548"
@@ -2291,78 +1755,28 @@
     "links": [
       "799388ce.e200a8"
     ],
-    "x": 655,
-    "y": 1000,
+    "x": 595,
+    "y": 1080,
     "wires": []
   },
   {
-    "id": "1f0ee97a.f6f497",
-    "type": "inject",
-    "z": "3da984a3.27885c",
-    "name": "",
-    "props": [
-      {
-        "p": "payload"
-      }
-    ],
-    "repeat": "",
-    "crontab": "",
-    "once": true,
-    "onceDelay": 0.1,
-    "topic": "",
-    "payload": "",
-    "payloadType": "date",
-    "x": 210,
-    "y": 1600,
-    "wires": [
-      [
-        "29c44fe.3a7ffb"
-      ]
-    ]
-  },
-  {
-    "id": "29c44fe.3a7ffb",
-    "type": "moment",
-    "z": "3da984a3.27885c",
-    "name": "",
-    "topic": "",
-    "input": "payload",
-    "inputType": "msg",
-    "inTz": "Australia/Brisbane",
-    "adjAmount": 0,
-    "adjType": "days",
-    "adjDir": "add",
-    "format": "LTS",
-    "locale": "en_AU",
-    "output": "payload",
-    "outputType": "msg",
-    "outTz": "Australia/Brisbane",
-    "x": 420,
-    "y": 1600,
-    "wires": [
-      [
-        "6d0065d0.e8875c"
-      ]
-    ]
-  },
-  {
-    "id": "6d0065d0.e8875c",
+    "id": "cc50c7f0.e40ed8",
     "type": "ui_text",
     "z": "3da984a3.27885c",
-    "group": "4871467d.3f6578",
-    "order": 7,
+    "group": "6c2dc2b5.3e20ac",
+    "order": 1,
     "width": 0,
     "height": 0,
     "name": "",
-    "label": "Current time",
+    "label": "Initial strike temperature",
     "format": "{{msg.payload}}",
     "layout": "row-spread",
-    "x": 660,
-    "y": 1600,
+    "x": 510,
+    "y": 920,
     "wires": []
   },
   {
-    "id": "6484d1cf.267",
+    "id": "241a49cb.421f06",
     "type": "inject",
     "z": "3da984a3.27885c",
     "name": "",
@@ -2380,10 +1794,99 @@
     "once": true,
     "onceDelay": 0.1,
     "topic": "",
-    "payload": "50",
-    "payloadType": "num",
-    "x": 210,
-    "y": 1640,
+    "payload": "#:(storeInFile)::ramping_rate_perMin",
+    "payloadType": "flow",
+    "x": 150,
+    "y": 180,
+    "wires": [
+      [
+        "b7baf15e.e248a"
+      ]
+    ]
+  },
+  {
+    "id": "b7baf15e.e248a",
+    "type": "ui_numeric",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "label": "Ramp rate/min",
+    "tooltip": "",
+    "group": "e010af88.2414c",
+    "order": 8,
+    "width": 0,
+    "height": 0,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}°C",
+    "min": 0,
+    "max": "10",
+    "step": "0.05",
+    "x": 420,
+    "y": 180,
+    "wires": [
+      [
+        "ad41a87e.157078"
+      ]
+    ]
+  },
+  {
+    "id": "ad41a87e.157078",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::ramping_rate_perMin",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 670,
+    "y": 180,
+    "wires": [
+      [
+        "45e82faf.ecb83"
+      ]
+    ]
+  },
+  {
+    "id": "581f76fc.d6cce8",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "Calculate Start temp",
+    "links": [
+      "57c59879.e51308",
+      "1f068a9f.9d16b5",
+      "c00e7ea1.bee0a"
+    ],
+    "x": 215,
+    "y": 920,
+    "wires": [
+      [
+        "6a6c41e2.dc0ba"
+      ]
+    ]
+  },
+  {
+    "id": "6a6c41e2.dc0ba",
+    "type": "function",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "func": "\nvar strikeAdjustment = flow.get(\"strike_adjustment\", \"storeInFile\");\nvar mashStep1Temp = flow.get('rest1_temp', 'storeInFile');\n\nflow.set(\"strikeTemp\", strikeAdjustment + mashStep1Temp);\n\nmsg.payload = flow.get(\"strikeTemp\");\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 320,
+    "y": 920,
     "wires": [
       [
         "cc50c7f0.e40ed8"
@@ -2391,19 +1894,1995 @@
     ]
   },
   {
-    "id": "cc50c7f0.e40ed8",
-    "type": "ui_text",
+    "id": "45e82faf.ecb83",
+    "type": "link out",
     "z": "3da984a3.27885c",
-    "group": "4871467d.3f6578",
-    "order": 7,
+    "name": "ramping_rate",
+    "links": [
+      "245f082f.377808"
+    ],
+    "x": 855,
+    "y": 180,
+    "wires": []
+  },
+  {
+    "id": "5dab15cf.55df1c",
+    "type": "comment",
+    "z": "3da984a3.27885c",
+    "name": "Brew control section",
+    "info": "",
+    "x": 110,
+    "y": 1680,
+    "wires": []
+  },
+  {
+    "id": "4954fe18.fbd2a",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [],
+    "x": 275,
+    "y": 1960,
+    "wires": [
+      [
+        "78fd845d.cdc46c"
+      ]
+    ]
+  },
+  {
+    "id": "78fd845d.cdc46c",
+    "type": "switch",
+    "z": "3da984a3.27885c",
+    "name": "BrewMode",
+    "property": "#:(storeInFile)::BrewMode",
+    "propertyType": "global",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "TriggerRampToStrike",
+        "vt": "str"
+      },
+      {
+        "t": "eq",
+        "v": "RampToStrike",
+        "vt": "str"
+      },
+      {
+        "t": "eq",
+        "v": "TriggerMashing",
+        "vt": "str"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 3,
+    "x": 390,
+    "y": 1960,
+    "wires": [
+      [
+        "2ea7482.86e60b8",
+        "68e39bf.fa4ab64",
+        "bd931d81.a392f",
+        "eaea5a38.4640a8"
+      ],
+      [
+        "600f2b31.649314"
+      ],
+      [
+        "7aa7ccc2.464f44",
+        "8a2f51b6.88695",
+        "a7b585f1.c31a38"
+      ]
+    ]
+  },
+  {
+    "id": "ea4b9082.2b31a",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "clear global.BrewMode, scheduler, and flow.BrewControlLabel",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::BrewMode",
+        "pt": "global",
+        "to": "",
+        "tot": "str"
+      },
+      {
+        "t": "set",
+        "p": "scheduler",
+        "pt": "msg",
+        "to": "false",
+        "tot": "bool"
+      },
+      {
+        "t": "set",
+        "p": "BrewControlLabel",
+        "pt": "flow",
+        "to": "Initial state",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 410,
+    "y": 1720,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "2ba3e452.5035bc",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "initialise",
+    "props": [],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "x": 100,
+    "y": 1720,
+    "wires": [
+      [
+        "ea4b9082.2b31a"
+      ]
+    ]
+  },
+  {
+    "id": "8639f608.473c98",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "Run button colour",
+    "links": [
+      "aa0ea400.690bd8"
+    ],
+    "x": 75,
+    "y": 1260,
+    "wires": [
+      [
+        "5b3d35b6.5dc5bc"
+      ]
+    ]
+  },
+  {
+    "id": "5b3d35b6.5dc5bc",
+    "type": "ui_button",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "group": "6c2dc2b5.3e20ac",
+    "order": 3,
+    "width": "8",
+    "height": 1,
+    "passthru": false,
+    "label": "Start mash",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "{{colour}}",
+    "icon": "",
+    "payload": "true",
+    "payloadType": "bool",
+    "topic": "",
+    "x": 190,
+    "y": 1260,
+    "wires": [
+      [
+        "d23bb81e.abeeb8"
+      ]
+    ]
+  },
+  {
+    "id": "d23bb81e.abeeb8",
+    "type": "switch",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "property": "payload",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "true"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 2,
+    "x": 350,
+    "y": 1260,
+    "wires": [
+      [
+        "1f220edf.b9f7e1"
+      ],
+      [
+        "52c2d745.9831d8"
+      ]
+    ]
+  },
+  {
+    "id": "228c6d57.f2bc22",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "false",
+    "payloadType": "bool",
+    "x": 350,
+    "y": 1300,
+    "wires": [
+      [
+        "52c2d745.9831d8"
+      ]
+    ]
+  },
+  {
+    "id": "52c2d745.9831d8",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Switch off",
+    "rules": [
+      {
+        "t": "set",
+        "p": "scheduler",
+        "pt": "global",
+        "to": "false",
+        "tot": "bool"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 500,
+    "y": 1280,
+    "wires": [
+      [
+        "f6459377.5492a"
+      ]
+    ]
+  },
+  {
+    "id": "1f220edf.b9f7e1",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Switch on",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::BrewMode",
+        "pt": "global",
+        "to": "TriggerMashing",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 500,
+    "y": 1240,
+    "wires": [
+      [
+        "f6459377.5492a"
+      ]
+    ]
+  },
+  {
+    "id": "f6459377.5492a",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "c1223250.ca94b"
+    ],
+    "x": 635,
+    "y": 1260,
+    "wires": []
+  },
+  {
+    "id": "c1223250.ca94b",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "Scheduler update",
+    "links": [
+      "f6459377.5492a"
+    ],
+    "x": 135,
+    "y": 1340,
+    "wires": [
+      [
+        "7c0aa297.5e25bc"
+      ]
+    ]
+  },
+  {
+    "id": "7c0aa297.5e25bc",
+    "type": "delay",
+    "z": "3da984a3.27885c",
+    "name": "delay",
+    "pauseType": "delay",
+    "timeout": "0.2",
+    "timeoutUnits": "seconds",
+    "rate": "1",
+    "nbRateUnits": "1",
+    "rateUnits": "second",
+    "randomFirst": "1",
+    "randomLast": "5",
+    "randomUnits": "seconds",
+    "drop": false,
+    "x": 230,
+    "y": 1340,
+    "wires": [
+      [
+        "b6a7ca17.6760e8"
+      ]
+    ]
+  },
+  {
+    "id": "b6a7ca17.6760e8",
+    "type": "switch",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "property": "#:(storeInFile)::BrewMode",
+    "propertyType": "global",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "TriggerMashing",
+        "vt": "str"
+      },
+      {
+        "t": "eq",
+        "v": "Mashing",
+        "vt": "str"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 3,
+    "x": 350,
+    "y": 1380,
+    "wires": [
+      [
+        "ff9dd66a.621948"
+      ],
+      [
+        "ff9dd66a.621948"
+      ],
+      [
+        "559aaa39.eb8b14"
+      ]
+    ]
+  },
+  {
+    "id": "ff9dd66a.621948",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "on colour",
+    "rules": [
+      {
+        "t": "set",
+        "p": "colour",
+        "pt": "msg",
+        "to": "#66cc00",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 500,
+    "y": 1360,
+    "wires": [
+      [
+        "aa0ea400.690bd8"
+      ]
+    ]
+  },
+  {
+    "id": "559aaa39.eb8b14",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "off colour",
+    "rules": [
+      {
+        "t": "set",
+        "p": "colour",
+        "pt": "msg",
+        "to": "grey",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 500,
+    "y": 1400,
+    "wires": [
+      [
+        "aa0ea400.690bd8"
+      ]
+    ]
+  },
+  {
+    "id": "aa0ea400.690bd8",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "Run button colour",
+    "links": [
+      "8639f608.473c98"
+    ],
+    "x": 615,
+    "y": 1380,
+    "wires": []
+  },
+  {
+    "id": "7aa7ccc2.464f44",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Set mash step temp",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "#:(storeInFile)::rest1_temp",
+        "tot": "flow"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 620,
+    "y": 2040,
+    "wires": [
+      [
+        "2d31cce6.ce7794"
+      ]
+    ]
+  },
+  {
+    "id": "3e8bec3a.472474",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "357ca3f0.b6706c"
+    ],
+    "x": 775,
+    "y": 2080,
+    "wires": []
+  },
+  {
+    "id": "8a2f51b6.88695",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Set mash step timer",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::BrewMode",
+        "pt": "global",
+        "to": "Mashing",
+        "tot": "str"
+      },
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::ActiveMashStep",
+        "pt": "flow",
+        "to": "1",
+        "tot": "num"
+      },
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "#:(storeInFile)::rest1_length",
+        "tot": "flow"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 620,
+    "y": 2080,
+    "wires": [
+      [
+        "3e8bec3a.472474"
+      ]
+    ]
+  },
+  {
+    "id": "ea080bb9.42ef98",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "Run button colour",
+    "links": [],
+    "x": 115,
+    "y": 1520,
+    "wires": [
+      [
+        "79468927.b7eca8"
+      ]
+    ]
+  },
+  {
+    "id": "79468927.b7eca8",
+    "type": "ui_button",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "group": "6c2dc2b5.3e20ac",
+    "order": 3,
+    "width": "8",
+    "height": 1,
+    "passthru": false,
+    "label": "Abandon",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "icon": "",
+    "payload": "",
+    "payloadType": "str",
+    "topic": "",
+    "x": 220,
+    "y": 1520,
+    "wires": [
+      [
+        "559aaa39.eb8b14",
+        "71edbedb.3592f",
+        "2d17dc9a.6bb864"
+      ]
+    ]
+  },
+  {
+    "id": "2d17dc9a.6bb864",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::BrewMode",
+        "pt": "global",
+        "to": "",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 460,
+    "y": 1520,
+    "wires": [
+      [
+        "72c34e6d.97577"
+      ]
+    ]
+  },
+  {
+    "id": "72c34e6d.97577",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "5cbd56e2.72cf08"
+    ],
+    "x": 635,
+    "y": 1520,
+    "wires": []
+  },
+  {
+    "id": "2bcd27bc.b54168",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "Brew Control loop",
+    "props": [],
+    "repeat": "1",
+    "crontab": "",
+    "once": true,
+    "onceDelay": "1",
+    "topic": "",
+    "x": 190,
+    "y": 1920,
+    "wires": [
+      [
+        "78fd845d.cdc46c"
+      ]
+    ]
+  },
+  {
+    "id": "600f2b31.649314",
+    "type": "switch",
+    "z": "3da984a3.27885c",
+    "name": "RampToStrike switch",
+    "property": "temp-MLT",
+    "propertyType": "global",
+    "rules": [
+      {
+        "t": "gte",
+        "v": "#:(storeInFile)::mlt_adjusted_target",
+        "vt": "flow"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 1,
+    "x": 620,
+    "y": 1960,
+    "wires": [
+      [
+        "3a1f5a57.a5d076"
+      ]
+    ]
+  },
+  {
+    "id": "a1b43cfd.c7958",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "395383f7.ad069c",
+      "da29ca33.74a648"
+    ],
+    "x": 775,
+    "y": 1880,
+    "wires": []
+  },
+  {
+    "id": "f3fef30.652ef1",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "82b7a3f0.12d99"
+    ],
+    "x": 775,
+    "y": 1840,
+    "wires": []
+  },
+  {
+    "id": "2ea7482.86e60b8",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Trigger pump",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "true",
+        "tot": "bool"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 650,
+    "y": 1840,
+    "wires": [
+      [
+        "f3fef30.652ef1"
+      ]
+    ]
+  },
+  {
+    "id": "68e39bf.fa4ab64",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Set strike temp",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::BrewMode",
+        "pt": "global",
+        "to": "RampToStrike",
+        "tot": "str"
+      },
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "strikeTemp",
+        "tot": "flow"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 660,
+    "y": 1800,
+    "wires": [
+      [
+        "80604b7c.de3de8"
+      ]
+    ]
+  },
+  {
+    "id": "80604b7c.de3de8",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "c76903b7.69cd1",
+      "51913ee7.1c517",
+      "72e960b.66f0ba"
+    ],
+    "x": 775,
+    "y": 1800,
+    "wires": []
+  },
+  {
+    "id": "bd931d81.a392f",
+    "type": "delay",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "pauseType": "delay",
+    "timeout": "0.5",
+    "timeoutUnits": "seconds",
+    "rate": "1",
+    "nbRateUnits": "1",
+    "rateUnits": "second",
+    "randomFirst": "1",
+    "randomLast": "5",
+    "randomUnits": "seconds",
+    "drop": false,
+    "x": 650,
+    "y": 1880,
+    "wires": [
+      [
+        "a1b43cfd.c7958"
+      ]
+    ]
+  },
+  {
+    "id": "2d31cce6.ce7794",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "c76903b7.69cd1"
+    ],
+    "x": 775,
+    "y": 2040,
+    "wires": []
+  },
+  {
+    "id": "3a1f5a57.a5d076",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "BrewMode=WaitingToMashIn",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::BrewMode",
+        "pt": "global",
+        "to": "WaitingToMashIn",
+        "tot": "str"
+      },
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "Waiting for user to start mash",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 880,
+    "y": 1960,
+    "wires": [
+      [
+        "98c7f27b.deef2"
+      ]
+    ]
+  },
+  {
+    "id": "5573b5c5.68664c",
+    "type": "ui_template",
+    "z": "3da984a3.27885c",
+    "group": "867a95f.bdb8168",
+    "name": "",
+    "order": 0,
     "width": 0,
     "height": 0,
+    "format": "<div style=\"text-align:center;\" ng-bind-html=\"msg.payload\">{msg.payload}</div>",
+    "storeOutMessages": true,
+    "fwdInMessages": true,
+    "resendOnRefresh": true,
+    "templateScope": "local",
+    "x": 1320,
+    "y": 1880,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "eaea5a38.4640a8",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Template msg",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "Ramping to strike temp",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 660,
+    "y": 1760,
+    "wires": [
+      [
+        "a2eace52.d3a64"
+      ]
+    ]
+  },
+  {
+    "id": "a2eace52.d3a64",
+    "type": "link out",
+    "z": "3da984a3.27885c",
     "name": "",
-    "label": "Current target temperature",
-    "format": "{{msg.payload}}",
-    "layout": "row-spread",
-    "x": 440,
-    "y": 1640,
+    "links": [
+      "959da750.2a46a8"
+    ],
+    "x": 775,
+    "y": 1760,
     "wires": []
+  },
+  {
+    "id": "959da750.2a46a8",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "a2eace52.d3a64",
+      "98c7f27b.deef2",
+      "bbd6ad4a.8b2ed",
+      "cb8c4d03.92d6a",
+      "aa57ae4f.a91e1",
+      "8d3ea50b.2ba758",
+      "cb9d14f1.7c2318",
+      "b2b5cee6.25e58",
+      "a2a0660a.811d48",
+      "6d5336ac.01a0b8"
+    ],
+    "x": 1225,
+    "y": 1880,
+    "wires": [
+      [
+        "5573b5c5.68664c"
+      ]
+    ]
+  },
+  {
+    "id": "98c7f27b.deef2",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "959da750.2a46a8"
+    ],
+    "x": 1045,
+    "y": 1960,
+    "wires": []
+  },
+  {
+    "id": "a7b585f1.c31a38",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Template msg",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "Mash step 1 activated",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 600,
+    "y": 2000,
+    "wires": [
+      [
+        "bbd6ad4a.8b2ed"
+      ]
+    ]
+  },
+  {
+    "id": "bbd6ad4a.8b2ed",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "959da750.2a46a8"
+    ],
+    "x": 775,
+    "y": 2000,
+    "wires": []
+  },
+  {
+    "id": "63c0c893.1ca098",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "92dafeb8.6f5e2"
+    ],
+    "x": 75,
+    "y": 2220,
+    "wires": [
+      [
+        "312e766b.9fe9ca"
+      ]
+    ]
+  },
+  {
+    "id": "5e031872.fa95f8",
+    "type": "switch",
+    "z": "3da984a3.27885c",
+    "name": "Mash Step Switch",
+    "property": "#:(storeInFile)::ActiveMashStep",
+    "propertyType": "flow",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "1",
+        "vt": "num"
+      },
+      {
+        "t": "eq",
+        "v": "2",
+        "vt": "num"
+      },
+      {
+        "t": "eq",
+        "v": "3",
+        "vt": "num"
+      },
+      {
+        "t": "eq",
+        "v": "4",
+        "vt": "num"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 4,
+    "x": 430,
+    "y": 2200,
+    "wires": [
+      [
+        "b544a0a1.c8e31"
+      ],
+      [
+        "cb7e4614.c6c778"
+      ],
+      [
+        "742aa51a.5be74c"
+      ],
+      []
+    ]
+  },
+  {
+    "id": "b544a0a1.c8e31",
+    "type": "switch",
+    "z": "3da984a3.27885c",
+    "name": "rest2_length!=0",
+    "property": "#:(storeInFile)::rest2_length",
+    "propertyType": "flow",
+    "rules": [
+      {
+        "t": "neq",
+        "v": "0",
+        "vt": "str"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 2,
+    "x": 700,
+    "y": 2200,
+    "wires": [
+      [
+        "7ec31a18.fd8fb4"
+      ],
+      []
+    ]
+  },
+  {
+    "id": "7ec31a18.fd8fb4",
+    "type": "switch",
+    "z": "3da984a3.27885c",
+    "name": "rest2_time!=0",
+    "property": "#:(storeInFile)::rest2_time",
+    "propertyType": "flow",
+    "rules": [
+      {
+        "t": "neq",
+        "v": "0",
+        "vt": "str"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 2,
+    "x": 700,
+    "y": 2140,
+    "wires": [
+      [
+        "331a04da.37e2cc",
+        "f645b466.49c0e8"
+      ],
+      []
+    ]
+  },
+  {
+    "id": "48fca837.ba4f98",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "Set target temp",
+    "links": [
+      "c76903b7.69cd1",
+      "51913ee7.1c517",
+      "72e960b.66f0ba"
+    ],
+    "x": 1155,
+    "y": 2280,
+    "wires": []
+  },
+  {
+    "id": "331a04da.37e2cc",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Set rest2 values",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "#:(storeInFile)::rest2_temp",
+        "tot": "flow"
+      },
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::ActiveMashStep",
+        "pt": "flow",
+        "to": "2",
+        "tot": "num"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 960,
+    "y": 2160,
+    "wires": [
+      [
+        "48fca837.ba4f98",
+        "a6a40ab8.032d38"
+      ]
+    ]
+  },
+  {
+    "id": "cb7e4614.c6c778",
+    "type": "switch",
+    "z": "3da984a3.27885c",
+    "name": "rest3_length!=0",
+    "property": "#:(storeInFile)::rest3_length",
+    "propertyType": "flow",
+    "rules": [
+      {
+        "t": "neq",
+        "v": "0",
+        "vt": "str"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 2,
+    "x": 700,
+    "y": 2320,
+    "wires": [
+      [
+        "78d2b282.edb5ec"
+      ],
+      []
+    ]
+  },
+  {
+    "id": "78d2b282.edb5ec",
+    "type": "switch",
+    "z": "3da984a3.27885c",
+    "name": "rest3_time!=0",
+    "property": "#:(storeInFile)::rest3_time",
+    "propertyType": "flow",
+    "rules": [
+      {
+        "t": "neq",
+        "v": "0",
+        "vt": "str"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 2,
+    "x": 700,
+    "y": 2260,
+    "wires": [
+      [
+        "1bde75c0.0bffda",
+        "8af146df.95a5c8"
+      ],
+      []
+    ]
+  },
+  {
+    "id": "1bde75c0.0bffda",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Set rest3 values",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::ActiveMashStep",
+        "pt": "flow",
+        "to": "3",
+        "tot": "num"
+      },
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "#:(storeInFile)::rest3_temp",
+        "tot": "flow"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 960,
+    "y": 2300,
+    "wires": [
+      [
+        "48fca837.ba4f98",
+        "a6a40ab8.032d38"
+      ]
+    ]
+  },
+  {
+    "id": "742aa51a.5be74c",
+    "type": "switch",
+    "z": "3da984a3.27885c",
+    "name": "rest4_length!=0",
+    "property": "#:(storeInFile)::rest4_length",
+    "propertyType": "flow",
+    "rules": [
+      {
+        "t": "neq",
+        "v": "0",
+        "vt": "str"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 2,
+    "x": 700,
+    "y": 2440,
+    "wires": [
+      [
+        "606f0757.91ca98"
+      ],
+      []
+    ]
+  },
+  {
+    "id": "606f0757.91ca98",
+    "type": "switch",
+    "z": "3da984a3.27885c",
+    "name": "rest4_time!=0",
+    "property": "#:(storeInFile)::rest4_time",
+    "propertyType": "flow",
+    "rules": [
+      {
+        "t": "neq",
+        "v": "0",
+        "vt": "str"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 2,
+    "x": 700,
+    "y": 2380,
+    "wires": [
+      [
+        "ce5286be.2d3e08",
+        "3e000874.61d0b8"
+      ],
+      []
+    ]
+  },
+  {
+    "id": "ce5286be.2d3e08",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Set rest4 values",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "#:(storeInFile)::rest4_temp",
+        "tot": "flow"
+      },
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::ActiveMashStep",
+        "pt": "flow",
+        "to": "4",
+        "tot": "num"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 960,
+    "y": 2380,
+    "wires": [
+      [
+        "48fca837.ba4f98",
+        "a6a40ab8.032d38"
+      ]
+    ]
+  },
+  {
+    "id": "f645b466.49c0e8",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Template msg",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "Ramping to mash step 2",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 960,
+    "y": 2120,
+    "wires": [
+      [
+        "cb8c4d03.92d6a"
+      ]
+    ]
+  },
+  {
+    "id": "cb8c4d03.92d6a",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "959da750.2a46a8"
+    ],
+    "x": 1075,
+    "y": 2120,
+    "wires": []
+  },
+  {
+    "id": "94aeeb36.9bc418",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Template msg",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "Mash completed",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 320,
+    "y": 2300,
+    "wires": [
+      [
+        "aa57ae4f.a91e1"
+      ]
+    ]
+  },
+  {
+    "id": "aa57ae4f.a91e1",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "959da750.2a46a8"
+    ],
+    "x": 455,
+    "y": 2300,
+    "wires": []
+  },
+  {
+    "id": "312e766b.9fe9ca",
+    "type": "switch",
+    "z": "3da984a3.27885c",
+    "name": "Mash steps check",
+    "property": "#:(storeInFile)::ActiveMashStep",
+    "propertyType": "flow",
+    "rules": [
+      {
+        "t": "lt",
+        "v": "#:(storeInFile)::mash_steps",
+        "vt": "flow"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 2,
+    "x": 210,
+    "y": 2220,
+    "wires": [
+      [
+        "5e031872.fa95f8"
+      ],
+      [
+        "94aeeb36.9bc418"
+      ]
+    ]
+  },
+  {
+    "id": "8af146df.95a5c8",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Template msg",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "Ramping to mash step 3",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 960,
+    "y": 2260,
+    "wires": [
+      [
+        "8d3ea50b.2ba758"
+      ]
+    ]
+  },
+  {
+    "id": "8d3ea50b.2ba758",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "959da750.2a46a8"
+    ],
+    "x": 1075,
+    "y": 2260,
+    "wires": []
+  },
+  {
+    "id": "3e000874.61d0b8",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Template msg",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "Ramping to mash step 4",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 960,
+    "y": 2420,
+    "wires": [
+      [
+        "cb9d14f1.7c2318"
+      ]
+    ]
+  },
+  {
+    "id": "cb9d14f1.7c2318",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "959da750.2a46a8"
+    ],
+    "x": 1075,
+    "y": 2420,
+    "wires": []
+  },
+  {
+    "id": "a6a40ab8.032d38",
+    "type": "delay",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "pauseType": "delay",
+    "timeout": "1",
+    "timeoutUnits": "seconds",
+    "rate": "1",
+    "nbRateUnits": "1",
+    "rateUnits": "second",
+    "randomFirst": "1",
+    "randomLast": "5",
+    "randomUnits": "seconds",
+    "drop": false,
+    "x": 1320,
+    "y": 2300,
+    "wires": [
+      [
+        "eb34386f.794c08",
+        "b00ce9b8.71e658"
+      ]
+    ]
+  },
+  {
+    "id": "eb34386f.794c08",
+    "type": "switch",
+    "z": "3da984a3.27885c",
+    "name": "Temp >= Target check",
+    "property": "temp-MLT",
+    "propertyType": "global",
+    "rules": [
+      {
+        "t": "gte",
+        "v": "#:(storeInFile)::mlt_adjusted_target",
+        "vt": "flow"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 2,
+    "x": 1400,
+    "y": 2200,
+    "wires": [
+      [
+        "56bba196.b545c"
+      ],
+      [
+        "a6a40ab8.032d38"
+      ]
+    ]
+  },
+  {
+    "id": "527a019a.9ca",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Set mash step timer",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "#:(storeInFile)::rest2_length",
+        "tot": "flow"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1900,
+    "y": 2160,
+    "wires": [
+      [
+        "82704aac.e7d888"
+      ]
+    ]
+  },
+  {
+    "id": "82704aac.e7d888",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "357ca3f0.b6706c"
+    ],
+    "x": 2095,
+    "y": 2200,
+    "wires": []
+  },
+  {
+    "id": "56bba196.b545c",
+    "type": "switch",
+    "z": "3da984a3.27885c",
+    "name": "Mash Step Switch",
+    "property": "#:(storeInFile)::ActiveMashStep",
+    "propertyType": "flow",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "2",
+        "vt": "num"
+      },
+      {
+        "t": "eq",
+        "v": "3",
+        "vt": "num"
+      },
+      {
+        "t": "eq",
+        "v": "4",
+        "vt": "num"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 3,
+    "x": 1650,
+    "y": 2200,
+    "wires": [
+      [
+        "527a019a.9ca",
+        "2d787dd2.3b6ff2",
+        "7cc7c752.ad6d78"
+      ],
+      [
+        "56a9bf69.76909",
+        "be09282a.4ad758"
+      ],
+      [
+        "18544a2f.d34db6",
+        "9a44350e.40a668"
+      ]
+    ]
+  },
+  {
+    "id": "56a9bf69.76909",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Set mash step timer",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "#:(storeInFile)::rest3_length",
+        "tot": "flow"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1900,
+    "y": 2200,
+    "wires": [
+      [
+        "82704aac.e7d888"
+      ]
+    ]
+  },
+  {
+    "id": "18544a2f.d34db6",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Set mash step timer",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "#:(storeInFile)::rest4_length",
+        "tot": "flow"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1900,
+    "y": 2280,
+    "wires": [
+      [
+        "82704aac.e7d888"
+      ]
+    ]
+  },
+  {
+    "id": "2d787dd2.3b6ff2",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Template msg",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "Mash step 2 activated",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1880,
+    "y": 2120,
+    "wires": [
+      [
+        "b2b5cee6.25e58",
+        "6e67523a.d4181c"
+      ]
+    ]
+  },
+  {
+    "id": "b2b5cee6.25e58",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "959da750.2a46a8"
+    ],
+    "x": 1995,
+    "y": 2120,
+    "wires": []
+  },
+  {
+    "id": "be09282a.4ad758",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Template msg",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "Mash step 3 activated",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1880,
+    "y": 2240,
+    "wires": [
+      [
+        "a2a0660a.811d48"
+      ]
+    ]
+  },
+  {
+    "id": "a2a0660a.811d48",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "959da750.2a46a8"
+    ],
+    "x": 1995,
+    "y": 2240,
+    "wires": []
+  },
+  {
+    "id": "9a44350e.40a668",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Template msg",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "Mash step 4 activated",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1880,
+    "y": 2320,
+    "wires": [
+      [
+        "6d5336ac.01a0b8"
+      ]
+    ]
+  },
+  {
+    "id": "6d5336ac.01a0b8",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "959da750.2a46a8"
+    ],
+    "x": 1995,
+    "y": 2320,
+    "wires": []
+  },
+  {
+    "id": "7cc7c752.ad6d78",
+    "type": "function",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "func": "\nnode.log(\"mash step2 switch passed\");\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 1660,
+    "y": 2120,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "6e67523a.d4181c",
+    "type": "function",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "func": "\nnode.log(\"setting mash step2 activated template\");\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 2040,
+    "y": 2060,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "e4976c4f.d6322",
+    "type": "inject",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::activate_step_offset",
+    "payloadType": "flow",
+    "x": 150,
+    "y": 100,
+    "wires": [
+      [
+        "a4fa7b8c.772898"
+      ]
+    ]
+  },
+  {
+    "id": "a4fa7b8c.772898",
+    "type": "ui_numeric",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "label": "Activate Step Offset",
+    "tooltip": "",
+    "group": "e010af88.2414c",
+    "order": 8,
+    "width": 0,
+    "height": 0,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}°C",
+    "min": "0",
+    "max": "10",
+    "step": "0.1",
+    "x": 410,
+    "y": 100,
+    "wires": [
+      [
+        "344b3ae9.17cf26"
+      ]
+    ]
+  },
+  {
+    "id": "344b3ae9.17cf26",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::activate_step_offset",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 680,
+    "y": 100,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "b00ce9b8.71e658",
+    "type": "function",
+    "z": "3da984a3.27885c",
+    "name": "post delay from set values",
+    "func": "\nnode.log(global.get(\"temp-MLT\") + \" > \" + flow.get(\"mlt_adjusted_target\", \"storeInFile\") + \"?\");\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 1570,
+    "y": 2300,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "b2f5c297.8be6f",
+    "type": "function",
+    "z": "3da984a3.27885c",
+    "name": "Set mlt_adjusted_target",
+    "func": "\nflow.set(\"mlt_adjusted_target\", global.get(\"mlt_target\", \"storeInFile\") - flow.get(\"activate_step_offset\", \"storeInFile\"), \"storeInFile\");\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 1510,
+    "y": 2020,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "51913ee7.1c517",
+    "type": "link in",
+    "z": "3da984a3.27885c",
+    "name": "Set MLT adjusted Target link in",
+    "links": [
+      "80604b7c.de3de8",
+      "48fca837.ba4f98"
+    ],
+    "x": 1195,
+    "y": 2020,
+    "wires": [
+      [
+        "17de17b9.570f18"
+      ]
+    ]
+  },
+  {
+    "id": "17de17b9.570f18",
+    "type": "delay",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "pauseType": "delay",
+    "timeout": "0.5",
+    "timeoutUnits": "seconds",
+    "rate": "1",
+    "nbRateUnits": "1",
+    "rateUnits": "second",
+    "randomFirst": "1",
+    "randomLast": "5",
+    "randomUnits": "seconds",
+    "drop": false,
+    "x": 1310,
+    "y": 2020,
+    "wires": [
+      [
+        "b2f5c297.8be6f"
+      ]
+    ]
   }
 ]

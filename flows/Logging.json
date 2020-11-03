@@ -509,7 +509,6 @@
     "z": "3c9f1c99.157ee4",
     "name": "",
     "links": [
-      "536be9dd.80ff78",
       "99f091b4.fb026",
       "c5bb895f.256208"
     ],
@@ -866,7 +865,7 @@
     "type": "function",
     "z": "3c9f1c99.157ee4",
     "name": "Global logging",
-    "func": "\nnode.log(\"temp_log: \" + global.get(\"temp_log\", \"storeInFile\"));\nnode.log(\"pid_log: \" + global.get(\"pid_log\", \"storeInFile\"));\nnode.log(\"bk_on: \" + global.get(\"bk_on\"));\n\nreturn msg;",
+    "func": "\nnode.log(\"BrewMode: \" + global.get(\"BrewMode\", \"storeInFile\"));\n\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",

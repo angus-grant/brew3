@@ -20,13 +20,13 @@
     "id": "a6225ae4.c154a8",
     "type": "function",
     "z": "c8b28591.06aa18",
-    "name": "seconds to minutes",
-    "func": "var sekunden = msg.payload * 60;\n\n// msg.ui_control = {\"min\":0,\"max\":10, \"seg1\":0, \"seg2\":1}\n\n\nmsg.payload=\"{\\\"payload\\\": \\\"on\\\", \\\"timeout\\\":\" + sekunden + \", \\\"warning\\\": 30}\"\n\nreturn msg;",
+    "name": "minutes to seconds",
+    "func": "\nvar sekunden = msg.payload * 60;\n\n// msg.ui_control = {\"min\":0,\"max\":10, \"seg1\":0, \"seg2\":1}\n\nmsg.payload=\"{\\\"payload\\\": \\\"on\\\", \\\"timeout\\\":\" + sekunden + \", \\\"warning\\\": 30}\"\n\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 290,
+    "x": 410,
     "y": 100,
     "wires": [
       [
@@ -54,7 +54,6 @@
     "y": 300,
     "wires": [
       [
-        "22c3788.500c388",
         "b2e24b50.2cfba8",
         "13c27d7e.e9b583"
       ],
@@ -80,7 +79,7 @@
     "min": 0,
     "max": 10,
     "step": 1,
-    "x": 110,
+    "x": 230,
     "y": 100,
     "wires": [
       [
@@ -106,7 +105,7 @@
     "payload": "{ \"payload\": \"on\", \"timeout\": 300, \"warning\": 60 }",
     "payloadType": "str",
     "topic": "",
-    "x": 110,
+    "x": 230,
     "y": 160,
     "wires": [
       [
@@ -132,7 +131,7 @@
     "payload": "{ \"payload\": \"on\", \"timeout\": 600, \"warning\": 60 }",
     "payloadType": "str",
     "topic": "",
-    "x": 110,
+    "x": 230,
     "y": 200,
     "wires": [
       [
@@ -158,7 +157,7 @@
     "payload": "{ \"payload\": \"on\", \"timeout\": 900, \"warning\": 60 }",
     "payloadType": "str",
     "topic": "",
-    "x": 110,
+    "x": 230,
     "y": 240,
     "wires": [
       [
@@ -184,7 +183,7 @@
     "payload": "{ \"payload\": \"on\", \"timeout\": 1200, \"warning\": 60 }",
     "payloadType": "str",
     "topic": "",
-    "x": 110,
+    "x": 230,
     "y": 280,
     "wires": [
       [
@@ -210,7 +209,7 @@
     "payload": "{ \"payload\": \"on\", \"timeout\": 1800, \"warning\": 60 }",
     "payloadType": "str",
     "topic": "",
-    "x": 110,
+    "x": 230,
     "y": 320,
     "wires": [
       [
@@ -236,7 +235,7 @@
     "payload": "{ \"payload\": \"on\", \"timeout\": 2700, \"warning\": 60 }",
     "payloadType": "str",
     "topic": "",
-    "x": 110,
+    "x": 230,
     "y": 360,
     "wires": [
       [
@@ -262,7 +261,7 @@
     "payload": "{ \"payload\": \"on\", \"timeout\": 3600, \"warning\": 60 }",
     "payloadType": "str",
     "topic": "",
-    "x": 110,
+    "x": 230,
     "y": 400,
     "wires": [
       [
@@ -288,7 +287,7 @@
     "payload": "{ \"payload\": \"on\", \"timeout\": 5400, \"warning\": 60 }",
     "payloadType": "str",
     "topic": "",
-    "x": 110,
+    "x": 230,
     "y": 440,
     "wires": [
       [
@@ -314,7 +313,7 @@
     "payload": "{ \"payload\": \"stop\" }",
     "payloadType": "str",
     "topic": "",
-    "x": 110,
+    "x": 230,
     "y": 480,
     "wires": [
       [
@@ -328,8 +327,8 @@
     "z": "c8b28591.06aa18",
     "name": "",
     "voice": "0",
-    "x": 830,
-    "y": 220,
+    "x": 1030,
+    "y": 120,
     "wires": []
   },
   {
@@ -390,14 +389,14 @@
     "statusVal": "",
     "statusType": "auto",
     "x": 840,
-    "y": 180,
+    "y": 240,
     "wires": []
   },
   {
     "id": "13c27d7e.e9b583",
     "type": "switch",
     "z": "c8b28591.06aa18",
-    "name": "",
+    "name": "Timer completed",
     "property": "payload",
     "propertyType": "msg",
     "rules": [
@@ -410,11 +409,13 @@
     "checkall": "true",
     "repair": false,
     "outputs": 1,
-    "x": 810,
+    "x": 830,
     "y": 140,
     "wires": [
       [
-        "217205f7.01df4a"
+        "217205f7.01df4a",
+        "22c3788.500c388",
+        "92dafeb8.6f5e2"
       ]
     ]
   },
@@ -432,8 +433,55 @@
     "raw": false,
     "topic": "",
     "name": "",
-    "x": 990,
-    "y": 140,
+    "x": 1050,
+    "y": 80,
     "wires": []
+  },
+  {
+    "id": "92dafeb8.6f5e2",
+    "type": "link out",
+    "z": "c8b28591.06aa18",
+    "name": "Timer completed",
+    "links": [
+      "63c0c893.1ca098"
+    ],
+    "x": 975,
+    "y": 180,
+    "wires": []
+  },
+  {
+    "id": "357ca3f0.b6706c",
+    "type": "link in",
+    "z": "c8b28591.06aa18",
+    "name": "Set Timer Value In",
+    "links": [
+      "3e8bec3a.472474",
+      "57b9966e.5c1358",
+      "a8af16f2.928288",
+      "82704aac.e7d888"
+    ],
+    "x": 267,
+    "y": 60,
+    "wires": [
+      [
+        "a6225ae4.c154a8"
+      ]
+    ]
+  },
+  {
+    "id": "5cbd56e2.72cf08",
+    "type": "link in",
+    "z": "c8b28591.06aa18",
+    "name": "Timer Stop Button In",
+    "links": [
+      "72c34e6d.97577"
+    ],
+    "x": 145,
+    "y": 480,
+    "wires": [
+      [
+        "61c20d25.8c3474"
+      ]
+    ]
   }
 ]

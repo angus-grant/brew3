@@ -26,8 +26,8 @@
     "onceDelay": 0.1,
     "topic": "",
     "payload": "#:(storeInFile)::mlt_target",
-    "payloadType": "flow",
-    "x": 170,
+    "payloadType": "global",
+    "x": 290,
     "y": 460,
     "wires": [
       [
@@ -46,7 +46,7 @@
       {
         "t": "set",
         "p": "#:(storeInFile)::mlt_target",
-        "pt": "flow",
+        "pt": "global",
         "to": "payload",
         "tot": "msg"
       }
@@ -56,7 +56,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 470,
+    "x": 600,
     "y": 440,
     "wires": [
       []
@@ -84,7 +84,7 @@
     ],
     "seg1": "50",
     "seg2": "78",
-    "x": 500,
+    "x": 620,
     "y": 480,
     "wires": []
   },
@@ -105,7 +105,7 @@
     "min": "20",
     "max": "100",
     "step": 1,
-    "x": 210,
+    "x": 330,
     "y": 520,
     "wires": [
       [
@@ -123,11 +123,11 @@
     "order": 1,
     "width": 0,
     "height": 0,
-    "name": "Kettle target",
+    "name": "MLT target",
     "label": "Target",
     "format": "{{payload | number:1}}°C",
     "layout": "row-spread",
-    "x": 510,
+    "x": 630,
     "y": 520,
     "wires": []
   },
@@ -152,7 +152,7 @@
     "topic": "",
     "payload": "#:(storeInFile)::mlt_manual_duty",
     "payloadType": "flow",
-    "x": 180,
+    "x": 300,
     "y": 320,
     "wires": [
       [
@@ -178,7 +178,7 @@
     "min": "20",
     "max": "100",
     "step": 1,
-    "x": 210,
+    "x": 330,
     "y": 380,
     "wires": [
       [
@@ -205,7 +205,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 490,
+    "x": 610,
     "y": 360,
     "wires": [
       []
@@ -219,7 +219,7 @@
     "links": [
       "99f091b4.fb026"
     ],
-    "x": 175,
+    "x": 295,
     "y": 200,
     "wires": [
       [
@@ -248,8 +248,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 320,
-    "y": 180,
+    "x": 460,
+    "y": 200,
     "wires": [
       []
     ]
@@ -269,7 +269,7 @@
     "checkall": "true",
     "repair": false,
     "outputs": 1,
-    "x": 280,
+    "x": 410,
     "y": 240,
     "wires": [
       [
@@ -295,7 +295,7 @@
     "checkall": "false",
     "repair": false,
     "outputs": 2,
-    "x": 460,
+    "x": 580,
     "y": 240,
     "wires": [
       [
@@ -311,12 +311,12 @@
     "type": "function",
     "z": "7f292261.86badc",
     "name": "MLT PID Control",
-    "func": "// Note that the algorithm provided below assumes a 1 second iteration time\n// Justin Angevaare\n// May 2018\n\n// Set temperature\nmsg.topic = \"PID-MLT-main-loop\";\nmsg.target =  flow.get('mlt_target', 'storeInFile');\nmsg.temperature = msg.payload;\n// Well that node doesn't work... do manually\nmsg.interval = 2000\n\n// Calculate error\nmsg.error = flow.get('mlt_target', 'storeInFile') - msg.temperature;\n\n// Set output max\nmsg.integrator = 0;\nmsg.max_output = 100\n\n// Calculate proportional action\nvar pTerm = msg.error * flow.get('p', 'storeInFile');\n\n// Calculate intergral action\nvar iTerm = 0;\nif (pTerm < msg.max_output) {\n    // Calculate integrator max\n    msg.integrator_max = msg.max_output/flow.get('i', 'storeInFile');\n    \n    // Update integrator\n    // For purposes of integrator, bound error by [-1, 1]\n    msg.integrator = flow.get('integrator');\n    msg.integrator += (msg.interval/1000) * Math.max(Math.min(msg.error, 1), -1);\n    \n    // Bound total integrator by absolute maximum\n    msg.integrator = Math.max(Math.min(msg.integrator, msg.integrator_max), -msg.integrator_max);\n    \n    // Output updated integrator to flow context\n    flow.set('integrator', msg.integrator);\n    \n    iTerm = msg.integrator * flow.get('i', 'storeInFile');\n}\n\n// Calculate derivative action\nmsg.derivative = (msg.error - flow.get('last_error'))/(msg.interval/1000);\nvar dTerm = msg.derivative * flow.get('d', 'storeInFile');\n\nmsg.output = pTerm + iTerm + dTerm;\nnode.log(pTerm + ' ' + iTerm + ' ' + dTerm);\n// Bound output by [0, max_output]\nmsg.output = Math.max(Math.min(msg.output, msg.max_output), 0);\n\n// Output updated last_error to flow context\nmsg.last_error = msg.error;\nflow.set('last_error', msg.last_error);\n\n// Set payload to element output\nmsg.payload = msg.output;\nreturn msg;",
+    "func": "// Note that the algorithm provided below assumes a 1 second iteration time\n// Justin Angevaare\n// May 2018\n\n// Set temperature\nmsg.topic = \"PID-MLT-main-loop\";\nmsg.target =  global.get('mlt_target', 'storeInFile');\nmsg.temperature = msg.payload;\n// Well that node doesn't work... do manually\nmsg.interval = 2000\n\n// Calculate error\nmsg.error = global.get('mlt_target', 'storeInFile') - msg.temperature;\n\n// Set output max\nmsg.integrator = 0;\nmsg.max_output = 100\n\n// Calculate proportional action\nvar pTerm = msg.error * flow.get('p', 'storeInFile');\n\n// Calculate intergral action\nvar iTerm = 0;\nif (pTerm < msg.max_output) {\n    // Calculate integrator max\n    msg.integrator_max = msg.max_output/flow.get('i', 'storeInFile');\n    \n    // Update integrator\n    // For purposes of integrator, bound error by [-1, 1]\n    msg.integrator = flow.get('integrator');\n    msg.integrator += (msg.interval/1000) * Math.max(Math.min(msg.error, 1), -1);\n    \n    // Bound total integrator by absolute maximum\n    msg.integrator = Math.max(Math.min(msg.integrator, msg.integrator_max), -msg.integrator_max);\n    \n    // Output updated integrator to flow context\n    flow.set('integrator', msg.integrator);\n    \n    iTerm = msg.integrator * flow.get('i', 'storeInFile');\n}\n\n// Calculate derivative action\nmsg.derivative = (msg.error - flow.get('last_error'))/(msg.interval/1000);\nvar dTerm = msg.derivative * flow.get('d', 'storeInFile');\n\nmsg.output = pTerm + iTerm + dTerm;\nnode.log(pTerm + ' ' + iTerm + ' ' + dTerm);\n// Bound output by [0, max_output]\nmsg.output = Math.max(Math.min(msg.output, msg.max_output), 0);\n\n// Output updated last_error to flow context\nmsg.last_error = msg.error;\nflow.set('last_error', msg.last_error);\n\n// Set payload to element output\nmsg.payload = msg.output;\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 780,
+    "x": 900,
     "y": 220,
     "wires": [
       [
@@ -344,7 +344,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 740,
+    "x": 860,
     "y": 260,
     "wires": [
       [
@@ -361,7 +361,7 @@
       "1a366a91.8afb65",
       "8433ff20.b87b7"
     ],
-    "x": 935,
+    "x": 1055,
     "y": 240,
     "wires": []
   },
@@ -374,7 +374,7 @@
       "1c912274.2c21ae",
       "297a459b.f41f0a"
     ],
-    "x": 935,
+    "x": 1055,
     "y": 180,
     "wires": []
   },
@@ -399,7 +399,7 @@
     "topic": "",
     "payload": "43",
     "payloadType": "num",
-    "x": 120,
+    "x": 240,
     "y": 600,
     "wires": [
       [
@@ -425,7 +425,7 @@
     "min": 0,
     "max": "99.8",
     "step": "0.2",
-    "x": 270,
+    "x": 390,
     "y": 600,
     "wires": [
       [
@@ -452,7 +452,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 420,
+    "x": 540,
     "y": 600,
     "wires": [
       []
@@ -479,7 +479,7 @@
     "topic": "",
     "payload": "0.15",
     "payloadType": "num",
-    "x": 120,
+    "x": 240,
     "y": 640,
     "wires": [
       [
@@ -505,7 +505,7 @@
     "min": 0,
     "max": "99.8",
     "step": "0.2",
-    "x": 270,
+    "x": 390,
     "y": 640,
     "wires": [
       [
@@ -532,7 +532,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 420,
+    "x": 540,
     "y": 640,
     "wires": [
       []
@@ -559,7 +559,7 @@
     "topic": "",
     "payload": "25",
     "payloadType": "num",
-    "x": 120,
+    "x": 240,
     "y": 680,
     "wires": [
       [
@@ -585,7 +585,7 @@
     "min": 0,
     "max": "100",
     "step": "0.2",
-    "x": 270,
+    "x": 390,
     "y": 680,
     "wires": [
       [
@@ -612,7 +612,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 420,
+    "x": 540,
     "y": 680,
     "wires": [
       []
@@ -624,9 +624,12 @@
     "z": "7f292261.86badc",
     "name": "PID button",
     "links": [
-      "4a5bf6be.6e1108"
+      "4a5bf6be.6e1108",
+      "1e7696b3.a02b79",
+      "3c2c2108.4a26ae",
+      "a1b43cfd.c7958"
     ],
-    "x": 175,
+    "x": 295,
     "y": 920,
     "wires": [
       [
@@ -660,7 +663,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 320,
+    "x": 440,
     "y": 920,
     "wires": [
       [
@@ -694,7 +697,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 720,
+    "x": 840,
     "y": 880,
     "wires": [
       [
@@ -720,7 +723,7 @@
     "checkall": "true",
     "repair": false,
     "outputs": 2,
-    "x": 730,
+    "x": 850,
     "y": 980,
     "wires": [
       [
@@ -750,7 +753,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 1060,
+    "x": 1180,
     "y": 975,
     "wires": [
       []
@@ -771,7 +774,7 @@
     "randomLast": "5",
     "randomUnits": "seconds",
     "drop": false,
-    "x": 880,
+    "x": 1000,
     "y": 1020,
     "wires": [
       [
@@ -798,7 +801,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 1060,
+    "x": 1180,
     "y": 1060,
     "wires": [
       []
@@ -812,7 +815,7 @@
     "links": [
       "907a2e94.cd0b"
     ],
-    "x": 495,
+    "x": 615,
     "y": 920,
     "wires": []
   },
@@ -826,7 +829,7 @@
       "9ab1b45e.35ad18",
       "b5b6d747.d71dd8"
     ],
-    "x": 595,
+    "x": 715,
     "y": 880,
     "wires": [
       [
@@ -842,7 +845,7 @@
     "links": [
       "6498be43.85193"
     ],
-    "x": 175,
+    "x": 295,
     "y": 841,
     "wires": [
       [
@@ -876,7 +879,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 320,
+    "x": 440,
     "y": 841,
     "wires": [
       [
@@ -892,7 +895,7 @@
     "links": [
       "907a2e94.cd0b"
     ],
-    "x": 495,
+    "x": 615,
     "y": 841,
     "wires": []
   },
@@ -904,7 +907,7 @@
     "links": [
       "fb7b2f6.88b6fd"
     ],
-    "x": 175,
+    "x": 295,
     "y": 880,
     "wires": [
       [
@@ -938,7 +941,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 340,
+    "x": 460,
     "y": 880,
     "wires": [
       [
@@ -954,7 +957,7 @@
     "links": [
       "907a2e94.cd0b"
     ],
-    "x": 495,
+    "x": 615,
     "y": 880,
     "wires": []
   },
@@ -966,7 +969,7 @@
     "links": [
       "fb7b2f6.88b6fd"
     ],
-    "x": 175,
+    "x": 295,
     "y": 960,
     "wires": [
       [
@@ -1035,7 +1038,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 300,
+    "x": 420,
     "y": 1000,
     "wires": [
       [
@@ -1051,7 +1054,7 @@
     "links": [
       "297a459b.f41f0a"
     ],
-    "x": 465,
+    "x": 585,
     "y": 1000,
     "wires": []
   },
@@ -1061,10 +1064,10 @@
     "z": "7f292261.86badc",
     "name": "Off Button",
     "links": [
-      "6498be43.85193",
-      "d55bf56a.e4b388"
+      "d55bf56a.e4b388",
+      "6498be43.85193"
     ],
-    "x": 175,
+    "x": 295,
     "y": 1000,
     "wires": [
       [
@@ -1093,7 +1096,7 @@
     "topic": "",
     "payload": "",
     "payloadType": "date",
-    "x": 140,
+    "x": 260,
     "y": 740,
     "wires": [
       [
@@ -1111,7 +1114,7 @@
       "ab05e41b.4e5e18",
       "f9e8571.11e75a8"
     ],
-    "x": 235,
+    "x": 355,
     "y": 740,
     "wires": []
   },
@@ -1123,7 +1126,7 @@
     "links": [
       "d55bf56a.e4b388"
     ],
-    "x": 175,
+    "x": 295,
     "y": 800,
     "wires": [
       [
@@ -1171,7 +1174,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 380,
+    "x": 500,
     "y": 800,
     "wires": [
       []
@@ -1183,10 +1186,10 @@
     "z": "7f292261.86badc",
     "name": "Off button",
     "links": [
-      "6498be43.85193",
-      "d55bf56a.e4b388"
+      "d55bf56a.e4b388",
+      "6498be43.85193"
     ],
-    "x": 175,
+    "x": 295,
     "y": 1100,
     "wires": [
       [
@@ -1213,7 +1216,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 300,
+    "x": 420,
     "y": 1100,
     "wires": [
       [
@@ -1230,7 +1233,7 @@
       "1a366a91.8afb65",
       "8433ff20.b87b7"
     ],
-    "x": 475,
+    "x": 595,
     "y": 1100,
     "wires": []
   },
@@ -1239,12 +1242,12 @@
     "type": "function",
     "z": "7f292261.86badc",
     "name": "msgs for chart",
-    "func": "var targetTempMsg = {};\nvar currentTempMsg = {};\n\n//Code to dynamically control Min setting on chart\nvar targetTemp = flow.get('mlt_target', 'storeInFile')\nvar minMLTChartValue = flow.get(\"minMLTChartValue\")||msg.payload;\nvar valueToCompare = Math.min(msg.payload, targetTemp)\n\nminMLTChartValue = parseInt(Math.min(minMLTChartValue, valueToCompare - 5));\n//node.log(\"min: \" + minMLTChartValue);\nflow.set(\"minMLTChartValue\", minMLTChartValue);\n\n//Code to dynamically control Max setting on chart\nvar maxMLTChartValue = flow.get(\"maxMLTChartValue\")||msg.payload;\n\nvalueToCompare = Math.max(msg.payload, targetTemp)\nmaxMLTChartValue = parseInt(Math.max(maxMLTChartValue, valueToCompare + 5));\n//node.log(\"max: \" + maxMLTChartValue);\nflow.set(\"maxMLTChartValue\", maxMLTChartValue);\n\ntargetTempMsg.ui_control = {\"decimalsInFloat\":1, \"ymin\":minMLTChartValue, \"ymax\":maxMLTChartValue};\n\ntargetTempMsg.payload = targetTemp;\ntargetTempMsg.topic = 'Target';\n\ncurrentTempMsg.payload = msg.payload;\ncurrentTempMsg.topic = 'Temp';\n\nreturn [[targetTempMsg,currentTempMsg]];",
+    "func": "var targetTempMsg = {};\nvar currentTempMsg = {};\n\n//Code to dynamically control Min setting on chart\nvar targetTemp = global.get('mlt_target', 'storeInFile')\nvar minMLTChartValue = flow.get(\"minMLTChartValue\")||msg.payload;\nvar valueToCompare = Math.min(msg.payload, targetTemp)\n\nminMLTChartValue = parseInt(Math.min(minMLTChartValue, valueToCompare - 5));\n//node.log(\"min: \" + minMLTChartValue);\nflow.set(\"minMLTChartValue\", minMLTChartValue);\n\n//Code to dynamically control Max setting on chart\nvar maxMLTChartValue = flow.get(\"maxMLTChartValue\")||msg.payload;\n\nvalueToCompare = Math.max(msg.payload, targetTemp)\nmaxMLTChartValue = parseInt(Math.max(maxMLTChartValue, valueToCompare + 5));\n//node.log(\"max: \" + maxMLTChartValue);\nflow.set(\"maxMLTChartValue\", maxMLTChartValue);\n\ntargetTempMsg.ui_control = {\"decimalsInFloat\":1, \"ymin\":minMLTChartValue, \"ymax\":maxMLTChartValue};\n\ntargetTempMsg.payload = targetTemp;\ntargetTempMsg.topic = 'Target';\n\ncurrentTempMsg.payload = msg.payload;\ncurrentTempMsg.topic = 'Temp';\n\nreturn [[targetTempMsg,currentTempMsg]];",
     "outputs": 2,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 320,
+    "x": 440,
     "y": 40,
     "wires": [
       [
@@ -1291,7 +1294,7 @@
     ],
     "useOldStyle": false,
     "outputs": 1,
-    "x": 520,
+    "x": 640,
     "y": 40,
     "wires": [
       []
@@ -1314,7 +1317,7 @@
     "topic": "",
     "payload": "",
     "payloadType": "str",
-    "x": 800,
+    "x": 920,
     "y": 40,
     "wires": [
       [
@@ -1332,11 +1335,33 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 950,
+    "x": 1070,
     "y": 100,
     "wires": [
       [],
       []
+    ]
+  },
+  {
+    "id": "c76903b7.69cd1",
+    "type": "link in",
+    "z": "7f292261.86badc",
+    "name": "Set MLT Target temp",
+    "links": [
+      "16dc9416.f9dbcc",
+      "2376657a.25d0fa",
+      "400ba315.ee2e8c",
+      "897a155c.b705c8",
+      "80604b7c.de3de8",
+      "2d31cce6.ce7794",
+      "48fca837.ba4f98"
+    ],
+    "x": 175,
+    "y": 520,
+    "wires": [
+      [
+        "8fc017a7.d05218"
+      ]
     ]
   }
 ]

@@ -18,6 +18,7 @@
     "format": "<style>\n@media only screen and (min-width: 1080px) { .masonry-container {\n    width: 1080px;\n}\n</style>",
     "storeOutMessages": true,
     "fwdInMessages": true,
+    "resendOnRefresh": false,
     "templateScope": "global",
     "x": 250,
     "y": 80,
