@@ -154,7 +154,7 @@
     "id": "867a95f.bdb8168",
     "type": "ui_group",
     "z": "",
-    "name": "Bottom",
+    "name": "Status",
     "tab": "1a3824a0.4dd3fb",
     "order": 6,
     "disp": true,
