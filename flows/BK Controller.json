@@ -237,7 +237,7 @@
     "rules": [
       {
         "t": "set",
-        "p": "#:(storeInFile)::temp-BK",
+        "p": "temp-BK",
         "pt": "global",
         "to": "payload",
         "tot": "msg"
@@ -1301,7 +1301,7 @@
     "fwdInMessages": false,
     "resendOnRefresh": false,
     "templateScope": "local",
-    "x": 630,
+    "x": 730,
     "y": 40,
     "wires": [
       [
@@ -1319,7 +1319,7 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 640,
+    "x": 740,
     "y": 120,
     "wires": [
       [
