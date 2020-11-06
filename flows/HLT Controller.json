@@ -1249,13 +1249,11 @@
     "wires": [
       [
         "b516c8eb.800748",
-        "eba680ad.57fdf",
-        "92ae480c.e1cec8"
+        "eba680ad.57fdf"
       ],
       [
         "b516c8eb.800748",
-        "eba680ad.57fdf",
-        "92ae480c.e1cec8"
+        "eba680ad.57fdf"
       ]
     ]
   },
@@ -1297,22 +1295,6 @@
       [
         "b516c8eb.800748"
       ],
-      []
-    ]
-  },
-  {
-    "id": "92ae480c.e1cec8",
-    "type": "function",
-    "z": "921f2684.926868",
-    "name": "",
-    "func": "\nnode.log(parseFloat(global.get(\"temp-HLT\").toFixed(1)));\nnode.log(global.get(\"hlt_target\", \"storeInFile\"));\n\nreturn msg;",
-    "outputs": 1,
-    "noerr": 0,
-    "initialize": "",
-    "finalize": "",
-    "x": 590,
-    "y": 180,
-    "wires": [
       []
     ]
   }
