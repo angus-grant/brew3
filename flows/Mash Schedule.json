@@ -411,7 +411,7 @@
     "topic": "",
     "payload": "#:(storeInFile)::rest1_temp",
     "payloadType": "flow",
-    "x": 720,
+    "x": 800,
     "y": 500,
     "wires": [
       [
@@ -437,7 +437,7 @@
     "min": "20",
     "max": "80",
     "step": 1,
-    "x": 910,
+    "x": 990,
     "y": 520,
     "wires": [
       [
@@ -451,7 +451,7 @@
     "z": "3da984a3.27885c",
     "name": "brewfather Rest1 link in",
     "links": [],
-    "x": 775,
+    "x": 875,
     "y": 540,
     "wires": [
       [
@@ -478,7 +478,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 1090,
+    "x": 1170,
     "y": 520,
     "wires": [
       [
@@ -503,7 +503,7 @@
     "topic": "",
     "payload": "#:(storeInFile)::rest2_temp",
     "payloadType": "flow",
-    "x": 720,
+    "x": 800,
     "y": 600,
     "wires": [
       [
@@ -517,7 +517,7 @@
     "z": "3da984a3.27885c",
     "name": "brewfather Temp2 link in",
     "links": [],
-    "x": 775,
+    "x": 855,
     "y": 640,
     "wires": [
       [
@@ -544,7 +544,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 1090,
+    "x": 1170,
     "y": 620,
     "wires": [
       [
@@ -560,10 +560,6 @@
     "props": [
       {
         "p": "payload"
-      },
-      {
-        "p": "topic",
-        "vt": "str"
       }
     ],
     "repeat": "",
@@ -573,7 +569,7 @@
     "topic": "",
     "payload": "#:(storeInFile)::rest3_temp",
     "payloadType": "flow",
-    "x": 720,
+    "x": 800,
     "y": 680,
     "wires": [
       [
@@ -587,7 +583,7 @@
     "z": "3da984a3.27885c",
     "name": "brewfather Temp3 link in",
     "links": [],
-    "x": 775,
+    "x": 855,
     "y": 720,
     "wires": [
       [
@@ -614,7 +610,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 1090,
+    "x": 1170,
     "y": 700,
     "wires": [
       [
@@ -643,7 +639,7 @@
     "topic": "",
     "payload": "#:(storeInFile)::rest4_temp",
     "payloadType": "flow",
-    "x": 720,
+    "x": 800,
     "y": 760,
     "wires": [
       [
@@ -657,7 +653,7 @@
     "z": "3da984a3.27885c",
     "name": "brewfather Temp4 link in",
     "links": [],
-    "x": 775,
+    "x": 855,
     "y": 800,
     "wires": [
       [
@@ -684,7 +680,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 1090,
+    "x": 1170,
     "y": 780,
     "wires": [
       [
@@ -710,7 +706,7 @@
     "min": "20",
     "max": "80",
     "step": 1,
-    "x": 910,
+    "x": 990,
     "y": 620,
     "wires": [
       [
@@ -736,7 +732,7 @@
     "min": "20",
     "max": "80",
     "step": 1,
-    "x": 910,
+    "x": 990,
     "y": 700,
     "wires": [
       [
@@ -762,7 +758,7 @@
     "min": "20",
     "max": "80",
     "step": 1,
-    "x": 910,
+    "x": 990,
     "y": 780,
     "wires": [
       [
@@ -1297,7 +1293,7 @@
     "type": "function",
     "z": "3da984a3.27885c",
     "name": "Schedule length",
-    "func": "msg.payload = 0.0\n\nvar rampingRatePerMin = flow.get('ramping_rate_perMin', 'storeInFile');\n\nif(flow.get('mash_steps', 'storeInFile') >= 1){msg.payload += flow.get('rest1_length', 'storeInFile')}\nif(flow.get('mash_steps', 'storeInFile') >= 2){msg.payload += ((flow.get('rest2_temp', 'storeInFile')-flow.get('rest1_temp', 'storeInFile'))*rampingRatePerMin) + flow.get('rest2_length', 'storeInFile')}\nif(flow.get('mash_steps', 'storeInFile') >= 3){msg.payload += ((flow.get('rest3_temp', 'storeInFile')-flow.get('rest2_temp', 'storeInFile'))*rampingRatePerMin) + flow.get('rest3_length', 'storeInFile')}\nif(flow.get('mash_steps', 'storeInFile') >= 4){msg.payload += ((flow.get('rest4_temp', 'storeInFile')-flow.get('rest3_temp', 'storeInFile'))*rampingRatePerMin) + flow.get('rest4_length', 'storeInFile')}\n\nmsg.payload = parseFloat(msg.payload).toFixed(2);\n\nflow.set('schedule_length', msg.payload)\nreturn msg;\n",
+    "func": "msg.payload = 0.0\n\nvar rampingRatePerMin = flow.get('ramping_rate_perMin', 'storeInFile');\n\nnode.log(\"__________________________\");\nnode.log(flow.get('mash_steps', 'storeInFile'));\nnode.log(flow.get('rest1_temp', 'storeInFile'));\nnode.log(flow.get('rest2_temp', 'storeInFile'));\n\nif(flow.get('mash_steps', 'storeInFile') >= 1){msg.payload += flow.get('rest1_length', 'storeInFile')}\nnode.log(\"payload: \" + msg.payload);\n\nif(flow.get('mash_steps', 'storeInFile') >= 2){msg.payload += ((flow.get('rest2_temp', 'storeInFile')-flow.get('rest1_temp', 'storeInFile'))*rampingRatePerMin) + flow.get('rest2_length', 'storeInFile')}\nnode.log(\"rest2 length: \" + flow.get('rest2_length', 'storeInFile'));\nnode.log(\"calc: \" + (flow.get('rest2_temp', 'storeInFile')-flow.get('rest1_temp', 'storeInFile'))*rampingRatePerMin);\nnode.log(\"payload: \" + msg.payload);\n\nif(flow.get('mash_steps', 'storeInFile') >= 3){msg.payload += ((flow.get('rest3_temp', 'storeInFile')-flow.get('rest2_temp', 'storeInFile'))*rampingRatePerMin) + flow.get('rest3_length', 'storeInFile')}\nnode.log(\"payload: \" + msg.payload);\n\nif(flow.get('mash_steps', 'storeInFile') >= 4){node.log(\"inside step 4 calcs\"); msg.payload += ((flow.get('rest4_temp', 'storeInFile')-flow.get('rest3_temp', 'storeInFile'))*rampingRatePerMin) + flow.get('rest4_length', 'storeInFile')}\nnode.log(\"payload: \" + msg.payload);\nnode.log(\"__________________________\");\n\nmsg.payload = parseFloat(msg.payload).toFixed(2);\n\nflow.set('schedule_length', msg.payload)\nreturn msg;\n",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
@@ -1417,7 +1413,7 @@
       "51b78923.cf14c8",
       "581f76fc.d6cce8"
     ],
-    "x": 1175,
+    "x": 1255,
     "y": 560,
     "wires": []
   },
@@ -1427,10 +1423,9 @@
     "z": "3da984a3.27885c",
     "name": "",
     "links": [
-      "245f082f.377808",
-      "fb487942.28eed8"
+      "245f082f.377808"
     ],
-    "x": 1175,
+    "x": 1255,
     "y": 660,
     "wires": []
   },
@@ -1443,7 +1438,7 @@
       "245f082f.377808",
       "e2c5db91.b21a88"
     ],
-    "x": 1175,
+    "x": 1255,
     "y": 740,
     "wires": []
   },
@@ -1456,7 +1451,7 @@
       "245f082f.377808",
       "646252be.fe410c"
     ],
-    "x": 1175,
+    "x": 1255,
     "y": 820,
     "wires": []
   },
@@ -1981,27 +1976,13 @@
     "id": "ea4b9082.2b31a",
     "type": "change",
     "z": "3da984a3.27885c",
-    "name": "clear global.BrewMode, scheduler, and flow.BrewControlLabel",
+    "name": "clear global.BrewMode, and Status",
     "rules": [
       {
         "t": "set",
         "p": "#:(storeInFile)::BrewMode",
         "pt": "global",
         "to": "",
-        "tot": "str"
-      },
-      {
-        "t": "set",
-        "p": "scheduler",
-        "pt": "msg",
-        "to": "false",
-        "tot": "bool"
-      },
-      {
-        "t": "set",
-        "p": "BrewControlLabel",
-        "pt": "flow",
-        "to": "Initial state",
         "tot": "str"
       },
       {
@@ -2017,7 +1998,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 410,
+    "x": 320,
     "y": 1720,
     "wires": [
       [
@@ -2040,7 +2021,8 @@
     "y": 1720,
     "wires": [
       [
-        "ea4b9082.2b31a"
+        "ea4b9082.2b31a",
+        "626ba097.1350e"
       ]
     ]
   },
@@ -2108,7 +2090,8 @@
     "y": 1260,
     "wires": [
       [
-        "1f220edf.b9f7e1"
+        "1f220edf.b9f7e1",
+        "ce8e7acf.782b58"
       ],
       [
         "52c2d745.9831d8"
@@ -3281,7 +3264,8 @@
     "y": 2300,
     "wires": [
       [
-        "aa57ae4f.a91e1"
+        "aa57ae4f.a91e1",
+        "ddfd02b.ea0b6"
       ]
     ]
   },
@@ -3484,7 +3468,8 @@
     "y": 2160,
     "wires": [
       [
-        "82704aac.e7d888"
+        "82704aac.e7d888",
+        "8eb95d9d.61f9"
       ]
     ]
   },
@@ -3532,8 +3517,7 @@
     "wires": [
       [
         "527a019a.9ca",
-        "2d787dd2.3b6ff2",
-        "7cc7c752.ad6d78"
+        "2d787dd2.3b6ff2"
       ],
       [
         "56a9bf69.76909",
@@ -3568,7 +3552,8 @@
     "y": 2200,
     "wires": [
       [
-        "82704aac.e7d888"
+        "82704aac.e7d888",
+        "8eb95d9d.61f9"
       ]
     ]
   },
@@ -3595,7 +3580,8 @@
     "y": 2280,
     "wires": [
       [
-        "82704aac.e7d888"
+        "82704aac.e7d888",
+        "8eb95d9d.61f9"
       ]
     ]
   },
@@ -3622,8 +3608,7 @@
     "y": 2120,
     "wires": [
       [
-        "b2b5cee6.25e58",
-        "6e67523a.d4181c"
+        "b2b5cee6.25e58"
       ]
     ]
   },
@@ -3716,38 +3701,6 @@
     "x": 1995,
     "y": 2320,
     "wires": []
-  },
-  {
-    "id": "7cc7c752.ad6d78",
-    "type": "function",
-    "z": "3da984a3.27885c",
-    "name": "",
-    "func": "\nnode.log(\"mash step2 switch passed\");\n\nreturn msg;",
-    "outputs": 1,
-    "noerr": 0,
-    "initialize": "",
-    "finalize": "",
-    "x": 1660,
-    "y": 2120,
-    "wires": [
-      []
-    ]
-  },
-  {
-    "id": "6e67523a.d4181c",
-    "type": "function",
-    "z": "3da984a3.27885c",
-    "name": "",
-    "func": "\nnode.log(\"setting mash step2 activated template\");\n\nreturn msg;",
-    "outputs": 1,
-    "noerr": 0,
-    "initialize": "",
-    "finalize": "",
-    "x": 2040,
-    "y": 2060,
-    "wires": [
-      []
-    ]
   },
   {
     "id": "e4976c4f.d6322",
@@ -3905,8 +3858,176 @@
     "links": [
       "959da750.2a46a8"
     ],
-    "x": 675,
+    "x": 495,
     "y": 1720,
     "wires": []
+  },
+  {
+    "id": "24722a54.95dcd6",
+    "type": "http request",
+    "z": "3da984a3.27885c",
+    "name": "Submit Mash Started to BC",
+    "method": "POST",
+    "ret": "txt",
+    "paytoqs": "body",
+    "url": "http://192.168.0.27:51402/api/brewLogs/PostReading",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "bearer",
+    "x": 720,
+    "y": 1200,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "ce8e7acf.782b58",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "{\"BrewingLogId\":\"20201107101456444cf9b23234b84b3\",\"ReadingValue\":\"0.0\",\"DeviceTag\":\"Node-Red Brew3\",\"ReadingTypeId\":\"20171017195045668821F3029D234141\"}",
+        "tot": "json"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 490,
+    "y": 1200,
+    "wires": [
+      [
+        "24722a54.95dcd6"
+      ]
+    ]
+  },
+  {
+    "id": "ddfd02b.ea0b6",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "{\"BrewingLogId\":\"20201107101456444cf9b23234b84b3\",\"ReadingValue\":\"0.0\",\"DeviceTag\":\"Node-Red Brew3\",\"ReadingTypeId\":\"201710172140392965FE8AD130524078\"}",
+        "tot": "json"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 140,
+    "y": 2380,
+    "wires": [
+      [
+        "d39ec004.ad38d"
+      ]
+    ]
+  },
+  {
+    "id": "d39ec004.ad38d",
+    "type": "http request",
+    "z": "3da984a3.27885c",
+    "name": "Submit Mash Started to BC",
+    "method": "POST",
+    "ret": "txt",
+    "paytoqs": "body",
+    "url": "http://192.168.0.27:51402/api/brewLogs/PostReading",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "bearer",
+    "x": 370,
+    "y": 2380,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "626ba097.1350e",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "reset pump button",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "false",
+        "tot": "bool"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 270,
+    "y": 1760,
+    "wires": [
+      [
+        "35c856bc.ac4daa"
+      ]
+    ]
+  },
+  {
+    "id": "35c856bc.ac4daa",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "82b7a3f0.12d99"
+    ],
+    "x": 395,
+    "y": 1760,
+    "wires": []
+  },
+  {
+    "id": "3c8ee8ee.d85978",
+    "type": "http request",
+    "z": "3da984a3.27885c",
+    "name": "Submit Mash Started to BC",
+    "method": "POST",
+    "ret": "txt",
+    "paytoqs": "body",
+    "url": "http://192.168.0.27:51402/api/brewLogs/PostReading",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "bearer",
+    "x": 2460,
+    "y": 2260,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "8eb95d9d.61f9",
+    "type": "function",
+    "z": "3da984a3.27885c",
+    "name": "Mash step started json",
+    "func": "\nvar jsonValue = {\n    \"BrewingLogId\": \"20201107101456444cf9b23234b84b3\",\n    \"ReadingValue\": \"66.0\",\n    \"DeviceTag\": \"Node-Red Brew3\",\n    \"ReadingTypeId\": \"20171017222317423925FFEE0C464F8F\"\n}\n\nmsg.payload = jsonValue;\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 2210,
+    "y": 2260,
+    "wires": [
+      [
+        "3c8ee8ee.d85978"
+      ]
+    ]
   }
 ]

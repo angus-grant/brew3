@@ -178,6 +178,7 @@
     "format": "<div style=\"text-align: center; font-size: 20px\">\n    <div style=\"width: 100%\">\n        <span>{{msg.batchName || '&lt;recipe info not loaded&gt;'}}</span>\n        <span>{{msg.batchNumber}}</span>\n    </div>\n    <span>{{msg.recipeName}}</span>\n</div>",
     "storeOutMessages": true,
     "fwdInMessages": true,
+    "resendOnRefresh": false,
     "templateScope": "local",
     "x": 880,
     "y": 240,

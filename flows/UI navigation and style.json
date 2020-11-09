@@ -44,5 +44,69 @@
     "wires": [
       []
     ]
+  },
+  {
+    "id": "2c5906f6.9a581a",
+    "type": "ui_ui_control",
+    "z": "e58cd1d0.00b6",
+    "name": "",
+    "events": "all",
+    "x": 590,
+    "y": 300,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "e29c5322.5279c",
+    "type": "ui_button",
+    "z": "e58cd1d0.00b6",
+    "name": "",
+    "group": "ba76eae3.a07d28",
+    "order": 1,
+    "width": 6,
+    "height": 1,
+    "passthru": false,
+    "label": "General",
+    "tooltip": "",
+    "color": "#757575",
+    "bgcolor": "white",
+    "icon": "",
+    "payload": "7",
+    "payloadType": "num",
+    "topic": "",
+    "x": 100,
+    "y": 220,
+    "wires": [
+      [
+        "2c5906f6.9a581a"
+      ]
+    ]
+  },
+  {
+    "id": "2238fe8f.a012d2",
+    "type": "ui_button",
+    "z": "e58cd1d0.00b6",
+    "name": "",
+    "group": "226e9c90.894b14",
+    "order": 7,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "label": "Back",
+    "tooltip": "",
+    "color": "#757575",
+    "bgcolor": "#e0e0e0",
+    "icon": "",
+    "payload": "1",
+    "payloadType": "num",
+    "topic": "",
+    "x": 110,
+    "y": 260,
+    "wires": [
+      [
+        "2c5906f6.9a581a"
+      ]
+    ]
   }
 ]

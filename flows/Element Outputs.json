@@ -15,12 +15,12 @@
       "4f2c006c.61798",
       "caeb268c.03fe38"
     ],
-    "x": 235,
-    "y": 60,
+    "x": 255,
+    "y": 140,
     "wires": [
       [
         "7061dbfc.e42e64",
-        "faaae52a.c8e1f8"
+        "f389a098.7537c"
       ]
     ]
   },
@@ -34,29 +34,9 @@
     "level": "0",
     "freq": "1",
     "out": "pwm",
-    "x": 370,
-    "y": 40,
+    "x": 390,
+    "y": 120,
     "wires": []
-  },
-  {
-    "id": "faaae52a.c8e1f8",
-    "type": "range",
-    "z": "696aae1c.d3b45",
-    "minin": "0",
-    "maxin": "100",
-    "minout": "0",
-    "maxout": "2.4",
-    "action": "scale",
-    "round": false,
-    "property": "payload",
-    "name": "Duty to watts",
-    "x": 370,
-    "y": 100,
-    "wires": [
-      [
-        "8f5737fb.d94198"
-      ]
-    ]
   },
   {
     "id": "8f5737fb.d94198",
@@ -80,8 +60,8 @@
     ],
     "seg1": "",
     "seg2": "",
-    "x": 570,
-    "y": 100,
+    "x": 650,
+    "y": 180,
     "wires": []
   },
   {
@@ -94,11 +74,12 @@
       "db6261df.6f1e"
     ],
     "x": 235,
-    "y": 180,
+    "y": 380,
     "wires": [
       [
         "5ad90d7b.ec69b4",
-        "c975bd13.6c7f7"
+        "c975bd13.6c7f7",
+        "ec370d50.dc2eb"
       ]
     ]
   },
@@ -112,8 +93,8 @@
     "level": "0",
     "freq": "1",
     "out": "pwm",
-    "x": 370,
-    "y": 160,
+    "x": 390,
+    "y": 320,
     "wires": []
   },
   {
@@ -128,12 +109,10 @@
     "round": false,
     "property": "payload",
     "name": "Duty to watts",
-    "x": 370,
-    "y": 220,
+    "x": 390,
+    "y": 380,
     "wires": [
-      [
-        "f0d7b6c7.05c6d8"
-      ]
+      []
     ]
   },
   {
@@ -158,8 +137,8 @@
     ],
     "seg1": "",
     "seg2": "",
-    "x": 570,
-    "y": 220,
+    "x": 670,
+    "y": 440,
     "wires": []
   },
   {
@@ -171,12 +150,12 @@
       "b851b80d.5ee1f8",
       "ca49e1a9.0c693"
     ],
-    "x": 235,
-    "y": 300,
+    "x": 295,
+    "y": 600,
     "wires": [
       [
         "204c84ca.394b4c",
-        "c5ffafb9.9e421"
+        "3891981c.59a838"
       ]
     ]
   },
@@ -190,29 +169,9 @@
     "level": "0",
     "freq": "1",
     "out": "pwm",
-    "x": 360,
-    "y": 280,
+    "x": 420,
+    "y": 580,
     "wires": []
-  },
-  {
-    "id": "c5ffafb9.9e421",
-    "type": "range",
-    "z": "696aae1c.d3b45",
-    "minin": "0",
-    "maxin": "100",
-    "minout": "0",
-    "maxout": "2.4",
-    "action": "scale",
-    "round": false,
-    "property": "payload",
-    "name": "Duty to watts",
-    "x": 370,
-    "y": 340,
-    "wires": [
-      [
-        "490fe15a.3061a"
-      ]
-    ]
   },
   {
     "id": "490fe15a.3061a",
@@ -236,8 +195,425 @@
     ],
     "seg1": "",
     "seg2": "",
-    "x": 560,
-    "y": 340,
+    "x": 620,
+    "y": 640,
     "wires": []
+  },
+  {
+    "id": "ec370d50.dc2eb",
+    "type": "function",
+    "z": "696aae1c.d3b45",
+    "name": "Calc guage value",
+    "func": "\nvar output = parseFloat(flow.get(\"MLT_Element__kW\", \"storeInFile\") * (msg.payload/100)).toFixed(1);\nnode.log(output);\n\nmsg = { payload:output };\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 410,
+    "y": 440,
+    "wires": [
+      [
+        "f0d7b6c7.05c6d8"
+      ]
+    ]
+  },
+  {
+    "id": "3ada9c1.daaf864",
+    "type": "ui_numeric",
+    "z": "696aae1c.d3b45",
+    "name": "",
+    "label": "Element (kW)",
+    "tooltip": "",
+    "group": "99bd808a.f2698",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}",
+    "min": 0,
+    "max": 10,
+    "step": "0.1",
+    "x": 400,
+    "y": 280,
+    "wires": [
+      [
+        "6970ab65.767d74"
+      ]
+    ]
+  },
+  {
+    "id": "a5a23500.f3c068",
+    "type": "inject",
+    "z": "696aae1c.d3b45",
+    "name": "Load MLT Element value",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::MLT_Element__kW",
+    "payloadType": "flow",
+    "x": 150,
+    "y": 280,
+    "wires": [
+      [
+        "3ada9c1.daaf864"
+      ]
+    ]
+  },
+  {
+    "id": "6970ab65.767d74",
+    "type": "change",
+    "z": "696aae1c.d3b45",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::MLT_Element__kW",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 630,
+    "y": 280,
+    "wires": [
+      [
+        "9d62094b.1b5e48"
+      ]
+    ]
+  },
+  {
+    "id": "9d62094b.1b5e48",
+    "type": "function",
+    "z": "696aae1c.d3b45",
+    "name": "Set guage max",
+    "func": "msg = { ui_control:{max:msg.payload}};\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 880,
+    "y": 280,
+    "wires": [
+      [
+        "f0d7b6c7.05c6d8"
+      ]
+    ]
+  },
+  {
+    "id": "7873a92a.131548",
+    "type": "function",
+    "z": "696aae1c.d3b45",
+    "name": "Set guage max",
+    "func": "msg = { ui_control:{max:flow.get(\"MLT_Element__kW\", \"storeInFile\")}};\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 420,
+    "y": 480,
+    "wires": [
+      [
+        "f0d7b6c7.05c6d8"
+      ]
+    ]
+  },
+  {
+    "id": "ff1ff244.11ade",
+    "type": "ui_numeric",
+    "z": "696aae1c.d3b45",
+    "name": "",
+    "label": "Element (kW)",
+    "tooltip": "",
+    "group": "96ccbe54.5ee14",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}",
+    "min": 0,
+    "max": 10,
+    "step": "0.1",
+    "x": 400,
+    "y": 80,
+    "wires": [
+      [
+        "ccd0d6cc.28c708"
+      ]
+    ]
+  },
+  {
+    "id": "5635bbfb.aaf544",
+    "type": "inject",
+    "z": "696aae1c.d3b45",
+    "name": "Load HLT Element value",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::HLT_Element__kW",
+    "payloadType": "flow",
+    "x": 150,
+    "y": 80,
+    "wires": [
+      [
+        "ff1ff244.11ade"
+      ]
+    ]
+  },
+  {
+    "id": "ccd0d6cc.28c708",
+    "type": "change",
+    "z": "696aae1c.d3b45",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::HLT_Element__kW",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 630,
+    "y": 80,
+    "wires": [
+      [
+        "dc80b88c.eeb138"
+      ]
+    ]
+  },
+  {
+    "id": "dc80b88c.eeb138",
+    "type": "function",
+    "z": "696aae1c.d3b45",
+    "name": "Set guage max",
+    "func": "msg = { ui_control:{max:msg.payload}};\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 880,
+    "y": 80,
+    "wires": [
+      [
+        "8f5737fb.d94198"
+      ]
+    ]
+  },
+  {
+    "id": "f389a098.7537c",
+    "type": "function",
+    "z": "696aae1c.d3b45",
+    "name": "Calc guage value",
+    "func": "\nvar output = parseFloat(flow.get(\"HLT_Element__kW\", \"storeInFile\") * (msg.payload/100)).toFixed(1);\n\nmsg = { payload:output };\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 390,
+    "y": 180,
+    "wires": [
+      [
+        "8f5737fb.d94198"
+      ]
+    ]
+  },
+  {
+    "id": "ce07610f.c0a99",
+    "type": "inject",
+    "z": "696aae1c.d3b45",
+    "name": "Init guages",
+    "props": [],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "x": 110,
+    "y": 340,
+    "wires": [
+      [
+        "3a975f71.4ea64",
+        "7873a92a.131548",
+        "98650fa1.b3d9d"
+      ]
+    ]
+  },
+  {
+    "id": "3a975f71.4ea64",
+    "type": "function",
+    "z": "696aae1c.d3b45",
+    "name": "Set guage max",
+    "func": "msg = { ui_control:{max:flow.get(\"HLT_Element__kW\", \"storeInFile\")}};\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 400,
+    "y": 220,
+    "wires": [
+      [
+        "8f5737fb.d94198"
+      ]
+    ]
+  },
+  {
+    "id": "bd0a42dc.68922",
+    "type": "ui_numeric",
+    "z": "696aae1c.d3b45",
+    "name": "",
+    "label": "Element (kW)",
+    "tooltip": "",
+    "group": "e71aa9ca.9bbda8",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}",
+    "min": 0,
+    "max": 10,
+    "step": "0.1",
+    "x": 400,
+    "y": 540,
+    "wires": [
+      [
+        "51fc1618.309428"
+      ]
+    ]
+  },
+  {
+    "id": "e73731c8.a6a28",
+    "type": "inject",
+    "z": "696aae1c.d3b45",
+    "name": "Load BK Element value",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::BK_Element__kW",
+    "payloadType": "flow",
+    "x": 140,
+    "y": 540,
+    "wires": [
+      [
+        "bd0a42dc.68922"
+      ]
+    ]
+  },
+  {
+    "id": "51fc1618.309428",
+    "type": "change",
+    "z": "696aae1c.d3b45",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::BK_Element__kW",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 630,
+    "y": 540,
+    "wires": [
+      [
+        "25763128.5524de"
+      ]
+    ]
+  },
+  {
+    "id": "25763128.5524de",
+    "type": "function",
+    "z": "696aae1c.d3b45",
+    "name": "Set guage max",
+    "func": "msg = { ui_control:{max:msg.payload}};\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 880,
+    "y": 540,
+    "wires": [
+      [
+        "490fe15a.3061a"
+      ]
+    ]
+  },
+  {
+    "id": "98650fa1.b3d9d",
+    "type": "function",
+    "z": "696aae1c.d3b45",
+    "name": "Set guage max",
+    "func": "msg = { ui_control:{max:flow.get(\"BK_Element__kW\", \"storeInFile\")}};\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 400,
+    "y": 700,
+    "wires": [
+      [
+        "490fe15a.3061a"
+      ]
+    ]
+  },
+  {
+    "id": "3891981c.59a838",
+    "type": "function",
+    "z": "696aae1c.d3b45",
+    "name": "Calc guage value",
+    "func": "\nvar output = parseFloat(flow.get(\"BK_Element__kW\", \"storeInFile\") * (msg.payload/100)).toFixed(1);\n\nmsg = { payload:output };\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 410,
+    "y": 640,
+    "wires": [
+      [
+        "490fe15a.3061a"
+      ]
+    ]
   }
 ]
