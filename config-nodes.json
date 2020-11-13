@@ -2,7 +2,6 @@
   {
     "id": "f26e00eb.30cfc",
     "type": "ui_base",
-    "z": "",
     "theme": {
       "name": "theme-dark",
       "lightTheme": {
@@ -100,7 +99,6 @@
   {
     "id": "1a3824a0.4dd3fb",
     "type": "ui_tab",
-    "z": "",
     "name": "Dashboard",
     "icon": "dashboard",
     "order": 1,
@@ -110,7 +108,6 @@
   {
     "id": "a0e00a00.81b428",
     "type": "ui_group",
-    "z": "",
     "name": "HLT",
     "tab": "1a3824a0.4dd3fb",
     "order": 2,
@@ -121,7 +118,6 @@
   {
     "id": "ea5e6691.a9d4b8",
     "type": "ui_group",
-    "z": "",
     "name": "MLT",
     "tab": "1a3824a0.4dd3fb",
     "order": 3,
@@ -132,7 +128,6 @@
   {
     "id": "9d59abb0.326b08",
     "type": "ui_group",
-    "z": "",
     "name": "BK",
     "tab": "1a3824a0.4dd3fb",
     "order": 4,
@@ -143,7 +138,6 @@
   {
     "id": "3a5d5e9b.7af2a2",
     "type": "ui_group",
-    "z": "",
     "name": "Timer",
     "tab": "1a3824a0.4dd3fb",
     "order": 5,
@@ -154,7 +148,6 @@
   {
     "id": "867a95f.bdb8168",
     "type": "ui_group",
-    "z": "",
     "name": "Status",
     "tab": "1a3824a0.4dd3fb",
     "order": 6,
@@ -165,7 +158,6 @@
   {
     "id": "90e220fd.7b00d",
     "type": "ui_tab",
-    "z": "",
     "name": "Settings",
     "icon": "dashboard",
     "order": 2,
@@ -175,7 +167,6 @@
   {
     "id": "51bd7048.52028",
     "type": "ui_tab",
-    "z": "",
     "name": "Calibration",
     "icon": "dashboard",
     "order": 3,
@@ -185,7 +176,6 @@
   {
     "id": "9f19d793.eac5f8",
     "type": "ui_group",
-    "z": "",
     "name": "HLT Calibration",
     "tab": "51bd7048.52028",
     "order": 1,
@@ -196,7 +186,6 @@
   {
     "id": "f52ce78c.180578",
     "type": "ui_group",
-    "z": "",
     "name": "MLT Calibration",
     "tab": "51bd7048.52028",
     "order": 2,
@@ -207,7 +196,6 @@
   {
     "id": "4db7f25b.b9ea8c",
     "type": "ui_group",
-    "z": "",
     "name": "BK Calibration",
     "tab": "51bd7048.52028",
     "order": 3,
@@ -218,7 +206,6 @@
   {
     "id": "99bd808a.f2698",
     "type": "ui_group",
-    "z": "",
     "name": "MLT Settings",
     "tab": "6d962cd7.d7a624",
     "order": 2,
@@ -229,7 +216,6 @@
   {
     "id": "96ccbe54.5ee14",
     "type": "ui_group",
-    "z": "",
     "name": "HLT Settings",
     "tab": "6d962cd7.d7a624",
     "order": 1,
@@ -240,7 +226,6 @@
   {
     "id": "6d962cd7.d7a624",
     "type": "ui_tab",
-    "z": "",
     "name": "Elements",
     "icon": "dashboard",
     "order": 4,
@@ -250,7 +235,6 @@
   {
     "id": "e71aa9ca.9bbda8",
     "type": "ui_group",
-    "z": "",
     "name": "BK Settings",
     "tab": "6d962cd7.d7a624",
     "order": 3,
@@ -261,7 +245,6 @@
   {
     "id": "1a3206d4.f7f279",
     "type": "ui_tab",
-    "z": "",
     "name": "General Settings",
     "icon": "dashboard",
     "disabled": false,
@@ -270,7 +253,6 @@
   {
     "id": "6078a96a.d1d938",
     "type": "ui_group",
-    "z": "",
     "name": "Logging",
     "tab": "1a3206d4.f7f279",
     "order": 1,
@@ -281,7 +263,6 @@
   {
     "id": "b921988f.6da898",
     "type": "influxdb",
-    "z": "",
     "hostname": "127.0.0.1",
     "port": "8086",
     "protocol": "http",
@@ -293,7 +274,6 @@
   {
     "id": "a505f112.ea455",
     "type": "ui_tab",
-    "z": "",
     "name": "Mash Schedule",
     "icon": "dashboard",
     "disabled": false,
@@ -302,7 +282,6 @@
   {
     "id": "e010af88.2414c",
     "type": "ui_group",
-    "z": "",
     "name": "Settings",
     "tab": "a505f112.ea455",
     "order": 1,
@@ -313,7 +292,6 @@
   {
     "id": "4871467d.3f6578",
     "type": "ui_group",
-    "z": "",
     "name": "Mash Schedule",
     "tab": "a505f112.ea455",
     "order": 2,
@@ -324,7 +302,6 @@
   {
     "id": "6c2dc2b5.3e20ac",
     "type": "ui_group",
-    "z": "",
     "name": "Bottom",
     "tab": "a505f112.ea455",
     "order": 3,
@@ -362,7 +339,6 @@
   {
     "id": "ba76eae3.a07d28",
     "type": "ui_group",
-    "z": "",
     "name": "SETTINGS",
     "tab": "c9f00b3c.c58798",
     "order": 1,
@@ -373,7 +349,6 @@
   {
     "id": "c9f00b3c.c58798",
     "type": "ui_tab",
-    "z": "",
     "name": "Settings",
     "icon": "dashboard",
     "order": 3,
@@ -383,7 +358,6 @@
   {
     "id": "226e9c90.894b14",
     "type": "ui_group",
-    "z": "",
     "name": "LOGGING",
     "tab": "47377554.37684c",
     "order": 1,
@@ -394,7 +368,6 @@
   {
     "id": "47377554.37684c",
     "type": "ui_tab",
-    "z": "",
     "name": "General Settings",
     "icon": "dashboard",
     "order": 9,

@@ -23,210 +23,16 @@
     ]
   },
   {
-    "id": "f3add5fe.49fa48",
-    "type": "switch",
-    "z": "c68db1a2.68e94",
-    "name": "Pump state",
-    "property": "payload",
-    "propertyType": "msg",
-    "rules": [
-      {
-        "t": "true"
-      },
-      {
-        "t": "false"
-      }
-    ],
-    "checkall": "false",
-    "repair": false,
-    "outputs": 2,
-    "x": 460,
-    "y": 100,
-    "wires": [
-      [
-        "ded013a4.d2508"
-      ],
-      [
-        "fe67cdef.63926"
-      ]
-    ]
-  },
-  {
-    "id": "ded013a4.d2508",
-    "type": "change",
-    "z": "c68db1a2.68e94",
-    "name": "Turn on",
-    "rules": [
-      {
-        "t": "set",
-        "p": "hlt_pump",
-        "pt": "global",
-        "to": "1",
-        "tot": "str"
-      },
-      {
-        "t": "set",
-        "p": "payload",
-        "pt": "msg",
-        "to": "1",
-        "tot": "str"
-      }
-    ],
-    "action": "",
-    "property": "",
-    "from": "",
-    "to": "",
-    "reg": false,
-    "x": 640,
-    "y": 80,
-    "wires": [
-      [
-        "49e91a29.a5de34"
-      ]
-    ]
-  },
-  {
-    "id": "fe67cdef.63926",
-    "type": "change",
-    "z": "c68db1a2.68e94",
-    "name": "Turn off",
-    "rules": [
-      {
-        "t": "set",
-        "p": "hlt_pump",
-        "pt": "global",
-        "to": "0",
-        "tot": "str"
-      },
-      {
-        "t": "set",
-        "p": "payload",
-        "pt": "msg",
-        "to": "0",
-        "tot": "str"
-      }
-    ],
-    "action": "",
-    "property": "",
-    "from": "",
-    "to": "",
-    "reg": false,
-    "x": 640,
-    "y": 120,
-    "wires": [
-      [
-        "49e91a29.a5de34"
-      ]
-    ]
-  },
-  {
     "id": "e5eeeb09.8041e8",
     "type": "link in",
     "z": "c68db1a2.68e94",
     "name": "MLT Pump button colour",
     "links": [],
     "x": 115,
-    "y": 180,
+    "y": 320,
     "wires": [
       [
         "b73c6b10.f42fe8"
-      ]
-    ]
-  },
-  {
-    "id": "b51b2ff8.4ea66",
-    "type": "switch",
-    "z": "c68db1a2.68e94",
-    "name": "Pump state",
-    "property": "payload",
-    "propertyType": "msg",
-    "rules": [
-      {
-        "t": "true"
-      },
-      {
-        "t": "false"
-      }
-    ],
-    "checkall": "false",
-    "repair": false,
-    "outputs": 2,
-    "x": 460,
-    "y": 180,
-    "wires": [
-      [
-        "bb14fd46.3ca8f"
-      ],
-      [
-        "9342513b.07c7"
-      ]
-    ]
-  },
-  {
-    "id": "bb14fd46.3ca8f",
-    "type": "change",
-    "z": "c68db1a2.68e94",
-    "name": "Turn on",
-    "rules": [
-      {
-        "t": "set",
-        "p": "mlt_pump",
-        "pt": "global",
-        "to": "1",
-        "tot": "str"
-      },
-      {
-        "t": "set",
-        "p": "payload",
-        "pt": "msg",
-        "to": "1",
-        "tot": "str"
-      }
-    ],
-    "action": "",
-    "property": "",
-    "from": "",
-    "to": "",
-    "reg": false,
-    "x": 640,
-    "y": 160,
-    "wires": [
-      [
-        "500130b5.9f959"
-      ]
-    ]
-  },
-  {
-    "id": "9342513b.07c7",
-    "type": "change",
-    "z": "c68db1a2.68e94",
-    "name": "Turn off",
-    "rules": [
-      {
-        "t": "set",
-        "p": "mlt_pump",
-        "pt": "global",
-        "to": "0",
-        "tot": "str"
-      },
-      {
-        "t": "set",
-        "p": "payload",
-        "pt": "msg",
-        "to": "0",
-        "tot": "str"
-      }
-    ],
-    "action": "",
-    "property": "",
-    "from": "",
-    "to": "",
-    "reg": false,
-    "x": 640,
-    "y": 200,
-    "wires": [
-      [
-        "500130b5.9f959"
       ]
     ]
   },
@@ -239,151 +45,12 @@
       "b968206f.612c"
     ],
     "x": 115,
-    "y": 260,
+    "y": 400,
     "wires": [
       [
         "6d456b34.463524"
       ]
     ]
-  },
-  {
-    "id": "65536a4e.bf0264",
-    "type": "switch",
-    "z": "c68db1a2.68e94",
-    "name": "Pump state",
-    "property": "payload",
-    "propertyType": "msg",
-    "rules": [
-      {
-        "t": "true"
-      },
-      {
-        "t": "false"
-      }
-    ],
-    "checkall": "false",
-    "repair": false,
-    "outputs": 2,
-    "x": 460,
-    "y": 260,
-    "wires": [
-      [
-        "a6437a19.5ab9d8"
-      ],
-      [
-        "6a977753.a375c8"
-      ]
-    ]
-  },
-  {
-    "id": "a6437a19.5ab9d8",
-    "type": "change",
-    "z": "c68db1a2.68e94",
-    "name": "Turn on",
-    "rules": [
-      {
-        "t": "set",
-        "p": "bk_pump",
-        "pt": "global",
-        "to": "1",
-        "tot": "str"
-      },
-      {
-        "t": "set",
-        "p": "payload",
-        "pt": "msg",
-        "to": "1",
-        "tot": "str"
-      }
-    ],
-    "action": "",
-    "property": "",
-    "from": "",
-    "to": "",
-    "reg": false,
-    "x": 640,
-    "y": 240,
-    "wires": [
-      [
-        "ca1121c4.6132e"
-      ]
-    ]
-  },
-  {
-    "id": "6a977753.a375c8",
-    "type": "change",
-    "z": "c68db1a2.68e94",
-    "name": "Turn off",
-    "rules": [
-      {
-        "t": "set",
-        "p": "bk_pump",
-        "pt": "global",
-        "to": "0",
-        "tot": "str"
-      },
-      {
-        "t": "set",
-        "p": "payload",
-        "pt": "msg",
-        "to": "0",
-        "tot": "str"
-      }
-    ],
-    "action": "",
-    "property": "",
-    "from": "",
-    "to": "",
-    "reg": false,
-    "x": 640,
-    "y": 280,
-    "wires": [
-      [
-        "ca1121c4.6132e"
-      ]
-    ]
-  },
-  {
-    "id": "49e91a29.a5de34",
-    "type": "rpi-gpio out",
-    "z": "c68db1a2.68e94",
-    "name": "HLT Pump GPIO",
-    "pin": "40",
-    "set": true,
-    "level": "0",
-    "freq": "",
-    "out": "out",
-    "x": 870,
-    "y": 100,
-    "wires": []
-  },
-  {
-    "id": "500130b5.9f959",
-    "type": "rpi-gpio out",
-    "z": "c68db1a2.68e94",
-    "name": "MLT Pump GPIO",
-    "pin": "37",
-    "set": true,
-    "level": "0",
-    "freq": "",
-    "out": "out",
-    "x": 870,
-    "y": 180,
-    "wires": []
-  },
-  {
-    "id": "ca1121c4.6132e",
-    "type": "rpi-gpio out",
-    "z": "c68db1a2.68e94",
-    "name": "BK Pump GPIO",
-    "pin": "38",
-    "set": true,
-    "level": "0",
-    "freq": "",
-    "out": "out",
-    "x": 860,
-    "y": 260,
-    "wires": []
   },
   {
     "id": "82b7a3f0.12d99",
@@ -395,7 +62,7 @@
       "35c856bc.ac4daa"
     ],
     "x": 115,
-    "y": 140,
+    "y": 280,
     "wires": [
       [
         "b73c6b10.f42fe8"
@@ -426,10 +93,10 @@
     "officon": "",
     "offcolor": "",
     "x": 250,
-    "y": 180,
+    "y": 320,
     "wires": [
       [
-        "b51b2ff8.4ea66"
+        "3239dee7.fe3402"
       ]
     ]
   },
@@ -460,7 +127,7 @@
     "y": 100,
     "wires": [
       [
-        "f3add5fe.49fa48"
+        "478a44f1.37ad3c"
       ]
     ]
   },
@@ -488,11 +155,173 @@
     "officon": "",
     "offcolor": "",
     "x": 240,
-    "y": 260,
+    "y": 400,
     "wires": [
       [
-        "65536a4e.bf0264"
+        "4cf55fa4.1de1e"
       ]
+    ]
+  },
+  {
+    "id": "478a44f1.37ad3c",
+    "type": "rpi-gpio out",
+    "z": "c68db1a2.68e94",
+    "name": "HLT GPIO",
+    "pin": "33",
+    "set": true,
+    "level": "0",
+    "freq": "",
+    "out": "out",
+    "x": 450,
+    "y": 100,
+    "wires": []
+  },
+  {
+    "id": "4cf55fa4.1de1e",
+    "type": "rpi-gpio out",
+    "z": "c68db1a2.68e94",
+    "name": "BK GPIO",
+    "pin": "38",
+    "set": true,
+    "level": "0",
+    "freq": "",
+    "out": "out",
+    "x": 440,
+    "y": 400,
+    "wires": []
+  },
+  {
+    "id": "3239dee7.fe3402",
+    "type": "function",
+    "z": "c68db1a2.68e94",
+    "name": "GPIO python setup",
+    "func": "\nif (msg.payload)\n    msg.payload = flow.get(\"mlt_pump_gpio\", \"storeInFile\") + \" 1 200\"\nelse\n    msg.payload = flow.get(\"mlt_pump_gpio\", \"storeInFile\") + \" 0 0\"\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 490,
+    "y": 320,
+    "wires": [
+      [
+        "c52363bc.90708",
+        "87bf2eba.2a9a4"
+      ]
+    ]
+  },
+  {
+    "id": "c52363bc.90708",
+    "type": "exec",
+    "z": "c68db1a2.68e94",
+    "command": "sudo python /home/pi/.node-red/projects/brew3/gpio.py",
+    "addpay": true,
+    "append": "",
+    "useSpawn": "false",
+    "timer": "",
+    "oldrc": false,
+    "name": "gpio.py",
+    "x": 700,
+    "y": 320,
+    "wires": [
+      [
+        "87bf2eba.2a9a4"
+      ],
+      [
+        "87bf2eba.2a9a4"
+      ],
+      []
+    ]
+  },
+  {
+    "id": "e063efd8.3cfff",
+    "type": "inject",
+    "z": "c68db1a2.68e94",
+    "name": "Load MLT Pump GPIO",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::mlt_pump_gpio",
+    "payloadType": "flow",
+    "x": 200,
+    "y": 240,
+    "wires": [
+      [
+        "fc217ff2.da25b"
+      ]
+    ]
+  },
+  {
+    "id": "fc217ff2.da25b",
+    "type": "ui_numeric",
+    "z": "c68db1a2.68e94",
+    "name": "",
+    "label": "Pump GPIO",
+    "tooltip": "",
+    "group": "99bd808a.f2698",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}",
+    "min": 0,
+    "max": "50",
+    "step": "1",
+    "x": 450,
+    "y": 240,
+    "wires": [
+      [
+        "5cd92e81.da883"
+      ]
+    ]
+  },
+  {
+    "id": "5cd92e81.da883",
+    "type": "change",
+    "z": "c68db1a2.68e94",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::mlt_pump_gpio",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 710,
+    "y": 240,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "87bf2eba.2a9a4",
+    "type": "function",
+    "z": "c68db1a2.68e94",
+    "name": "pump gpio",
+    "func": "node.log(msg.payload);\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 810,
+    "y": 460,
+    "wires": [
+      []
     ]
   }
 ]
