@@ -14,10 +14,6 @@
     "props": [
       {
         "p": "payload"
-      },
-      {
-        "p": "topic",
-        "vt": "str"
       }
     ],
     "repeat": "",
@@ -25,7 +21,7 @@
     "once": true,
     "onceDelay": 0.1,
     "topic": "",
-    "payload": "hlt_target",
+    "payload": "#:(storeInFile)::hlt_target",
     "payloadType": "global",
     "x": 290,
     "y": 440,
