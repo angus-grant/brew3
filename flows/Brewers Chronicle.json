@@ -1,0 +1,535 @@
+[
+  {
+    "id": "3b1619f7.77f936",
+    "type": "tab",
+    "label": "Brewers Chronicle",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "debf580.848c9a8",
+    "type": "inject",
+    "z": "3b1619f7.77f936",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 150,
+    "y": 60,
+    "wires": [
+      [
+        "f275acdb.0832d"
+      ]
+    ]
+  },
+  {
+    "id": "cc3615ae.d2d498",
+    "type": "ui_button",
+    "z": "3b1619f7.77f936",
+    "name": "",
+    "group": "e010af88.2414c",
+    "order": 1,
+    "width": 4,
+    "height": 1,
+    "passthru": false,
+    "label": "Refresh from BC",
+    "tooltip": "",
+    "color": "#757575",
+    "bgcolor": "#e0e0e0",
+    "icon": "",
+    "payload": "",
+    "payloadType": "str",
+    "topic": "",
+    "x": 140,
+    "y": 100,
+    "wires": [
+      [
+        "f275acdb.0832d"
+      ]
+    ]
+  },
+  {
+    "id": "8d183899.fe58e8",
+    "type": "function",
+    "z": "3b1619f7.77f936",
+    "name": "transform options",
+    "func": "var options = msg.payload.map(function(batch) {\n    var label = batch.Name;\n    var option = {};\n    option[label] = batch.BoilLogId;\n    return option;\n});\n\nmsg.options = options;\n\n// For some reason Node-Red injects values into dropdown with extra quotes\nmsg.payload = \"\\\"\" + global.get(\"selected_batch_id\", \"storeInFile\") + \"\\\"\";\n\nreturn msg;\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 620,
+    "y": 120,
+    "wires": [
+      [
+        "848a178b.c3a9f8",
+        "a1fd4ea2.3f349"
+      ]
+    ]
+  },
+  {
+    "id": "848a178b.c3a9f8",
+    "type": "ui_dropdown",
+    "z": "3b1619f7.77f936",
+    "name": "Boil Session",
+    "label": "",
+    "tooltip": "",
+    "place": "Select boil session",
+    "group": "e010af88.2414c",
+    "order": 3,
+    "width": 8,
+    "height": 1,
+    "passthru": false,
+    "multiple": false,
+    "options": [],
+    "payload": "",
+    "topic": "",
+    "x": 740,
+    "y": 180,
+    "wires": [
+      [
+        "9c70b52c.28cce8"
+      ]
+    ]
+  },
+  {
+    "id": "9c70b52c.28cce8",
+    "type": "change",
+    "z": "3b1619f7.77f936",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::selected_batch_id",
+        "pt": "global",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 950,
+    "y": 240,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "3780238.01e18dc",
+    "type": "debug",
+    "z": "3b1619f7.77f936",
+    "d": true,
+    "name": "BC get payload",
+    "active": true,
+    "tosidebar": true,
+    "console": true,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 620,
+    "y": 80,
+    "wires": []
+  },
+  {
+    "id": "f275acdb.0832d",
+    "type": "brewers-chronicle-get",
+    "z": "3b1619f7.77f936",
+    "name": "BC get method",
+    "getmethod": "BoilSessions",
+    "x": 390,
+    "y": 80,
+    "wires": [
+      [
+        "8d183899.fe58e8",
+        "3780238.01e18dc"
+      ]
+    ]
+  },
+  {
+    "id": "a1fd4ea2.3f349",
+    "type": "debug",
+    "z": "3b1619f7.77f936",
+    "d": true,
+    "name": "transform payload",
+    "active": true,
+    "tosidebar": true,
+    "console": true,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 870,
+    "y": 120,
+    "wires": []
+  },
+  {
+    "id": "c84e4b37.c4b2f8",
+    "type": "inject",
+    "z": "3b1619f7.77f936",
+    "name": "Inject selected_batch_id",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::selected_batch_id",
+    "payloadType": "global",
+    "x": 510,
+    "y": 180,
+    "wires": [
+      [
+        "848a178b.c3a9f8"
+      ]
+    ]
+  },
+  {
+    "id": "f930ebd2.631518",
+    "type": "ui_button",
+    "z": "3b1619f7.77f936",
+    "name": "",
+    "group": "e010af88.2414c",
+    "order": 2,
+    "width": 4,
+    "height": 1,
+    "passthru": false,
+    "label": "Load It!",
+    "tooltip": "",
+    "color": "#757575",
+    "bgcolor": "#e0e0e0",
+    "icon": "",
+    "payload": "",
+    "payloadType": "str",
+    "topic": "",
+    "x": 160,
+    "y": 420,
+    "wires": [
+      [
+        "9b1c0fbf.b9ece"
+      ]
+    ]
+  },
+  {
+    "id": "1a7eff40.dd4141",
+    "type": "function",
+    "z": "3b1619f7.77f936",
+    "name": "take first batch",
+    "func": "//msg.payload = msg.payload[0];\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 510,
+    "y": 420,
+    "wires": [
+      [
+        "535f30fe.ae1b5",
+        "432f1e4d.5fc25",
+        "b982638.c4692a",
+        "73066877.efe238"
+      ]
+    ]
+  },
+  {
+    "id": "362164a2.9e1c6c",
+    "type": "debug",
+    "z": "3b1619f7.77f936",
+    "name": "boil session info payload",
+    "active": true,
+    "tosidebar": false,
+    "console": true,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 500,
+    "y": 500,
+    "wires": []
+  },
+  {
+    "id": "535f30fe.ae1b5",
+    "type": "function",
+    "z": "3b1619f7.77f936",
+    "name": "num of mash steps",
+    "func": "var count = msg.payload.MashStepCount;\nnode.log(count);\n\nmsg.payload = count;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 750,
+    "y": 320,
+    "wires": [
+      [
+        "f819f0cd.fa874"
+      ]
+    ]
+  },
+  {
+    "id": "432f1e4d.5fc25",
+    "type": "function",
+    "z": "3b1619f7.77f936",
+    "name": "step times",
+    "func": "var batch = msg.payload;\nvar numOfSteps = batch.MashStepCount;\nvar times = [{payload: 0}, null, null, null]\n\nfor (var i = 0; i <= numOfSteps-1; i++) {\n    times[i] = { payload: batch.MashSteps[i].StepTime }\n}\n\nreturn times;",
+    "outputs": 4,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 740,
+    "y": 380,
+    "wires": [
+      [
+        "152f6dff.5390c2"
+      ],
+      [
+        "47d5b44b.6e6eec"
+      ],
+      [
+        "afeb2e1.920b4d"
+      ],
+      [
+        "9de3c754.ae99c8"
+      ]
+    ]
+  },
+  {
+    "id": "b982638.c4692a",
+    "type": "function",
+    "z": "3b1619f7.77f936",
+    "name": "step temps",
+    "func": "var batch = msg.payload;\nvar temps = batch.MashSteps.map(function(step) {\n    return { payload: step.StepTemp }\n});\nreturn temps;",
+    "outputs": 4,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 730,
+    "y": 460,
+    "wires": [
+      [
+        "7e351393.a9e04c"
+      ],
+      [
+        "17103840.176778"
+      ],
+      [
+        "a8532783.441e48"
+      ],
+      [
+        "a02e6a3f.3a25a8"
+      ]
+    ]
+  },
+  {
+    "id": "73066877.efe238",
+    "type": "function",
+    "z": "3b1619f7.77f936",
+    "name": "recipe info",
+    "func": "var batch = msg.payload;\nmsg.batchName = batch.Name;\n//msg.batchNumber = batch.batchNo;\n//msg.recipeName = batch.recipe.name;\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 730,
+    "y": 540,
+    "wires": [
+      [
+        "e36b8f38.088eb"
+      ]
+    ]
+  },
+  {
+    "id": "e36b8f38.088eb",
+    "type": "ui_template",
+    "z": "3b1619f7.77f936",
+    "group": "e010af88.2414c",
+    "name": "",
+    "order": 5,
+    "width": 6,
+    "height": 2,
+    "format": "<div style=\"text-align: center; font-size: 20px\">\n    <div style=\"width: 100%\">\n        <span>{{msg.batchName || '&lt;recipe info not loaded&gt;'}}</span>\n        <span>{{msg.batchNumber}}</span>\n    </div>\n    <span>{{msg.recipeName}}</span>\n</div>",
+    "storeOutMessages": true,
+    "fwdInMessages": true,
+    "resendOnRefresh": false,
+    "templateScope": "local",
+    "x": 920,
+    "y": 540,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "ac370479.091f58",
+    "type": "inject",
+    "z": "3b1619f7.77f936",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "{}",
+    "payloadType": "json",
+    "x": 740,
+    "y": 600,
+    "wires": [
+      [
+        "e36b8f38.088eb"
+      ]
+    ]
+  },
+  {
+    "id": "9b1c0fbf.b9ece",
+    "type": "brewers-chronicle-get",
+    "z": "3b1619f7.77f936",
+    "name": "boil session info",
+    "getmethod": "BoilSessionInfo",
+    "x": 320,
+    "y": 420,
+    "wires": [
+      [
+        "1a7eff40.dd4141",
+        "362164a2.9e1c6c"
+      ]
+    ]
+  },
+  {
+    "id": "f819f0cd.fa874",
+    "type": "link out",
+    "z": "3b1619f7.77f936",
+    "name": "",
+    "links": [
+      "72399970.c8c148"
+    ],
+    "x": 875,
+    "y": 320,
+    "wires": []
+  },
+  {
+    "id": "152f6dff.5390c2",
+    "type": "link out",
+    "z": "3b1619f7.77f936",
+    "name": "BC Load Set Rest 1",
+    "links": [
+      "9d174681.47c718"
+    ],
+    "x": 855,
+    "y": 360,
+    "wires": []
+  },
+  {
+    "id": "47d5b44b.6e6eec",
+    "type": "link out",
+    "z": "3b1619f7.77f936",
+    "name": "BC Load Set Rest 2",
+    "links": [
+      "deafe85c.da1e98"
+    ],
+    "x": 895,
+    "y": 380,
+    "wires": []
+  },
+  {
+    "id": "afeb2e1.920b4d",
+    "type": "link out",
+    "z": "3b1619f7.77f936",
+    "name": "BC Load Set Rest 3",
+    "links": [
+      "c8ecb74a.a53358"
+    ],
+    "x": 935,
+    "y": 400,
+    "wires": []
+  },
+  {
+    "id": "9de3c754.ae99c8",
+    "type": "link out",
+    "z": "3b1619f7.77f936",
+    "name": "BC Load Set Rest 4",
+    "links": [
+      "68dc6c2.b4d4894"
+    ],
+    "x": 855,
+    "y": 420,
+    "wires": []
+  },
+  {
+    "id": "7e351393.a9e04c",
+    "type": "link out",
+    "z": "3b1619f7.77f936",
+    "name": "BC Load Set Temp 1",
+    "links": [
+      "1531a2dc.84956d"
+    ],
+    "x": 855,
+    "y": 440,
+    "wires": []
+  },
+  {
+    "id": "17103840.176778",
+    "type": "link out",
+    "z": "3b1619f7.77f936",
+    "name": "BC Load Set Temp 2",
+    "links": [
+      "f4a1e90b.071b58"
+    ],
+    "x": 895,
+    "y": 460,
+    "wires": []
+  },
+  {
+    "id": "a8532783.441e48",
+    "type": "link out",
+    "z": "3b1619f7.77f936",
+    "name": "BC Load Set Temp 3",
+    "links": [
+      "9d80444a.fb5c38"
+    ],
+    "x": 935,
+    "y": 480,
+    "wires": []
+  },
+  {
+    "id": "a02e6a3f.3a25a8",
+    "type": "link out",
+    "z": "3b1619f7.77f936",
+    "name": "BC Load Set Temp 4",
+    "links": [
+      "e6aa6b97.e9dfc8"
+    ],
+    "x": 855,
+    "y": 500,
+    "wires": []
+  }
+]

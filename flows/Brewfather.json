@@ -3,7 +3,7 @@
     "id": "fc0846e9.930178",
     "type": "tab",
     "label": "Brewfather",
-    "disabled": false,
+    "disabled": true,
     "info": ""
   },
   {
@@ -24,8 +24,8 @@
     "payload": "",
     "payloadType": "str",
     "topic": "",
-    "x": 120,
-    "y": 120,
+    "x": 180,
+    "y": 160,
     "wires": [
       [
         "15a3b477.b1cf9c"
@@ -36,6 +36,7 @@
     "id": "15a3b477.b1cf9c",
     "type": "brewfather-api-request",
     "z": "fc0846e9.930178",
+    "d": true,
     "name": "Get Batch",
     "property": "selected_batch_id",
     "propertyType": "flow",
@@ -48,8 +49,8 @@
     "status": "Planning",
     "offset": 0,
     "limit": 10,
-    "x": 290,
-    "y": 120,
+    "x": 350,
+    "y": 160,
     "wires": [
       [
         "964215ad.705758",
@@ -67,8 +68,8 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 470,
-    "y": 120,
+    "x": 530,
+    "y": 160,
     "wires": [
       [
         "fdccda04.4999b8",
@@ -90,8 +91,8 @@
     "complete": "false",
     "statusVal": "",
     "statusType": "auto",
-    "x": 460,
-    "y": 160,
+    "x": 520,
+    "y": 200,
     "wires": []
   },
   {
@@ -104,8 +105,8 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 710,
-    "y": 20,
+    "x": 770,
+    "y": 60,
     "wires": [
       []
     ]
@@ -120,8 +121,8 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 700,
-    "y": 80,
+    "x": 760,
+    "y": 120,
     "wires": [
       [],
       [],
@@ -139,8 +140,8 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 690,
-    "y": 160,
+    "x": 750,
+    "y": 200,
     "wires": [
       [],
       [],
@@ -158,8 +159,8 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 690,
-    "y": 240,
+    "x": 750,
+    "y": 280,
     "wires": [
       [
         "48a178a1.570778"
@@ -180,8 +181,8 @@
     "fwdInMessages": true,
     "resendOnRefresh": false,
     "templateScope": "local",
-    "x": 880,
-    "y": 240,
+    "x": 940,
+    "y": 280,
     "wires": [
       []
     ]
@@ -207,202 +208,12 @@
     "topic": "",
     "payload": "{}",
     "payloadType": "json",
-    "x": 700,
-    "y": 300,
+    "x": 760,
+    "y": 340,
     "wires": [
       [
         "48a178a1.570778"
       ]
-    ]
-  },
-  {
-    "id": "3599db9.31bc724",
-    "type": "ui_button",
-    "z": "fc0846e9.930178",
-    "name": "",
-    "group": "e010af88.2414c",
-    "order": 1,
-    "width": 4,
-    "height": 1,
-    "passthru": false,
-    "label": "Refresh from BF!",
-    "tooltip": "",
-    "color": "#757575",
-    "bgcolor": "#e0e0e0",
-    "icon": "",
-    "payload": "",
-    "payloadType": "str",
-    "topic": "",
-    "x": 130,
-    "y": 380,
-    "wires": [
-      [
-        "29d50e51.cceb82"
-      ]
-    ]
-  },
-  {
-    "id": "a67e4262.c5c3c",
-    "type": "inject",
-    "z": "fc0846e9.930178",
-    "name": "",
-    "props": [
-      {
-        "p": "payload"
-      },
-      {
-        "p": "topic",
-        "vt": "str"
-      }
-    ],
-    "repeat": "",
-    "crontab": "",
-    "once": true,
-    "onceDelay": 0.1,
-    "topic": "",
-    "payload": "",
-    "payloadType": "date",
-    "x": 170,
-    "y": 440,
-    "wires": [
-      [
-        "29d50e51.cceb82"
-      ]
-    ]
-  },
-  {
-    "id": "29d50e51.cceb82",
-    "type": "brewfather-api-request",
-    "z": "fc0846e9.930178",
-    "name": "Get Batches",
-    "property": "payload",
-    "propertyType": "msg",
-    "endpoint": "getbatches",
-    "include": [],
-    "complete": true,
-    "inventoryexist": false,
-    "inventoryadjust": "",
-    "inventory": "",
-    "status": "Planning",
-    "offset": 0,
-    "limit": 10,
-    "x": 350,
-    "y": 410,
-    "wires": [
-      [
-        "9a90dc8.b1fc72",
-        "7f0d654a.e9098c"
-      ]
-    ]
-  },
-  {
-    "id": "9a90dc8.b1fc72",
-    "type": "debug",
-    "z": "fc0846e9.930178",
-    "name": "",
-    "active": true,
-    "tosidebar": true,
-    "console": false,
-    "tostatus": false,
-    "complete": "false",
-    "statusVal": "",
-    "statusType": "auto",
-    "x": 430,
-    "y": 340,
-    "wires": []
-  },
-  {
-    "id": "7f0d654a.e9098c",
-    "type": "sort",
-    "z": "fc0846e9.930178",
-    "name": "",
-    "order": "descending",
-    "as_num": true,
-    "target": "payload",
-    "targetType": "msg",
-    "msgKey": "payload.batchNo",
-    "msgKeyType": "jsonata",
-    "seqKey": "payload",
-    "seqKeyType": "msg",
-    "x": 440,
-    "y": 460,
-    "wires": [
-      [
-        "2268d43a.aa6dcc"
-      ]
-    ]
-  },
-  {
-    "id": "2268d43a.aa6dcc",
-    "type": "function",
-    "z": "fc0846e9.930178",
-    "name": "transform options",
-    "func": "var options = msg.payload.map(function(batch) {\n    var label = batch.name + \" #\" + batch.batchNo + \" - \" + batch.recipe.name;\n    var option = {};\n    option[label] = batch._id;\n    return option;\n});\nmsg.options = options;\nreturn msg;",
-    "outputs": 1,
-    "noerr": 0,
-    "initialize": "",
-    "finalize": "",
-    "x": 550,
-    "y": 500,
-    "wires": [
-      [
-        "898514c6.9a46a8"
-      ]
-    ]
-  },
-  {
-    "id": "898514c6.9a46a8",
-    "type": "ui_dropdown",
-    "z": "fc0846e9.930178",
-    "name": "",
-    "label": "",
-    "tooltip": "",
-    "place": "Select batch",
-    "group": "e010af88.2414c",
-    "order": 3,
-    "width": 8,
-    "height": 1,
-    "passthru": true,
-    "options": [
-      {
-        "label": "",
-        "value": "",
-        "type": "str"
-      }
-    ],
-    "payload": "",
-    "topic": "",
-    "x": 660,
-    "y": 540,
-    "wires": [
-      [
-        "50af8008.a9bb6"
-      ]
-    ]
-  },
-  {
-    "id": "50af8008.a9bb6",
-    "type": "change",
-    "z": "fc0846e9.930178",
-    "name": "",
-    "rules": [
-      {
-        "t": "set",
-        "p": "selected_batch_id",
-        "pt": "flow",
-        "to": "payload",
-        "tot": "msg"
-      }
-    ],
-    "action": "",
-    "property": "",
-    "from": "",
-    "to": "",
-    "reg": false,
-    "x": 840,
-    "y": 600,
-    "wires": [
-      []
     ]
   }
 ]

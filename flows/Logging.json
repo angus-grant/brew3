@@ -513,7 +513,7 @@
       "c5bb895f.256208"
     ],
     "x": 155,
-    "y": 297,
+    "y": 340,
     "wires": [
       [
         "663a9cd3.43a914"
@@ -536,7 +536,7 @@
     "repair": false,
     "outputs": 1,
     "x": 310,
-    "y": 297,
+    "y": 340,
     "wires": [
       [
         "ca870d52.a3591"
@@ -554,7 +554,7 @@
     "initialize": "",
     "finalize": "",
     "x": 540,
-    "y": 297,
+    "y": 340,
     "wires": [
       [
         "be157e66.d65dd"
@@ -572,7 +572,7 @@
     "precision": "",
     "retentionPolicy": "",
     "x": 810,
-    "y": 297,
+    "y": 340,
     "wires": [
       [
         "21c6d04b.5bae5"
@@ -590,7 +590,7 @@
     "initialize": "",
     "finalize": "",
     "x": 330,
-    "y": 357,
+    "y": 400,
     "wires": [
       [
         "135756b2.0d2a29"
@@ -613,7 +613,7 @@
     "randomUnits": "seconds",
     "drop": true,
     "x": 560,
-    "y": 357,
+    "y": 400,
     "wires": [
       [
         "55034497.03a3ac"
@@ -629,7 +629,7 @@
     "retentionPolicy": "",
     "name": "",
     "x": 820,
-    "y": 357,
+    "y": 400,
     "wires": []
   },
   {
@@ -646,7 +646,7 @@
       "ef9de62d.c08a78"
     ],
     "x": 195,
-    "y": 440,
+    "y": 483,
     "wires": [
       [
         "b7c5c70.5d33a38"
@@ -669,7 +669,7 @@
     "repair": false,
     "outputs": 1,
     "x": 340,
-    "y": 440,
+    "y": 483,
     "wires": [
       [
         "fb47ee6a.8f121"
@@ -692,7 +692,7 @@
     "randomUnits": "seconds",
     "drop": false,
     "x": 540,
-    "y": 440,
+    "y": 483,
     "wires": [
       [
         "8e96470d.888088"
@@ -715,7 +715,7 @@
     "randomUnits": "seconds",
     "drop": false,
     "x": 750,
-    "y": 440,
+    "y": 483,
     "wires": [
       [
         "6f2f6e79.152d4"
@@ -733,7 +733,7 @@
     "initialize": "",
     "finalize": "",
     "x": 1000,
-    "y": 440,
+    "y": 483,
     "wires": [
       [
         "fed600c4.28a44"
@@ -754,7 +754,7 @@
       "db6261df.6f1e"
     ],
     "x": 195,
-    "y": 500,
+    "y": 543,
     "wires": [
       [
         "c538d02b.3deff"
@@ -777,7 +777,7 @@
     "repair": false,
     "outputs": 1,
     "x": 350,
-    "y": 500,
+    "y": 543,
     "wires": [
       [
         "8f5a399d.131208"
@@ -800,7 +800,7 @@
     "randomUnits": "seconds",
     "drop": false,
     "x": 540,
-    "y": 500,
+    "y": 543,
     "wires": [
       [
         "1dd0098.7dbb5f7"
@@ -823,7 +823,7 @@
     "randomUnits": "seconds",
     "drop": false,
     "x": 750,
-    "y": 500,
+    "y": 543,
     "wires": [
       [
         "a9d5764e.fa3a88"
@@ -841,7 +841,7 @@
     "initialize": "",
     "finalize": "",
     "x": 1000,
-    "y": 500,
+    "y": 543,
     "wires": [
       [
         "fed600c4.28a44"
@@ -857,7 +857,7 @@
     "retentionPolicy": "",
     "name": "",
     "x": 1290,
-    "y": 480,
+    "y": 523,
     "wires": []
   },
   {
@@ -871,7 +871,7 @@
     "initialize": "",
     "finalize": "",
     "x": 320,
-    "y": 600,
+    "y": 643,
     "wires": [
       []
     ]
@@ -899,10 +899,87 @@
     "payload": "",
     "payloadType": "date",
     "x": 120,
-    "y": 600,
+    "y": 643,
     "wires": [
       [
         "cb97011d.fdeeb"
+      ]
+    ]
+  },
+  {
+    "id": "92d21ade.3fc398",
+    "type": "inject",
+    "z": "3c9f1c99.157ee4",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::bc_api_key",
+    "payloadType": "global",
+    "x": 150,
+    "y": 297,
+    "wires": [
+      [
+        "4f0ab437.c6365c"
+      ]
+    ]
+  },
+  {
+    "id": "7722a28c.4b742c",
+    "type": "change",
+    "z": "3c9f1c99.157ee4",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::bc_api_key",
+        "pt": "global",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 577,
+    "y": 297,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "4f0ab437.c6365c",
+    "type": "ui_text_input",
+    "z": "3c9f1c99.157ee4",
+    "name": "",
+    "label": "BC API",
+    "tooltip": "",
+    "group": "6078a96a.d1d938",
+    "order": 0,
+    "width": 0,
+    "height": 0,
+    "passthru": true,
+    "mode": "text",
+    "delay": 300,
+    "topic": "",
+    "x": 357,
+    "y": 297,
+    "wires": [
+      [
+        "7722a28c.4b742c"
       ]
     ]
   }

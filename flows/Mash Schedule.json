@@ -66,7 +66,9 @@
     "type": "link in",
     "z": "3da984a3.27885c",
     "name": "brewfather Rest1 link in",
-    "links": [],
+    "links": [
+      "152f6dff.5390c2"
+    ],
     "x": 175,
     "y": 520,
     "wires": [
@@ -162,7 +164,9 @@
     "type": "link in",
     "z": "3da984a3.27885c",
     "name": "brewfather Rest2 link in",
-    "links": [],
+    "links": [
+      "47d5b44b.6e6eec"
+    ],
     "x": 175,
     "y": 620,
     "wires": [
@@ -258,7 +262,9 @@
     "type": "link in",
     "z": "3da984a3.27885c",
     "name": "brewfather Rest3 link in",
-    "links": [],
+    "links": [
+      "afeb2e1.920b4d"
+    ],
     "x": 175,
     "y": 700,
     "wires": [
@@ -354,7 +360,9 @@
     "type": "link in",
     "z": "3da984a3.27885c",
     "name": "brewfather Rest4 link in",
-    "links": [],
+    "links": [
+      "9de3c754.ae99c8"
+    ],
     "x": 175,
     "y": 780,
     "wires": [
@@ -449,9 +457,11 @@
     "id": "1531a2dc.84956d",
     "type": "link in",
     "z": "3da984a3.27885c",
-    "name": "brewfather Rest1 link in",
-    "links": [],
-    "x": 875,
+    "name": "brewfather Temp1 link in",
+    "links": [
+      "7e351393.a9e04c"
+    ],
+    "x": 855,
     "y": 540,
     "wires": [
       [
@@ -516,7 +526,9 @@
     "type": "link in",
     "z": "3da984a3.27885c",
     "name": "brewfather Temp2 link in",
-    "links": [],
+    "links": [
+      "17103840.176778"
+    ],
     "x": 855,
     "y": 640,
     "wires": [
@@ -582,7 +594,9 @@
     "type": "link in",
     "z": "3da984a3.27885c",
     "name": "brewfather Temp3 link in",
-    "links": [],
+    "links": [
+      "a8532783.441e48"
+    ],
     "x": 855,
     "y": 720,
     "wires": [
@@ -652,7 +666,9 @@
     "type": "link in",
     "z": "3da984a3.27885c",
     "name": "brewfather Temp4 link in",
-    "links": [],
+    "links": [
+      "a02e6a3f.3a25a8"
+    ],
     "x": 855,
     "y": 800,
     "wires": [
@@ -1132,7 +1148,9 @@
     "type": "link in",
     "z": "3da984a3.27885c",
     "name": "brewfather mash steps link in",
-    "links": [],
+    "links": [
+      "f819f0cd.fa874"
+    ],
     "x": 215,
     "y": 280,
     "wires": [
@@ -3863,25 +3881,6 @@
     "wires": []
   },
   {
-    "id": "24722a54.95dcd6",
-    "type": "http request",
-    "z": "3da984a3.27885c",
-    "name": "Submit Mash Started to BC",
-    "method": "POST",
-    "ret": "txt",
-    "paytoqs": "body",
-    "url": "http://192.168.0.27:51402/api/brewLogs/PostReading",
-    "tls": "",
-    "persist": false,
-    "proxy": "",
-    "authType": "bearer",
-    "x": 720,
-    "y": 1200,
-    "wires": [
-      []
-    ]
-  },
-  {
     "id": "ce8e7acf.782b58",
     "type": "change",
     "z": "3da984a3.27885c",
@@ -3904,7 +3903,7 @@
     "y": 1200,
     "wires": [
       [
-        "24722a54.95dcd6"
+        "95da3a85.34fcc8"
       ]
     ]
   },
@@ -3931,27 +3930,8 @@
     "y": 2380,
     "wires": [
       [
-        "d39ec004.ad38d"
+        "9007fd32.75a73"
       ]
-    ]
-  },
-  {
-    "id": "d39ec004.ad38d",
-    "type": "http request",
-    "z": "3da984a3.27885c",
-    "name": "Submit Mash Started to BC",
-    "method": "POST",
-    "ret": "txt",
-    "paytoqs": "body",
-    "url": "http://192.168.0.27:51402/api/brewLogs/PostReading",
-    "tls": "",
-    "persist": false,
-    "proxy": "",
-    "authType": "bearer",
-    "x": 370,
-    "y": 2380,
-    "wires": [
-      []
     ]
   },
   {
@@ -3997,7 +3977,7 @@
     "id": "3c8ee8ee.d85978",
     "type": "http request",
     "z": "3da984a3.27885c",
-    "name": "Submit Mash Started to BC",
+    "name": "Submit Mash Step Started to BC",
     "method": "POST",
     "ret": "txt",
     "paytoqs": "body",
@@ -4006,7 +3986,7 @@
     "persist": false,
     "proxy": "",
     "authType": "bearer",
-    "x": 2460,
+    "x": 2470,
     "y": 2260,
     "wires": [
       []
@@ -4028,6 +4008,30 @@
       [
         "3c8ee8ee.d85978"
       ]
+    ]
+  },
+  {
+    "id": "95da3a85.34fcc8",
+    "type": "brewers-chronicle-post",
+    "z": "3da984a3.27885c",
+    "name": "BC post Mash Started",
+    "readingtype": "20171017195045668821F3029D234141",
+    "x": 750,
+    "y": 1200,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "9007fd32.75a73",
+    "type": "brewers-chronicle-post",
+    "z": "3da984a3.27885c",
+    "name": "BC Post Mash Completed",
+    "readingtype": "201710172140392965FE8AD130524078",
+    "x": 380,
+    "y": 2380,
+    "wires": [
+      []
     ]
   }
 ]
