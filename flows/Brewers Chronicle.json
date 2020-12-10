@@ -237,7 +237,7 @@
     "type": "function",
     "z": "3b1619f7.77f936",
     "name": "take first batch",
-    "func": "//msg.payload = msg.payload[0];\nreturn msg;",
+    "func": "\nvar count = msg.payload.MashStepCount;\nif (count == 0)\n    node.warn(\"dffd\");\n\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
@@ -275,7 +275,7 @@
     "type": "function",
     "z": "3b1619f7.77f936",
     "name": "num of mash steps",
-    "func": "var count = msg.payload.MashStepCount;\nnode.log(count);\n\nmsg.payload = count;\nreturn msg;",
+    "func": "var count = msg.payload.MashStepCount;\nmsg.payload = count;\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
@@ -347,7 +347,7 @@
     "type": "function",
     "z": "3b1619f7.77f936",
     "name": "recipe info",
-    "func": "var batch = msg.payload;\nmsg.batchName = batch.Name;\n//msg.batchNumber = batch.batchNo;\n//msg.recipeName = batch.recipe.name;\n\nreturn msg;",
+    "func": "var batch = msg.payload;\nmsg.batchName = batch.Name;\nmsg.beerStyle = batch.Style;\n\n//msg.batchNumber = batch.batchNo;\n//msg.recipeName = batch.recipe.name;\n\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
@@ -369,7 +369,7 @@
     "order": 5,
     "width": 6,
     "height": 2,
-    "format": "<div style=\"text-align: center; font-size: 20px\">\n    <div style=\"width: 100%\">\n        <span>{{msg.batchName || '&lt;recipe info not loaded&gt;'}}</span>\n        <span>{{msg.batchNumber}}</span>\n    </div>\n    <span>{{msg.recipeName}}</span>\n</div>",
+    "format": "<div style=\"text-align: center\">\n    <span>{{msg.batchName}}</span><br />\n    <span>{{msg.beerStyle}}</span>\n</div>",
     "storeOutMessages": true,
     "fwdInMessages": true,
     "resendOnRefresh": false,
@@ -530,6 +530,201 @@
     ],
     "x": 855,
     "y": 500,
+    "wires": []
+  },
+  {
+    "id": "112b1f55.964e41",
+    "type": "ui_toast",
+    "z": "3b1619f7.77f936",
+    "position": "top right",
+    "displayTime": "3",
+    "highlight": "",
+    "sendall": true,
+    "outputs": 0,
+    "ok": "OK",
+    "cancel": "",
+    "raw": false,
+    "topic": "",
+    "name": "",
+    "x": 300,
+    "y": 280,
+    "wires": []
+  },
+  {
+    "id": "8afdb897.097a38",
+    "type": "link in",
+    "z": "3b1619f7.77f936",
+    "name": "BC Mash Step Started In",
+    "links": [
+      "95213529.4c0b58",
+      "1a9b0e70.aa8122"
+    ],
+    "x": 195,
+    "y": 760,
+    "wires": [
+      [
+        "d560fa2f.c89d08"
+      ]
+    ]
+  },
+  {
+    "id": "d560fa2f.c89d08",
+    "type": "brewers-chronicle-post",
+    "z": "3b1619f7.77f936",
+    "name": "BC Mash step started",
+    "readingtype": "15",
+    "readingvalue": "#:(storeInFile)::mlt_target",
+    "readingvaluetype": "global",
+    "x": 340,
+    "y": 760,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "f0c591b0.7b74f",
+    "type": "comment",
+    "z": "3b1619f7.77f936",
+    "name": "BC Mash schedule integration",
+    "info": "",
+    "x": 160,
+    "y": 660,
+    "wires": []
+  },
+  {
+    "id": "8c9d1790.d60d98",
+    "type": "brewers-chronicle-post",
+    "z": "3b1619f7.77f936",
+    "name": "BC post Mash Started",
+    "readingtype": "13",
+    "readingvalue": "",
+    "readingvaluetype": "msg",
+    "x": 340,
+    "y": 720,
+    "wires": [
+      [
+        "d8973acc.197af8"
+      ]
+    ]
+  },
+  {
+    "id": "d8973acc.197af8",
+    "type": "brewers-chronicle-post",
+    "z": "3b1619f7.77f936",
+    "name": "BC post Mash-in temp",
+    "readingtype": "17",
+    "readingvalue": "strikeTemp",
+    "readingvaluetype": "flow",
+    "x": 580,
+    "y": 720,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "78702659.7bd238",
+    "type": "link in",
+    "z": "3b1619f7.77f936",
+    "name": "BC Mash Started link in",
+    "links": [
+      "308d85da.17b23a"
+    ],
+    "x": 195,
+    "y": 720,
+    "wires": [
+      [
+        "8c9d1790.d60d98"
+      ]
+    ]
+  },
+  {
+    "id": "2f3e0a23.f2f9e6",
+    "type": "brewers-chronicle-post",
+    "z": "3b1619f7.77f936",
+    "name": "BC Post Mash step ended",
+    "readingtype": "16",
+    "readingvalue": "",
+    "readingvaluetype": "msg",
+    "x": 350,
+    "y": 800,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "ebf8e7cb.47b3e8",
+    "type": "link in",
+    "z": "3b1619f7.77f936",
+    "name": "BC Mash Ended Post Link In",
+    "links": [
+      "19c568e8.9f4b77"
+    ],
+    "x": 195,
+    "y": 800,
+    "wires": [
+      [
+        "2f3e0a23.f2f9e6"
+      ]
+    ]
+  },
+  {
+    "id": "ee502586.24ce08",
+    "type": "brewers-chronicle-post",
+    "z": "3b1619f7.77f936",
+    "name": "BC Post Target temp",
+    "readingtype": "18",
+    "readingvalue": "#:(storeInFile)::mlt_target",
+    "readingvaluetype": "global",
+    "x": 340,
+    "y": 860,
+    "wires": [
+      [
+        "123362e7.01b26d"
+      ]
+    ]
+  },
+  {
+    "id": "123362e7.01b26d",
+    "type": "brewers-chronicle-post",
+    "z": "3b1619f7.77f936",
+    "name": "BC Post temp",
+    "readingtype": "19",
+    "readingvalue": "temp-MLT",
+    "readingvaluetype": "global",
+    "x": 540,
+    "y": 860,
+    "wires": [
+      [
+        "1401064c.2d828a"
+      ]
+    ]
+  },
+  {
+    "id": "2392bdc0.bf7712",
+    "type": "link in",
+    "z": "3b1619f7.77f936",
+    "name": "BC Target and Temp Post Link In",
+    "links": [
+      "b5d35932.4c40a8"
+    ],
+    "x": 195,
+    "y": 860,
+    "wires": [
+      [
+        "ee502586.24ce08"
+      ]
+    ]
+  },
+  {
+    "id": "1401064c.2d828a",
+    "type": "link out",
+    "z": "3b1619f7.77f936",
+    "name": "BC Recording to Mash schedule target temp logging loop",
+    "links": [
+      "efc61586.5eefc8"
+    ],
+    "x": 665,
+    "y": 860,
     "wires": []
   }
 ]

@@ -373,5 +373,41 @@
     "order": 9,
     "disabled": false,
     "hidden": true
+  },
+  {
+    "id": "c713dff5.21ab3",
+    "type": "ui_group",
+    "name": "Arbeitszimmer",
+    "tab": "a2b4d00e.93a548",
+    "order": 1,
+    "disp": false,
+    "width": "10",
+    "collapse": false
+  },
+  {
+    "id": "aa21acb8.2e7348",
+    "type": "mqtt-broker",
+    "broker": "localhost",
+    "port": "1883",
+    "clientid": "",
+    "usetls": false,
+    "compatmode": true,
+    "keepalive": "60",
+    "cleansession": true,
+    "birthTopic": "",
+    "birthQos": "0",
+    "birthRetain": "false",
+    "birthPayload": "",
+    "willTopic": "",
+    "willQos": "0",
+    "willRetain": "false",
+    "willPayload": ""
+  },
+  {
+    "id": "a2b4d00e.93a548",
+    "type": "ui_tab",
+    "name": "Arbeitszimmer",
+    "icon": "book",
+    "order": 1
   }
 ]
