@@ -1896,7 +1896,7 @@
     "type": "function",
     "z": "3da984a3.27885c",
     "name": "",
-    "func": "\nvar strikeAdjustment = flow.get(\"strike_adjustment\", \"storeInFile\");\nvar mashStep1Temp = flow.get('rest1_temp', 'storeInFile');\n\nflow.set(\"strikeTemp\", strikeAdjustment + mashStep1Temp);\n\nmsg.payload = flow.get(\"strikeTemp\");\n\nreturn msg;",
+    "func": "\nvar strikeAdjustment = flow.get(\"strike_adjustment\", \"storeInFile\");\nvar mashStep1Temp = flow.get('rest1_temp', 'storeInFile');\n\nglobal.set(\"strikeTemp\", strikeAdjustment + mashStep1Temp);\n\nmsg.payload = global.get(\"strikeTemp\");\n\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
@@ -2006,7 +2006,7 @@
         "t": "set",
         "p": "payload",
         "pt": "msg",
-        "to": "Idle",
+        "to": "Manual",
         "tot": "str"
       }
     ],
@@ -3692,8 +3692,7 @@
     "y": 960,
     "wires": [
       [
-        "b5d35932.4c40a8",
-        "565ea4fa.bc994c"
+        "b5d35932.4c40a8"
       ]
     ]
   },
@@ -3717,6 +3716,11 @@
       },
       {
         "t": "eq",
+        "v": "WaitingToMashIn",
+        "vt": "str"
+      },
+      {
+        "t": "eq",
         "v": "TriggerMashing",
         "vt": "str"
       },
@@ -3728,10 +3732,13 @@
     ],
     "checkall": "false",
     "repair": false,
-    "outputs": 4,
+    "outputs": 5,
     "x": 910,
     "y": 960,
     "wires": [
+      [
+        "789f1481.0abe9c"
+      ],
       [
         "789f1481.0abe9c"
       ],
@@ -4197,22 +4204,6 @@
       [
         "46c9a462.3f9a2c"
       ]
-    ]
-  },
-  {
-    "id": "565ea4fa.bc994c",
-    "type": "function",
-    "z": "3da984a3.27885c",
-    "name": "Post temps to BC",
-    "func": "\nnode.log(\"writingposting target and temp\");\n\nreturn msg;\n",
-    "outputs": 1,
-    "noerr": 0,
-    "initialize": "",
-    "finalize": "",
-    "x": 1250,
-    "y": 1020,
-    "wires": [
-      []
     ]
   }
 ]

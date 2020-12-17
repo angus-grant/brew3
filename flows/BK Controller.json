@@ -424,7 +424,7 @@
     "format": "{{value | number:1}}",
     "min": 0,
     "max": "99.8",
-    "step": "0.2",
+    "step": "0.1",
     "x": 310,
     "y": 580,
     "wires": [
@@ -503,8 +503,8 @@
     "topic": "",
     "format": "{{value | number:1}}",
     "min": 0,
-    "max": "99.8",
-    "step": "0.2",
+    "max": "100",
+    "step": "0.1",
     "x": 310,
     "y": 620,
     "wires": [
@@ -576,7 +576,7 @@
     "tooltip": "",
     "group": "e71aa9ca.9bbda8",
     "order": 7,
-    "width": 4,
+    "width": "4",
     "height": 1,
     "wrap": false,
     "passthru": true,
@@ -584,7 +584,7 @@
     "format": "{{value | number:1}}",
     "min": 0,
     "max": "100",
-    "step": "0.2",
+    "step": "0.1",
     "x": 310,
     "y": 660,
     "wires": [

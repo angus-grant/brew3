@@ -614,7 +614,7 @@
     "name": "BC post Mash-in temp",
     "readingtype": "17",
     "readingvalue": "strikeTemp",
-    "readingvaluetype": "flow",
+    "readingvaluetype": "global",
     "x": 580,
     "y": 720,
     "wires": [
@@ -695,7 +695,8 @@
     "y": 860,
     "wires": [
       [
-        "1401064c.2d828a"
+        "1401064c.2d828a",
+        "f631c8dd.d8ea38"
       ]
     ]
   },
@@ -723,8 +724,24 @@
     "links": [
       "efc61586.5eefc8"
     ],
-    "x": 665,
+    "x": 675,
     "y": 860,
     "wires": []
+  },
+  {
+    "id": "f631c8dd.d8ea38",
+    "type": "function",
+    "z": "3b1619f7.77f936",
+    "name": "Post temps to BC",
+    "func": "\nnode.log(\"posting target and temp\");\n\nreturn msg;\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 750,
+    "y": 900,
+    "wires": [
+      []
+    ]
   }
 ]

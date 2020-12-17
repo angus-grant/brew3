@@ -16,11 +16,11 @@
       "caeb268c.03fe38"
     ],
     "x": 255,
-    "y": 140,
+    "y": 200,
     "wires": [
       [
         "f389a098.7537c",
-        "67ffa092.d53c9"
+        "31854d6c.1a0362"
       ]
     ]
   },
@@ -46,8 +46,8 @@
     ],
     "seg1": "",
     "seg2": "",
-    "x": 650,
-    "y": 180,
+    "x": 630,
+    "y": 140,
     "wires": []
   },
   {
@@ -174,7 +174,7 @@
     "min": 0,
     "max": 10,
     "step": "0.1",
-    "x": 380,
+    "x": 420,
     "y": 340,
     "wires": [
       [
@@ -186,7 +186,7 @@
     "id": "a5a23500.f3c068",
     "type": "inject",
     "z": "696aae1c.d3b45",
-    "name": "Load MLT Element value",
+    "name": "Load MLT Element KW value",
     "props": [
       {
         "p": "payload"
@@ -199,7 +199,7 @@
     "topic": "",
     "payload": "#:(storeInFile)::MLT_Element__kW",
     "payloadType": "flow",
-    "x": 130,
+    "x": 160,
     "y": 340,
     "wires": [
       [
@@ -226,7 +226,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 610,
+    "x": 650,
     "y": 340,
     "wires": [
       [
@@ -244,7 +244,7 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 860,
+    "x": 900,
     "y": 340,
     "wires": [
       [
@@ -415,8 +415,8 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 400,
-    "y": 220,
+    "x": 380,
+    "y": 140,
     "wires": [
       [
         "8f5737fb.d94198"
@@ -556,20 +556,6 @@
     ]
   },
   {
-    "id": "67ffa092.d53c9",
-    "type": "rpi-gpio out",
-    "z": "696aae1c.d3b45",
-    "name": "HLT GPIO",
-    "pin": "36",
-    "set": "",
-    "level": "0",
-    "freq": "1",
-    "out": "pwm",
-    "x": 390,
-    "y": 140,
-    "wires": []
-  },
-  {
     "id": "8aca9098.5ae53",
     "type": "rpi-gpio out",
     "z": "696aae1c.d3b45",
@@ -630,14 +616,13 @@
     "id": "c194435.3429bc",
     "type": "function",
     "z": "696aae1c.d3b45",
-    "d": true,
-    "name": "",
+    "name": "mlt_element_gpio py output",
     "func": "\nnode.log(msg.payload);\n\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 740,
+    "x": 800,
     "y": 500,
     "wires": [
       []
@@ -673,7 +658,7 @@
     "id": "bfc5f605.01cf58",
     "type": "inject",
     "z": "696aae1c.d3b45",
-    "name": "Load HLT GPIO pin",
+    "name": "Load HLT ELement GPIO",
     "props": [
       {
         "p": "payload"
@@ -684,9 +669,9 @@
     "once": true,
     "onceDelay": 0.1,
     "topic": "",
-    "payload": "#:(storeInFile)::HLT_GPIO",
+    "payload": "#:(storeInFile)::mlt_element_gpio",
     "payloadType": "flow",
-    "x": 130,
+    "x": 150,
     "y": 40,
     "wires": [
       [
@@ -702,7 +687,7 @@
     "rules": [
       {
         "t": "set",
-        "p": "#:(storeInFile)::HLT_GPIO",
+        "p": "#:(storeInFile)::hlt_element_gpio",
         "pt": "flow",
         "to": "payload",
         "tot": "msg"
@@ -713,7 +698,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 600,
+    "x": 620,
     "y": 40,
     "wires": [
       []
@@ -737,7 +722,7 @@
     "min": 0,
     "max": "50",
     "step": "1",
-    "x": 380,
+    "x": 420,
     "y": 300,
     "wires": [
       [
@@ -762,7 +747,7 @@
     "topic": "",
     "payload": "#:(storeInFile)::mlt_element_gpio",
     "payloadType": "flow",
-    "x": 130,
+    "x": 170,
     "y": 300,
     "wires": [
       [
@@ -789,8 +774,67 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 630,
+    "x": 670,
     "y": 300,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "31854d6c.1a0362",
+    "type": "function",
+    "z": "696aae1c.d3b45",
+    "name": "GPIO python setup",
+    "func": "var dutyCycle = msg.payload*2;\nvar hlt_element_gpio = flow.get(\"hlt_element_gpio\", \"storeInFile\");\n\nmsg.payload = hlt_element_gpio + \" 0 0\";\n\nif (dutyCycle > 0) {\n    msg.payload = hlt_element_gpio + \" 1 \" + dutyCycle;\n}\n\nnode.log(msg.payload);\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 390,
+    "y": 220,
+    "wires": [
+      [
+        "b125af48.8640b"
+      ]
+    ]
+  },
+  {
+    "id": "b125af48.8640b",
+    "type": "exec",
+    "z": "696aae1c.d3b45",
+    "command": "sudo python /home/pi/.node-red/projects/brew3/gpio.py",
+    "addpay": true,
+    "append": "",
+    "useSpawn": "false",
+    "timer": "",
+    "oldrc": false,
+    "name": "gpio.py",
+    "x": 580,
+    "y": 220,
+    "wires": [
+      [
+        "32d17b71.9a1524"
+      ],
+      [
+        "32d17b71.9a1524"
+      ],
+      [
+        "32d17b71.9a1524"
+      ]
+    ]
+  },
+  {
+    "id": "32d17b71.9a1524",
+    "type": "function",
+    "z": "696aae1c.d3b45",
+    "name": "hlt_element_gpio py output",
+    "func": "\nnode.log(msg.payload);\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 840,
+    "y": 220,
     "wires": [
       []
     ]
