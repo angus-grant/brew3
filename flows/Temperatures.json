@@ -39,7 +39,7 @@
     "z": "34bce47d.6c8dac",
     "name": "temp-HLT",
     "topic": "",
-    "sensorid": "28-000003ca4db1",
+    "sensorid": "28-000004ce4094",
     "timer": "2",
     "repeat": false,
     "x": 360,
@@ -47,7 +47,8 @@
     "wires": [
       [
         "bfd50872.a6f5a8",
-        "78391837.520088"
+        "78391837.520088",
+        "70ca4b18.e48df4"
       ]
     ]
   },
@@ -148,7 +149,7 @@
     "z": "34bce47d.6c8dac",
     "name": "temp-MLT",
     "topic": "",
-    "sensorid": "28-000004ce4094",
+    "sensorid": "28-000004ce3103",
     "timer": "2",
     "repeat": false,
     "x": 360,
@@ -156,7 +157,8 @@
     "wires": [
       [
         "ae06031b.f8519",
-        "958b2b91.c4c778"
+        "958b2b91.c4c778",
+        "4e3101c4.4292f"
       ]
     ]
   },
@@ -257,7 +259,7 @@
     "d": true,
     "name": "temp-BK",
     "topic": "",
-    "sensorid": "28-000003ca4db1",
+    "sensorid": "00-900000000000",
     "timer": "2",
     "repeat": false,
     "x": 360,
@@ -361,6 +363,42 @@
     ],
     "x": 495,
     "y": 360,
+    "wires": []
+  },
+  {
+    "id": "70ca4b18.e48df4",
+    "type": "debug",
+    "z": "34bce47d.6c8dac",
+    "d": true,
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": true,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 560,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "4e3101c4.4292f",
+    "type": "debug",
+    "z": "34bce47d.6c8dac",
+    "d": true,
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": true,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 560,
+    "y": 180,
     "wires": []
   }
 ]

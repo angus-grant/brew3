@@ -28,12 +28,12 @@
     "payload": "#:(storeInFile)::mlt_target",
     "payloadType": "global",
     "x": 290,
-    "y": 460,
+    "y": 380,
     "wires": [
       [
         "c093d20d.9045a",
         "f753aaa0.4acb98",
-        "8fc017a7.d05218"
+        "c788fa64.85dad8"
       ]
     ]
   },
@@ -56,8 +56,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 600,
-    "y": 440,
+    "x": 680,
+    "y": 380,
     "wires": [
       []
     ]
@@ -84,36 +84,9 @@
     ],
     "seg1": "50",
     "seg2": "78",
-    "x": 620,
-    "y": 480,
+    "x": 660,
+    "y": 420,
     "wires": []
-  },
-  {
-    "id": "8fc017a7.d05218",
-    "type": "ui_slider",
-    "z": "7f292261.86badc",
-    "name": "MLT target slider",
-    "label": "Target",
-    "tooltip": "",
-    "group": "ea5e6691.a9d4b8",
-    "order": 4,
-    "width": 0,
-    "height": 0,
-    "passthru": true,
-    "outs": "end",
-    "topic": "",
-    "min": "20",
-    "max": "100",
-    "step": 1,
-    "x": 330,
-    "y": 520,
-    "wires": [
-      [
-        "1d1d7650.6ae5fa",
-        "f753aaa0.4acb98",
-        "c093d20d.9045a"
-      ]
-    ]
   },
   {
     "id": "1d1d7650.6ae5fa",
@@ -127,8 +100,8 @@
     "label": "Target",
     "format": "{{payload | number:1}}°C",
     "layout": "row-spread",
-    "x": 630,
-    "y": 520,
+    "x": 650,
+    "y": 460,
     "wires": []
   },
   {
@@ -152,37 +125,11 @@
     "topic": "",
     "payload": "#:(storeInFile)::mlt_manual_duty",
     "payloadType": "flow",
-    "x": 300,
+    "x": 200,
     "y": 320,
     "wires": [
       [
-        "b9615832.dd9a68",
-        "3d3c44d8.0aa2ec"
-      ]
-    ]
-  },
-  {
-    "id": "b9615832.dd9a68",
-    "type": "ui_slider",
-    "z": "7f292261.86badc",
-    "name": "Manual duty slider",
-    "label": "Manual",
-    "tooltip": "",
-    "group": "ea5e6691.a9d4b8",
-    "order": 5,
-    "width": 0,
-    "height": 0,
-    "passthru": true,
-    "outs": "end",
-    "topic": "",
-    "min": "20",
-    "max": "100",
-    "step": 1,
-    "x": 330,
-    "y": 380,
-    "wires": [
-      [
-        "3d3c44d8.0aa2ec"
+        "7f86574c.32cd68"
       ]
     ]
   },
@@ -205,8 +152,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 610,
-    "y": 360,
+    "x": 650,
+    "y": 320,
     "wires": [
       []
     ]
@@ -1252,10 +1199,10 @@
       "48fca837.ba4f98"
     ],
     "x": 175,
-    "y": 520,
+    "y": 440,
     "wires": [
       [
-        "8fc017a7.d05218"
+        "c788fa64.85dad8"
       ]
     ]
   },
@@ -1284,7 +1231,7 @@
     "z": "7f292261.86badc",
     "group": "ea5e6691.a9d4b8",
     "name": "MLT chart.js",
-    "order": 7,
+    "order": 6,
     "width": "6",
     "height": "4",
     "format": "<!--\nA node-red Dashboard UI template to draw charts using chart.js\nBefore use download the file Chart.bundle.min.js from chartjs.org and \nsave in an appropriate folder (e.g. .node-red/static). \nIn settings.js set httpStatic to the full path of that folder and restart node-red.\nMake sure that the options for 'Pass through messages' and 'Add output messages' \nin this node are cleared.\nFor basic use set the id and size you want in the canvas tag and set chartID to the id\nSetup chartDef as required for your chart (see the chart.js docs)\nIn addition, for each dataset specify in chartDef the message topic that you will use for that channel.\nTo (optionally) provide the chart with a one-off set of data send the node a message with:\nmsg.action = \"load\"\nmsg.payload = [\n{topic: \"mytopic1\", data: [{x: x1,y:y2},{x:x2,y:y2},...]},\n{topic: \"mytopic2\", data: [{x: x1,y:y2},{x:x2,y:y2},...]},\n...]\nWhere mytopic1 and mytopic2 are the the topics specified in the chartDef\n\nTo provide the chart with data incrementally (for a time series for example)\nsend it messages of the form\n{topic: \"mytopic1\", payload: {x:xvalue,y:yvalue}}\nThe chart will be updated as each sample is provided.\nTo limit the growth of the chart set chartMaxPoints and/or chartTimeSpan in the Chart Helper node\nas described at the head of that node.\nIf you find that chart seems to flicker and scroll bars come and go then try \nsetting a size other than auto in the Size specification for this node.\n\nFor Bar charts the x value is the label for the bar and the y value is the bar value\n\nNote that since the chart samples are stored in the browser then the chart will be cleared each\ntime the browser is refreshed (and will be clear on initially opening the view). In order to \nprovided persistency over browser opening and refresh this node may be used in conjunction with\nthe Chart Helper function node.  Details for its use are in the source of that node.\n\nIf your flow includes more that one instance of this script then the line fetching \nChart.bundle.min.js need only be included in one of them\n-->\n<script src=\"/Chart.bundle.min.js\"></script>\n<canvas id=\"MLTChart\" width=\"300\" height=\"200\"></canvas>\n<script>\n(function() {\n    var chartID = \"MLTChart\";           // set this to the id you have specified in the canvas tag above\n    // setup the chart definition as defined in the chart.js documentation, in addition setting up the topic\n    // for each channel\n    var chartDef = {\n        type: 'line',\n        data: {\n            datasets: [{\n                topic: \"Target\",    // used here not by chart.js\n                label: \"Target\",\n                yAxisID: \"1\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#0000ff\",\n                pointRadius: 0,\n                pointBorderColor: \"#0000ff\",\n                pointBackgroundColor: \"#0000ff\",\n                backgroundColor:  \"#0000ff\",\n                borderWidth: 1,\n                data: []  // data is written here later\n            }, {\n                topic: \"Temp\",    // used here not by chart.js\n                label: \"Temp\",\n                yAxisID: \"2\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#ff0000\",\n                pointRadius: 0,\n                pointBorderColor: \"#ff0000\",\n                pointBackgroundColor: \"#ff0000\",\n                backgroundColor:  \"#ff0000\",\n                borderWidth: 1,\n                data: []  // data is written here later\n            }]\n        },\n        options: {\n            scales: {\n                xAxes: [{\n                    type: 'time',\n                    time: {\n                        unit: 'minute',\n                        unitStepSize: 1,\n                        displayFormats: {\n                            minute: 'HH:mm'\n                        }\n                    },\n                    ticks: {\n                        autoSkip: true,\n                        maxTicksLimit: 3,\n                        maxRotation: 0,\n                        minRotation: 0\n                    }\n                }],\n                yAxes: [{\n                    id: \"1\",\n                    ticks: {\n                        min: 0,\n                        max: 80,\n                        stepSize: 5\n                    }\n                }, {\n                    id: \"2\",\n                    display: false,\n                    ticks: {\n                        min: 0,\n                        max: 80,\n                        stepSize: 5\n                    }\n                }]\n            },\n            animation: {\n                duration: 0\n            }\n        }\n    }\n        \n/***** You shouldn't normally need to change anything below here *****/    \n    var myChart = null;\n    var loaded = false;     // indicates whether we have already had a load action\n    var chartTimeSpan;\n    var chartMaxPoints;\n\n    function doChart(msg, scope) {\n        if (!myChart) {\n            // chart does not exist so load the data and create it\n            var ctx = document.getElementById(chartID);\n            myChart = new Chart(ctx, chartDef);     \n        }\n        // chart already exists, update it\n        var datasets = myChart.data.datasets;\n        // is this a load or preload action?\n        if (msg.action === \"load\" || msg.action === \"preload\") {\n            // yes, do not allow preload if we have already had a load\n            // so do it if this is a load or we have not previously had a load\n            if (msg.action === \"load\" || !loaded) {\n                // pick up chartTimeSpan and chartMaxPoints if they have been provided\n                if (typeof msg.chartTimeSpan != 'undefined') {\n                    chartTimeSpan = msg.chartTimeSpan;\n                }\n                if (typeof msg.chartMaxPoints != 'undefined') {\n                    chartMaxPoints = msg.chartMaxPoints;\n                }\n                    \n                // replace existing data for matching topics\n                for (var j = 0; j < msg.payload.length; j++) {\n                    var topic = msg.payload[j].topic;\n                    // find it in the chart\n                    for (var i = 0; i < datasets.length; i++) {\n                        if (datasets[i].topic == topic) {\n                            // if stripping old samples by time is required then ensure the x value is Date\n                            if (chartTimeSpan > 0 ) {\n                                var data = msg.payload[j].data;\n                                for (var k = 0; k < data.length; k++) {\n                                    if (typeof data[k].x === \"string\") {\n                                        data[k].x = new Date(data[k].x);\n                                    }\n                                }\n                            }\n                            if (chartDef.type !== \"bar\") {\n                                datasets[i].data = msg.payload[j].data;\n                            } else {\n                                // bar chart so x values must go to labels and y values to dataset\n                                datasets[i].data = [];\n                                myChart.data.labels = [];\n                                var data = msg.payload[j].data;\n                                for (var k = 0; k < data.length; k++) {\n                                    datasets[i].data.push(data[k].y);\n                                    myChart.data.labels.push(data[k].x);\n                                }\n                            }\n                            break;\n                        }\n                    }\n                }\n            }\n            if (msg.action === \"load\") loaded = true;\n            myChart.update();\n        } else {\n            // does the topic match one of the datasets?\n            for (var i = 0; i < datasets.length; i++) {\n                if (datasets[i].topic == msg.topic) {\n                    // if stripping old samples by time is required then ensure the x value is Date\n                    if (chartTimeSpan > 0 && typeof msg.payload.x === \"string\") {\n                        msg.payload.x = new Date(msg.payload.x);\n                    }\n                    if (chartDef.type !== \"bar\") {\n                        datasets[i].data.push(msg.payload);\n                    } else {\n                         // bar chart so x value must go to labels and y value to dataset\n                        datasets[i].data.push(msg.payload.y);\n                        myChart.data.labels.push(msg.payload.x);\n                    }\n                    myChart.update();\n                    break;\n                }\n            }\n        }\n        // strip off samples older than now\n        // charTimeSpan == 0 implies don't do it\n        var shifted = false;\n        if (chartTimeSpan > 0) {\n            var now = new Date();\n            var oldestTimeAllowed = now - chartTimeSpan;\n            for (var i = 0; i < datasets.length; i++) {\n                dataset = datasets[i];\n                while(dataset.data[0] && getTime(dataset.data[0].x) < oldestTimeAllowed) {\n                    dataset.data.shift();\n                    shifted = true;\n                }\n            }\n        }\n        // strip samples off the front if there are now too many\n        // charTimeSpan == 0 implies don't do it\n        if (chartMaxPoints > 0) {\n            for (var i = 0; i < datasets.length; i++) {\n                dataset = datasets[i];\n                while(dataset.data.length > chartMaxPoints) {\n                    dataset.data.shift();\n                    shifted = true;\n                }\n            }\n        }\n        if (shifted) {\n            myChart.update();\n        }\n        \n        var maxValue = getMax(myChart);\n        myChart.options.scales.yAxes[0].ticks.max = maxValue + 10;\n        myChart.options.scales.yAxes[1].ticks.max = maxValue + 10;\n        \n        var minValue = getMin(myChart);\n        myChart.options.scales.yAxes[0].ticks.min = minValue - 10;\n        myChart.options.scales.yAxes[1].ticks.min = minValue - 10;\n    };\n\n    var getMax = function(chart) {\n        datasets = chart.data.datasets;\n        var maxValue = 0;\n        for(var i=0; i<datasets.length; i++) {\n            dataset=datasets[i]\n            if(chart.data.datasets[i].hidden) {\n                continue;\n            }\n            dataset.data.forEach(function(d) {\n                if(typeof(d.y)==\"number\" && d.y > maxValue) {\n                    maxValue = d.y\n                }\n            })\n        }\n        return parseInt(maxValue);\n    }\n\n    var getMin = function(chart) {\n        datasets = chart.data.datasets;\n        var minValue = 1000;\n        for(var i=0; i<datasets.length; i++) {\n            dataset=datasets[i]\n            if(chart.data.datasets[i].hidden) {\n                continue;\n            }\n            dataset.data.forEach(function(d) {\n                if(typeof(d.y)==\"number\" && d.y < minValue) {\n                    minValue = d.y\n                }\n            })\n        }\n        return parseInt(minValue);\n    }\n\n    // gets the time of an x value, works for strings or Date types\n    function getTime(x) {\n        if (typeof x === \"string\") x = new Date(x);\n        return x.getTime();\n    }\n    \n    // builds the preload message for sending back to the chart helper\n    function preloadMsg() {\n        var preMsg = {action: \"preload\", payload: \"preload\"};\n        // build array of topics in chart\n        var topics = [];\n        for (var i=0; i<chartDef.data.datasets.length; i++) {\n            topics.push(chartDef.data.datasets[i].topic);\n        }\n        preMsg.topics = topics;\n        // has the chart already been created\n        if (myChart) {\n            preMsg.lastXValue = 1;\n        } else {\n            preMsg.lastXValue = 0;\n        }\n        return preMsg;\n    }\n\n    (function(scope) {\n        // this code gets run when the a view is opened on the node in the browser\n        // send a preload message back to node red to ask it send\n        // us a complete set of data. Pass down max points and time span to the helper node for it to use\n        // plus an array of the topics of interest\n        scope.send( preloadMsg() );\n        \n        scope.$watch('msg', function(msg) {\n            if (msg) {\n                doChart(msg, scope);\n            }\n        });\n    })(scope);\n})();\n</script>\n",
@@ -1320,6 +1267,60 @@
       [
         "3f975313.47b78c",
         "c5fb1a24.7b66e8"
+      ]
+    ]
+  },
+  {
+    "id": "c788fa64.85dad8",
+    "type": "ui_numeric",
+    "z": "7f292261.86badc",
+    "name": "",
+    "label": "Target",
+    "tooltip": "",
+    "group": "ea5e6691.a9d4b8",
+    "order": 4,
+    "width": 0,
+    "height": 0,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}",
+    "min": "20",
+    "max": "100",
+    "step": 1,
+    "x": 310,
+    "y": 440,
+    "wires": [
+      [
+        "c093d20d.9045a",
+        "f753aaa0.4acb98",
+        "1d1d7650.6ae5fa"
+      ]
+    ]
+  },
+  {
+    "id": "7f86574c.32cd68",
+    "type": "ui_numeric",
+    "z": "7f292261.86badc",
+    "name": "",
+    "label": "Manual",
+    "tooltip": "",
+    "group": "ea5e6691.a9d4b8",
+    "order": 5,
+    "width": "0",
+    "height": "0",
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}",
+    "min": "20",
+    "max": "100",
+    "step": 1,
+    "x": 440,
+    "y": 320,
+    "wires": [
+      [
+        "3d3c44d8.0aa2ec"
       ]
     ]
   }

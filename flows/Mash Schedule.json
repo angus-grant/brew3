@@ -2416,7 +2416,8 @@
     "y": 1520,
     "wires": [
       [
-        "72c34e6d.97577"
+        "72c34e6d.97577",
+        "32d4b6c.e63434a"
       ]
     ]
   },
@@ -2546,7 +2547,7 @@
         "p": "payload",
         "pt": "msg",
         "to": "strikeTemp",
-        "tot": "flow"
+        "tot": "global"
       }
     ],
     "action": "",
@@ -2703,7 +2704,8 @@
       "a2eace52.d3a64",
       "aa57ae4f.a91e1",
       "b2b5cee6.25e58",
-      "cb8c4d03.92d6a"
+      "cb8c4d03.92d6a",
+      "149345ed.691a4a"
     ],
     "x": 1225,
     "y": 1880,
@@ -4205,5 +4207,44 @@
         "46c9a462.3f9a2c"
       ]
     ]
+  },
+  {
+    "id": "32d4b6c.e63434a",
+    "type": "change",
+    "z": "3da984a3.27885c",
+    "name": "Template msg",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "Idle",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 700,
+    "y": 1480,
+    "wires": [
+      [
+        "149345ed.691a4a"
+      ]
+    ]
+  },
+  {
+    "id": "149345ed.691a4a",
+    "type": "link out",
+    "z": "3da984a3.27885c",
+    "name": "",
+    "links": [
+      "959da750.2a46a8"
+    ],
+    "x": 815,
+    "y": 1480,
+    "wires": []
   }
 ]

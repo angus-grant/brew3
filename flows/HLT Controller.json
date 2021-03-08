@@ -29,7 +29,7 @@
       [
         "949c5578.12c3c8",
         "a49e6078.923ba",
-        "d95e75d2.df5368"
+        "9a324627.037e28"
       ]
     ]
   },
@@ -85,38 +85,11 @@
     "wires": []
   },
   {
-    "id": "d95e75d2.df5368",
-    "type": "ui_slider",
-    "z": "921f2684.926868",
-    "name": "HLT target slider",
-    "label": "Target",
-    "tooltip": "",
-    "group": "a0e00a00.81b428",
-    "order": 4,
-    "width": 0,
-    "height": 0,
-    "passthru": true,
-    "outs": "end",
-    "topic": "",
-    "min": "20",
-    "max": "100",
-    "step": 1,
-    "x": 320,
-    "y": 500,
-    "wires": [
-      [
-        "fc678f03.52e16",
-        "a49e6078.923ba",
-        "949c5578.12c3c8"
-      ]
-    ]
-  },
-  {
     "id": "fc678f03.52e16",
     "type": "ui_text",
     "z": "921f2684.926868",
     "group": "96ccbe54.5ee14",
-    "order": 2,
+    "order": 4,
     "width": "0",
     "height": "0",
     "name": "HLT target",
@@ -149,35 +122,10 @@
     "payload": "#:(storeInFile)::hlt_manual_duty",
     "payloadType": "flow",
     "x": 300,
-    "y": 300,
+    "y": 320,
     "wires": [
       [
-        "acd0db89.d73f88"
-      ]
-    ]
-  },
-  {
-    "id": "acd0db89.d73f88",
-    "type": "ui_slider",
-    "z": "921f2684.926868",
-    "name": "Manual duty slider",
-    "label": "Manual",
-    "tooltip": "",
-    "group": "a0e00a00.81b428",
-    "order": 5,
-    "width": 0,
-    "height": 0,
-    "passthru": true,
-    "outs": "end",
-    "topic": "",
-    "min": "20",
-    "max": "100",
-    "step": 1,
-    "x": 590,
-    "y": 340,
-    "wires": [
-      [
-        "6d936cd7.b504e4"
+        "2157eaab.7f77d6"
       ]
     ]
   },
@@ -200,8 +148,8 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 870,
-    "y": 340,
+    "x": 750,
+    "y": 320,
     "wires": [
       []
     ]
@@ -843,7 +791,7 @@
     "label": "K𝗉",
     "tooltip": "",
     "group": "96ccbe54.5ee14",
-    "order": 3,
+    "order": 5,
     "width": 4,
     "height": 1,
     "wrap": false,
@@ -923,7 +871,7 @@
     "label": "Ki",
     "tooltip": "",
     "group": "96ccbe54.5ee14",
-    "order": 5,
+    "order": 7,
     "width": 4,
     "height": 1,
     "wrap": false,
@@ -1003,7 +951,7 @@
     "label": "Kd",
     "tooltip": "",
     "group": "96ccbe54.5ee14",
-    "order": 7,
+    "order": 9,
     "width": 4,
     "height": 1,
     "wrap": false,
@@ -1292,6 +1240,60 @@
         "b516c8eb.800748"
       ],
       []
+    ]
+  },
+  {
+    "id": "2157eaab.7f77d6",
+    "type": "ui_numeric",
+    "z": "921f2684.926868",
+    "name": "",
+    "label": "Manual",
+    "tooltip": "",
+    "group": "a0e00a00.81b428",
+    "order": 5,
+    "width": "0",
+    "height": "0",
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}",
+    "min": "20",
+    "max": "100",
+    "step": 1,
+    "x": 520,
+    "y": 320,
+    "wires": [
+      [
+        "6d936cd7.b504e4"
+      ]
+    ]
+  },
+  {
+    "id": "9a324627.037e28",
+    "type": "ui_numeric",
+    "z": "921f2684.926868",
+    "name": "",
+    "label": "Target",
+    "tooltip": "",
+    "group": "a0e00a00.81b428",
+    "order": 4,
+    "width": 0,
+    "height": 0,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}",
+    "min": "20",
+    "max": "100",
+    "step": 1,
+    "x": 330,
+    "y": 500,
+    "wires": [
+      [
+        "949c5578.12c3c8",
+        "a49e6078.923ba",
+        "fc678f03.52e16"
+      ]
     ]
   }
 ]

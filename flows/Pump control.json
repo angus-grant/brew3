@@ -15,7 +15,7 @@
       "8035a98.dc55558"
     ],
     "x": 115,
-    "y": 100,
+    "y": 140,
     "wires": [
       [
         "37dfd73f.3deab8"
@@ -44,8 +44,8 @@
     "links": [
       "b968206f.612c"
     ],
-    "x": 115,
-    "y": 400,
+    "x": 95,
+    "y": 520,
     "wires": [
       [
         "6d456b34.463524"
@@ -77,7 +77,7 @@
     "label": "MLT Pump",
     "tooltip": "",
     "group": "ea5e6691.a9d4b8",
-    "order": 11,
+    "order": 10,
     "width": 0,
     "height": 0,
     "passthru": true,
@@ -124,10 +124,10 @@
     "officon": "",
     "offcolor": "",
     "x": 250,
-    "y": 100,
+    "y": 140,
     "wires": [
       [
-        "478a44f1.37ad3c"
+        "54620947.c55208"
       ]
     ]
   },
@@ -139,7 +139,7 @@
     "label": "BK Pump",
     "tooltip": "",
     "group": "9d59abb0.326b08",
-    "order": 10,
+    "order": 11,
     "width": 0,
     "height": 0,
     "passthru": true,
@@ -154,47 +154,18 @@
     "offvalueType": "bool",
     "officon": "",
     "offcolor": "",
-    "x": 240,
-    "y": 400,
+    "x": 220,
+    "y": 520,
     "wires": [
       [
-        "4cf55fa4.1de1e"
+        "6d7905e8.76a75c"
       ]
     ]
-  },
-  {
-    "id": "478a44f1.37ad3c",
-    "type": "rpi-gpio out",
-    "z": "c68db1a2.68e94",
-    "name": "HLT GPIO",
-    "pin": "33",
-    "set": true,
-    "level": "0",
-    "freq": "",
-    "out": "out",
-    "x": 450,
-    "y": 100,
-    "wires": []
-  },
-  {
-    "id": "4cf55fa4.1de1e",
-    "type": "rpi-gpio out",
-    "z": "c68db1a2.68e94",
-    "name": "BK GPIO",
-    "pin": "38",
-    "set": true,
-    "level": "0",
-    "freq": "",
-    "out": "out",
-    "x": 440,
-    "y": 400,
-    "wires": []
   },
   {
     "id": "3239dee7.fe3402",
     "type": "function",
     "z": "c68db1a2.68e94",
-    "d": true,
     "name": "GPIO python setup",
     "func": "\nif (msg.payload)\n    msg.payload = flow.get(\"mlt_pump_gpio\", \"storeInFile\") + \" 1 200\"\nelse\n    msg.payload = flow.get(\"mlt_pump_gpio\", \"storeInFile\") + \" 0 0\"\n\nreturn msg;",
     "outputs": 1,
@@ -214,7 +185,6 @@
     "id": "c52363bc.90708",
     "type": "exec",
     "z": "c68db1a2.68e94",
-    "d": true,
     "command": "sudo python /home/pi/.node-red/projects/brew3/gpio.py",
     "addpay": true,
     "append": "",
@@ -222,8 +192,8 @@
     "timer": "",
     "oldrc": false,
     "name": "gpio.py",
-    "x": 700,
-    "y": 320,
+    "x": 720,
+    "y": 288,
     "wires": [
       [
         "87bf2eba.2a9a4"
@@ -314,15 +284,282 @@
     "id": "87bf2eba.2a9a4",
     "type": "function",
     "z": "c68db1a2.68e94",
-    "d": true,
     "name": "pump gpio",
     "func": "node.log(msg.payload);\n\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 810,
-    "y": 460,
+    "x": 910,
+    "y": 320,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "7f2d23b2.754b4c",
+    "type": "inject",
+    "z": "c68db1a2.68e94",
+    "name": "Load HLT Pump GPIO",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::hlt_pump_gpio",
+    "payloadType": "flow",
+    "x": 140,
+    "y": 60,
+    "wires": [
+      [
+        "e857b069.b326a"
+      ]
+    ]
+  },
+  {
+    "id": "e857b069.b326a",
+    "type": "ui_numeric",
+    "z": "c68db1a2.68e94",
+    "name": "",
+    "label": "Pump GPIO",
+    "tooltip": "",
+    "group": "96ccbe54.5ee14",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}",
+    "min": 0,
+    "max": "50",
+    "step": "1",
+    "x": 390,
+    "y": 60,
+    "wires": [
+      [
+        "d4b87a87.b08d38"
+      ]
+    ]
+  },
+  {
+    "id": "d4b87a87.b08d38",
+    "type": "change",
+    "z": "c68db1a2.68e94",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::hlt_pump_gpio",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 640,
+    "y": 60,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "c3ac7050.b39bb",
+    "type": "inject",
+    "z": "c68db1a2.68e94",
+    "name": "Load BK Pump GPIO",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "#:(storeInFile)::bk_pump_gpio",
+    "payloadType": "flow",
+    "x": 180,
+    "y": 440,
+    "wires": [
+      [
+        "a807b3a7.63071"
+      ]
+    ]
+  },
+  {
+    "id": "a807b3a7.63071",
+    "type": "ui_numeric",
+    "z": "c68db1a2.68e94",
+    "name": "",
+    "label": "Pump GPIO",
+    "tooltip": "",
+    "group": "e71aa9ca.9bbda8",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "wrap": false,
+    "passthru": true,
+    "topic": "",
+    "format": "{{value}}",
+    "min": 0,
+    "max": "50",
+    "step": "1",
+    "x": 430,
+    "y": 440,
+    "wires": [
+      [
+        "ff73a129.b13aa"
+      ]
+    ]
+  },
+  {
+    "id": "ff73a129.b13aa",
+    "type": "change",
+    "z": "c68db1a2.68e94",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "#:(storeInFile)::bk_pump_gpio",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 680,
+    "y": 440,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "54620947.c55208",
+    "type": "function",
+    "z": "c68db1a2.68e94",
+    "name": "GPIO python setup",
+    "func": "\nif (msg.payload)\n    msg.payload = flow.get(\"hlt_pump_gpio\", \"storeInFile\") + \" 1 200\"\nelse\n    msg.payload = flow.get(\"hlt_pump_gpio\", \"storeInFile\") + \" 0 0\"\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 450,
+    "y": 140,
+    "wires": [
+      [
+        "8145dd86.52e24",
+        "36c239e3.206b36"
+      ]
+    ]
+  },
+  {
+    "id": "8145dd86.52e24",
+    "type": "exec",
+    "z": "c68db1a2.68e94",
+    "command": "sudo python /home/pi/.node-red/projects/brew3/gpio.py",
+    "addpay": true,
+    "append": "",
+    "useSpawn": "false",
+    "timer": "",
+    "oldrc": false,
+    "name": "gpio.py",
+    "x": 680,
+    "y": 108,
+    "wires": [
+      [
+        "36c239e3.206b36"
+      ],
+      [
+        "36c239e3.206b36"
+      ],
+      []
+    ]
+  },
+  {
+    "id": "36c239e3.206b36",
+    "type": "function",
+    "z": "c68db1a2.68e94",
+    "name": "pump gpio",
+    "func": "node.log(msg.payload);\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 870,
+    "y": 140,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "6d7905e8.76a75c",
+    "type": "function",
+    "z": "c68db1a2.68e94",
+    "name": "GPIO python setup",
+    "func": "\nif (msg.payload)\n    msg.payload = flow.get(\"bk_pump_gpio\", \"storeInFile\") + \" 1 200\"\nelse\n    msg.payload = flow.get(\"bk_pump_gpio\", \"storeInFile\") + \" 0 0\"\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 430,
+    "y": 520,
+    "wires": [
+      [
+        "f02a3ca8.82e89",
+        "50dd1f9b.cbf36"
+      ]
+    ]
+  },
+  {
+    "id": "f02a3ca8.82e89",
+    "type": "exec",
+    "z": "c68db1a2.68e94",
+    "command": "sudo python /home/pi/.node-red/projects/brew3/gpio.py",
+    "addpay": true,
+    "append": "",
+    "useSpawn": "false",
+    "timer": "",
+    "oldrc": false,
+    "name": "gpio.py",
+    "x": 660,
+    "y": 488,
+    "wires": [
+      [
+        "50dd1f9b.cbf36"
+      ],
+      [
+        "50dd1f9b.cbf36"
+      ],
+      []
+    ]
+  },
+  {
+    "id": "50dd1f9b.cbf36",
+    "type": "function",
+    "z": "c68db1a2.68e94",
+    "name": "pump gpio",
+    "func": "node.log(msg.payload);\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 850,
+    "y": 520,
     "wires": [
       []
     ]

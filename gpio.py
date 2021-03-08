@@ -32,5 +32,4 @@ if pin_state is 1:
 	print "gpio turned off"
 elif pin_state is 0:
     GPIO.output(target_pin,GPIO.LOW)
-    print("LED is off")
-
+    print "gpio turned off"
