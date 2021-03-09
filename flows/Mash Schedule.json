@@ -2640,7 +2640,7 @@
     "z": "3da984a3.27885c",
     "group": "867a95f.bdb8168",
     "name": "",
-    "order": 0,
+    "order": 1,
     "width": 0,
     "height": 0,
     "format": "<div style=\"text-align:center;\" ng-bind-html=\"msg.payload\">{msg.payload}</div>",

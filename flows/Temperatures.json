@@ -29,7 +29,8 @@
       [
         "32801d57.d3dce2",
         "e1f0ed98.6af9a",
-        "d2ed6c97.6bd88"
+        "d2ed6c97.6bd88",
+        "380c6638.cfbaba"
       ]
     ]
   },
@@ -399,6 +400,64 @@
     "statusType": "auto",
     "x": 560,
     "y": 180,
+    "wires": []
+  },
+  {
+    "id": "380c6638.cfbaba",
+    "type": "exec",
+    "z": "34bce47d.6c8dac",
+    "command": "sudo python /home/pi/.node-red/projects/brew3/raspiTemp.py",
+    "addpay": false,
+    "append": "",
+    "useSpawn": "false",
+    "timer": "",
+    "oldrc": false,
+    "name": "raspiTemp.py",
+    "x": 350,
+    "y": 540,
+    "wires": [
+      [
+        "4507f6b7.944988",
+        "c61de4e6.669938"
+      ],
+      [
+        "4507f6b7.944988",
+        "c61de4e6.669938"
+      ],
+      []
+    ]
+  },
+  {
+    "id": "4507f6b7.944988",
+    "type": "debug",
+    "z": "34bce47d.6c8dac",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 550,
+    "y": 540,
+    "wires": []
+  },
+  {
+    "id": "c61de4e6.669938",
+    "type": "ui_text",
+    "z": "34bce47d.6c8dac",
+    "group": "867a95f.bdb8168",
+    "order": 2,
+    "width": 0,
+    "height": 0,
+    "name": "",
+    "label": "RasPi temp",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "x": 560,
+    "y": 600,
     "wires": []
   }
 ]
