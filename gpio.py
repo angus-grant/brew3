@@ -1,4 +1,3 @@
-
 import RPi.GPIO as GPIO
 import os
 import sys
@@ -12,9 +11,10 @@ pin_state = int(sys.argv[2])
 duty_cycle = float(sys.argv[3])/100.0
 
 # GPIO setup
-GPIO.setmode(GPIO.BOARD)
+#GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-GPIO.setup(target_pin,GPIO.OUT)
+GPIO.setup(target_pin, GPIO.OUT)
 
 # Turn on/off LED based on user input
 if pin_state is 1:
@@ -33,3 +33,5 @@ if pin_state is 1:
 elif pin_state is 0:
     GPIO.output(target_pin,GPIO.LOW)
     print "gpio turned off"
+
+#GPIO.cleanup()

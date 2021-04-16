@@ -29,8 +29,7 @@
       [
         "32801d57.d3dce2",
         "e1f0ed98.6af9a",
-        "d2ed6c97.6bd88",
-        "380c6638.cfbaba"
+        "d2ed6c97.6bd88"
       ]
     ]
   },
@@ -40,7 +39,7 @@
     "z": "34bce47d.6c8dac",
     "name": "temp-HLT",
     "topic": "",
-    "sensorid": "28-000004ce4094",
+    "sensorid": "28-000004cdb325",
     "timer": "2",
     "repeat": false,
     "x": 360,
@@ -257,10 +256,9 @@
     "id": "d2ed6c97.6bd88",
     "type": "sensor-ds18b20",
     "z": "34bce47d.6c8dac",
-    "d": true,
     "name": "temp-BK",
     "topic": "",
-    "sensorid": "00-900000000000",
+    "sensorid": "28-000004cdd1ca",
     "timer": "2",
     "repeat": false,
     "x": 360,
@@ -276,7 +274,6 @@
     "id": "b8235e4b.fda1d",
     "type": "function",
     "z": "34bce47d.6c8dac",
-    "d": true,
     "name": "calibrated BK temp value",
     "func": "var rawHigh = global.get('BK-raw-high', 'storeInFile');\nvar rawLow = global.get('BK-raw-low', 'storeInFile');\nvar referenceHigh = 99.9;\nvar referenceLow = 0.0;\nvar rawRange = rawHigh - rawLow;\nvar referenceRange = referenceHigh - referenceLow;\n\nvar rawValue = msg.payload;\n\nvar correctedValue = (((rawValue - rawLow) * referenceRange) / rawRange) + referenceLow;\nmsg.payload = correctedValue;\nreturn msg;",
     "outputs": 1,
@@ -296,7 +293,6 @@
     "id": "c5bb895f.256208",
     "type": "link out",
     "z": "34bce47d.6c8dac",
-    "d": true,
     "name": "BK calibrated temperature",
     "links": [
       "3857893c.46b1c6",
@@ -311,7 +307,6 @@
     "id": "3d0b0e81.eac3c2",
     "type": "smooth",
     "z": "34bce47d.6c8dac",
-    "d": true,
     "name": "BK smooth",
     "property": "payload",
     "action": "mean",
@@ -357,7 +352,6 @@
     "id": "720cfea9.d2587",
     "type": "link out",
     "z": "34bce47d.6c8dac",
-    "d": true,
     "name": "BK raw temperature",
     "links": [
       "7247a52b.2ac94c"
@@ -417,32 +411,13 @@
     "y": 540,
     "wires": [
       [
-        "4507f6b7.944988",
         "c61de4e6.669938"
       ],
       [
-        "4507f6b7.944988",
         "c61de4e6.669938"
       ],
       []
     ]
-  },
-  {
-    "id": "4507f6b7.944988",
-    "type": "debug",
-    "z": "34bce47d.6c8dac",
-    "name": "",
-    "active": true,
-    "tosidebar": true,
-    "console": false,
-    "tostatus": false,
-    "complete": "payload",
-    "targetType": "msg",
-    "statusVal": "",
-    "statusType": "auto",
-    "x": 550,
-    "y": 540,
-    "wires": []
   },
   {
     "id": "c61de4e6.669938",
@@ -456,8 +431,27 @@
     "label": "RasPi temp",
     "format": "{{msg.payload}}",
     "layout": "row-spread",
-    "x": 560,
-    "y": 600,
+    "x": 550,
+    "y": 540,
     "wires": []
+  },
+  {
+    "id": "aed8dcc6.78c0d",
+    "type": "inject",
+    "z": "34bce47d.6c8dac",
+    "name": "",
+    "props": [],
+    "repeat": "15",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "x": 130,
+    "y": 540,
+    "wires": [
+      [
+        "380c6638.cfbaba"
+      ]
+    ]
   }
 ]

@@ -7,61 +7,15 @@
     "info": ""
   },
   {
-    "id": "27686659.80178a",
-    "type": "link in",
-    "z": "c68db1a2.68e94",
-    "name": "HLT Pump button colour",
-    "links": [
-      "8035a98.dc55558"
-    ],
-    "x": 115,
-    "y": 140,
-    "wires": [
-      [
-        "37dfd73f.3deab8"
-      ]
-    ]
-  },
-  {
-    "id": "e5eeeb09.8041e8",
-    "type": "link in",
-    "z": "c68db1a2.68e94",
-    "name": "MLT Pump button colour",
-    "links": [],
-    "x": 115,
-    "y": 320,
-    "wires": [
-      [
-        "b73c6b10.f42fe8"
-      ]
-    ]
-  },
-  {
-    "id": "8dd15a37.85cf18",
-    "type": "link in",
-    "z": "c68db1a2.68e94",
-    "name": "BK Pump button colour",
-    "links": [
-      "b968206f.612c"
-    ],
-    "x": 95,
-    "y": 520,
-    "wires": [
-      [
-        "6d456b34.463524"
-      ]
-    ]
-  },
-  {
     "id": "82b7a3f0.12d99",
     "type": "link in",
     "z": "c68db1a2.68e94",
     "name": "HLT Pump manual fire",
     "links": [
-      "f3fef30.652ef1",
-      "35c856bc.ac4daa"
+      "35c856bc.ac4daa",
+      "f3fef30.652ef1"
     ],
-    "x": 115,
+    "x": 203,
     "y": 280,
     "wires": [
       [
@@ -92,7 +46,7 @@
     "offvalueType": "bool",
     "officon": "",
     "offcolor": "",
-    "x": 250,
+    "x": 358,
     "y": 320,
     "wires": [
       [
@@ -123,8 +77,8 @@
     "offvalueType": "bool",
     "officon": "",
     "offcolor": "",
-    "x": 250,
-    "y": 140,
+    "x": 331,
+    "y": 160,
     "wires": [
       [
         "54620947.c55208"
@@ -154,7 +108,7 @@
     "offvalueType": "bool",
     "officon": "",
     "offcolor": "",
-    "x": 220,
+    "x": 320,
     "y": 520,
     "wires": [
       [
@@ -172,7 +126,7 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 490,
+    "x": 546,
     "y": 320,
     "wires": [
       [
@@ -192,7 +146,7 @@
     "timer": "",
     "oldrc": false,
     "name": "gpio.py",
-    "x": 720,
+    "x": 776,
     "y": 288,
     "wires": [
       [
@@ -290,7 +244,7 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 910,
+    "x": 966,
     "y": 320,
     "wires": [
       []
@@ -366,7 +320,7 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 640,
+    "x": 620,
     "y": 60,
     "wires": [
       []
@@ -458,8 +412,8 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 450,
-    "y": 140,
+    "x": 523,
+    "y": 160,
     "wires": [
       [
         "8145dd86.52e24",
@@ -478,8 +432,8 @@
     "timer": "",
     "oldrc": false,
     "name": "gpio.py",
-    "x": 680,
-    "y": 108,
+    "x": 741,
+    "y": 128,
     "wires": [
       [
         "36c239e3.206b36"
@@ -500,8 +454,8 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 870,
-    "y": 140,
+    "x": 931,
+    "y": 160,
     "wires": [
       []
     ]
@@ -516,7 +470,7 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 430,
+    "x": 516,
     "y": 520,
     "wires": [
       [
@@ -536,7 +490,7 @@
     "timer": "",
     "oldrc": false,
     "name": "gpio.py",
-    "x": 660,
+    "x": 746,
     "y": 488,
     "wires": [
       [
@@ -558,10 +512,85 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 850,
+    "x": 936,
     "y": 520,
     "wires": [
       []
+    ]
+  },
+  {
+    "id": "45127398.e9ee0c",
+    "type": "inject",
+    "z": "c68db1a2.68e94",
+    "name": "init hlt pump state",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "false",
+    "payloadType": "bool",
+    "x": 131,
+    "y": 160,
+    "wires": [
+      [
+        "37dfd73f.3deab8"
+      ]
+    ]
+  },
+  {
+    "id": "ee290633.4e3358",
+    "type": "inject",
+    "z": "c68db1a2.68e94",
+    "name": "init bk pump state",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "false",
+    "payloadType": "bool",
+    "x": 138,
+    "y": 520,
+    "wires": [
+      [
+        "6d456b34.463524"
+      ]
+    ]
+  },
+  {
+    "id": "79edc285.d2e28c",
+    "type": "inject",
+    "z": "c68db1a2.68e94",
+    "name": "init mlt pump state",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "false",
+    "payloadType": "bool",
+    "x": 138,
+    "y": 320,
+    "wires": [
+      [
+        "b73c6b10.f42fe8"
+      ]
     ]
   }
 ]
