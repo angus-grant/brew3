@@ -7,52 +7,6 @@
     "info": ""
   },
   {
-    "id": "8bb5f436.b2efa8",
-    "type": "inject",
-    "z": "34bce47d.6c8dac",
-    "name": "",
-    "props": [
-      {
-        "p": "payload"
-      }
-    ],
-    "repeat": "2",
-    "crontab": "",
-    "once": true,
-    "onceDelay": 0.1,
-    "topic": "",
-    "payload": "",
-    "payloadType": "date",
-    "x": 150,
-    "y": 260,
-    "wires": [
-      [
-        "32801d57.d3dce2",
-        "e1f0ed98.6af9a",
-        "d2ed6c97.6bd88"
-      ]
-    ]
-  },
-  {
-    "id": "32801d57.d3dce2",
-    "type": "sensor-ds18b20",
-    "z": "34bce47d.6c8dac",
-    "name": "temp-HLT",
-    "topic": "",
-    "sensorid": "28-000004cdb325",
-    "timer": "2",
-    "repeat": false,
-    "x": 360,
-    "y": 140,
-    "wires": [
-      [
-        "bfd50872.a6f5a8",
-        "78391837.520088",
-        "70ca4b18.e48df4"
-      ]
-    ]
-  },
-  {
     "id": "bfd50872.a6f5a8",
     "type": "function",
     "z": "34bce47d.6c8dac",
@@ -62,8 +16,8 @@
     "noerr": 0,
     "initialize": "",
     "finalize": "",
-    "x": 590,
-    "y": 140,
+    "x": 630,
+    "y": 120,
     "wires": [
       [
         "34c9f079.97287",
@@ -82,7 +36,7 @@
     "round": "1",
     "mult": "single",
     "reduce": false,
-    "x": 830,
+    "x": 850,
     "y": 160,
     "wires": [
       [
@@ -112,7 +66,7 @@
     ],
     "seg1": "50",
     "seg2": "78",
-    "x": 1010,
+    "x": 1030,
     "y": 160,
     "wires": []
   },
@@ -124,8 +78,8 @@
     "links": [
       "3fbb4083.48588"
     ],
-    "x": 495,
-    "y": 100,
+    "x": 535,
+    "y": 80,
     "wires": []
   },
   {
@@ -139,28 +93,9 @@
       "aba40de5.32352",
       "ae9e02d6.4b8b1"
     ],
-    "x": 775,
-    "y": 100,
+    "x": 795,
+    "y": 120,
     "wires": []
-  },
-  {
-    "id": "e1f0ed98.6af9a",
-    "type": "sensor-ds18b20",
-    "z": "34bce47d.6c8dac",
-    "name": "temp-MLT",
-    "topic": "",
-    "sensorid": "28-000004ce3103",
-    "timer": "2",
-    "repeat": false,
-    "x": 360,
-    "y": 260,
-    "wires": [
-      [
-        "ae06031b.f8519",
-        "958b2b91.c4c778",
-        "4e3101c4.4292f"
-      ]
-    ]
   },
   {
     "id": "ae06031b.f8519",
@@ -173,7 +108,7 @@
     "initialize": "",
     "finalize": "",
     "x": 600,
-    "y": 260,
+    "y": 280,
     "wires": [
       [
         "99f091b4.fb026",
@@ -192,7 +127,7 @@
       "f1d998e3.0c56d8"
     ],
     "x": 775,
-    "y": 220,
+    "y": 240,
     "wires": []
   },
   {
@@ -207,7 +142,7 @@
     "mult": "single",
     "reduce": false,
     "x": 830,
-    "y": 300,
+    "y": 320,
     "wires": [
       [
         "f9892cc7.e9bb5"
@@ -237,7 +172,7 @@
     "seg1": "50",
     "seg2": "78",
     "x": 1010,
-    "y": 300,
+    "y": 320,
     "wires": []
   },
   {
@@ -249,26 +184,8 @@
       "1b18956d.818bdb"
     ],
     "x": 495,
-    "y": 220,
+    "y": 240,
     "wires": []
-  },
-  {
-    "id": "d2ed6c97.6bd88",
-    "type": "sensor-ds18b20",
-    "z": "34bce47d.6c8dac",
-    "name": "temp-BK",
-    "topic": "",
-    "sensorid": "28-000004cdd1ca",
-    "timer": "2",
-    "repeat": false,
-    "x": 360,
-    "y": 400,
-    "wires": [
-      [
-        "b8235e4b.fda1d",
-        "720cfea9.d2587"
-      ]
-    ]
   },
   {
     "id": "b8235e4b.fda1d",
@@ -281,7 +198,7 @@
     "initialize": "",
     "finalize": "",
     "x": 590,
-    "y": 400,
+    "y": 420,
     "wires": [
       [
         "c5bb895f.256208",
@@ -300,7 +217,7 @@
       "99efbbed.1a9d98"
     ],
     "x": 775,
-    "y": 360,
+    "y": 380,
     "wires": []
   },
   {
@@ -315,7 +232,7 @@
     "mult": "single",
     "reduce": false,
     "x": 830,
-    "y": 440,
+    "y": 460,
     "wires": [
       [
         "1ba5d1c7.0eaebe"
@@ -345,7 +262,7 @@
     "seg1": "50",
     "seg2": "78",
     "x": 1000,
-    "y": 440,
+    "y": 460,
     "wires": []
   },
   {
@@ -357,33 +274,14 @@
       "7247a52b.2ac94c"
     ],
     "x": 495,
-    "y": 360,
-    "wires": []
-  },
-  {
-    "id": "70ca4b18.e48df4",
-    "type": "debug",
-    "z": "34bce47d.6c8dac",
-    "d": true,
-    "name": "",
-    "active": true,
-    "tosidebar": true,
-    "console": true,
-    "tostatus": false,
-    "complete": "payload",
-    "targetType": "msg",
-    "statusVal": "",
-    "statusType": "auto",
-    "x": 560,
-    "y": 60,
+    "y": 380,
     "wires": []
   },
   {
     "id": "4e3101c4.4292f",
     "type": "debug",
     "z": "34bce47d.6c8dac",
-    "d": true,
-    "name": "",
+    "name": "hlt temp",
     "active": true,
     "tosidebar": true,
     "console": true,
@@ -392,8 +290,8 @@
     "targetType": "msg",
     "statusVal": "",
     "statusType": "auto",
-    "x": 560,
-    "y": 180,
+    "x": 550,
+    "y": 200,
     "wires": []
   },
   {
@@ -407,11 +305,12 @@
     "timer": "",
     "oldrc": false,
     "name": "raspiTemp.py",
-    "x": 350,
-    "y": 540,
+    "x": 290,
+    "y": 560,
     "wires": [
       [
-        "c61de4e6.669938"
+        "c61de4e6.669938",
+        "be8d11ac.ca2d6"
       ],
       [
         "c61de4e6.669938"
@@ -431,8 +330,8 @@
     "label": "RasPi temp",
     "format": "{{msg.payload}}",
     "layout": "row-spread",
-    "x": 550,
-    "y": 540,
+    "x": 470,
+    "y": 560,
     "wires": []
   },
   {
@@ -447,10 +346,214 @@
     "onceDelay": 0.1,
     "topic": "",
     "x": 130,
-    "y": 540,
+    "y": 560,
     "wires": [
       [
         "380c6638.cfbaba"
+      ]
+    ]
+  },
+  {
+    "id": "be8d11ac.ca2d6",
+    "type": "function",
+    "z": "34bce47d.6c8dac",
+    "name": "Send values to chart",
+    "func": "var entryDate = new Date();\nvar outputTemp = parseFloat(msg.payload.split(\"-\")[0]);\n\n//node.log(outputTemp);\n\nvar temp_msg = {};\ntemp_msg.topic = \"Temp\";\ntemp_msg.payload = {x: entryDate, y: outputTemp};\n\nvar target_msg = {};\ntarget_msg.topic = \"Target\";\ntarget_msg.payload = {x: entryDate, y: \"43.5\"};\n\nreturn [[target_msg, temp_msg]];",
+    "outputs": 2,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 500,
+    "y": 520,
+    "wires": [
+      [
+        "df795a26.0b4388",
+        "2e787b52.8f68d4"
+      ],
+      [
+        "df795a26.0b4388",
+        "2e787b52.8f68d4"
+      ]
+    ]
+  },
+  {
+    "id": "df795a26.0b4388",
+    "type": "ui_template",
+    "z": "34bce47d.6c8dac",
+    "group": "867a95f.bdb8168",
+    "name": "rasPi chart.js",
+    "order": 6,
+    "width": "6",
+    "height": "4",
+    "format": "<!--\nA node-red Dashboard UI template to draw charts using chart.js\nBefore use download the file Chart.bundle.min.js from chartjs.org and \nsave in an appropriate folder (e.g. .node-red/static). \nIn settings.js set httpStatic to the full path of that folder and restart node-red.\nMake sure that the options for 'Pass through messages' and 'Add output messages' \nin this node are cleared.\nFor basic use set the id and size you want in the canvas tag and set chartID to the id\nSetup chartDef as required for your chart (see the chart.js docs)\nIn addition, for each dataset specify in chartDef the message topic that you will use for that channel.\nTo (optionally) provide the chart with a one-off set of data send the node a message with:\nmsg.action = \"load\"\nmsg.payload = [\n{topic: \"mytopic1\", data: [{x: x1,y:y2},{x:x2,y:y2},...]},\n{topic: \"mytopic2\", data: [{x: x1,y:y2},{x:x2,y:y2},...]},\n...]\nWhere mytopic1 and mytopic2 are the the topics specified in the chartDef\n\nTo provide the chart with data incrementally (for a time series for example)\nsend it messages of the form\n{topic: \"mytopic1\", payload: {x:xvalue,y:yvalue}}\nThe chart will be updated as each sample is provided.\nTo limit the growth of the chart set chartMaxPoints and/or chartTimeSpan in the Chart Helper node\nas described at the head of that node.\nIf you find that chart seems to flicker and scroll bars come and go then try \nsetting a size other than auto in the Size specification for this node.\n\nFor Bar charts the x value is the label for the bar and the y value is the bar value\n\nNote that since the chart samples are stored in the browser then the chart will be cleared each\ntime the browser is refreshed (and will be clear on initially opening the view). In order to \nprovided persistency over browser opening and refresh this node may be used in conjunction with\nthe Chart Helper function node.  Details for its use are in the source of that node.\n\nIf your flow includes more that one instance of this script then the line fetching \nChart.bundle.min.js need only be included in one of them\n-->\n<script src=\"/Chart.bundle.min.js\"></script>\n<canvas id=\"rasPiChart\" width=\"300\" height=\"200\"></canvas>\n<script>\n(function() {\n    var chartID = \"rasPiChart\";           // set this to the id you have specified in the canvas tag above\n    // setup the chart definition as defined in the chart.js documentation, in addition setting up the topic\n    // for each channel\n    var chartDef = {\n        type: 'line',\n        data: {\n            datasets: [{\n                topic: \"Target\",    // used here not by chart.js\n                label: \"Target\",\n                yAxisID: \"1\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#0000ff\",\n                pointRadius: 0,\n                pointBorderColor: \"#0000ff\",\n                pointBackgroundColor: \"#0000ff\",\n                backgroundColor:  \"#0000ff\",\n                borderWidth: 1,\n                data: []  // data is written here later\n            }, {\n                topic: \"Temp\",    // used here not by chart.js\n                label: \"Temp\",\n                yAxisID: \"2\",\n                fill: false,\n                lineTension: 0,\n                borderColor: \"#ff0000\",\n                pointRadius: 0,\n                pointBorderColor: \"#ff0000\",\n                pointBackgroundColor: \"#ff0000\",\n                backgroundColor:  \"#ff0000\",\n                borderWidth: 1,\n                data: []  // data is written here later\n            }]\n        },\n        options: {\n            scales: {\n                xAxes: [{\n                    type: 'time',\n                    time: {\n                        unit: 'minute',\n                        unitStepSize: 1,\n                        displayFormats: {\n                            minute: 'HH:mm'\n                        }\n                    },\n                    ticks: {\n                        autoSkip: true,\n                        maxTicksLimit: 3,\n                        maxRotation: 0,\n                        minRotation: 0\n                    }\n                }],\n                yAxes: [{\n                    id: \"1\",\n                    ticks: {\n                        min: 0,\n                        max: 80,\n                        stepSize: 5\n                    }\n                }, {\n                    id: \"2\",\n                    display: false,\n                    ticks: {\n                        min: 0,\n                        max: 80,\n                        stepSize: 5\n                    }\n                }]\n            },\n            animation: {\n                duration: 0\n            }\n        }\n    }\n        \n/***** You shouldn't normally need to change anything below here *****/    \n    var myChart = null;\n    var loaded = false;     // indicates whether we have already had a load action\n    var chartTimeSpan;\n    var chartMaxPoints;\n\n    function doChart(msg, scope) {\n        if (!myChart) {\n            // chart does not exist so load the data and create it\n            var ctx = document.getElementById(chartID);\n            myChart = new Chart(ctx, chartDef);     \n        }\n        // chart already exists, update it\n        var datasets = myChart.data.datasets;\n        // is this a load or preload action?\n        if (msg.action === \"load\" || msg.action === \"preload\") {\n            // yes, do not allow preload if we have already had a load\n            // so do it if this is a load or we have not previously had a load\n            if (msg.action === \"load\" || !loaded) {\n                // pick up chartTimeSpan and chartMaxPoints if they have been provided\n                if (typeof msg.chartTimeSpan != 'undefined') {\n                    chartTimeSpan = msg.chartTimeSpan;\n                }\n                if (typeof msg.chartMaxPoints != 'undefined') {\n                    chartMaxPoints = msg.chartMaxPoints;\n                }\n                    \n                // replace existing data for matching topics\n                for (var j = 0; j < msg.payload.length; j++) {\n                    var topic = msg.payload[j].topic;\n                    // find it in the chart\n                    for (var i = 0; i < datasets.length; i++) {\n                        if (datasets[i].topic == topic) {\n                            // if stripping old samples by time is required then ensure the x value is Date\n                            if (chartTimeSpan > 0 ) {\n                                var data = msg.payload[j].data;\n                                for (var k = 0; k < data.length; k++) {\n                                    if (typeof data[k].x === \"string\") {\n                                        data[k].x = new Date(data[k].x);\n                                    }\n                                }\n                            }\n                            if (chartDef.type !== \"bar\") {\n                                datasets[i].data = msg.payload[j].data;\n                            } else {\n                                // bar chart so x values must go to labels and y values to dataset\n                                datasets[i].data = [];\n                                myChart.data.labels = [];\n                                var data = msg.payload[j].data;\n                                for (var k = 0; k < data.length; k++) {\n                                    datasets[i].data.push(data[k].y);\n                                    myChart.data.labels.push(data[k].x);\n                                }\n                            }\n                            break;\n                        }\n                    }\n                }\n            }\n            if (msg.action === \"load\") loaded = true;\n            myChart.update();\n        } else {\n            // does the topic match one of the datasets?\n            for (var i = 0; i < datasets.length; i++) {\n                if (datasets[i].topic == msg.topic) {\n                    // if stripping old samples by time is required then ensure the x value is Date\n                    if (chartTimeSpan > 0 && typeof msg.payload.x === \"string\") {\n                        msg.payload.x = new Date(msg.payload.x);\n                    }\n                    if (chartDef.type !== \"bar\") {\n                        datasets[i].data.push(msg.payload);\n                    } else {\n                         // bar chart so x value must go to labels and y value to dataset\n                        datasets[i].data.push(msg.payload.y);\n                        myChart.data.labels.push(msg.payload.x);\n                    }\n                    myChart.update();\n                    break;\n                }\n            }\n        }\n        // strip off samples older than now\n        // charTimeSpan == 0 implies don't do it\n        var shifted = false;\n        if (chartTimeSpan > 0) {\n            var now = new Date();\n            var oldestTimeAllowed = now - chartTimeSpan;\n            for (var i = 0; i < datasets.length; i++) {\n                dataset = datasets[i];\n                while(dataset.data[0] && getTime(dataset.data[0].x) < oldestTimeAllowed) {\n                    dataset.data.shift();\n                    shifted = true;\n                }\n            }\n        }\n        // strip samples off the front if there are now too many\n        // charTimeSpan == 0 implies don't do it\n        if (chartMaxPoints > 0) {\n            for (var i = 0; i < datasets.length; i++) {\n                dataset = datasets[i];\n                while(dataset.data.length > chartMaxPoints) {\n                    dataset.data.shift();\n                    shifted = true;\n                }\n            }\n        }\n        if (shifted) {\n            myChart.update();\n        }\n        \n        var maxValue = getMax(myChart);\n        myChart.options.scales.yAxes[0].ticks.max = maxValue + 5;\n        myChart.options.scales.yAxes[1].ticks.max = maxValue + 5;\n        \n        var minValue = getMin(myChart);\n        myChart.options.scales.yAxes[0].ticks.min = minValue - 5;\n        myChart.options.scales.yAxes[1].ticks.min = minValue - 5;\n    };\n\n    var getMax = function(chart) {\n        datasets = chart.data.datasets;\n        var maxValue = 0;\n        for(var i=0; i<datasets.length; i++) {\n            dataset=datasets[i]\n            if(chart.data.datasets[i].hidden) {\n                continue;\n            }\n            dataset.data.forEach(function(d) {\n                if(typeof(d.y)==\"number\" && d.y > maxValue) {\n                    maxValue = d.y\n                }\n            })\n        }\n        return parseInt(maxValue);\n    }\n\n    var getMin = function(chart) {\n        datasets = chart.data.datasets;\n        var minValue = 1000;\n        for(var i=0; i<datasets.length; i++) {\n            dataset=datasets[i]\n            if(chart.data.datasets[i].hidden) {\n                continue;\n            }\n            dataset.data.forEach(function(d) {\n                if(typeof(d.y)==\"number\" && d.y < minValue) {\n                    minValue = d.y\n                }\n            })\n        }\n        return parseInt(minValue);\n    }\n\n    // gets the time of an x value, works for strings or Date types\n    function getTime(x) {\n        if (typeof x === \"string\") x = new Date(x);\n        return x.getTime();\n    }\n    \n    // builds the preload message for sending back to the chart helper\n    function preloadMsg() {\n        var preMsg = {action: \"preload\", payload: \"preload\"};\n        // build array of topics in chart\n        var topics = [];\n        for (var i=0; i<chartDef.data.datasets.length; i++) {\n            topics.push(chartDef.data.datasets[i].topic);\n        }\n        preMsg.topics = topics;\n        // has the chart already been created\n        if (myChart) {\n            preMsg.lastXValue = 1;\n        } else {\n            preMsg.lastXValue = 0;\n        }\n        return preMsg;\n    }\n\n    (function(scope) {\n        // this code gets run when the a view is opened on the node in the browser\n        // send a preload message back to node red to ask it send\n        // us a complete set of data. Pass down max points and time span to the helper node for it to use\n        // plus an array of the topics of interest\n        scope.send( preloadMsg() );\n        \n        scope.$watch('msg', function(msg) {\n            if (msg) {\n                doChart(msg, scope);\n            }\n        });\n    })(scope);\n})();\n</script>\n",
+    "storeOutMessages": false,
+    "fwdInMessages": false,
+    "resendOnRefresh": false,
+    "templateScope": "local",
+    "x": 790,
+    "y": 520,
+    "wires": [
+      [
+        "2e787b52.8f68d4"
+      ]
+    ]
+  },
+  {
+    "id": "2e787b52.8f68d4",
+    "type": "function",
+    "z": "34bce47d.6c8dac",
+    "name": "rasPi Chart Helper",
+    "func": "// A helper for the node-red chart.js template node\n// see the template node for the majority of the user defined data\n// here all that is needed is to setup values to limit the length of the chart\n// Firstly chartMaxPoints may be set non-zero and (for each channel) when the number\n// of points exceeds this value then the oldest samples will be discarded.\n// Alternatively (or in addition) if the x axis is time based then chartTimeSpan (milliseconds)\n// may be set and then old samples will be discarded to limit the chart to this time span.\n\nvar chartMaxPoints = 0;             //max no points in a chart before they drop off the left. Set to zero to disable\nvar chartTimeSpan = 60*60*1000;     //chart time span 4 mins. Set to zero to disable\n\n// ----------------------------------------------------------\n// You should not need to change anything below here\n\n// with inputs connected to the same nodes as a chart.js node this maintains a chart history\n// for preloading into the chart when it is opened in the browser\n\nvar topicsOfinterest = context.get('topicsOfInterest');    // can't use null here\nif (typeof topicsOfInterest == 'undefined') topicsOfInterest = null;\n\nvar msg2 = null;\nvar datasets = context.get('datasets') || [];\n// each dataset maps to a channel on the chart and consists of a hash with fields\n// topic: the topic name of the channel\n// data: an array of data points {x: x_value, y: y_value}\n// If msg.action == \"preload\" then the topic and payload are ignored and a message is passed\n// on containing the current chart data and msg.action still set to preload\n\nif (msg.action === \"preload\") {\n    // we should have been passed the topics of interest\n    topicsOfInterest = msg.topics;      // null if not provided\n    context.set('topicsOfInterest', topicsOfInterest);\n    // send a message containing the current chart data time range values, leave rest of msg as is\n    msg.payload = datasets;\n    msg.chartMaxPoints = chartMaxPoints;\n    msg.chartTimeSpan = chartTimeSpan;\n} else if (msg.action === \"restore\") {\n    // restoring from persistent memory\n    // step through the given datasets, if any\n    if (Array.isArray(msg.payload)) {\n        for (var i = 0; i < msg.payload.length; i++) {\n            topic = msg.payload[i].topic;\n            // find the matching topic\n            var found = false;\n            for (var k = 0; k < datasets.length; k++) {\n                if (datasets[k].topic == topic) {\n                    // insert the data in front of any that has been acquired since startup\n                    datasets[k].data = msg.payload[i].data.concat(datasets[k].data);\n                    found = true;\n                    break;\n                }\n            }\n            if (!found) {\n                // new topic so make a new dataset and fill it\n                datasets.push({topic: topic, data: msg.payload[i].data});\n            }\n        }\n    }\n    // remember that we have restored in order to enable future writes to persistent store\n    context.set(\"restored\", true);\n    // send a preload action to the chart\n    msg.action = \"preload\";\n    msg.payload = datasets;\n} else if (msg.action === \"load\") {\n    // replace existing data for matching topics\n    for (var j = 0; j < msg.payload.length; j++) {\n        var topic = msg.payload[j].topic;\n        // find it in the chart\n        found = false;\n        for (i = 0; i < datasets.length; i++) {\n            if (datasets[i].topic == topic) {\n                datasets[i].data = msg.payload[j].data;\n                found = true;\n                break;\n            }\n        }\n        if (!found) {\n            // new topic so make a new dataset and fill it\n            datasets.push({topic: topic, data: msg.payload[j].data});\n        }\n    }\n    msg = null;         // don't send anything on\n} else {\n    // check whether the topic is one we are interested in\n    if (topicsOfInterest === null  || topicsOfInterest.indexOf(msg.topic) >= 0) {\n        found = false;\n        // find the right dataset if it already exists\n        for (i = 0; i < datasets.length; i++) {\n            dataset = datasets[i];\n            if (dataset.topic == msg.topic) {\n                found = true;\n                dataset.data.push(msg.payload);\n                break;\n            }\n        }\n        if (!found) {\n            // new topic so make a new dataset\n            datasets.push({topic: msg.topic, data: [msg.payload]});\n        }\n    } else {\n        // ignore topics that are not of interest\n    }\n    // do not pass on a message to o/p 1, send the datasets to o/p 2 for persistent\n    // storage if required and we have been given data on startup\n    // this is to prevent the persistent store being overwritten before it has been read\n    msg = null;\n    if (context.get(\"restored\")) {\n        msg2 = {payload: datasets};\n    }\n}\n    \n// remove any points that are too old\nif (chartTimeSpan > 0) {\n    var now = new Date();\n    var oldestTimeAllowed = new Date();\n    oldestTimeAllowed.setTime(now.getTime() - (chartTimeSpan));\n    for (i = 0; i < datasets.length; i++) {\n        var data = datasets[i].data;\n        while (data.length > 0 ) {\n            // convert the x value (in place) to a Date if it is a string\n            if (typeof data[0].x === \"string\") {\n                data[0].x = new Date(data[0].x);\n            }            \n            if (data[0].x < oldestTimeAllowed) {\n                data.shift();\n            } else {\n                break;\n            }\n        }\n    }\n}\n// strip samples off the front if there are now too many\n// charTimeSpan == 0 implies don't do it\nif (chartMaxPoints > 0) {\n    var shifted = false;\n    for (i = 0; i < datasets.length; i++) {\n        data = datasets[i].data;\n        while(data.length > chartMaxPoints) {\n            data.shift();\n        }\n    }\n}\ncontext.set('datasets', datasets);\nreturn [msg,msg2];\n\n",
+    "outputs": "2",
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 810,
+    "y": 600,
+    "wires": [
+      [
+        "df795a26.0b4388"
+      ],
+      []
+    ]
+  },
+  {
+    "id": "7f0258cf.b2a9b8",
+    "type": "sensor-dynamic-ds18b20",
+    "z": "34bce47d.6c8dac",
+    "name": "temp-HLT",
+    "topic": "",
+    "x": 360,
+    "y": 80,
+    "wires": [
+      [
+        "30b2e156.aa14be",
+        "78391837.520088",
+        "bfd50872.a6f5a8"
+      ]
+    ]
+  },
+  {
+    "id": "30b2e156.aa14be",
+    "type": "debug",
+    "z": "34bce47d.6c8dac",
+    "d": true,
+    "name": "dynamic DS18B20",
+    "active": true,
+    "tosidebar": true,
+    "console": true,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 620,
+    "y": 40,
+    "wires": []
+  },
+  {
+    "id": "fc770a7b.caa508",
+    "type": "inject",
+    "z": "34bce47d.6c8dac",
+    "name": "",
+    "props": [
+      {
+        "p": "sensorid",
+        "v": "#:(storeInFile)::hlt_sensorid",
+        "vt": "global"
+      }
+    ],
+    "repeat": "2",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "x": 190,
+    "y": 80,
+    "wires": [
+      [
+        "7f0258cf.b2a9b8"
+      ]
+    ]
+  },
+  {
+    "id": "23b84038.6c559",
+    "type": "inject",
+    "z": "34bce47d.6c8dac",
+    "name": "",
+    "props": [
+      {
+        "p": "sensorid",
+        "v": "#:(storeInFile)::mlt_sensorid",
+        "vt": "global"
+      }
+    ],
+    "repeat": "2",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "x": 210,
+    "y": 280,
+    "wires": [
+      [
+        "394e10ca.a2285"
+      ]
+    ]
+  },
+  {
+    "id": "394e10ca.a2285",
+    "type": "sensor-dynamic-ds18b20",
+    "z": "34bce47d.6c8dac",
+    "name": "temp-MLT",
+    "topic": "",
+    "x": 360,
+    "y": 280,
+    "wires": [
+      [
+        "958b2b91.c4c778",
+        "ae06031b.f8519",
+        "4e3101c4.4292f"
+      ]
+    ]
+  },
+  {
+    "id": "90fc772e.261f08",
+    "type": "inject",
+    "z": "34bce47d.6c8dac",
+    "name": "",
+    "props": [
+      {
+        "p": "sensorid",
+        "v": "#:(storeInFile)::bk_sensorid",
+        "vt": "global"
+      }
+    ],
+    "repeat": "2",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "x": 210,
+    "y": 420,
+    "wires": [
+      [
+        "d087f00b.735f5"
+      ]
+    ]
+  },
+  {
+    "id": "d087f00b.735f5",
+    "type": "sensor-dynamic-ds18b20",
+    "z": "34bce47d.6c8dac",
+    "name": "temp-BK",
+    "topic": "",
+    "x": 360,
+    "y": 420,
+    "wires": [
+      [
+        "720cfea9.d2587",
+        "b8235e4b.fda1d"
       ]
     ]
   }

@@ -6,11 +6,14 @@
 tFile = open('/sys/class/thermal/thermal_zone0/temp')
 temp = float(tFile.read())
 tempC = temp/1000
-print tempC
+tempStatus = round(tempC, 1)
+#print tempC
 
 if tempC > 43.5:
 #  GPIO.output(17, 1)
-  print "HOT"
+  tempStatus = str(tempStatus) + "-HOT"
 else:
 #  GPIO.output(17, 0)
-  print "COLD"
+  tempStatus = str(tempStatus) + "-COLD"
+
+print tempStatus

@@ -2,7 +2,10 @@
     "name": "brew3",
     "description": "A Node-RED Project",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-contrib-brewers-chronicle": "0.9.0",
+        "node-red-contrib-sensor-dynamic-ds18b20": "0.2.0"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flow.json",

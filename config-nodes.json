@@ -261,17 +261,6 @@
     "collapse": false
   },
   {
-    "id": "b921988f.6da898",
-    "type": "influxdb",
-    "hostname": "127.0.0.1",
-    "port": "8086",
-    "protocol": "http",
-    "database": "brew2",
-    "name": "",
-    "usetls": false,
-    "tls": ""
-  },
-  {
     "id": "a505f112.ea455",
     "type": "ui_tab",
     "name": "Mash Schedule",
@@ -372,7 +361,7 @@
     "icon": "dashboard",
     "order": 9,
     "disabled": false,
-    "hidden": true
+    "hidden": false
   },
   {
     "id": "c713dff5.21ab3",
@@ -385,29 +374,19 @@
     "collapse": false
   },
   {
-    "id": "aa21acb8.2e7348",
-    "type": "mqtt-broker",
-    "broker": "localhost",
-    "port": "1883",
-    "clientid": "",
-    "usetls": false,
-    "compatmode": true,
-    "keepalive": "60",
-    "cleansession": true,
-    "birthTopic": "",
-    "birthQos": "0",
-    "birthRetain": "false",
-    "birthPayload": "",
-    "willTopic": "",
-    "willQos": "0",
-    "willRetain": "false",
-    "willPayload": ""
-  },
-  {
     "id": "a2b4d00e.93a548",
     "type": "ui_tab",
     "name": "Arbeitszimmer",
     "icon": "book",
     "order": 1
+  },
+  {
+    "id": "301f2e3.c1f64d2",
+    "type": "ui_group",
+    "name": "Group 2",
+    "tab": "47377554.37684c",
+    "order": 2,
+    "disp": true,
+    "width": 6
   }
 ]

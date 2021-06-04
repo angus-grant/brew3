@@ -27,7 +27,7 @@
     "topic": "",
     "payload": "",
     "payloadType": "date",
-    "x": 150,
+    "x": 131,
     "y": 60,
     "wires": [
       [
@@ -53,7 +53,7 @@
     "payload": "",
     "payloadType": "str",
     "topic": "",
-    "x": 140,
+    "x": 121,
     "y": 100,
     "wires": [
       [
@@ -152,9 +152,9 @@
     "id": "f275acdb.0832d",
     "type": "brewers-chronicle-get",
     "z": "3b1619f7.77f936",
-    "name": "BC get method",
+    "name": "Get BC Boil Sessions",
     "getmethod": "BoilSessions",
-    "x": 390,
+    "x": 391,
     "y": 80,
     "wires": [
       [
@@ -224,7 +224,7 @@
     "payload": "",
     "payloadType": "str",
     "topic": "",
-    "x": 160,
+    "x": 80,
     "y": 420,
     "wires": [
       [
@@ -413,9 +413,9 @@
     "id": "9b1c0fbf.b9ece",
     "type": "brewers-chronicle-get",
     "z": "3b1619f7.77f936",
-    "name": "boil session info",
+    "name": "Get BC boil session info",
     "getmethod": "BoilSessionInfo",
-    "x": 320,
+    "x": 270,
     "y": 420,
     "wires": [
       [
