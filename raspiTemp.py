@@ -9,7 +9,7 @@ tempC = temp/1000
 tempStatus = round(tempC, 1)
 #print tempC
 
-if tempC > 43.5:
+if tempC >= 50.0:
 #  GPIO.output(17, 1)
   tempStatus = str(tempStatus) + "-HOT"
 else:

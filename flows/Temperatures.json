@@ -358,7 +358,7 @@
     "type": "function",
     "z": "34bce47d.6c8dac",
     "name": "Send values to chart",
-    "func": "var entryDate = new Date();\nvar outputTemp = parseFloat(msg.payload.split(\"-\")[0]);\n\n//node.log(outputTemp);\n\nvar temp_msg = {};\ntemp_msg.topic = \"Temp\";\ntemp_msg.payload = {x: entryDate, y: outputTemp};\n\nvar target_msg = {};\ntarget_msg.topic = \"Target\";\ntarget_msg.payload = {x: entryDate, y: \"43.5\"};\n\nreturn [[target_msg, temp_msg]];",
+    "func": "var entryDate = new Date();\nvar outputTemp = parseFloat(msg.payload.split(\"-\")[0]);\n\n//node.log(outputTemp);\n\nvar temp_msg = {};\ntemp_msg.topic = \"Temp\";\ntemp_msg.payload = {x: entryDate, y: outputTemp};\n\nvar target_msg = {};\ntarget_msg.topic = \"Target\";\ntarget_msg.payload = {x: entryDate, y: \"50\"};\n\nreturn [[target_msg, temp_msg]];",
     "outputs": 2,
     "noerr": 0,
     "initialize": "",
