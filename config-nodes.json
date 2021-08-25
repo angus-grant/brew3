@@ -110,37 +110,37 @@
     "type": "ui_group",
     "name": "HLT",
     "tab": "1a3824a0.4dd3fb",
-    "order": 2,
+    "order": 1,
     "disp": true,
     "width": "6",
-    "collapse": false
+    "collapse": true
   },
   {
     "id": "ea5e6691.a9d4b8",
     "type": "ui_group",
     "name": "MLT",
     "tab": "1a3824a0.4dd3fb",
-    "order": 3,
+    "order": 2,
     "disp": true,
     "width": "6",
-    "collapse": false
+    "collapse": true
   },
   {
     "id": "9d59abb0.326b08",
     "type": "ui_group",
     "name": "BK",
     "tab": "1a3824a0.4dd3fb",
-    "order": 4,
+    "order": 3,
     "disp": true,
     "width": "6",
-    "collapse": false
+    "collapse": true
   },
   {
     "id": "3a5d5e9b.7af2a2",
     "type": "ui_group",
     "name": "Timer",
     "tab": "1a3824a0.4dd3fb",
-    "order": 5,
+    "order": 4,
     "disp": true,
     "width": "6",
     "collapse": false
@@ -150,19 +150,10 @@
     "type": "ui_group",
     "name": "Status",
     "tab": "1a3824a0.4dd3fb",
-    "order": 6,
+    "order": 5,
     "disp": true,
     "width": "6",
-    "collapse": false
-  },
-  {
-    "id": "90e220fd.7b00d",
-    "type": "ui_tab",
-    "name": "Settings",
-    "icon": "dashboard",
-    "order": 2,
-    "disabled": false,
-    "hidden": false
+    "collapse": true
   },
   {
     "id": "51bd7048.52028",
@@ -249,16 +240,6 @@
     "icon": "dashboard",
     "disabled": false,
     "hidden": false
-  },
-  {
-    "id": "6078a96a.d1d938",
-    "type": "ui_group",
-    "name": "Logging",
-    "tab": "1a3206d4.f7f279",
-    "order": 1,
-    "disp": true,
-    "width": "6",
-    "collapse": false
   },
   {
     "id": "a505f112.ea455",
@@ -364,29 +345,13 @@
     "hidden": false
   },
   {
-    "id": "c713dff5.21ab3",
+    "id": "a4a3ad50.dc574",
     "type": "ui_group",
-    "name": "Arbeitszimmer",
-    "tab": "a2b4d00e.93a548",
-    "order": 1,
-    "disp": false,
-    "width": "10",
-    "collapse": false
-  },
-  {
-    "id": "a2b4d00e.93a548",
-    "type": "ui_tab",
-    "name": "Arbeitszimmer",
-    "icon": "book",
-    "order": 1
-  },
-  {
-    "id": "301f2e3.c1f64d2",
-    "type": "ui_group",
-    "name": "Group 2",
-    "tab": "47377554.37684c",
-    "order": 2,
+    "name": "Manual Timer",
+    "tab": "1a3824a0.4dd3fb",
+    "order": 6,
     "disp": true,
-    "width": 6
+    "width": "6",
+    "collapse": true
   }
 ]
