@@ -346,14 +346,6 @@
         "collapse": false
     },
     {
-        "id": "1a3206d4.f7f279",
-        "type": "ui_tab",
-        "name": "General Settings",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "a505f112.ea455",
         "type": "ui_tab",
         "name": "Mash Schedule",
@@ -8722,6 +8714,7 @@
         "width": 8,
         "height": 1,
         "passthru": true,
+        "multiple": false,
         "options": [
             {
                 "label": "Start now",
@@ -8781,7 +8774,7 @@
         "type": "function",
         "z": "3da984a3.27885c",
         "name": "Show/Hide scheduler",
-        "func": "if(flow.get('mash_start', 'storeInFile') == \"now\"){\n    msg.payload = {group:{hide:[\"Mash_Schedule_Control2\"]}}\n}\nelse\n{\n        msg.payload = {group:{show:[\"Mash_Schedule_Control2\"]}}\n}\nreturn msg;",
+        "func": "if(flow.get('mash_start', 'storeInFile') == \"now\"){\n    msg.payload = {group:{hide:[\"Mash_Schedule_Control2\"]}}\n}\nelse\n{\n    msg.payload = {group:{show:[\"Mash_Schedule_Control2\"]}}\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -11648,6 +11641,7 @@
         "id": "b00ce9b8.71e658",
         "type": "function",
         "z": "3da984a3.27885c",
+        "d": true,
         "name": "post delay from set values",
         "func": "\nnode.log(global.get(\"temp-MLT\") + \" > \" + flow.get(\"mlt_adjusted_target\", \"storeInFile\") + \"?\");\n\nreturn msg;",
         "outputs": 1,
