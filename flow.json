@@ -186,7 +186,8 @@
                 "primary": "indigo",
                 "accents": "blue",
                 "warn": "red",
-                "background": "grey"
+                "background": "grey",
+                "palette": "light"
             }
         },
         "site": {
@@ -463,11 +464,12 @@
         "type": "function",
         "z": "34bce47d.6c8dac",
         "name": "calibrated HLT temp value",
-        "func": "var rawHigh = global.get('HLT-raw-high', 'storeInFile');\nvar rawLow = global.get('HLT-raw-low', 'storeInFile');\n\nvar referenceHigh = 99.9;\nvar referenceLow = 0.0;\nvar rawRange = rawHigh - rawLow;\nvar referenceRange = referenceHigh - referenceLow;\n\nvar rawValue = msg.payload;\n\nvar correctedValue = (((rawValue - rawLow) * referenceRange) / rawRange) + referenceLow;\nmsg.payload = correctedValue;\nreturn msg;",
+        "func": "var rawHigh = global.get('HLT-raw-high', 'storeInFile') | 100;\nvar rawLow = global.get('HLT-raw-low', 'storeInFile') | 0;\n\nvar referenceHigh = 99.9;\nvar referenceLow = 0.0;\nvar rawRange = rawHigh - rawLow;\nvar referenceRange = referenceHigh - referenceLow;\n\nvar rawValue = msg.payload;\nvar correctedValue = (((rawValue - rawLow) * referenceRange) / rawRange) + referenceLow;\nmsg.payload = correctedValue;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 630,
         "y": 120,
         "wires": [
@@ -508,7 +510,7 @@
         "gtype": "gage",
         "title": "",
         "label": "Actual Temp",
-        "format": "{{value}}c",
+        "format": "{{msg.payload}}c",
         "min": 0,
         "max": "101",
         "colors": [
@@ -733,7 +735,9 @@
         "type": "link in",
         "z": "10a92214.f225ae",
         "name": "HLT calibrated temperature input",
-        "links": [],
+        "links": [
+            "536be9dd.80ff78"
+        ],
         "x": 135,
         "y": 380,
         "wires": [
@@ -1004,11 +1008,12 @@
         "type": "function",
         "z": "34bce47d.6c8dac",
         "name": "calibrated MLT temp value",
-        "func": "var rawHigh = global.get('MLT-raw-high', 'storeInFile');\nvar rawLow = global.get('MLT-raw-low', 'storeInFile');\nvar referenceHigh = 99.9;\nvar referenceLow = 0.0;\nvar rawRange = rawHigh - rawLow;\nvar referenceRange = referenceHigh - referenceLow;\n\nvar rawValue = msg.payload;\n\nvar correctedValue = (((rawValue - rawLow) * referenceRange) / rawRange) + referenceLow;\nmsg.payload = correctedValue;\nreturn msg;",
+        "func": "var rawHigh = global.get('MLT-raw-high', 'storeInFile') | 100;\nvar rawLow = global.get('MLT-raw-low', 'storeInFile') | 0;\nvar referenceHigh = 99.9;\nvar referenceLow = 0.0;\nvar rawRange = rawHigh - rawLow;\nvar referenceRange = referenceHigh - referenceLow;\n\nvar rawValue = msg.payload;\n\nvar correctedValue = (((rawValue - rawLow) * referenceRange) / rawRange) + referenceLow;\nmsg.payload = correctedValue;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 600,
         "y": 280,
         "wires": [
@@ -1320,11 +1325,12 @@
         "type": "function",
         "z": "34bce47d.6c8dac",
         "name": "calibrated BK temp value",
-        "func": "var rawHigh = global.get('BK-raw-high', 'storeInFile');\nvar rawLow = global.get('BK-raw-low', 'storeInFile');\nvar referenceHigh = 99.9;\nvar referenceLow = 0.0;\nvar rawRange = rawHigh - rawLow;\nvar referenceRange = referenceHigh - referenceLow;\n\nvar rawValue = msg.payload;\n\nvar correctedValue = (((rawValue - rawLow) * referenceRange) / rawRange) + referenceLow;\nmsg.payload = correctedValue;\nreturn msg;",
+        "func": "var rawHigh = global.get('BK-raw-high', 'storeInFile') | 100;\nvar rawLow = global.get('BK-raw-low', 'storeInFile') | 0;\n\nvar referenceHigh = 99.9;\nvar referenceLow = 0.0;\nvar rawRange = rawHigh - rawLow;\nvar referenceRange = referenceHigh - referenceLow;\n\nvar rawValue = msg.payload;\n\nvar correctedValue = (((rawValue - rawLow) * referenceRange) / rawRange) + referenceLow;\nmsg.payload = correctedValue;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 590,
         "y": 420,
         "wires": [
@@ -1406,37 +1412,6 @@
         "wires": []
     },
     {
-        "id": "b5c6ad0d.e873c",
-        "type": "inject",
-        "z": "7f292261.86badc",
-        "name": "Default MLT Target",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "#:(storeInFile)::mlt_target",
-        "payloadType": "global",
-        "x": 290,
-        "y": 386,
-        "wires": [
-            [
-                "c093d20d.9045a",
-                "f753aaa0.4acb98",
-                "c788fa64.85dad8"
-            ]
-        ]
-    },
-    {
         "id": "c093d20d.9045a",
         "type": "change",
         "z": "7f292261.86badc",
@@ -1455,8 +1430,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
-        "y": 374,
+        "x": 1000,
+        "y": 388,
         "wires": [
             []
         ]
@@ -1483,8 +1458,8 @@
         ],
         "seg1": "50",
         "seg2": "78",
-        "x": 600,
-        "y": 414,
+        "x": 980,
+        "y": 428,
         "wires": []
     },
     {
@@ -1499,36 +1474,9 @@
         "label": "Target",
         "format": "{{payload | number:1}}°C",
         "layout": "row-spread",
-        "x": 590,
-        "y": 454,
+        "x": 970,
+        "y": 468,
         "wires": []
-    },
-    {
-        "id": "c19146c.e1f96b8",
-        "type": "inject",
-        "z": "921f2684.926868",
-        "name": "Default HLT Target",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "#:(storeInFile)::hlt_target",
-        "payloadType": "global",
-        "x": 290,
-        "y": 390,
-        "wires": [
-            [
-                "949c5578.12c3c8",
-                "a49e6078.923ba",
-                "9a324627.037e28"
-            ]
-        ]
     },
     {
         "id": "949c5578.12c3c8",
@@ -1549,8 +1497,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 610,
-        "y": 370,
+        "x": 930,
+        "y": 360,
         "wires": [
             []
         ]
@@ -1577,8 +1525,8 @@
         ],
         "seg1": "50",
         "seg2": "78",
-        "x": 600,
-        "y": 410,
+        "x": 920,
+        "y": 400,
         "wires": []
     },
     {
@@ -1593,38 +1541,9 @@
         "label": "Target",
         "format": "{{payload | number:1}}°C",
         "layout": "row-spread",
-        "x": 590,
-        "y": 450,
+        "x": 910,
+        "y": 440,
         "wires": []
-    },
-    {
-        "id": "aad2f85e.13eed8",
-        "type": "inject",
-        "z": "921f2684.926868",
-        "name": "Default Element Duty",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "#:(storeInFile)::hlt_manual_duty",
-        "payloadType": "flow",
-        "x": 300,
-        "y": 320,
-        "wires": [
-            [
-                "2157eaab.7f77d6"
-            ]
-        ]
     },
     {
         "id": "6d936cd7.b504e4",
@@ -1645,39 +1564,10 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 750,
+        "x": 990,
         "y": 320,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "effed81f.0e5528",
-        "type": "inject",
-        "z": "7f292261.86badc",
-        "name": "Default Element Duty",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "#:(storeInFile)::mlt_manual_duty",
-        "payloadType": "flow",
-        "x": 309,
-        "y": 320,
-        "wires": [
-            [
-                "7f86574c.32cd68"
-            ]
         ]
     },
     {
@@ -1699,7 +1589,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 755,
+        "x": 990,
         "y": 320,
         "wires": [
             []
@@ -3225,7 +3115,7 @@
         "label": "K𝗉",
         "tooltip": "",
         "group": "99bd808a.f2698",
-        "order": 5,
+        "order": 6,
         "width": "4",
         "height": 1,
         "wrap": false,
@@ -3305,7 +3195,7 @@
         "label": "Ki",
         "tooltip": "",
         "group": "99bd808a.f2698",
-        "order": 7,
+        "order": 8,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -3385,7 +3275,7 @@
         "label": "Kd",
         "tooltip": "",
         "group": "99bd808a.f2698",
-        "order": 9,
+        "order": 10,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -3465,7 +3355,7 @@
         "label": "K𝗉",
         "tooltip": "",
         "group": "96ccbe54.5ee14",
-        "order": 5,
+        "order": 6,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -3545,7 +3435,7 @@
         "label": "Ki",
         "tooltip": "",
         "group": "96ccbe54.5ee14",
-        "order": 7,
+        "order": 8,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -3625,7 +3515,7 @@
         "label": "Kd",
         "tooltip": "",
         "group": "96ccbe54.5ee14",
-        "order": 9,
+        "order": 10,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -5281,7 +5171,7 @@
         "type": "ui_text",
         "z": "c3bfffec.8ad98",
         "group": "99bd808a.f2698",
-        "order": 6,
+        "order": 7,
         "width": 2,
         "height": 1,
         "name": "MLT PID Error",
@@ -5297,7 +5187,7 @@
         "type": "ui_text",
         "z": "c3bfffec.8ad98",
         "group": "99bd808a.f2698",
-        "order": 8,
+        "order": 9,
         "width": 2,
         "height": 1,
         "name": "MLT PID Integrator",
@@ -5313,7 +5203,7 @@
         "type": "ui_text",
         "z": "c3bfffec.8ad98",
         "group": "99bd808a.f2698",
-        "order": 10,
+        "order": 11,
         "width": 2,
         "height": 1,
         "name": "MLT PID Derivative",
@@ -5347,7 +5237,7 @@
         "type": "ui_text",
         "z": "c3bfffec.8ad98",
         "group": "e71aa9ca.9bbda8",
-        "order": 5,
+        "order": 6,
         "width": 2,
         "height": 1,
         "name": "BK PID Error",
@@ -5363,7 +5253,7 @@
         "type": "ui_text",
         "z": "c3bfffec.8ad98",
         "group": "e71aa9ca.9bbda8",
-        "order": 7,
+        "order": 8,
         "width": 2,
         "height": 1,
         "name": "BK PID Integrator",
@@ -5379,7 +5269,7 @@
         "type": "ui_text",
         "z": "c3bfffec.8ad98",
         "group": "e71aa9ca.9bbda8",
-        "order": 9,
+        "order": 10,
         "width": 2,
         "height": 1,
         "name": "BK PID Derivative",
@@ -5413,7 +5303,7 @@
         "type": "ui_text",
         "z": "c3bfffec.8ad98",
         "group": "96ccbe54.5ee14",
-        "order": 6,
+        "order": 7,
         "width": 2,
         "height": 1,
         "name": "HLT PID Error",
@@ -5429,7 +5319,7 @@
         "type": "ui_text",
         "z": "c3bfffec.8ad98",
         "group": "96ccbe54.5ee14",
-        "order": 8,
+        "order": 9,
         "width": 2,
         "height": 1,
         "name": "HLT PID Integrator",
@@ -5445,7 +5335,7 @@
         "type": "ui_text",
         "z": "c3bfffec.8ad98",
         "group": "96ccbe54.5ee14",
-        "order": 10,
+        "order": 11,
         "width": 2,
         "height": 1,
         "name": "HLT PID Derivative",
@@ -6192,30 +6082,18 @@
         "id": "237e62aa.3c31ce",
         "type": "inject",
         "z": "78e2f0b5.5a802",
-        "name": "Default BK Target",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
+        "name": "BK Target",
+        "props": [],
         "repeat": "",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "#:(storeInFile)::bk_target",
-        "payloadType": "global",
-        "x": 210,
-        "y": 440,
+        "x": 100,
+        "y": 420,
         "wires": [
             [
-                "d65af15e.7a91c",
-                "76fa4d08.464e54",
-                "68c04583.20dbbc"
+                "1edc5f8c1fdb845e"
             ]
         ]
     },
@@ -6238,8 +6116,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 510,
-        "y": 420,
+        "x": 870,
+        "y": 400,
         "wires": [
             []
         ]
@@ -6266,8 +6144,8 @@
         ],
         "seg1": "50",
         "seg2": "78",
-        "x": 540,
-        "y": 460,
+        "x": 900,
+        "y": 440,
         "wires": []
     },
     {
@@ -6282,39 +6160,9 @@
         "label": "Target",
         "format": "{{payload | number:1}}°C",
         "layout": "row-spread",
-        "x": 550,
-        "y": 500,
+        "x": 910,
+        "y": 480,
         "wires": []
-    },
-    {
-        "id": "d4d48589.704b58",
-        "type": "inject",
-        "z": "78e2f0b5.5a802",
-        "name": "Default Element Duty",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "#:(storeInFile)::bk_manual_duty",
-        "payloadType": "flow",
-        "x": 220,
-        "y": 300,
-        "wires": [
-            [
-                "5255e2e3.2740fc",
-                "d934cd31.c948d"
-            ]
-        ]
     },
     {
         "id": "5255e2e3.2740fc",
@@ -6335,8 +6183,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 510,
-        "y": 360,
+        "x": 970,
+        "y": 300,
         "wires": [
             []
         ]
@@ -6545,7 +6393,7 @@
         "label": "K𝗉",
         "tooltip": "",
         "group": "e71aa9ca.9bbda8",
-        "order": 4,
+        "order": 5,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -6625,7 +6473,7 @@
         "label": "Ki",
         "tooltip": "",
         "group": "e71aa9ca.9bbda8",
-        "order": 6,
+        "order": 7,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -6705,7 +6553,7 @@
         "label": "Kd",
         "tooltip": "",
         "group": "e71aa9ca.9bbda8",
-        "order": 8,
+        "order": 9,
         "width": "4",
         "height": 1,
         "wrap": false,
@@ -9688,8 +9536,8 @@
         "z": "78e2f0b5.5a802",
         "name": "",
         "events": "all",
-        "x": 810,
-        "y": 480,
+        "x": 1000,
+        "y": 660,
         "wires": [
             []
         ]
@@ -9850,8 +9698,8 @@
             "2d31cce6.ce7794",
             "48fca837.ba4f98"
         ],
-        "x": 175,
-        "y": 440,
+        "x": 555,
+        "y": 454,
         "wires": [
             [
                 "c788fa64.85dad8"
@@ -11797,6 +11645,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 348,
         "y": 84,
         "wires": [
@@ -14180,7 +14029,8 @@
         "id": "4e3101c4.4292f",
         "type": "debug",
         "z": "34bce47d.6c8dac",
-        "name": "hlt temp",
+        "d": true,
+        "name": "temp-MLT dynamic DS18B20",
         "active": true,
         "tosidebar": true,
         "console": true,
@@ -14189,7 +14039,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 550,
+        "x": 610,
         "y": 200,
         "wires": []
     },
@@ -14207,12 +14057,13 @@
         "wrap": false,
         "passthru": true,
         "topic": "",
+        "topicType": "str",
         "format": "{{value}}",
-        "min": "20",
+        "min": "0",
         "max": "100",
         "step": 1,
-        "x": 324,
-        "y": 448,
+        "x": 710,
+        "y": 480,
         "wires": [
             [
                 "c093d20d.9045a",
@@ -14228,18 +14079,19 @@
         "name": "",
         "label": "Manual",
         "tooltip": "",
-        "group": "ea5e6691.a9d4b8",
+        "group": "99bd808a.f2698",
         "order": 5,
         "width": "0",
         "height": "0",
         "wrap": false,
         "passthru": true,
         "topic": "",
+        "topicType": "str",
         "format": "{{value}}",
         "min": "20",
         "max": "100",
         "step": 1,
-        "x": 528,
+        "x": 763,
         "y": 320,
         "wires": [
             [
@@ -14254,18 +14106,19 @@
         "name": "",
         "label": "Manual",
         "tooltip": "",
-        "group": "a0e00a00.81b428",
+        "group": "96ccbe54.5ee14",
         "order": 5,
         "width": "0",
         "height": "0",
         "wrap": false,
         "passthru": true,
         "topic": "",
+        "topicType": "str",
         "format": "{{value}}",
         "min": "20",
         "max": "100",
         "step": 1,
-        "x": 520,
+        "x": 760,
         "y": 320,
         "wires": [
             [
@@ -14287,12 +14140,13 @@
         "wrap": false,
         "passthru": true,
         "topic": "",
+        "topicType": "str",
         "format": "{{value}}",
-        "min": "20",
+        "min": "0",
         "max": "100",
         "step": 1,
-        "x": 330,
-        "y": 450,
+        "x": 670,
+        "y": 460,
         "wires": [
             [
                 "949c5578.12c3c8",
@@ -14308,19 +14162,20 @@
         "name": "",
         "label": "Manual",
         "tooltip": "",
-        "group": "9d59abb0.326b08",
-        "order": 6,
+        "group": "e71aa9ca.9bbda8",
+        "order": 4,
         "width": "0",
         "height": "0",
         "wrap": false,
         "passthru": true,
         "topic": "",
+        "topicType": "str",
         "format": "{{value}}",
         "min": "20",
         "max": "100",
         "step": 1,
-        "x": 260,
-        "y": 360,
+        "x": 760,
+        "y": 300,
         "wires": [
             [
                 "5255e2e3.2740fc"
@@ -14341,12 +14196,13 @@
         "wrap": false,
         "passthru": true,
         "topic": "",
+        "topicType": "str",
         "format": "{{value}}",
-        "min": "20",
+        "min": "0",
         "max": "100",
         "step": 1,
-        "x": 250,
-        "y": 500,
+        "x": 710,
+        "y": 480,
         "wires": [
             [
                 "d65af15e.7a91c",
@@ -14669,7 +14525,7 @@
         "z": "34bce47d.6c8dac",
         "name": "",
         "props": [],
-        "repeat": "15",
+        "repeat": "30",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
@@ -14842,7 +14698,7 @@
         "type": "debug",
         "z": "34bce47d.6c8dac",
         "d": true,
-        "name": "dynamic DS18B20",
+        "name": "temp-HLT dynamic DS18B20",
         "active": true,
         "tosidebar": true,
         "console": true,
@@ -14851,7 +14707,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 620,
+        "x": 650,
         "y": 40,
         "wires": []
     },
@@ -15190,7 +15046,8 @@
         "wires": [
             [
                 "720cfea9.d2587",
-                "b8235e4b.fda1d"
+                "b8235e4b.fda1d",
+                "4339d31cc5431233"
             ]
         ]
     },
@@ -15214,6 +15071,629 @@
                 "1cdf203e.698cd",
                 "9f3e474e.46fd98",
                 "cff451df.2a7a6"
+            ]
+        ]
+    },
+    {
+        "id": "4339d31cc5431233",
+        "type": "debug",
+        "z": "34bce47d.6c8dac",
+        "d": true,
+        "name": "temp-BK dynamic DS18B20",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "1edc5f8c1fdb845e",
+        "type": "switch",
+        "z": "78e2f0b5.5a802",
+        "name": "",
+        "property": "#:(storeInFile)::bk_target",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 250,
+        "y": 420,
+        "wires": [
+            [
+                "4fa63acc7e478ae8"
+            ],
+            [
+                "2415397ec8ad01f3"
+            ]
+        ]
+    },
+    {
+        "id": "2415397ec8ad01f3",
+        "type": "change",
+        "z": "78e2f0b5.5a802",
+        "name": "payload to bk_target",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "#:(storeInFile)::bk_target",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 440,
+        "wires": [
+            [
+                "d65af15e.7a91c",
+                "76fa4d08.464e54",
+                "68c04583.20dbbc"
+            ]
+        ]
+    },
+    {
+        "id": "4fa63acc7e478ae8",
+        "type": "change",
+        "z": "78e2f0b5.5a802",
+        "name": "bk_target to 0",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 400,
+        "wires": [
+            [
+                "d65af15e.7a91c",
+                "76fa4d08.464e54",
+                "68c04583.20dbbc"
+            ]
+        ]
+    },
+    {
+        "id": "d458bfd3622e613a",
+        "type": "inject",
+        "z": "921f2684.926868",
+        "name": "HLT Target",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 400,
+        "wires": [
+            [
+                "b5e99db33c2f9386"
+            ]
+        ]
+    },
+    {
+        "id": "b5e99db33c2f9386",
+        "type": "switch",
+        "z": "921f2684.926868",
+        "name": "",
+        "property": "#:(storeInFile)::hlt_target",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 250,
+        "y": 400,
+        "wires": [
+            [
+                "49bda8979427ba85"
+            ],
+            [
+                "20d60fcfcfe53580"
+            ]
+        ]
+    },
+    {
+        "id": "49bda8979427ba85",
+        "type": "change",
+        "z": "921f2684.926868",
+        "name": "hlt_target to 0",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 380,
+        "wires": [
+            [
+                "9a324627.037e28",
+                "949c5578.12c3c8",
+                "a49e6078.923ba"
+            ]
+        ]
+    },
+    {
+        "id": "20d60fcfcfe53580",
+        "type": "change",
+        "z": "921f2684.926868",
+        "name": "payload to hlt_target",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "#:(storeInFile)::hlt_target",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 420,
+        "wires": [
+            [
+                "9a324627.037e28",
+                "949c5578.12c3c8",
+                "fc678f03.52e16"
+            ]
+        ]
+    },
+    {
+        "id": "c4b72a349b646751",
+        "type": "inject",
+        "z": "7f292261.86badc",
+        "name": "HLT Target",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 400,
+        "wires": [
+            [
+                "86e3051f883dbd29"
+            ]
+        ]
+    },
+    {
+        "id": "86e3051f883dbd29",
+        "type": "switch",
+        "z": "7f292261.86badc",
+        "name": "",
+        "property": "#:(storeInFile)::hlt_target",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 250,
+        "y": 400,
+        "wires": [
+            [
+                "9f7b5d3f30e89129"
+            ],
+            [
+                "0fbc1163fa2d50d0"
+            ]
+        ]
+    },
+    {
+        "id": "9f7b5d3f30e89129",
+        "type": "change",
+        "z": "7f292261.86badc",
+        "name": "hlt_target to 0",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 380,
+        "wires": [
+            [
+                "c788fa64.85dad8",
+                "c093d20d.9045a",
+                "f753aaa0.4acb98"
+            ]
+        ]
+    },
+    {
+        "id": "0fbc1163fa2d50d0",
+        "type": "change",
+        "z": "7f292261.86badc",
+        "name": "payload to hlt_target",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "#:(storeInFile)::hlt_target",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 420,
+        "wires": [
+            [
+                "c788fa64.85dad8",
+                "c093d20d.9045a",
+                "f753aaa0.4acb98"
+            ]
+        ]
+    },
+    {
+        "id": "28e856903af69b26",
+        "type": "inject",
+        "z": "921f2684.926868",
+        "name": "hlt_manual_duty",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 320,
+        "wires": [
+            [
+                "c4725ca661b422cd"
+            ]
+        ]
+    },
+    {
+        "id": "c4725ca661b422cd",
+        "type": "switch",
+        "z": "921f2684.926868",
+        "name": "",
+        "property": "#:(storeInFile)::hlt_target",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 330,
+        "y": 320,
+        "wires": [
+            [
+                "a309c13919dcca6e"
+            ],
+            [
+                "8d250571bb46e48e"
+            ]
+        ]
+    },
+    {
+        "id": "a309c13919dcca6e",
+        "type": "change",
+        "z": "921f2684.926868",
+        "name": "hlt_manual_duty to 100",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "100",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 300,
+        "wires": [
+            [
+                "2157eaab.7f77d6"
+            ]
+        ]
+    },
+    {
+        "id": "8d250571bb46e48e",
+        "type": "change",
+        "z": "921f2684.926868",
+        "name": "payload to hlt_manual_duty",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "#:(storeInFile)::hlt_manual_duty",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 340,
+        "wires": [
+            [
+                "2157eaab.7f77d6"
+            ]
+        ]
+    },
+    {
+        "id": "24ed73315397aa5a",
+        "type": "inject",
+        "z": "7f292261.86badc",
+        "name": "mlt_manual_duty",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 320,
+        "wires": [
+            [
+                "79fc5f8776c4f4a7"
+            ]
+        ]
+    },
+    {
+        "id": "79fc5f8776c4f4a7",
+        "type": "switch",
+        "z": "7f292261.86badc",
+        "name": "",
+        "property": "#:(storeInFile)::hlt_target",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 330,
+        "y": 320,
+        "wires": [
+            [
+                "2412a2216ba00baa"
+            ],
+            [
+                "95d828710d20193d"
+            ]
+        ]
+    },
+    {
+        "id": "2412a2216ba00baa",
+        "type": "change",
+        "z": "7f292261.86badc",
+        "name": "mlt_manual_duty to 100",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "100",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 300,
+        "wires": [
+            [
+                "7f86574c.32cd68"
+            ]
+        ]
+    },
+    {
+        "id": "95d828710d20193d",
+        "type": "change",
+        "z": "7f292261.86badc",
+        "name": "payload to mlt_manual_duty",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "#:(storeInFile)::mlt_manual_duty",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 340,
+        "wires": [
+            [
+                "7f86574c.32cd68"
+            ]
+        ]
+    },
+    {
+        "id": "12bb65f1efd4f86c",
+        "type": "inject",
+        "z": "78e2f0b5.5a802",
+        "name": "bk_manual_duty",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 300,
+        "wires": [
+            [
+                "7ac0cbc7b3e2daa2"
+            ]
+        ]
+    },
+    {
+        "id": "7ac0cbc7b3e2daa2",
+        "type": "switch",
+        "z": "78e2f0b5.5a802",
+        "name": "",
+        "property": "#:(storeInFile)::hlt_target",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 310,
+        "y": 300,
+        "wires": [
+            [
+                "aa21b4ca3096a50b"
+            ],
+            [
+                "a857bc5db5bbe966"
+            ]
+        ]
+    },
+    {
+        "id": "aa21b4ca3096a50b",
+        "type": "change",
+        "z": "78e2f0b5.5a802",
+        "name": "bk_manual_duty to 100",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "100",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 280,
+        "wires": [
+            [
+                "d934cd31.c948d"
+            ]
+        ]
+    },
+    {
+        "id": "a857bc5db5bbe966",
+        "type": "change",
+        "z": "78e2f0b5.5a802",
+        "name": "payload to bk_manual_duty",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "#:(storeInFile)::bk_manual_duty",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 320,
+        "wires": [
+            [
+                "d934cd31.c948d"
             ]
         ]
     }
