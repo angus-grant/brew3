@@ -112,6 +112,13 @@
         "info": ""
     },
     {
+        "id": "1e4806d1a5f5f23a",
+        "type": "tab",
+        "label": "System status",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "f26e00eb.30cfc",
         "type": "ui_base",
         "theme": {
@@ -389,7 +396,7 @@
         "type": "ui_spacer",
         "name": "spacer",
         "group": "e010af88.2414c",
-        "order": 4,
+        "order": 6,
         "width": 8,
         "height": 1
     },
@@ -398,7 +405,7 @@
         "type": "ui_spacer",
         "name": "spacer",
         "group": "e010af88.2414c",
-        "order": 6,
+        "order": 8,
         "width": 2,
         "height": 1
     },
@@ -407,7 +414,7 @@
         "type": "ui_spacer",
         "name": "spacer",
         "group": "e010af88.2414c",
-        "order": 7,
+        "order": 9,
         "width": 2,
         "height": 1
     },
@@ -458,6 +465,13 @@
         "disp": true,
         "width": "6",
         "collapse": true
+    },
+    {
+        "id": "279d8078.dcf29",
+        "type": "ui_tab",
+        "z": "1e4806d1a5f5f23a",
+        "name": "New Test",
+        "icon": "dashboard"
     },
     {
         "id": "bfd50872.a6f5a8",
@@ -3016,6 +3030,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 794,
         "y": 225,
         "wires": [
@@ -3663,6 +3678,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 800,
         "y": 226,
         "wires": [
@@ -3756,7 +3772,7 @@
         "label": "usage",
         "format": "{{payload | number:1}} kW",
         "min": 0,
-        "max": "2.4",
+        "max": "20",
         "colors": [
             "#00b500",
             "#e6e600",
@@ -3800,7 +3816,7 @@
         "label": "usage",
         "format": "{{payload | number:1}} kW",
         "min": 0,
-        "max": "2.4",
+        "max": "20",
         "colors": [
             "#00b500",
             "#e6e600",
@@ -6289,11 +6305,12 @@
         "type": "function",
         "z": "78e2f0b5.5a802",
         "name": "BK PID Control",
-        "func": "// Note that the algorithm provided below assumes a 1 second iteration time\n// Justin Angevaare\n// May 2018\n\n// Set temperature\nmsg.topic = \"PID-BK-main-loop\";\nmsg.target =  flow.get('bk_target', 'storeInFile');\nmsg.temperature =  msg.payload;\nnode.warn('Temp: ' + msg.payload);\n// Well that node doesn't work... do manually\nmsg.interval = 2000\n\n// Calculate error\nmsg.error = flow.get('bk_target', 'storeInFile') - msg.temperature;\n\n// Set output max\nmsg.max_output = 100\n\n// Calculate proportional action\nvar pTerm = msg.error * flow.get('p', 'storeInFile');\n\n// Calculate intergral action\nvar iTerm = 0;\n\nnode.log(pTerm + ' ' + msg.max_output);\n\nif (pTerm < msg.max_output) {\n    // Calculate integrator max\n    msg.integrator_max = msg.max_output/flow.get('i', 'storeInFile');\n    \n    // Update integrator\n    // For purposes of integrator, bound error by [-1, 1]\n    msg.integrator = flow.get('integrator');\n    msg.integrator += (msg.interval/1000) * Math.max(Math.min(msg.error, 1), -1);\n    \n    // Bound total integrator by absolute maximum\n    msg.integrator = Math.max(Math.min(msg.integrator, msg.integrator_max), -msg.integrator_max);\n    \n    // Output updated integrator to flow context\n    flow.set('integrator', msg.integrator);\n    \n    iTerm = msg.integrator * flow.get('i', 'storeInFile');\n}\n\n// Calculate derivative action\nmsg.derivative = (msg.error - flow.get('last_error'))/(msg.interval/1000);\nvar dTerm = msg.derivative * flow.get('d', 'storeInFile');\n\nmsg.output = pTerm + iTerm + dTerm;\nnode.warn(pTerm + ' ' + iTerm + ' ' + dTerm + ' ' + msg.integrator);\n// Bound output by [0, max_output]\nmsg.output = Math.max(Math.min(msg.output, msg.max_output), 0);\n\n// Output updated last_error to flow context\nmsg.last_error = msg.error;\nflow.set('last_error', msg.last_error);\n\n// Set payload to element output\nmsg.payload = msg.output;\nreturn msg;",
+        "func": "// Note that the algorithm provided below assumes a 1 second iteration time\n// Justin Angevaare\n// May 2018\n\n// Set temperature\nmsg.topic = \"PID-BK-main-loop\";\nmsg.target =  flow.get('bk_target', 'storeInFile');\nmsg.temperature =  msg.payload;\nnode.warn('Temp: ' + msg.payload);\n// Well that node doesn't work... do manually\nmsg.interval = 2000\n\n// Calculate error\nmsg.error = global.get('bk_target', 'storeInFile') - msg.temperature;\n\n// Set output max\nmsg.max_output = 100\n\n// Calculate proportional action\nvar pTerm = msg.error * flow.get('p', 'storeInFile');\n\n// Calculate intergral action\nvar iTerm = 0;\n\nnode.log(pTerm + ' ' + msg.max_output);\n\nif (pTerm < msg.max_output) {\n    // Calculate integrator max\n    msg.integrator_max = msg.max_output/flow.get('i', 'storeInFile');\n    \n    // Update integrator\n    // For purposes of integrator, bound error by [-1, 1]\n    msg.integrator = flow.get('integrator');\n    msg.integrator += (msg.interval/1000) * Math.max(Math.min(msg.error, 1), -1);\n    \n    // Bound total integrator by absolute maximum\n    msg.integrator = Math.max(Math.min(msg.integrator, msg.integrator_max), -msg.integrator_max);\n    \n    // Output updated integrator to flow context\n    flow.set('integrator', msg.integrator);\n    \n    iTerm = msg.integrator * flow.get('i', 'storeInFile');\n}\n\n// Calculate derivative action\nmsg.derivative = (msg.error - flow.get('last_error'))/(msg.interval/1000);\nvar dTerm = msg.derivative * flow.get('d', 'storeInFile');\n\nmsg.output = pTerm + iTerm + dTerm;\nnode.warn(pTerm + ' ' + iTerm + ' ' + dTerm + ' ' + msg.integrator);\n// Bound output by [0, max_output]\nmsg.output = Math.max(Math.min(msg.output, msg.max_output), 0);\n\n// Output updated last_error to flow context\nmsg.last_error = msg.error;\nflow.set('last_error', msg.last_error);\n\n// Set payload to element output\nmsg.payload = msg.output;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 879,
         "y": 180,
         "wires": [
@@ -7245,7 +7262,7 @@
         "label": "usage",
         "format": "{{payload | number:1}} kW",
         "min": 0,
-        "max": "2.4",
+        "max": "20",
         "colors": [
             "#00b500",
             "#e6e600",
@@ -7327,6 +7344,7 @@
         "passthru": true,
         "outs": "end",
         "topic": "",
+        "topicType": "str",
         "min": 0,
         "max": 10,
         "step": 1,
@@ -7538,6 +7556,7 @@
         "payload": "{ \"payload\": \"on\", \"timeout\": 5400, \"warning\": 60 }",
         "payloadType": "str",
         "topic": "",
+        "topicType": "str",
         "x": 230,
         "y": 440,
         "wires": [
@@ -7787,6 +7806,7 @@
         "wrap": false,
         "passthru": true,
         "topic": "",
+        "topicType": "str",
         "format": "{{value}}m",
         "min": 0,
         "max": "90",
@@ -8179,8 +8199,9 @@
         "wrap": false,
         "passthru": true,
         "topic": "",
+        "topicType": "str",
         "format": "{{value}}°C",
-        "min": "20",
+        "min": "0",
         "max": "80",
         "step": 1,
         "x": 990,
@@ -8456,8 +8477,9 @@
         "wrap": false,
         "passthru": true,
         "topic": "",
+        "topicType": "str",
         "format": "{{value}}°C",
-        "min": "20",
+        "min": "0",
         "max": "80",
         "step": 1,
         "x": 990,
@@ -8482,8 +8504,9 @@
         "wrap": false,
         "passthru": true,
         "topic": "",
+        "topicType": "str",
         "format": "{{value}}°C",
-        "min": "20",
+        "min": "0",
         "max": "80",
         "step": 1,
         "x": 990,
@@ -8508,8 +8531,9 @@
         "wrap": false,
         "passthru": true,
         "topic": "",
+        "topicType": "str",
         "format": "{{value}}°C",
-        "min": "20",
+        "min": "0",
         "max": "80",
         "step": 1,
         "x": 990,
@@ -8558,7 +8582,7 @@
         "tooltip": "",
         "place": "",
         "group": "e010af88.2414c",
-        "order": 10,
+        "order": 14,
         "width": 8,
         "height": 1,
         "passthru": true,
@@ -8745,7 +8769,7 @@
         "label": "Strike adjustment",
         "tooltip": "",
         "group": "e010af88.2414c",
-        "order": 8,
+        "order": 10,
         "width": 0,
         "height": 0,
         "wrap": false,
@@ -8840,7 +8864,7 @@
         "tooltip": "",
         "place": "",
         "group": "e010af88.2414c",
-        "order": 9,
+        "order": 13,
         "width": 8,
         "height": 1,
         "passthru": true,
@@ -8980,7 +9004,7 @@
         "label": "",
         "tooltip": "",
         "group": "e010af88.2414c",
-        "order": 11,
+        "order": 15,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -9004,7 +9028,7 @@
         "label": "",
         "tooltip": "",
         "group": "e010af88.2414c",
-        "order": 12,
+        "order": 16,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -9591,7 +9615,7 @@
         "label": "Ramp rate/min",
         "tooltip": "",
         "group": "e010af88.2414c",
-        "order": 8,
+        "order": 11,
         "width": 0,
         "height": 0,
         "wrap": false,
@@ -10500,8 +10524,8 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 320,
-        "y": 520,
+        "x": 332,
+        "y": 540,
         "wires": [
             [
                 "6d7905e8.76a75c"
@@ -11442,7 +11466,7 @@
         "label": "Activate Step Offset",
         "tooltip": "",
         "group": "e010af88.2414c",
-        "order": 8,
+        "order": 12,
         "width": 0,
         "height": 0,
         "wrap": false,
@@ -11872,11 +11896,12 @@
         "type": "function",
         "z": "696aae1c.d3b45",
         "name": "Calc guage value",
-        "func": "\nvar output = parseFloat(flow.get(\"MLT_Element__kW\", \"storeInFile\") * (msg.payload/100)).toFixed(1);\nmsg = { payload:output };\n\nreturn msg;",
+        "func": "\nvar output = parseFloat(global.get(\"MLT_Element__kW\", \"storeInFile\") * (msg.payload/100)).toFixed(1);\nmsg = { payload:output };\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 370,
         "y": 460,
         "wires": [
@@ -11927,7 +11952,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "payload": "#:(storeInFile)::MLT_Element__kW",
-        "payloadType": "flow",
+        "payloadType": "global",
         "x": 160,
         "y": 340,
         "wires": [
@@ -11945,7 +11970,7 @@
             {
                 "t": "set",
                 "p": "#:(storeInFile)::MLT_Element__kW",
-                "pt": "flow",
+                "pt": "global",
                 "to": "payload",
                 "tot": "msg"
             }
@@ -11955,7 +11980,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 650,
+        "x": 660,
         "y": 340,
         "wires": [
             [
@@ -11973,6 +11998,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 900,
         "y": 340,
         "wires": [
@@ -11986,11 +12012,12 @@
         "type": "function",
         "z": "696aae1c.d3b45",
         "name": "Set guage max",
-        "func": "msg = { ui_control:{max:flow.get(\"MLT_Element__kW\", \"storeInFile\")}};\n\nreturn msg;",
+        "func": "msg = { ui_control:{max:global.get(\"MLT_Element__kW\", \"storeInFile\")}};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 360,
         "y": 420,
         "wires": [
@@ -12041,7 +12068,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "payload": "#:(storeInFile)::HLT_Element__kW",
-        "payloadType": "flow",
+        "payloadType": "global",
         "x": 150,
         "y": 80,
         "wires": [
@@ -12059,7 +12086,7 @@
             {
                 "t": "set",
                 "p": "#:(storeInFile)::HLT_Element__kW",
-                "pt": "flow",
+                "pt": "global",
                 "to": "payload",
                 "tot": "msg"
             }
@@ -12069,7 +12096,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 630,
+        "x": 640,
         "y": 80,
         "wires": [
             [
@@ -12100,11 +12127,12 @@
         "type": "function",
         "z": "696aae1c.d3b45",
         "name": "Calc guage value",
-        "func": "\nvar output = parseFloat(flow.get(\"HLT_Element__kW\", \"storeInFile\") * (msg.payload/100)).toFixed(1);\n\nmsg = { payload:output };\n\nreturn msg;",
+        "func": "\nvar output = parseFloat(global.get(\"HLT_Element__kW\", \"storeInFile\") * (msg.payload/100)).toFixed(1);\n\nmsg = { payload:output };\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 390,
         "y": 180,
         "wires": [
@@ -12139,11 +12167,12 @@
         "type": "function",
         "z": "696aae1c.d3b45",
         "name": "Set guage max",
-        "func": "msg = { ui_control:{max:flow.get(\"HLT_Element__kW\", \"storeInFile\")}};\n\nreturn msg;",
+        "func": "msg = { ui_control:{max:global.get(\"HLT_Element__kW\", \"storeInFile\")}};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 380,
         "y": 140,
         "wires": [
@@ -12194,7 +12223,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "payload": "#:(storeInFile)::BK_Element__kW",
-        "payloadType": "flow",
+        "payloadType": "global",
         "x": 130,
         "y": 640,
         "wires": [
@@ -12212,7 +12241,7 @@
             {
                 "t": "set",
                 "p": "#:(storeInFile)::BK_Element__kW",
-                "pt": "flow",
+                "pt": "global",
                 "to": "payload",
                 "tot": "msg"
             }
@@ -12240,6 +12269,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 860,
         "y": 640,
         "wires": [
@@ -12253,11 +12283,12 @@
         "type": "function",
         "z": "696aae1c.d3b45",
         "name": "Set guage max",
-        "func": "msg = { ui_control:{max:flow.get(\"BK_Element__kW\", \"storeInFile\")}};\n\nreturn msg;",
+        "func": "msg = { ui_control:{max:global.get(\"BK_Element__kW\", \"storeInFile\")}};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 380,
         "y": 820,
         "wires": [
@@ -12271,11 +12302,12 @@
         "type": "function",
         "z": "696aae1c.d3b45",
         "name": "Calc guage value",
-        "func": "\nvar output = parseFloat(flow.get(\"BK_Element__kW\", \"storeInFile\") * (msg.payload/100)).toFixed(1);\n\nmsg = { payload:output };\n\nreturn msg;",
+        "func": "\nvar output = parseFloat(global.get(\"BK_Element__kW\", \"storeInFile\") * (msg.payload/100)).toFixed(1);\n\nnode.log(output);\n\nmsg = { payload:output };\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 390,
         "y": 760,
         "wires": [
@@ -12312,15 +12344,11 @@
         "x": 580,
         "y": 500,
         "wires": [
+            [],
             [
                 "c194435.3429bc"
             ],
-            [
-                "c194435.3429bc"
-            ],
-            [
-                "c194435.3429bc"
-            ]
+            []
         ]
     },
     {
@@ -12328,11 +12356,12 @@
         "type": "function",
         "z": "696aae1c.d3b45",
         "name": "GPIO python setup",
-        "func": "var dutyCycle = msg.payload*2;\nvar mlt_element_gpio = flow.get(\"mlt_element_gpio\", \"storeInFile\");\n\nmsg.payload = mlt_element_gpio + \" 0 0\";\n\nif (dutyCycle > 0) {\n    msg.payload = mlt_element_gpio + \" 1 \" + dutyCycle;\n}\n\nreturn msg;",
+        "func": "var dutyCycle = msg.payload*2;\nvar mlt_element_gpio = global.get(\"mlt_element_gpio\", \"storeInFile\");\n\nmsg.payload = mlt_element_gpio + \" 0 0\";\n\nif (dutyCycle > 0) {\n    msg.payload = mlt_element_gpio + \" 1 \" + dutyCycle;\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 370,
         "y": 500,
         "wires": [
@@ -12351,6 +12380,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 800,
         "y": 500,
         "wires": [
@@ -12399,7 +12429,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "payload": "#:(storeInFile)::hlt_element_gpio",
-        "payloadType": "flow",
+        "payloadType": "global",
         "x": 150,
         "y": 40,
         "wires": [
@@ -12417,7 +12447,7 @@
             {
                 "t": "set",
                 "p": "#:(storeInFile)::hlt_element_gpio",
-                "pt": "flow",
+                "pt": "global",
                 "to": "payload",
                 "tot": "msg"
             }
@@ -12427,7 +12457,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
+        "x": 630,
         "y": 40,
         "wires": [
             []
@@ -12475,7 +12505,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "payload": "#:(storeInFile)::mlt_element_gpio",
-        "payloadType": "flow",
+        "payloadType": "global",
         "x": 170,
         "y": 300,
         "wires": [
@@ -12493,7 +12523,7 @@
             {
                 "t": "set",
                 "p": "#:(storeInFile)::mlt_element_gpio",
-                "pt": "flow",
+                "pt": "global",
                 "to": "payload",
                 "tot": "msg"
             }
@@ -12503,7 +12533,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 670,
+        "x": 680,
         "y": 300,
         "wires": [
             []
@@ -12513,13 +12543,14 @@
         "id": "3239dee7.fe3402",
         "type": "function",
         "z": "c68db1a2.68e94",
-        "name": "GPIO python setup",
-        "func": "\nif (msg.payload)\n    msg.payload = flow.get(\"mlt_pump_gpio\", \"storeInFile\") + \" 1 200\"\nelse\n    msg.payload = flow.get(\"mlt_pump_gpio\", \"storeInFile\") + \" 0 0\"\n\nreturn msg;",
+        "name": "MLT GPIO python setup",
+        "func": "\nif (msg.payload)\n    msg.payload = global.get(\"mlt_pump_gpio\", \"storeInFile\") + \" 1 200\"\nelse\n    msg.payload = global.get(\"mlt_pump_gpio\", \"storeInFile\") + \" 0 0\"\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 546,
+        "libs": [],
+        "x": 566,
         "y": 320,
         "wires": [
             [
@@ -12533,13 +12564,14 @@
         "type": "exec",
         "z": "c68db1a2.68e94",
         "command": "sudo python /home/pi/.node-red/projects/brew3/gpio.py",
-        "addpay": true,
+        "addpay": "payload",
         "append": "",
         "useSpawn": "false",
         "timer": "",
+        "winHide": false,
         "oldrc": false,
-        "name": "gpio.py",
-        "x": 776,
+        "name": "MLT gpio.py",
+        "x": 786,
         "y": 288,
         "wires": [
             [
@@ -12567,7 +12599,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "payload": "#:(storeInFile)::mlt_pump_gpio",
-        "payloadType": "flow",
+        "payloadType": "global",
         "x": 200,
         "y": 240,
         "wires": [
@@ -12611,7 +12643,7 @@
             {
                 "t": "set",
                 "p": "#:(storeInFile)::mlt_pump_gpio",
-                "pt": "flow",
+                "pt": "global",
                 "to": "payload",
                 "tot": "msg"
             }
@@ -12631,13 +12663,14 @@
         "id": "87bf2eba.2a9a4",
         "type": "function",
         "z": "c68db1a2.68e94",
-        "name": "pump gpio",
+        "name": "mlt pump gpio",
         "func": "node.log(msg.payload);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 966,
+        "libs": [],
+        "x": 976,
         "y": 320,
         "wires": [
             []
@@ -12651,10 +12684,6 @@
         "props": [
             {
                 "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
             }
         ],
         "repeat": "",
@@ -12662,13 +12691,13 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 131,
-        "y": 60,
+        "payload": "#:(storeInFile)::bc_api_key",
+        "payloadType": "global",
+        "x": 150,
+        "y": 80,
         "wires": [
             [
-                "f275acdb.0832d"
+                "e3423deec27f4cd6"
             ]
         ]
     },
@@ -12678,7 +12707,7 @@
         "z": "3b1619f7.77f936",
         "name": "",
         "group": "e010af88.2414c",
-        "order": 1,
+        "order": 3,
         "width": 4,
         "height": 1,
         "passthru": false,
@@ -12690,8 +12719,9 @@
         "payload": "",
         "payloadType": "str",
         "topic": "",
-        "x": 121,
-        "y": 100,
+        "topicType": "str",
+        "x": 130,
+        "y": 200,
         "wires": [
             [
                 "f275acdb.0832d"
@@ -12708,8 +12738,9 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 620,
-        "y": 120,
+        "libs": [],
+        "x": 629,
+        "y": 220,
         "wires": [
             [
                 "848a178b.c3a9f8",
@@ -12726,7 +12757,7 @@
         "tooltip": "",
         "place": "Select boil session",
         "group": "e010af88.2414c",
-        "order": 3,
+        "order": 5,
         "width": 8,
         "height": 1,
         "passthru": false,
@@ -12734,8 +12765,8 @@
         "options": [],
         "payload": "",
         "topic": "",
-        "x": 740,
-        "y": 180,
+        "x": 749,
+        "y": 280,
         "wires": [
             [
                 "9c70b52c.28cce8"
@@ -12761,8 +12792,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 950,
-        "y": 240,
+        "x": 959,
+        "y": 340,
         "wires": [
             []
         ]
@@ -12781,8 +12812,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 620,
-        "y": 80,
+        "x": 629,
+        "y": 180,
         "wires": []
     },
     {
@@ -12791,8 +12822,8 @@
         "z": "3b1619f7.77f936",
         "name": "Get BC Boil Sessions",
         "getmethod": "BoilSessions",
-        "x": 391,
-        "y": 80,
+        "x": 400,
+        "y": 180,
         "wires": [
             [
                 "8d183899.fe58e8",
@@ -12814,8 +12845,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
-        "y": 120,
+        "x": 879,
+        "y": 220,
         "wires": []
     },
     {
@@ -12835,8 +12866,8 @@
         "topic": "",
         "payload": "#:(storeInFile)::selected_batch_id",
         "payloadType": "global",
-        "x": 510,
-        "y": 180,
+        "x": 519,
+        "y": 280,
         "wires": [
             [
                 "848a178b.c3a9f8"
@@ -12849,7 +12880,7 @@
         "z": "3b1619f7.77f936",
         "name": "",
         "group": "e010af88.2414c",
-        "order": 2,
+        "order": 4,
         "width": 4,
         "height": 1,
         "passthru": false,
@@ -12861,8 +12892,8 @@
         "payload": "",
         "payloadType": "str",
         "topic": "",
-        "x": 80,
-        "y": 420,
+        "x": 89,
+        "y": 520,
         "wires": [
             [
                 "9b1c0fbf.b9ece"
@@ -12879,8 +12910,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 510,
-        "y": 420,
+        "x": 519,
+        "y": 520,
         "wires": [
             [
                 "535f30fe.ae1b5",
@@ -12903,8 +12934,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
-        "y": 500,
+        "x": 509,
+        "y": 600,
         "wires": []
     },
     {
@@ -12917,8 +12948,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 750,
-        "y": 320,
+        "x": 759,
+        "y": 420,
         "wires": [
             [
                 "f819f0cd.fa874"
@@ -12935,8 +12966,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 740,
-        "y": 380,
+        "x": 749,
+        "y": 480,
         "wires": [
             [
                 "152f6dff.5390c2"
@@ -12962,8 +12993,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 730,
-        "y": 460,
+        "x": 739,
+        "y": 560,
         "wires": [
             [
                 "7e351393.a9e04c"
@@ -12989,8 +13020,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 730,
-        "y": 540,
+        "x": 739,
+        "y": 640,
         "wires": [
             [
                 "e36b8f38.088eb"
@@ -13003,7 +13034,7 @@
         "z": "3b1619f7.77f936",
         "group": "e010af88.2414c",
         "name": "",
-        "order": 5,
+        "order": 7,
         "width": 6,
         "height": 2,
         "format": "<div style=\"text-align: center\">\n    <span>{{msg.batchName}}</span><br />\n    <span>{{msg.beerStyle}}</span>\n</div>",
@@ -13011,8 +13042,8 @@
         "fwdInMessages": true,
         "resendOnRefresh": false,
         "templateScope": "local",
-        "x": 920,
-        "y": 540,
+        "x": 929,
+        "y": 640,
         "wires": [
             []
         ]
@@ -13038,8 +13069,8 @@
         "topic": "",
         "payload": "{}",
         "payloadType": "json",
-        "x": 740,
-        "y": 600,
+        "x": 749,
+        "y": 700,
         "wires": [
             [
                 "e36b8f38.088eb"
@@ -13052,8 +13083,8 @@
         "z": "3b1619f7.77f936",
         "name": "Get BC boil session info",
         "getmethod": "BoilSessionInfo",
-        "x": 270,
-        "y": 420,
+        "x": 279,
+        "y": 520,
         "wires": [
             [
                 "1a7eff40.dd4141",
@@ -13069,8 +13100,8 @@
         "links": [
             "72399970.c8c148"
         ],
-        "x": 875,
-        "y": 320,
+        "x": 884,
+        "y": 420,
         "wires": []
     },
     {
@@ -13081,8 +13112,8 @@
         "links": [
             "9d174681.47c718"
         ],
-        "x": 855,
-        "y": 360,
+        "x": 864,
+        "y": 460,
         "wires": []
     },
     {
@@ -13093,8 +13124,8 @@
         "links": [
             "deafe85c.da1e98"
         ],
-        "x": 895,
-        "y": 380,
+        "x": 904,
+        "y": 480,
         "wires": []
     },
     {
@@ -13105,8 +13136,8 @@
         "links": [
             "c8ecb74a.a53358"
         ],
-        "x": 935,
-        "y": 400,
+        "x": 944,
+        "y": 500,
         "wires": []
     },
     {
@@ -13117,8 +13148,8 @@
         "links": [
             "68dc6c2.b4d4894"
         ],
-        "x": 855,
-        "y": 420,
+        "x": 864,
+        "y": 520,
         "wires": []
     },
     {
@@ -13129,8 +13160,8 @@
         "links": [
             "1531a2dc.84956d"
         ],
-        "x": 855,
-        "y": 440,
+        "x": 864,
+        "y": 540,
         "wires": []
     },
     {
@@ -13141,8 +13172,8 @@
         "links": [
             "f4a1e90b.071b58"
         ],
-        "x": 895,
-        "y": 460,
+        "x": 904,
+        "y": 560,
         "wires": []
     },
     {
@@ -13153,8 +13184,8 @@
         "links": [
             "9d80444a.fb5c38"
         ],
-        "x": 935,
-        "y": 480,
+        "x": 944,
+        "y": 580,
         "wires": []
     },
     {
@@ -13165,8 +13196,8 @@
         "links": [
             "e6aa6b97.e9dfc8"
         ],
-        "x": 855,
-        "y": 500,
+        "x": 864,
+        "y": 600,
         "wires": []
     },
     {
@@ -13175,7 +13206,6 @@
         "z": "3da984a3.27885c",
         "name": "Trigger BC step started post",
         "links": [
-            "a095af0d.a1596",
             "8afdb897.097a38"
         ],
         "x": 2415,
@@ -13196,8 +13226,8 @@
         "raw": false,
         "topic": "",
         "name": "",
-        "x": 300,
-        "y": 280,
+        "x": 309,
+        "y": 380,
         "wires": []
     },
     {
@@ -13686,11 +13716,11 @@
             "95213529.4c0b58",
             "1a9b0e70.aa8122"
         ],
-        "x": 195,
-        "y": 760,
+        "x": 204,
+        "y": 860,
         "wires": [
             [
-                "d560fa2f.c89d08"
+                "37508950fc9dd1d9"
             ]
         ]
     },
@@ -13702,8 +13732,8 @@
         "readingtype": "15",
         "readingvalue": "#:(storeInFile)::mlt_target",
         "readingvaluetype": "global",
-        "x": 340,
-        "y": 760,
+        "x": 600,
+        "y": 860,
         "wires": [
             []
         ]
@@ -13714,8 +13744,8 @@
         "z": "3b1619f7.77f936",
         "name": "BC Mash schedule integration",
         "info": "",
-        "x": 160,
-        "y": 660,
+        "x": 169,
+        "y": 760,
         "wires": []
     },
     {
@@ -13739,11 +13769,11 @@
         "readingtype": "13",
         "readingvalue": "",
         "readingvaluetype": "msg",
-        "x": 340,
-        "y": 720,
+        "x": 360,
+        "y": 820,
         "wires": [
             [
-                "d8973acc.197af8"
+                "e26e50e580c41e38"
             ]
         ]
     },
@@ -13755,8 +13785,8 @@
         "readingtype": "17",
         "readingvalue": "strikeTemp",
         "readingvaluetype": "global",
-        "x": 580,
-        "y": 720,
+        "x": 769,
+        "y": 820,
         "wires": [
             []
         ]
@@ -13769,8 +13799,8 @@
         "links": [
             "308d85da.17b23a"
         ],
-        "x": 195,
-        "y": 720,
+        "x": 204,
+        "y": 820,
         "wires": [
             [
                 "8c9d1790.d60d98"
@@ -13798,8 +13828,8 @@
         "readingtype": "16",
         "readingvalue": "",
         "readingvaluetype": "msg",
-        "x": 350,
-        "y": 800,
+        "x": 370,
+        "y": 900,
         "wires": [
             []
         ]
@@ -13812,8 +13842,8 @@
         "links": [
             "19c568e8.9f4b77"
         ],
-        "x": 195,
-        "y": 800,
+        "x": 204,
+        "y": 900,
         "wires": [
             [
                 "2f3e0a23.f2f9e6"
@@ -13858,11 +13888,11 @@
         "readingtype": "18",
         "readingvalue": "#:(storeInFile)::mlt_target",
         "readingvaluetype": "global",
-        "x": 340,
-        "y": 860,
+        "x": 529,
+        "y": 960,
         "wires": [
             [
-                "123362e7.01b26d"
+                "1c87aa657e13f2de"
             ]
         ]
     },
@@ -13874,8 +13904,8 @@
         "readingtype": "19",
         "readingvalue": "temp-MLT",
         "readingvaluetype": "global",
-        "x": 540,
-        "y": 860,
+        "x": 909,
+        "y": 960,
         "wires": [
             [
                 "1401064c.2d828a",
@@ -13891,11 +13921,11 @@
         "links": [
             "b5d35932.4c40a8"
         ],
-        "x": 195,
-        "y": 860,
+        "x": 164,
+        "y": 960,
         "wires": [
             [
-                "ee502586.24ce08"
+                "ef84367c994593c4"
             ]
         ]
     },
@@ -13907,8 +13937,8 @@
         "links": [
             "efc61586.5eefc8"
         ],
-        "x": 675,
-        "y": 860,
+        "x": 1084,
+        "y": 920,
         "wires": []
     },
     {
@@ -13916,11 +13946,12 @@
         "type": "function",
         "z": "696aae1c.d3b45",
         "name": "GPIO python setup",
-        "func": "var dutyCycle = msg.payload*2;\nvar hlt_element_gpio = flow.get(\"hlt_element_gpio\", \"storeInFile\");\n\nmsg.payload = hlt_element_gpio + \" 0 0\";\n\nif (dutyCycle > 0) {\n    msg.payload = hlt_element_gpio + \" 1 \" + dutyCycle;\n}\n\nnode.log(msg.payload);\n\nreturn msg;",
+        "func": "var dutyCycle = msg.payload*2;\nvar hlt_element_gpio = global.get(\"hlt_element_gpio\", \"storeInFile\");\n\nmsg.payload = hlt_element_gpio + \" 0 0\";\n\nif (dutyCycle > 0) {\n    msg.payload = hlt_element_gpio + \" 1 \" + dutyCycle;\n}\n\nnode.log(msg.payload);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 390,
         "y": 220,
         "wires": [
@@ -13934,24 +13965,21 @@
         "type": "exec",
         "z": "696aae1c.d3b45",
         "command": "sudo python /home/pi/.node-red/projects/brew3/gpio.py",
-        "addpay": true,
+        "addpay": "payload",
         "append": "",
         "useSpawn": "false",
         "timer": "",
+        "winHide": false,
         "oldrc": false,
         "name": "gpio.py",
         "x": 580,
         "y": 220,
         "wires": [
+            [],
             [
                 "32d17b71.9a1524"
             ],
-            [
-                "32d17b71.9a1524"
-            ],
-            [
-                "32d17b71.9a1524"
-            ]
+            []
         ]
     },
     {
@@ -13964,6 +13992,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 840,
         "y": 220,
         "wires": [
@@ -13980,8 +14009,9 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 750,
-        "y": 900,
+        "libs": [],
+        "x": 1019,
+        "y": 1000,
         "wires": [
             []
         ]
@@ -14227,7 +14257,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "payload": "#:(storeInFile)::hlt_pump_gpio",
-        "payloadType": "flow",
+        "payloadType": "global",
         "x": 140,
         "y": 60,
         "wires": [
@@ -14271,7 +14301,7 @@
             {
                 "t": "set",
                 "p": "#:(storeInFile)::hlt_pump_gpio",
-                "pt": "flow",
+                "pt": "global",
                 "to": "payload",
                 "tot": "msg"
             }
@@ -14281,7 +14311,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
+        "x": 630,
         "y": 60,
         "wires": [
             []
@@ -14303,7 +14333,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "payload": "#:(storeInFile)::bk_pump_gpio",
-        "payloadType": "flow",
+        "payloadType": "global",
         "x": 180,
         "y": 440,
         "wires": [
@@ -14347,7 +14377,7 @@
             {
                 "t": "set",
                 "p": "#:(storeInFile)::bk_pump_gpio",
-                "pt": "flow",
+                "pt": "global",
                 "to": "payload",
                 "tot": "msg"
             }
@@ -14357,7 +14387,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 680,
+        "x": 690,
         "y": 440,
         "wires": [
             []
@@ -14367,13 +14397,14 @@
         "id": "54620947.c55208",
         "type": "function",
         "z": "c68db1a2.68e94",
-        "name": "GPIO python setup",
-        "func": "\nif (msg.payload)\n    msg.payload = flow.get(\"hlt_pump_gpio\", \"storeInFile\") + \" 1 200\"\nelse\n    msg.payload = flow.get(\"hlt_pump_gpio\", \"storeInFile\") + \" 0 0\"\n\nreturn msg;",
+        "name": "HLT GPIO python setup",
+        "func": "\nif (msg.payload)\n    msg.payload = global.get(\"hlt_pump_gpio\", \"storeInFile\") + \" 1 200\"\nelse\n    msg.payload = global.get(\"hlt_pump_gpio\", \"storeInFile\") + \" 0 0\"\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 523,
+        "libs": [],
+        "x": 543,
         "y": 160,
         "wires": [
             [
@@ -14387,13 +14418,14 @@
         "type": "exec",
         "z": "c68db1a2.68e94",
         "command": "sudo python /home/pi/.node-red/projects/brew3/gpio.py",
-        "addpay": true,
+        "addpay": "payload",
         "append": "",
         "useSpawn": "false",
         "timer": "",
+        "winHide": false,
         "oldrc": false,
-        "name": "gpio.py",
-        "x": 741,
+        "name": "HLT gpio.py",
+        "x": 751,
         "y": 128,
         "wires": [
             [
@@ -14409,13 +14441,14 @@
         "id": "36c239e3.206b36",
         "type": "function",
         "z": "c68db1a2.68e94",
-        "name": "pump gpio",
+        "name": "hlt pump gpio",
         "func": "node.log(msg.payload);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 931,
+        "libs": [],
+        "x": 941,
         "y": 160,
         "wires": [
             []
@@ -14425,14 +14458,15 @@
         "id": "6d7905e8.76a75c",
         "type": "function",
         "z": "c68db1a2.68e94",
-        "name": "GPIO python setup",
-        "func": "\nif (msg.payload)\n    msg.payload = flow.get(\"bk_pump_gpio\", \"storeInFile\") + \" 1 200\"\nelse\n    msg.payload = flow.get(\"bk_pump_gpio\", \"storeInFile\") + \" 0 0\"\n\nreturn msg;",
+        "name": "BK GPIO python setup",
+        "func": "\nif (msg.payload)\n    msg.payload = global.get(\"bk_pump_gpio\", \"storeInFile\") + \" 1 200\"\nelse\n    msg.payload = global.get(\"bk_pump_gpio\", \"storeInFile\") + \" 0 0\"\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 516,
-        "y": 520,
+        "libs": [],
+        "x": 520,
+        "y": 540,
         "wires": [
             [
                 "f02a3ca8.82e89",
@@ -14445,14 +14479,15 @@
         "type": "exec",
         "z": "c68db1a2.68e94",
         "command": "sudo python /home/pi/.node-red/projects/brew3/gpio.py",
-        "addpay": true,
+        "addpay": "payload",
         "append": "",
         "useSpawn": "false",
         "timer": "",
+        "winHide": false,
         "oldrc": false,
-        "name": "gpio.py",
-        "x": 746,
-        "y": 488,
+        "name": "BK gpio.py",
+        "x": 750,
+        "y": 500,
         "wires": [
             [
                 "50dd1f9b.cbf36"
@@ -14467,14 +14502,15 @@
         "id": "50dd1f9b.cbf36",
         "type": "function",
         "z": "c68db1a2.68e94",
-        "name": "pump gpio",
+        "name": "bk pump gpio",
         "func": "node.log(msg.payload);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 936,
-        "y": 520,
+        "libs": [],
+        "x": 940,
+        "y": 540,
         "wires": [
             []
         ]
@@ -14580,8 +14616,8 @@
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 138,
-        "y": 520,
+        "x": 150,
+        "y": 540,
         "wires": [
             [
                 "6d456b34.463524"
@@ -15694,6 +15730,245 @@
         "wires": [
             [
                 "d934cd31.c948d"
+            ]
+        ]
+    },
+    {
+        "id": "ef84367c994593c4",
+        "type": "change",
+        "z": "3b1619f7.77f936",
+        "name": "Target in",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "#:(storeInFile)::mlt_target",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 289,
+        "y": 960,
+        "wires": [
+            [
+                "ee502586.24ce08"
+            ]
+        ]
+    },
+    {
+        "id": "1c87aa657e13f2de",
+        "type": "change",
+        "z": "3b1619f7.77f936",
+        "name": "MLT temp in",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "temp-MLT",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 719,
+        "y": 960,
+        "wires": [
+            [
+                "123362e7.01b26d"
+            ]
+        ]
+    },
+    {
+        "id": "e26e50e580c41e38",
+        "type": "change",
+        "z": "3b1619f7.77f936",
+        "name": "Target in",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "#:(storeInFile)::mlt_target",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 820,
+        "wires": [
+            [
+                "d8973acc.197af8"
+            ]
+        ]
+    },
+    {
+        "id": "e3423deec27f4cd6",
+        "type": "ui_text_input",
+        "z": "3b1619f7.77f936",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "e010af88.2414c",
+        "order": 2,
+        "width": "5",
+        "height": "1",
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 340,
+        "y": 80,
+        "wires": [
+            [
+                "dbaa1a24aa0d70ed"
+            ]
+        ]
+    },
+    {
+        "id": "dbaa1a24aa0d70ed",
+        "type": "change",
+        "z": "3b1619f7.77f936",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "#:(storeInFile)::bc_api_key",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0314497e58ba6cfe",
+        "type": "ui_text",
+        "z": "3b1619f7.77f936",
+        "group": "e010af88.2414c",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "name": "BC API Link",
+        "label": "",
+        "format": "<A href=\"https://brewerschronicle.com/BreweryDetails\" target=\"new\">BC API</a>",
+        "layout": "row-spread",
+        "x": 350,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "37508950fc9dd1d9",
+        "type": "change",
+        "z": "3b1619f7.77f936",
+        "name": "Target in",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "#:(storeInFile)::mlt_target",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 860,
+        "wires": [
+            [
+                "d560fa2f.c89d08"
+            ]
+        ]
+    },
+    {
+        "id": "ea73092ae8306f3c",
+        "type": "ui_template",
+        "z": "1e4806d1a5f5f23a",
+        "group": "867a95f.bdb8168",
+        "name": "",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "format": "<div>System status</div>\n\n<strong style=\"color:Red\">Critical</strong>\n<div ng-bind-html=\"msg.critical\" style=\"color:red\"></div>\n\n<strong style=\"color:yellow\">Warning</strong>\n<div ng-bind-html=\"msg.warning\" style=\"color:yellow\"></div>\n\n<strong style=\"color:green\">Info</strong>\n<div ng-bind-html=\"msg.info\" style=\"color:green\"></div>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 800,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0c416c2146c1606b",
+        "type": "ui_button",
+        "z": "1e4806d1a5f5f23a",
+        "name": "",
+        "group": "867a95f.bdb8168",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Refresh status",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 280,
+        "y": 260,
+        "wires": [
+            [
+                "a9cb61c52efac436"
+            ]
+        ]
+    },
+    {
+        "id": "a9cb61c52efac436",
+        "type": "function",
+        "z": "1e4806d1a5f5f23a",
+        "name": "Process system status template",
+        "func": "msg.critical = \"\";\nmsg.warning = \"\";\nmsg.info = \"\";\n\nif (global.get(\"hlt_sensorid\", \"storeInFile\") == null)\n    msg.critical += \"<li>Select HLT kettle sensor id</li>\"\nif (global.get(\"hlt_pump_gpio\", \"storeInFile\") == null)\n    msg.critical += \"<li>Select HLT pump gpio</li>\"\nif (global.get(\"hlt_element_gpio\", \"storeInFile\") == null)\n    msg.critical += \"<li>Select HLT element gpio</li>\"\nif (global.get(\"HLT_Element__kW\", \"storeInFile\") == null)\n    msg.critical += \"<li>HLT element amp level not set</li>\"\n\nif (global.get(\"temp-HLT\") == 85 || global.get(\"temp-HLT\") == -126.90)\n    msg.warning += \"<li>Check HLT temp sensor wiring</li>\"\n\nif (global.get(\"mlt_sensorid\", \"storeInFile\") == null)\n    msg.critical += \"<li><span style='color:red'>Select MLT kettle sensor id</span></li>\"\nif (global.get(\"mlt_pump_gpio\", \"storeInFile\") == null)\n    msg.critical += \"<li>Select MLT pump gpio</li>\"\nif (global.get(\"mlt_element_gpio\", \"storeInFile\") == null)\n    msg.critical += \"<li>Select MLT element gpio</li>\"\nif (global.get(\"MLT_Element__kW\", \"storeInFile\") == null)\n    msg.critical += \"<li>MLT element amp level not set</li>\"\n\nif (global.get(\"temp-MLT\") == 85 || global.get(\"temp-MLT\") == -126.90)\n    msg.warning += \"<li>Check MLT temp sensor wiring</li>\"\n\nif (global.get(\"bk_sensorid\", \"storeInFile\") == null)\n    msg.critical += \"<li>Select BK sensor id</li>\"\nif (global.get(\"bk_pump_gpio\", \"storeInFile\") == null)\n    msg.critical += \"<li>Select BK  pump gpio</li>\"\nif (global.get(\"BK_Element__kW\", \"storeInFile\") == null)\n    msg.critical += \"<li>BK element amp level not set</li>\"\n\nif (global.get(\"temp-BK\") == 85 || global.get(\"temp-BK\") == -126.90)\n    msg.warning += \"<li>Check BK temp sensor wiring</li>\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 260,
+        "wires": [
+            [
+                "ea73092ae8306f3c"
             ]
         ]
     }
