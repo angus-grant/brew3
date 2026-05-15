@@ -18,4 +18,4 @@ else:
 #  GPIO.output(17, 0)
   tempStatus = str(tempStatus) + "-COLD"
 
-print tempStatus
+print(tempStatus)
